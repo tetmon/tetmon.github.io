@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | {{ site.title }}</title>
-    <meta name="description" content="{{ page.title }} - {{ site.title }}" />
-    <meta name="keywords" content="{{ page.keywords }}, {{ site.keywords }}" />
+    <title> | Tetmon</title>
+    <meta name="description" content=" - Tetmon" />
+    <meta name="keywords" content=", " />
 
     <link rel="stylesheet" href="assets/css/app.min.css">
 
@@ -16,23 +16,32 @@
     <!-- Open Graph: https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/
     Twitter: https://dev.twitter.com/docs/cards/types/summary-card
     ============================== -->
-    <meta property="og:title" content="{{ page.title }}"/>
-    <meta property="og:site_name" content="{{ site.name }}"/>
-    <meta property="og:url" content="{{ site.url }}"/>
-    <meta property="og:description" content="{{ page.description }}"/>
-    <meta property="og:image" content="{{ page.imageurl }}"/>
+    <meta property="og:title" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:url" content="http://localhost:4000"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:image" content=""/>
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@{{ site.twitter }}">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.description }}">
-    <meta name="twitter:image" content="{{ page.imageurl }}">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
 
   </head>
-  <body class="{{ page.title | downcase }}">
+  <body class="">
 
     <div class="hide off-canvas position-right" data-off-canvas id="offCanvas">
       <div class="vertical menu mtl">
-        {% include nav.html %}
+        
+	
+	<li ><a href="industry">Industry</a></li>
+
+	
+	<li ><a href="about">About</a></li>
+
+	
+	<li ><a href="careers">Careers</a></li>
+
       </div>
       <button class="close-button" aria-label="Close menu" type="button" data-close>
         <i class="fas fa-times fa-xs"></i>
@@ -44,15 +53,24 @@
 		<header>
 			<div class="row expanded collapse align-justify align-middle">
 				<div class="column shrink">
-					<a href="{{ site.url }}">
-                        {% comment %}{% svg "/assets/images/tetmon-logo-white.svg" %}{% endcomment %}
+					<a href="http://localhost:4000">
+                        
                         <img src="assets/images/tetmon-logo-white.svg" alt="">
                     </a>
 				</div>
 				<div class="column shrink text-right">
                     <nav class="hide-for-small-only">
                         <ul class="menu horizontal">
-    			            {% include nav.html %}
+    			            
+	
+	<li ><a href="industry">Industry</a></li>
+
+	
+	<li ><a href="about">About</a></li>
+
+	
+	<li ><a href="careers">Careers</a></li>
+
     					</ul>
                     </nav>
         			<a class="menu-toggle hide-for-medium">
@@ -68,30 +86,61 @@
 
         <div class="grid-container">
 
-            {{ content }}
+            <div class="text-center">
+  <h1>404</h1>
+
+  <p><strong>Page not found :(</strong></p>
+  <p>The requested page could not be found.</p>
+</div>
+
 
             <footer>
             	<div class="row align-middle text-center">
             		<div class="column">
                         <ul class="menu vertical medium-horizontal align-center">
-            				{% include nav.html %}
+            				
+	
+	<li ><a href="industry">Industry</a></li>
+
+	
+	<li ><a href="about">About</a></li>
+
+	
+	<li ><a href="careers">Careers</a></li>
+
                         </ul>
                         <a href="mailto:contact@tetmon.com">contact@tetmon.com</a>
 
                         <u class="menu horizontal social-links align-center">
-                            {% assign social_links = "twitter,linkedin,github" | split: "," %}
-                            {% for element in site.data.navigation.social-links %}
+                            
+                            
                                 <li>
-                                    <a href="{{ element.url }}" title="{{ element.title }}" rel="external" target="_blank">
-                                        {% assign icon = 'assets/images/icon-' | append: element.title | append: '.svg'  %}
-                                        <img src="{{ icon }}" alt="">
-                                        {% comment %}{% svg icon %}{% endcomment %}
+                                    <a href="https://twitter.com/TetmonHQ" title="twitter" rel="external" target="_blank">
+                                        
+                                        <img src="assets/images/icon-twitter.svg" alt="">
+                                        
                                     </a>
                                 </li>
-                            {% endfor %}
+                            
+                                <li>
+                                    <a href="https://github.com/tetmon" title="github" rel="external" target="_blank">
+                                        
+                                        <img src="assets/images/icon-github.svg" alt="">
+                                        
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="https://www.linkedin.com/company/tetmon" title="linkedin" rel="external" target="_blank">
+                                        
+                                        <img src="assets/images/icon-linkedin.svg" alt="">
+                                        
+                                    </a>
+                                </li>
+                            
                         </u>
-    					{% comment %}<h1>{{ site.title }}</h1>{% endcomment %}
-    					<p><small>&copy; {{ 'now' | date: "%Y" }} {{ site.title }} Pte Ltd</small></p>
+    					
+    					<p><small>&copy; 2020 Tetmon Pte Ltd</small></p>
             		</div>
             	</div>
             </footer>
@@ -102,11 +151,20 @@
 
 
     <div class="mobile-menu">
-        {% comment %}.top-bar{% endcomment %}
+        
         <div class="row collapse align-middle">
             <div class="column">
                 <ul class="menu vertical text-center">
-                    {% include nav.html %}
+                    
+	
+	<li ><a href="industry">Industry</a></li>
+
+	
+	<li ><a href="about">About</a></li>
+
+	
+	<li ><a href="careers">Careers</a></li>
+
                 </ul>
             </div>
         </div>
@@ -117,15 +175,7 @@
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    {% comment %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-595111-73"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-595111-73');
-    </script>
-    {% endcomment %}
+    
 
 
   </body>
