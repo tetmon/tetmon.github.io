@@ -1,0 +1,131 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ page.title }} - {{ site.title }}" />
+    <meta name="keywords" content="{{ page.keywords }}, {{ site.keywords }}" />
+
+    <link rel="stylesheet" href="/tetmon-theme/assets/css/app.min.css">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Open Graph: https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/
+    Twitter: https://dev.twitter.com/docs/cards/types/summary-card
+    ============================== -->
+    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:site_name" content="{{ site.name }}"/>
+    <meta property="og:url" content="{{ site.url }}"/>
+    <meta property="og:description" content="{{ page.description }}"/>
+    <meta property="og:image" content="{{ page.imageurl }}"/>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ site.twitter }}">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.description }}">
+    <meta name="twitter:image" content="{{ page.imageurl }}">
+
+  </head>
+  <body class="{{ page.title | downcase }}">
+
+    <div class="hide off-canvas position-right" data-off-canvas id="offCanvas">
+      <div class="vertical menu mtl">
+        {% include nav.html %}
+      </div>
+      <button class="close-button" aria-label="Close menu" type="button" data-close>
+        <i class="fas fa-times fa-xs"></i>
+      </button>
+    </div><!-- end .off-canvas -->
+
+    <div class="off-canvas-content" data-off-canvas-content>
+
+		<header>
+			<div class="row expanded collapse align-justify align-middle">
+				<div class="column shrink">
+					<a href="{{ site.url }}">
+                        {% svg "/assets/images/tetmon-logo-white.svg" %}
+                    </a>
+				</div>
+				<div class="column shrink text-right">
+                    <nav class="hide-for-small-only">
+                        <ul class="menu horizontal">
+    			            {% include nav.html %}
+    					</ul>
+                    </nav>
+        			<a class="menu-toggle hide-for-medium">
+                        <div class="hamburger hamburger--spin">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </div>
+                    </a>
+				</div>
+			</div>
+		</header>
+
+        <div class="grid-container">
+
+            {{ content }}
+
+            <footer>
+            	<div class="row align-middle text-center">
+            		<div class="column">
+                        <ul class="menu vertical medium-horizontal align-center">
+            				{% include nav.html %}
+                        </ul>
+                        <a href="mailto:contact@tetmon.com">contact@tetmon.com</a>
+
+                        <u class="menu horizontal social-links align-center">
+                            {% assign social_links = "twitter,linkedin,github" | split: "," %}
+                            {% for element in site.data.navigation.social-links %}
+                                <li>
+                                    <a href="{{ element.url }}" title="{{ element.title }}" rel="external" target="_blank">
+                                        {% assign icon = '/assets/images/icon-' | append: element.title | append: '.svg'  %}
+                                        <img src="{{ icon }}" alt="">
+                                        {% comment %}{% svg icon %}{% endcomment %}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </u>
+    					{% comment %}<h1>{{ site.title }}</h1>{% endcomment %}
+    					<p><small>&copy; {{ 'now' | date: "%Y" }} {{ site.title }} Pte Ltd</small></p>
+            		</div>
+            	</div>
+            </footer>
+
+          </div><!-- end .grid-container -->
+
+    </div><!-- end .off-canvas-content -->
+
+
+    <div class="mobile-menu">
+        {% comment %}.top-bar{% endcomment %}
+        <div class="row collapse align-middle">
+            <div class="column">
+                <ul class="menu vertical text-center">
+                    {% include nav.html %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading JavaScripts -->
+    <script src="/tetmon-theme/assets/javascript/app.min.js"></script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {% comment %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-595111-73"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-595111-73');
+    </script>
+    {% endcomment %}
+
+
+  </body>
+</html>

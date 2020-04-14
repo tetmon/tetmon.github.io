@@ -1,0 +1,92 @@
+#hero {
+	@extend .bg-primary;
+	@extend .fadeIn;
+	padding-top: rem-calc(172px);
+	color: $white;
+	min-height: rem-calc(660px);
+
+	background-size: 1366px auto;
+	background-position: right bottom;
+	background-repeat: no-repeat;
+
+	transition: background-size 0.5s;
+
+	@include breakpoint(medium up) {
+		min-height: rem-calc(768px);
+		padding-top: rem-calc(256px);
+
+	}
+
+	.homepage & {
+		background-image: url(/assets/images/pattern-homepage.svg);
+
+		p.lead {
+			margin-bottom: rem-calc(40px);
+		}
+		svg {
+			height: rem-calc(50px);
+		}
+
+		@include breakpoint(medium down) {
+			background-size: 1200px auto;
+			background-position: right -150px bottom;
+
+		}
+
+		@include breakpoint(small down) {
+			background-size: 800px auto;
+			background-position: right -150px bottom;
+		}
+	}
+	.about & {
+		background-image: url(/assets/images/pattern-about.svg);
+
+		@include breakpoint(medium down) {
+			background-size: 1000px auto;
+			background-position: right -150px bottom;
+
+		}
+
+		@include breakpoint(small down) {
+			background-size: 500px auto;
+		}
+	}
+	.industry & {
+		background-image: url(/assets/images/pattern-industry-top.svg);
+		background-position: center bottom;
+		position: relative;
+
+		@include breakpoint(small down) {
+			background-size: 800px auto;
+			background-position: right -150px bottom;
+		}
+
+		@include breakpoint(medium up) {
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				bottom: -300px;
+				height: 300px;
+				left: 0;
+				right: 0;
+
+				background-image: url(/assets/images/pattern-industry-bottom.svg);
+				background-size: 1366px auto;
+				background-position: center top;
+				background-repeat: no-repeat;
+
+				pointer-events: none;
+			}
+		}
+	}
+	.careers & {
+		background-image: url(/assets/images/pattern-careers.svg);
+		background-size: 600px auto;
+
+		@include breakpoint(medium up) {
+			background-size: 100% auto;
+		}
+
+	}
+}

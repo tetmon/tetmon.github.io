@@ -1,0 +1,46 @@
+footer {
+	@extend .bg-black;
+	color: $white;
+	padding: rem-calc(80px) 2em;
+
+	a {
+		color: $white;
+
+		&:hover {
+			color: $white;
+		}
+
+		&[href^="mailto:"] {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.menu {
+		font-weight: 600;
+		text-transform: uppercase;
+		margin-bottom: rem-calc(40px);
+
+		li {
+			a {
+				padding-left: 0;
+				padding-right: 0;
+				margin-right: rem-calc(20px);
+				margin-left: rem-calc(20px);
+			}
+
+			&.active {
+				a {
+					border-bottom: 2px solid $white;
+					background-color: transparent;
+					color: $white;
+				}
+			}
+
+			@include breakpoint(small down) {
+				margin-bottom: rem-calc(20px);
+			}
+		}
+	}
+}

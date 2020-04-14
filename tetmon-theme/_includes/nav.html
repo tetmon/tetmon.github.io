@@ -1,0 +1,4 @@
+{% for item in site.data.navigation.main_menu %}
+	{% assign collection = item.title | downcase %}
+	<li {% if page.title == item.title %}class="active"{% endif %}><a href="{{ item.url }}">{{ item.title }}</a></li>
+{% endfor %}

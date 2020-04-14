@@ -1,0 +1,45 @@
+---
+
+title: Careers
+layout: default
+permalink: /careers
+
+headline: Careers
+subhead: "We're always looking for passionate, talented people to join our team. Be challenged every day. Expand your skills and knowledge."
+---
+
+<section id="hero">
+  <div class="row">
+    <div class="column small-12 medium-8 large-7">
+      <h1>{{ page.headline }}</h1>
+      <p class="lead">{{ page.subhead }}</p>
+    </div>
+  </div>
+</section>
+
+<section id="values" class="text-center">
+  <div class="row">
+    <div class="column">
+      <h2>Open Positions</h2>
+    </div>
+  </div>
+  <div class="row collapse">
+    <div class="column">
+        {% assign positions = site.careers | group_by: 'category' %}
+        {% for group in positions %}
+          <h3>{{ group.name }}</h3>
+          <ul class="accordion" data-accordion data-allow-all-closed="true">
+            {% for item in group.items %}
+              <li class="accordion-item" data-accordion-item>
+                <a href="#" class="accordion-title">{{ item.title }}</a>
+                <div class="accordion-content" data-tab-content>
+                  {{ item.content }}
+                  <a href="{{ item.link }}" class="button">Apply for this job</a>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+    </div>
+  </div>
+</section>
