@@ -29,7 +29,7 @@ destination: ./build
 
 # Build settings
 # theme: minima
-theme: cdfg-theme
+# theme: cdfg-theme
 
 # plugins:
   # - jekyll-inline-svg

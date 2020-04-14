@@ -48,9 +48,9 @@ gulp.task('sass', function() {
 gulp.task('javascript', ['copyJs'], function() {
 
   return gulp.src(scripts)
-    .pipe($.sourcemaps.init())
+    // .pipe($.sourcemaps.init())
     .pipe($.concat('app.js'))
-    .pipe($.sourcemaps.write())
+    // .pipe($.sourcemaps.write())
     .on('error', onError)
     // .pipe(gulp.dest('./assets/javascript'))
     .pipe(uglify())
