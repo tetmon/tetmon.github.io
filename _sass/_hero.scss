@@ -2,6 +2,7 @@
 	@extend .bg-primary;
 	@extend .fadeIn;
 	padding-top: rem-calc(172px);
+	padding-bottom: 0;
 	color: $white;
 	min-height: rem-calc(660px);
 
@@ -18,7 +19,7 @@
 	}
 
 	.homepage & {
-		background-image: url(/assets/images/pattern-homepage.svg);
+		background-image: url(../images/pattern-homepage.svg);
 
 		p.lead {
 			margin-bottom: rem-calc(40px);
@@ -39,7 +40,7 @@
 		}
 	}
 	.about & {
-		background-image: url(/assets/images/pattern-about.svg);
+		background-image: url(../images/pattern-about.svg);
 
 		@include breakpoint(medium down) {
 			background-size: 1000px auto;
@@ -52,7 +53,7 @@
 		}
 	}
 	.industry & {
-		background-image: url(/assets/images/pattern-industry-top.svg);
+		background-image: url(../images/pattern-industry-top.svg);
 		background-position: center bottom;
 		position: relative;
 
@@ -71,7 +72,7 @@
 				left: 0;
 				right: 0;
 
-				background-image: url(/assets/images/pattern-industry-bottom.svg);
+				background-image: url(../images/pattern-industry-bottom.svg);
 				background-size: 1366px auto;
 				background-position: center top;
 				background-repeat: no-repeat;
@@ -81,7 +82,7 @@
 		}
 	}
 	.careers & {
-		background-image: url(/assets/images/pattern-careers.svg);
+		background-image: url(../images/pattern-careers.svg);
 		background-size: 600px auto;
 
 		@include breakpoint(medium up) {

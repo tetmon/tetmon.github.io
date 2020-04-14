@@ -2,6 +2,10 @@ var Site = {
 	init: function() {
 		Site.menu()
 		Site.smoothScroll()
+		Site.inlinesvgs()
+	},
+	inlinesvgs: function() {
+
 	},
 	menu: function() {
 		$(".menu-toggle").on("click", function(e) {
@@ -40,3 +44,10 @@ var Site = {
 
 Site.init()
 $(document).foundation()
+
+inlineSVG.init({
+  svgSelector: 'img.svg', // the class attached to all images that should be inlined
+  initClass: 'js-inlinesvg', // class added to <html>
+}, function () {
+  console.log('All SVGs inlined');
+});

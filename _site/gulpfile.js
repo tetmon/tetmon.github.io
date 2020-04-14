@@ -16,6 +16,7 @@ var sassPaths = [
 var scripts = [
   'node_modules/jquery/dist/jquery.js',
   'node_modules/foundation-sites/dist/js/foundation.min.js',
+  'node_modules/inline-svg/src/inlineSVG.js',
   // 'node_modules/instantsearch.js/dist/instantsearch.js',
   // 'node_modules/sticky-js/dist/sticky.compile.js',
   'assets/javascript/app.js',
