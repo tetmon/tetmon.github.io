@@ -31,8 +31,8 @@ destination: ./build
 # theme: minima
 theme: cdfg-theme
 
-plugins:
-  - jekyll-inline-svg
+# plugins:
+  # - jekyll-inline-svg
   # - jekyll-sitemap
   # - jekyll-feed
 

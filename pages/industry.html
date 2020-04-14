@@ -18,7 +18,7 @@ sections:
 
   - headline: Data Lake and Analytics
     subhead: Insurance
-    icon: building
+    icon: shield
     content: After the client acquired a competitor with millions of patients, we connected the disparate data sources together, de-duplicated customer records, and built both simple dashboards and more complex statistical products. This enabled the client to profit from synergies beyond the price paid for the acquisition.
 
   - headline: Machine Vision
@@ -58,7 +58,8 @@ sections:
       <div class="column small-12 medium-10 large-8">
         <h2>{{ section.headline }}</h2>
         <h3>{{ section.subhead }}</h3>
-        {% svg "assets/images/icon-{{ section.icon }}.svg" %}
+        {% comment %}{% svg "assets/images/icon-{{ section.icon }}.svg" %}{% endcomment %}
+        <img src="assets/images/icon-{{ section.icon }}.svg">
         {{ section.content | markdownify }}
 
         {% if forloop.first %}
