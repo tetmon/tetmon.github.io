@@ -35,8 +35,6 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 1.8)
-    jekyll-compose (0.12.0)
-      jekyll (>= 3.7, < 5.0)
     jekyll-feed (0.13.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-inline-svg (1.1.4)
@@ -85,7 +83,6 @@ PLATFORMS
 DEPENDENCIES
   cdfg-theme!
   jekyll (~> 4.0.0)
-  jekyll-compose
   jekyll-feed (~> 0.12)
   jekyll-inline-svg
   tzinfo (~> 1.2)
