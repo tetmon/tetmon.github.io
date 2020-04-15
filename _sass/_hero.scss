@@ -58,8 +58,8 @@
 		position: relative;
 
 		@include breakpoint(small down) {
-			background-size: 800px auto;
-			background-position: right -150px bottom;
+			background-size: 900px auto;
+			background-position: right -180px bottom;
 		}
 
 		@include breakpoint(medium only) {
