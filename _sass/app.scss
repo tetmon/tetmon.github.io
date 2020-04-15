@@ -56,6 +56,10 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
 
 body {
 	@extend .bg-primary;
+
+	&.menu-open {
+		overflow: hidden;
+	}
 }
 
 section {
