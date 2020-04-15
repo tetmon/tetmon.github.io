@@ -62,6 +62,11 @@
 			background-position: right -150px bottom;
 		}
 
+		@include breakpoint(medium only) {
+			background-size: 1000px auto;
+
+		}
+
 		@include breakpoint(medium up) {
 			&:after {
 				content: "";
@@ -73,12 +78,19 @@
 				right: 0;
 
 				background-image: url(../images/pattern-industry-bottom.svg);
-				background-size: 1366px auto;
+				background-size: 1000px auto;
 				background-position: center top;
 				background-repeat: no-repeat;
 
 				pointer-events: none;
 			}
+		}
+
+		@include breakpoint(large up) {
+			&:after {
+				background-size: 1366px auto;
+			}
+
 		}
 	}
 	.careers & {
@@ -86,7 +98,8 @@
 		background-size: 600px auto;
 
 		@include breakpoint(medium up) {
-			background-size: 100% auto;
+			background-size: auto 760px;
+			// background-size: 100% auto;
 		}
 
 	}
