@@ -1,3 +1,4 @@
+{% assign version = "0.0.1" %}
 <!doctype html>
 <html class="no-js">
   <head>
@@ -8,7 +9,7 @@
     <meta name="description" content="{{ page.title }} - {{ site.title }}" />
     <meta name="keywords" content="{{ page.keywords }}, {{ site.keywords }}" />
 
-    <link rel="stylesheet" href="assets/css/app.min.css">
+    <link rel="stylesheet" href="assets/css/app.min.css?v={{ version }}">
 
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png?v=3eBzeBmEEA">
@@ -121,7 +122,7 @@
     </div>
 
     <!-- Loading JavaScripts -->
-    <script src="assets/javascript/app.min.js"></script>
+    <script src="assets/javascript/app.min.js?v={{ version }}"></script>
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
