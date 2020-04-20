@@ -5,8 +5,28 @@ category: Engineering
 link: ""
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id quam neque. Duis mi felis, viverra ut erat at, finibus semper magna. Donec lacus ipsum, ullamcorper vel pulvinar vel, cursus et mi. Nunc eget lobortis tortor, sit amet facilisis purus. Duis auctor dictum ante, quis hendrerit nisl dapibus id. Phasellus ornare odio lacus, sed imperdiet neque placerat vel. Suspendisse mattis ornare vulputate.
+You will be responsible for:
 
-Donec tempus lorem vel dui consectetur viverra. Maecenas est tellus, elementum vitae hendrerit vitae, ornare vitae augue. In id enim commodo, vehicula magna ut, sagittis urna. Mauris bibendum dapibus mi, vitae fringilla ipsum sodales a. Fusce nec tristique elit.
+Designing secure systems that can scale.
+Testing and documenting what you build so that it’s repeatable.
+Extending and maintaining our internal infrastructure.
+We do not currently provide on-call service to any clients, as they are large enough to have their own technical staff on call.
 
-Suspendisse rutrum congue velit. Sed finibus condimentum felis at auctor.Pellentesque volutpat pharetra tellus, non lobortis nunc placerat quis. Morbi sit amet libero eu neque rutrum aliquet. Phasellus blandit ante quis mauris congue, eget aliquet est bibendum. Aliquam suscipit vel felis a pellentesque. Vivamus vel ultrices orci.
+Recent projects:
+
+Built a serverless CI/CD system using GitHub Actions + AWS CodeBuild for dozens of repositories.
+Crawled and archived a representative sample of the hosts present in the .com zone file.
+Created a certificate-based VPN on AWS + Terraform with automated credential generation and revocation.
+You should:
+
+Be able to write concise, understandable code that does one thing well.
+Understand TCP/IP, layer 7, and network security.
+Have experience with large-scale systems (hundreds of servers, millions of users, or petabytes of data) or be willing to learn through continuous peer feedback.
+Technologies we use internally:
+
+Our own infrastructure is small compared to our clients, but we take it just as seriously.
+
+NixOS
+Haskell
+TypeScript
+Bash (with ShellCheck)
