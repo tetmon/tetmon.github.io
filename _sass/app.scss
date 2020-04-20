@@ -264,6 +264,12 @@ input[type="email"] {
 		margin-top: rem-calc(20px);
 	}
 
+	ul {
+		margin-bottom: 2em;
+		list-style-position: inside;
+	}
+
+
 	@include breakpoint(small down) {
 		padding-left: 0;
 		padding-right: 0;
