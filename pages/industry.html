@@ -11,10 +11,7 @@ sections:
   - headline: Our Domain Specialties
     subhead: Real Estate Investments
     icon: building
-    content: >
-      We built a model that helped the client predict how long a property would stay on the market at a given price. This enabled the client to purge their portfolio and acquisition pipeline, avoiding multi-year holding periods. Aside from the model, we also improved on divergent and incomplete data sources.
-
-      Leave your email address here, and we will send you the full report.
+    content: We built a model that helped the client predict how long a property would stay on the market at a given price. This enabled the client to purge their portfolio and acquisition pipeline, avoiding multi-year holding periods. Aside from the model, we also improved on divergent and incomplete data sources.
 
   - headline: Data Lake and Analytics
     subhead: Insurance
@@ -61,13 +58,6 @@ sections:
         {% comment %}{% svg "assets/images/icon-{{ section.icon }}.svg" %}{% endcomment %}
         <img src="assets/images/icon-{{ section.icon }}.svg">
         {{ section.content | markdownify }}
-
-        {% if forloop.first %}
-          <form action="">
-            <input type="email" placeholder="Enter Email">
-            <button type="submit" class="button">Submit</button>
-          </form>
-        {% endif %}
       </div>
     </div>
   </section>
