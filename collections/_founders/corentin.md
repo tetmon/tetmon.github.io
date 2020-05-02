@@ -1,5 +1,5 @@
 ---
-title: Corentin Roux dit Buisson
+name: Corentin Roux dit Buisson
 image: corentin.jpg
 ---
 
