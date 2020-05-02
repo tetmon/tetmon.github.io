@@ -1,0 +1,118 @@
+header {
+	padding: rem-calc(40px);
+	position: absolute;
+	width: 100%;
+	z-index: 999;
+
+	@include breakpoint(medium up) {
+		padding: rem-calc(70px);
+	}
+
+	.menu {
+		font-weight: 600;
+		text-transform: uppercase;
+
+		li {
+			margin-left: rem-calc(60px);
+		}
+
+		a {
+			font-size: rem-calc(15px);
+			padding-left: 0;
+			padding-right: 0;
+			// padding-top: 0;
+			border-bottom: 2px solid transparent;
+			letter-spacing: .1em;
+
+			color: $white;
+
+			&:hover {
+				color: $white;
+			}
+		}
+
+		li.active a {
+			border-bottom-color: $white;
+		}
+	}
+	img, svg {
+		height: rem-calc(26px);
+		width: auto;
+
+		path {
+			transition: fill 0.5s;
+		}
+
+		@include breakpoint(medium up) {
+			height: rem-calc(52px);
+		}
+
+
+	}
+}
+
+
+.mobile-menu {
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	padding: 0;
+
+	opacity: 0;
+	pointer-events: none;
+
+	transition: opacity 0.5s;
+
+	.menu-open & {
+		opacity: 1;
+		pointer-events: all;
+	}
+
+	.row {
+		height: 100%;
+	}
+
+	.menu {
+		li {
+			&:not(:first-child) {
+				border-top: 1px solid $light-gray;
+			}
+
+			a {
+				padding: rem-calc(50px) 0;
+				font-weight: 600;
+				font-size: rem-calc(26px);
+				text-transform: uppercase;
+				color: $black;
+
+				&:hover, &:active, &:focus {
+					color: $primary-color;
+					background-color: transparent;
+					text-decoration: underline;
+				}
+			}
+
+			&.active a {
+				color: $primary-color;
+				background-color: transparent;
+			}
+		}
+	}
+}
+
+
+
+.menu-open {
+	header svg path {
+		fill: $black !important;
+	}
+	.hamburger.is-active .hamburger-inner{
+		&, &::after, &::before {
+			background-color: $black;
+		}
+	}
+}

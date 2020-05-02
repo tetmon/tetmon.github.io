@@ -1,0 +1,15 @@
+main_menu:
+  - title: Industry
+    url: industry
+  - title: About
+    url: about
+  - title: Careers
+    url: careers
+
+social-links:
+  - title: twitter
+    url: 'https://twitter.com/TetmonHQ'
+  - title: github
+    url: 'https://github.com/tetmon'
+  - title: linkedin
+    url: 'https://www.linkedin.com/company/tetmon'

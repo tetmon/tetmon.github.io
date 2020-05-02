@@ -1,0 +1,31 @@
+h1 {
+	line-height: rem-calc(48px);
+	letter-spacing: -0.02em;
+	margin-bottom: rem-calc(30px);
+
+	@include breakpoint(medium up) {
+		line-height: rem-calc(75px);
+
+	}
+}
+
+h2 {
+	text-transform: uppercase;
+	letter-spacing: -0.025em;
+	font-weight: 700;
+	color: $primary-color;
+
+	margin-bottom: rem-calc(60px);
+}
+
+h3 {
+	font-weight: 600;
+	margin-bottom: rem-calc(60px);
+}
+
+p, p.lead {
+	@include breakpoint(small down) {
+		font-size: rem-calc(16px);
+		line-height: rem-calc(22px);
+	}
+}

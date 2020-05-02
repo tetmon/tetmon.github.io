@@ -1,0 +1,67 @@
+---
+
+title: Industry
+layout: default
+permalink: /industry
+
+headline: Selected<br>in-house products & case&nbsp;studies
+subhead: With our promise of early, rapid delivery, our past clients over-delivered on their internal project metrics and timelines.
+
+sections:
+  - headline: Our Domain Specialties
+    subhead: Real Estate Investments
+    icon: building
+    content: We built a model that helped the client predict how long a property would stay on the market at a given price. This enabled the client to purge their portfolio and acquisition pipeline, avoiding multi-year holding periods. Aside from the model, we also improved on divergent and incomplete data sources.
+
+  - headline: Data Lake and Analytics
+    subhead: Insurance
+    icon: shield
+    content: After the client acquired a competitor with millions of patients, we connected the disparate data sources together, de-duplicated customer records, and built both simple dashboards and more complex statistical products. This enabled the client to profit from synergies beyond the price paid for the acquisition.
+
+  - headline: Machine Vision
+    subhead: Insurance
+    icon: robot
+    content: >
+      The client wanted to automatically classify product images, but none of the commercially available machine vision models had been trained on the particular products sold.
+
+      We built and integrated a custom machine vision algorithm, including the facilities for the staff to train examples in order to continuously improve the algorithm.
+
+  - headline: Extending A Consumer Facing Product
+    subhead: Financial Services
+    icon: finance
+    content: >
+      The product was used daily by 4 million customers and new product features were several months behind schedule due to scaling up of client’s requests.
+
+      We helped unblock the launch of the next product version, and implemented features such as natural language processing and analytics.
+---
+
+<section id="hero">
+  <div class="row">
+    <div class="column small-12 large-9">
+      <h1>{{ page.headline }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column small-12 medium-8 large-6">
+      <p class="lead">{{ page.subhead }}</p>
+    </div>
+  </div>
+</section>
+
+
+{% for section in page.sections %}
+  <section class="industry-section">
+    <div class="row align-center text-center">
+      <div class="column small-12 medium-10 large-8">
+        <h2>{{ section.headline }}</h2>
+        <h3>{{ section.subhead }}</h3>
+        {% comment %}{% svg "assets/images/icon-{{ section.icon }}.svg" %}{% endcomment %}
+        <img src="assets/images/icon-{{ section.icon }}.svg">
+        {{ section.content | markdownify }}
+      </div>
+    </div>
+  </section>
+  {% if forloop.last == false %}
+    <hr style="margin: 0;">
+  {% endif %}
+{% endfor %}
