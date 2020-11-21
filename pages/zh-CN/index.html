@@ -1,0 +1,82 @@
+---
+
+title: Homepage
+layout: default-zh-CN
+permalink: /zh-CN/
+
+headline: 人工智能与数据库服务
+subhead: Tetmon 是家新加坡创新科技企业。我们服务于跨国电商平台，医疗科技，金融科技，以及新加坡国企，并已深获政府部门与商会支持。 Tetmon强项在于计算机视觉，机器学习，数据隐私。Tetmon主打产品EdgeSet让客户无需建立云端或传统的数据仓库。取而代之，EdgeSet技术类似于reverse CDN，为客户创建一个稳固虚拟数据仓库。
+
+
+specialties:
+  headline: 我们的领域专长
+  sections:
+    - "Data lake: 我们曾为一些全球最大的电子商务公司开发全球数据库"
+    - 将非结构化数据转换为结构化数据
+    - 用于合规性和验证的机器视觉
+work:
+  headline: 为何使用Tetmon？
+  subhead: 通过清晰有效的工程设计，软件集成成本保持在您的预算之内
+  sections:
+    - 这些产品范围从人工智能到数据库仓库再到DevOps
+    - 我们的团队在数百万行代码中拥有丰富的经验，与顶级金融机构，全球电子商务公司，奢侈品集团合作，将最先进的产品与遗留系统集成在一起
+    - 我们提供任何技术堆栈中从体系结构设计和审查到编写代码的整个流程
+---
+
+<section id="hero">
+	<div class="row">
+		<div class="column small-12 large-8">
+			<h1>{{ page.headline }}</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="column small-12 medium-8 large-6">
+			<p class="lead">
+				{{ page.subhead }}
+			</p>
+			<a href="#specialties">
+				<img src="/assets/images/icon-arrow-down.svg">
+			</a>
+		</div>
+	</div>
+</section>
+
+<section id="specialties" class="text-center">
+	<div class="row">
+		<div class="column">
+			<h2>{{ page.specialties.headline }}</h2>
+		</div>
+	</div>
+	<div class="row small-up-1 medium-up-2 large-up-3 align-center">
+		{% for item in page.specialties.sections %}
+			<div class="column item-{{ forloop.index }}">
+				<div class="gradient-circle">
+					<div class="inner">
+						<p>{{ item }}</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</section>
+
+<section id="work" class="text-center bg-gray">
+	<div class="row">
+		<div class="column">
+			<h2>{{ page.work.headline }}</h2>
+			<h3>{{ page.work.subhead }}</h3>
+		</div>
+	</div>
+	<div class="row small-up-1 medium-up-3">
+		{% for item in page.work.sections %}
+			<div class="column">
+				<p>{{ item }}</p>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="row" style="margin-top: 3em;">
+		<div class="column">
+			<a href="/careers" class="button">跟我们工作</a>
+		</div>
+	</div>
+</section>

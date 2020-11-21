@@ -41,7 +41,9 @@ permalink: /:title.html
 collections_dir: collections
 collections:
   - founders
+  - founders-zh-CN
   - careers
+  - careers-zh-CN
 
 jekyll_admin:
   hidden_links:

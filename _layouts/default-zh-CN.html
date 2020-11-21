@@ -35,13 +35,18 @@
     <meta name="twitter:title" content="{{ page.title }}">
     <meta name="twitter:description" content="{{ page.description }}">
     <meta name="twitter:image" content="{{ page.imageurl }}">
+    <style>
+      * {
+        font-family: 'Microsoft YaHei', 'Work Sans', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !important;
+      }
+    </style>
 
   </head>
   <body class="{{ page.title | downcase }}">
 
     <div class="hide off-canvas position-right" data-off-canvas id="offCanvas">
       <div class="vertical menu mtl">
-        {% include nav.html %}
+        {% include nav-zh-CN.html %}
       </div>
       <button class="close-button" aria-label="Close menu" type="button" data-close>
         <i class="fas fa-times fa-xs"></i>
@@ -61,7 +66,7 @@
 				<div class="column shrink text-right">
                     <nav class="hide-for-small-only">
                         <ul class="menu horizontal">
-    			            {% include nav.html %}
+    			            {% include nav-zh-CN.html %}
     					</ul>
                     </nav>
         			<a class="menu-toggle hide-for-medium">
@@ -83,7 +88,7 @@
             	<div class="row align-middle text-center">
             		<div class="column">
                         <ul class="menu vertical medium-horizontal align-center">
-            				{% include nav.html %}
+            				{% include nav-zh-CN.html %}
                         </ul>
                         <a href="mailto:contact@tetmon.com">contact@tetmon.com</a>
 
@@ -115,7 +120,7 @@
         <div class="row collapse align-middle">
             <div class="column">
                 <ul class="menu vertical text-center">
-                    {% include nav.html %}
+                    {% include nav-zh-CN.html %}
                 </ul>
             </div>
         </div>

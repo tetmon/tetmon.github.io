@@ -1,0 +1,62 @@
+---
+
+title: 行业专长
+layout: default-zh-CN
+permalink: /zh-CN/industry
+
+headline: 筛选后的内部产品和案例研究
+subhead: 凭借我们承诺及早交付的承诺，我们过去的客户超额完成了内部项目指标和时间表
+
+sections:
+  - headline: 行业专长
+    subhead: 房地产投资
+    icon: building
+    content: 我们建立了一个模型，可以帮助客户预测在给定价格下物业将在市场上停留多长时间。 这使客户能够清除其投资组合和收购渠道，从而避免了多年的持有期。 除了模型之外，我们还改进了分歧和不完整的数据源。
+
+  - headline: 数据湖和分析
+    subhead: 保险行业
+    icon: shield
+    content: 客户获得了数百万患者的竞争对手之后，我们将不同的数据源连接在一起，对客户记录进行了重复数据删除，并构建了简单的仪表板和更复杂的统计产品。 这使客户可以从协同效应中获利，而收购所付出的代价除外。
+
+  - headline: 机器视觉
+    subhead: 保险行业
+    icon: robot
+    content: 客户想对产品图像进行自动分类，但是没有任何一种商用机器视觉模型已经针对所售的特定产品进行过培训。 我们构建并集成了定制的机器视觉算法，包括员工培训示例的设施，以便不断改进算法。
+
+  - headline: 扩展面向消费者的产品
+    subhead: 金融服务
+    icon: finance
+    content: 每天有400万客户使用该产品，由于客户需求的扩大，产品开发比原计划晚了几个月。 我们帮助下一个产品版本的准时发布，并实现了自然语言处理和分析等功能。延伸的面向消费者的产品。
+
+---
+
+<section id="hero">
+  <div class="row">
+    <div class="column small-12 large-9">
+      <h1>{{ page.headline }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column small-12 medium-8 large-6">
+      <p class="lead">{{ page.subhead }}</p>
+    </div>
+  </div>
+</section>
+
+
+{% for section in page.sections %}
+  <section class="industry-section">
+    <div class="row align-center text-center">
+      <div class="column small-12 medium-10 large-8">
+        <h2>{{ section.headline }}</h2>
+        <h3>{{ section.subhead }}</h3>
+        {% comment %}{% svg "assets/images/icon-{{ section.icon }}.svg" %}{% endcomment %}
+        <img src="/assets/images/icon-{{ section.icon }}.svg">
+        {{ section.content | markdownify }}
+      </div>
+    </div>
+  </section>
+  {% if forloop.last == false %}
+    <hr style="margin: 0;">
+  {% endif %}
+{% endfor %}

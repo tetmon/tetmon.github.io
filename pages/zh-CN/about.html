@@ -1,0 +1,63 @@
+---
+
+title: 关于我们
+layout: default-zh-CN
+permalink: /zh-CN/about
+
+headline: "关于Tetmon"
+subhead: "我们处理过数十亿条推文，数以百万张照片和多TB的数据库。<br>我们同样能为您提供与我们的已发表文章相同的清晰见解。"
+
+values:
+  headline: 价值主张
+  sections:
+    - 为了解决棘手的问题，我们回到第一原则，这使我们能够减少复杂性，并迅速提供简单性
+    - 我们能够依靠我们驻新加坡的高级软件工程师与您的利益相关者紧密互动，并完成数据浓缩任务
+    - 因此，我们可以为您提供最高的ROI，可与世界顶级技术服务公司相比。
+
+---
+
+<section id="hero">
+  <div class="row">
+    <div class="column small-12 medium-8 large-7">
+      <h1>{{ page.headline }}</h1>
+      <p class="lead">{{ page.subhead }}</p>
+    </div>
+  </div>
+</section>
+
+<section id="values" class="text-center">
+  <div class="row">
+    <div class="column">
+      <h2>{{ page.values.headline }}</h2>
+    </div>
+  </div>
+  <div class="row small-up-1 medium-up-2 large-up-3 align-center">
+    {% for item in page.values.sections %}
+      <div class="column item-{{ forloop.index }}">
+        <p>
+          {{ item }}
+        </p>
+        <hr>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="founders" class="bg-gray text-center">
+  <div class="row">
+    <div class="column">
+      <h2>创始人</h2>
+    </div>
+  </div>
+  <div class="row small-up-1 medium-up-2 large-up-3 align-center">
+    {% for person in site.founders-zh-CN %}
+      <div class="column founders-column">
+        <img src="/assets/images/{{ person.image }}">
+        <h4>
+          {{ person.name }}
+        </h4>
+        {{ person.content }}
+      </div>
+    {% endfor %}
+  </div>
+</section>
