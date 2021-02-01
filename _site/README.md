@@ -15,7 +15,7 @@ Installation:
 
 If you need to edit css/js files:
 
-4. `npm install` (if you need to edit css/js files)
+4. `npm install` (if you need to edit css/js files) (note that Jekyll does not work with pnpm due to a bug in Jekyll’s handling of symlinks)
 
 To start a local server: 
 

@@ -1,6 +1,6 @@
 main_menu:
-  - title: Industry
-    url: industry
+  - title: History
+    url: history
   - title: About
     url: about
   - title: Careers
