@@ -3,7 +3,7 @@ var $       = require('gulp-load-plugins')();
 var uglify  = require('gulp-uglify');
 var cleanCSS    = require('gulp-clean-css');
 var rename      = require('gulp-rename');
-
+var sass = require('gulp-dart-sass');
 
 
 var sassPaths = [
@@ -23,19 +23,13 @@ var scripts = [
   // 'assets/javascript/navigation.js',
 ]
 
-var copyJs = [
-  // 'assets/javascript/threejs-custom-r67.min.js',
-  // 'assets/javascript/three.min.js',
-
-]
-
 gulp.task('sass', function() {
   return gulp.src('_sass/app.scss')
-    .pipe($.sass({
+    .pipe(sass({
       includePaths: sassPaths,
       outputStyle: 'compressed' // if css compressed **file size**
     })
-    .on('error', $.sass.logError))
+    .on('error', sass.logError))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
@@ -46,7 +40,7 @@ gulp.task('sass', function() {
 });
 
 
-gulp.task('javascript', ['copyJs'], function() {
+gulp.task('javascript', function() {
 
   return gulp.src(scripts)
     // .pipe($.sourcemaps.init())
@@ -71,10 +65,10 @@ function onError(err) {
   this.emit('end');
 }
 
-gulp.task('default', ['sass', 'javascript'], function() {
-  gulp.watch(['_sass/**/*.scss'], ['sass']);
-  gulp.watch(['assets/**/*.js'], ['javascript']);
-});
+gulp.task('default', gulp.series('sass', 'javascript', function() {
+  gulp.watch(['_sass/**/*.scss'], gulp.series('sass'));
+  gulp.watch(['assets/**/*.js'], gulp.series('javascript'));
+}));
 
 // gulp.task('default', gulp.parallel('scss'));
 // gulp.task('watch', gulp.parallel('scss'));
