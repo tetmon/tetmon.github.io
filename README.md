@@ -1,45 +1,37 @@
 # Tetmon Website
 
-
 This is a static site using [Jekyll](https://jekyllrb.com/)
-
-
 
 ### Development
 
-Installation:
+Setup:
 
-1. Clone this repo
-2. `gem install bundler jekyll`
-3. `bundle install`
+```bash
+nix-shell
+```
 
-If you need to edit css/js files:
+To rebuild css/js files:
 
-4. `npm install` (if you need to edit css/js files)
+``` bash
+npm run build
+```
 
-To start a local server: 
+To develop with live preview:
 
-1. `bundle exec jekyll serve --livereload`
-2. Navigate to `http://localhost:4000/` for a live preview.
-
-
+``` bashbash
+npm start & jekyll serve --livereload
+```
 
 ### Content
 
 - Content for careers and founders are in markdown files located in the `collections` folder.
 - All other content is included as metadata in `pages` folder
 
-
-
 ### Static Files
 
 This site uses [Gulp](https://gulpjs.com/) to compile the [Sass](https://sass-lang.com/) files located in the `_sass` to css and to concatenate and minify javascript files defined in `Gulpfile.js`. 
 
-To edit and compile the scss files, run `gulp` in a seperate terminal. 
-
 Static files are located in the `assets` folder
-
-
 
 ### Deployment
 
