@@ -1,0 +1,60 @@
+---
+
+title: Case studies
+layout: default
+permalink: /case-studies
+
+headline: Case&nbsp;studies
+subhead: How to apply EdgeSet to break down data silos, speed up analytics, and stay ahead of the curve 
+
+sections:
+  - headline: Reducing monthly Amazon AWS cost by up to 99%
+    subhead: Funds industry
+    icon: finance
+    content: |
+      Instead of doing analysis on Amazon EC2 and RDS (cost of ~$5k/month), client stored trading data in Amazon S3 (~$50/month) and utilised EdgeSet. EdgeSet scans the S3 files and infers the structure of the data, creating a SQL view of all the data so that the team need only write normal SQL queries instead of a custom data loading and analysis scripts.
+
+      Other than Amazon S3, the data can be anywhere, including a hard drive or other cloud services like Google Cloud Storage, Azure Blob Storage, Backblaze B2, etc. As long as the data is in CSV, ORC, Parquet, or similar tabular formats, you'll be able to query it after a short, sub 1-minute scan of the folder structure, and data sampling that's automatically done by EdgeSet.
+
+  - headline: Real Estate Predictions
+    subhead: Real Estate Investments
+    icon: building
+    content: We improved on divergent and incomplete data sources, and enabling joining of databases whilst preserving data integrity. As a result, an AI/ML model was created to help the client predict how long a property would stay on the market at a given price. This enabled the client to purge their portfolio and acquisition pipeline, avoiding multi-year holding periods.
+  
+  - headline: Analytics Post-acquisition
+    subhead: Insurance
+    icon: shield
+    content: After the client acquired a competitor with millions of patients, we connected the disparate data sources together, de-duplicated customer records, and built both simple dashboards and more complex statistical products. This enabled the client to profit from synergies beyond the price paid for the acquisition.
+
+---
+
+<section id="hero">
+  <div class="row">
+    <div class="column small-12 large-9">
+      <h1>{{ page.headline }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column small-12 medium-8 large-6">
+      <p class="lead">{{ page.subhead }}</p>
+    </div>
+  </div>
+</section>
+
+
+{% for section in page.sections %}
+  <section class="industry-section">
+    <div class="row align-center text-center">
+      <div class="column small-12 medium-10 large-8">
+        <h2>{{ section.headline }}</h2>
+        <h3>{{ section.subhead }}</h3>
+        {% comment %}{% svg "assets/images/icon-{{ section.icon }}.svg" %}{% endcomment %}
+        <img src="assets/images/icon-{{ section.icon }}.svg">
+        {{ section.content | markdownify }}
+      </div>
+    </div>
+  </section>
+  {% if forloop.last == false %}
+    <hr style="margin: 0;">
+  {% endif %}
+{% endfor %}

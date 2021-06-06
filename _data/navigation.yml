@@ -1,6 +1,6 @@
 main_menu:
-  - title: History
-    url: history
+  - title: Case studies
+    url: case-studies
   - title: About
     url: about
   - title: Careers
