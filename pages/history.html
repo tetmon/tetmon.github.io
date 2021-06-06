@@ -21,13 +21,13 @@ sections:
 
       We enabled a custom machine vision algorithm, including the facilities for the staff to train examples in order to continuously improve the algorithm.
 
-  - headline: Reducing monthly hosting cost by 99%
+  - headline: Reducing monthly Amazon EC2 cost by up to 99%
     subhead: Funds industry
     icon: finance
     content: >
-      The product was used daily by 4 million customers and new product features were several months behind schedule due to scaling up of client’s requests.
+      Instead of doing analysis on Amazon EC2 (cost of >$5k/ month), client stored trading data in Amazon S3 (~$50/month), and utilise EdgeSet to run his analysis. EdgeSet goes in to sample, create table, create SQL, so that the team need only write a normal SQL query instead of a full table scan 
 
-      We helped unblock the launch of the next product version, and implemented features such as natural language processing and analytics.
+      Other than Amazon S3, the data can be anywhere, including a hard drive or other cloud services like Google Cloud Storage, Azure Blob Storage, Backblaze B2, etc.  As long as the data is in CSV, ORC, Parquet, or similar tabular formats, you'll be able to query it after a short, sub 1-minute scan of the folder structure, and data sampling that's automatically done by EdgeSet.
 
   - headline: Our Domain Specialties
     subhead: Real Estate Investments
