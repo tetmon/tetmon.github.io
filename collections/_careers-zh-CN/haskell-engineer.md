@@ -1,7 +1,7 @@
 ---
-title: Haskell 软件工程师
+title: Haskell软件工程师
 date: 2020-11-28 13:09 +0800
-category: 工程 范围
+category: 工程师
 link: "mailto:careers@tetmon.com"
 ---
 
@@ -11,20 +11,20 @@ link: "mailto:careers@tetmon.com"
 * Presto, Hive
 * Nix
 
-我们正在寻找可以与我们后端工程师一起开发EdgeSet产品（Tetmon虚拟数据仓库）的工程师。 从第一天开始，我们就搭建可复制的版本（Nix）和strong type systems。
+我们正在寻找一个人加入我们的后台工程师团队开发我们的虚拟数据仓库EdgeSet。我们从最初就开发了可复制创建机制(Nix)和强类型系统。
 
 您将负责：
 
-* 开发后端应用程序，管理多种服务（包括Presto和Hive）
-* 为应用程序开发发Servant API
-* 添加针对VM运行的NixOS integration tests
-* 提供技术文档（MediaWiki）
+* 开发管理多项服务的后端应用程序，包括Presto和Hive
+* 为应用开发Servant API
+* 添加对VM运行的NixOS集成测试
+* 提供技术文档(MediaWiki)
 
-您应该对以下内容充满信心：
+您应该擅长：
 
 * Concurrent programming
 * REST APIs
 * Security
 * Relational databases and the relational model
 
-远程工作ok。 但是，您需要与我们在欧洲和新加坡的开发人员合作，因此首选欧洲或中国/新加坡时区。 申请时，请附上您的代码示例（例如指向您的GitHub帐户的链接或电子邮件附件）。
+您可以远程工作，但是您需要和在欧洲和新加坡的开发人员协作，因此在欧洲和新加坡时区的优先。申请时请附上您的以往工作成果样例（可通过您的个人简介链接，GitHub账号，CodePen账号或者邮件附件等）

@@ -1,5 +1,5 @@
 ---
-title: BD (Singapore/ Chongqing)
+title: BD (Singapore/Chongqing/London/Hong Kong/New York)
 date: 2020-11-28 13:09 +0800
 category: Business Development
 link: "mailto:careers@tetmon.com"

@@ -15,8 +15,8 @@ social-links:
     url: 'https://www.linkedin.com/company/tetmon'
 
 main-menu-zh-CN:
-  - title: 行业专长
-    url: industry
+  - title: 使用案例
+    url: case-studies
   - title: 关于我们
     url: about
   - title: 职业发展
