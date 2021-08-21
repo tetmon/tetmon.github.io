@@ -1,0 +1,61 @@
+---
+
+title: 使用案例
+layout: default-zh-CN
+permalink: /zh-CN/case-studies
+
+headline: 使用案例
+subhead: 提取数据并及时做出决定而感到困难？了解其他顾客如何应用EdgeSet来连接数据库
+
+sections:
+  - headline: 节约高达99% Amazon AWS的月度使用费用
+    subhead: 基金行业
+    icon: finance
+    content: |
+      用户可以将交易数据储存在Amazon S3（每月$50）并使用EdgeSet来做分析，来替代Amazon EC2 and RDS（每月$5k）。EdgeSet浏览S3文件并推断数据的结构，创建所有数据的SQL视图，这样团队只需要编写普通的SQL查询命令，而不需要自定义数据加载和分析脚本。
+
+      除了Amazon S3，数据可以储存在任何地方，包括硬盘驱动器或其他云服务，如谷歌云存储、Azure Blob Storage、Backblaze B2等。只要数据是CSV、ORC、Parquet或类似的表格格式，EdgeSet将在很短时间内自动完成浏览文件夹结构浏览和数据采样，之后您就可以进行查询
+
+  - headline: 房地产预测
+    subhead: 房地产投资
+    icon: building
+    content: 我们建立了一个模型，可以帮助客户预测在给定价格下物业将在市场上停留多长时间。 这使客户能够清除其投资组合和收购渠道，从而避免了多年的持有期。 除了模型之外，我们还改进了分歧和不完整的数据源。
+  
+  - headline: 并购重组后的数据分析
+    subhead: 保险业
+    icon: shield
+    content: 客户获得了数百万患者的竞争对手之后，我们将不同的数据源连接在一起，对客户记录进行了重复数据删除，并构建了简单的仪表板和更复杂的统计产品。 这使客户在并购后，实现协同增效。
+
+
+---
+
+<section id="hero">
+  <div class="row">
+    <div class="column small-12 large-9">
+      <h1>{{ page.headline }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column small-12 medium-8 large-6">
+      <p class="lead">{{ page.subhead }}</p>
+    </div>
+  </div>
+</section>
+
+
+{% for section in page.sections %}
+  <section class="industry-section">
+    <div class="row align-center text-center">
+      <div class="column small-12 medium-10 large-8">
+        <h2>{{ section.headline }}</h2>
+        <h3>{{ section.subhead }}</h3>
+        {% comment %}{% svg "assets/images/icon-{{ section.icon }}.svg" %}{% endcomment %}
+        <img src="/assets/images/icon-{{ section.icon }}.svg">
+        {{ section.content | markdownify }}
+      </div>
+    </div>
+  </section>
+  {% if forloop.last == false %}
+    <hr style="margin: 0;">
+  {% endif %}
+{% endfor %}

@@ -1,11 +1,12 @@
 ---
 
 title: 职业发展
+class: careers
 layout: default-zh-CN
 permalink: /zh-CN/careers
 
 headline: 职业发展
-subhead: "我们正在寻找充满激情，才华横溢的人才加入我们的团队。每一分，每一刻，总是充满新的挑战。扩展您的技能和知识。
+subhead: "我们一直在寻找充满激情、才华横溢的人才加入我们的团队。迎接新的挑战，扩展您的技能和知识。
 "
 ---
 
@@ -21,12 +22,12 @@ subhead: "我们正在寻找充满激情，才华横溢的人才加入我们的�
 <section id="values" class="text-center">
   <div class="row">
     <div class="column">
-      <h2>聘请</h2>
+      <h2>在聘岗位</h2>
     </div>
   </div>
   <div class="row collapse">
     <div class="column">
-        {% assign positions = site.careers-zh-CN | group_by: 'category' %}
+        {% assign positions = site.careers-zh-CN | group_by: 'category' | reverse %}
         {% for group in positions %}
           <h3>{{ group.name }}</h3>
           <ul class="accordion" data-accordion data-allow-all-closed="true">
@@ -35,7 +36,7 @@ subhead: "我们正在寻找充满激情，才华横溢的人才加入我们的�
                 <a href="#" class="accordion-title">{{ item.title }}</a>
                 <div class="accordion-content text-left" data-tab-content>
                   {{ item.content }}
-                  <a href="{{ item.link }}" class="button">申请职位</a>
+                  <a href="{{ item.link }}" class="button">申请这个职位</a>
                 </div>
               </li>
             {% endfor %}

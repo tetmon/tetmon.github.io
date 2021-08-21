@@ -2,4 +2,4 @@
 	{% assign collection = item.title | downcase %}
 	<li {% if page.title == item.title %}class="active"{% endif %}><a href="{{ item.url }}">{{ item.title }}</a></li>
 {% endfor %}
-<li><a href="/">English</a></li>
+<li><a href="{{ page.url | replace: '/zh-CN', ''}}">English</a></li>

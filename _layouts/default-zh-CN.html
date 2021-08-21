@@ -42,7 +42,12 @@
     </style>
 
   </head>
-  <body class="{{ page.title | downcase }}">
+  {% if page.class %}
+   {% assign bodyClass = page.class %}
+  {% else %}
+   {% assign bodyClass = page.title %}
+  {% endif %}
+  <body class="{{ bodyClass | downcase }}">
 
     <div class="hide off-canvas position-right" data-off-canvas id="offCanvas">
       <div class="vertical menu mtl">
