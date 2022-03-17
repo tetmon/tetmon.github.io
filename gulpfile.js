@@ -4,6 +4,7 @@ var uglify  = require('gulp-uglify');
 var cleanCSS    = require('gulp-clean-css');
 var rename      = require('gulp-rename');
 var sass = require('gulp-dart-sass');
+var embedSvg = require('gulp-embed-svg');
 
 
 var sassPaths = [
@@ -16,7 +17,6 @@ var sassPaths = [
 var scripts = [
   'node_modules/jquery/dist/jquery.js',
   'node_modules/foundation-sites/dist/js/foundation.min.js',
-  'node_modules/inline-svg/src/inlineSVG.js',
   // 'node_modules/instantsearch.js/dist/instantsearch.js',
   // 'node_modules/sticky-js/dist/sticky.compile.js',
   'assets/javascript/app.js',
@@ -58,6 +58,13 @@ gulp.task('copyJs', function() {
   return gulp.src(copyJs)
     .pipe(gulp.dest('./assets/javascript'))
 });
+
+gulp.task('embedSvgs', () =>
+  gulp.src('_site/index.html')
+    .pipe(embedSvg({
+      root: '.'
+    }))
+    .pipe(gulp.dest('_site/')));
 
 function onError(err) {
   console.log('ERROR')

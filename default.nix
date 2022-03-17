@@ -25,6 +25,7 @@ in pkgs.stdenv.mkDerivation rec {
   configurePhase = ''
     rm -f node_modules
     ln -s ${nm}/node_modules node_modules
+    chmod -R u+rw node_modules
   '';
   buildInputs = with pkgs; [ jekyll nm ];
   shellHook = ''

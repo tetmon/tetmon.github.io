@@ -1,51 +1,98 @@
 #hero {
 	@extend .bg-primary;
-	@extend .fadeIn;
-	padding-top: rem-calc(172px);
+	position: relative;
+	min-height: 100vh;
+	padding-top: 10rem;
 	padding-bottom: 0;
 	color: $white;
-	min-height: rem-calc(660px);
 
 	background-size: 1366px auto;
 	background-position: right bottom;
 	background-repeat: no-repeat;
-
 	transition: background-size 0.5s;
 
-	@include breakpoint(medium up) {
-		min-height: rem-calc(768px);
-		padding-top: rem-calc(256px);
+	.action {
+		padding: rem-calc(20px);
+		background: $primary-color;
+		border-radius: em-calc(5px);
+		border: 2px solid $white;
+		color: $white;
+		font-size: rem-calc(17px);
+		font-weight: 600;
+		cursor: pointer;
+		&:hover {
+			background: rgba($white, 0.1);
+		}
+	}
 
+	.wrapper {
+		position: relative;
+		min-height: calc(100vh - 200px);
+		z-index: 1;
+	}
+
+	.cover {
+		position: absolute;
+		object-fit: cover;
+		width: 500px;
+		height: 500px;
+		bottom: 0;
+		right: 0;
+		opacity: 0.8;
+		transition: width 0.5s, height 0.5s;
+		@include breakpoint(medium up) {
+			width: 1300px;
+			height: 700px;
+			opacity: 0.9;
+		}
+	}
+
+	.partners {
+		max-width: 500px;
+		p {
+			margin-bottom: rem-calc(20px);
+			text-align: left;
+			color: $white;
+			font-size: rem-calc(16px);
+			font-weight: 500;
+			@include breakpoint(medium up) {
+				margin-bottom: rem-calc(25px);
+				font-size: rem-calc(19px);
+			}
+		}
+		.row {
+			gap: 20px;
+			padding-left: 10px;
+			@include breakpoint(medium up) {
+				padding-left: 20px;
+			}
+			img {
+				height: 25px;
+				@include breakpoint(medium up) {
+					height: 30px;
+				}
+			}
+		}
 	}
 
 	.homepage & {
-		background-image: url(../images/pattern-homepage.svg);
-
 		p.lead {
-			margin-bottom: rem-calc(40px);
-		}
-		img, svg {
-			height: rem-calc(50px);
-		}
+			margin-top: rem-calc(8px);
+			margin-bottom: rem-calc(36px);
+			max-width: rem-calc(400px);
 
-		@include breakpoint(medium down) {
-			background-size: 1200px auto;
-			background-position: right -150px bottom;
-
-		}
-
-		@include breakpoint(small down) {
-			background-size: 800px auto;
-			background-position: right -150px bottom;
+			@include breakpoint(xlarge up) {
+				margin-bottom: rem-calc(46px);
+			}
 		}
 	}
+	
 	.about & {
 		background-image: url(../images/pattern-about.svg);
 
 		@include breakpoint(medium down) {
 			background-size: 1000px auto;
 			background-position: right -150px bottom;
-
 		}
 
 		@include breakpoint(small down) {
@@ -53,6 +100,7 @@
 			background-position: right -100px bottom;
 		}
 	}
+
 	.industry & {
 		background-image: url(../images/pattern-industry-top.svg);
 		background-position: center bottom;
@@ -65,7 +113,6 @@
 
 		@include breakpoint(medium only) {
 			background-size: 1000px auto;
-
 		}
 
 		@include breakpoint(medium up) {
@@ -91,17 +138,15 @@
 			&:after {
 				background-size: 1366px auto;
 			}
-
 		}
 	}
+
 	.careers & {
 		background-image: url(../images/pattern-careers.svg);
 		background-size: 600px auto;
 
 		@include breakpoint(medium up) {
 			background-size: auto 760px;
-			// background-size: 100% auto;
 		}
-
 	}
 }

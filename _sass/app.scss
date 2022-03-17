@@ -13,6 +13,18 @@
 @include foundation-accordion;
 @include foundation-button;
 @include foundation-forms;
+@include foundation-xy-grid-classes(
+  /* options
+  $base-grid: true,
+  $margin-grid: true,
+  $padding-grid: true,
+  $block-grid: true,
+  $collapse: true,
+  $offset: true,
+  $vertical-grid: true,
+  $frame-grid: true
+  */
+);
 // @include foundation-breadcrumbs;
 // @include foundation-card;
 // @include foundation-responsive-embed;
@@ -42,6 +54,10 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
 @import "_hero";
 
 
+@function em-calc($value, $fontsize) {
+	@return ($value / $fontsize) * 1em;
+}
+
 .bg-primary {
 	background-color: $primary-color;
 }
@@ -54,30 +70,51 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
 	background-color: $light-gray;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
 	@extend .bg-primary;
+	min-width: rem-calc(320px);
 
 	&.menu-open {
 		overflow: hidden;
 	}
 }
 
+main {
+	height: 100%;
+}
+
 section {
-	padding: rem-calc(60px);
+	padding: rem-calc(48px) rem-calc(24px) 0 rem-calc(24px);
 	background-color: #fff;
 
-	@include breakpoint(medium up) {
-		padding: rem-calc(180px) 2em;
+	@include breakpoint(large up) {
+		padding: rem-calc(110px) 2rem 0 2rem;
+	}
 
+	&.inline {
+		padding-inline: 0;
 	}
 }
 
-
+h4 {
+	@include breakpoint(medium up) {
+		font-size: rem-calc(18px);
+	}
+	@include breakpoint(large up) {
+		font-size: rem-calc(25px);
+	}
+}
 
 hr {
 	max-width: 100%;
 }
 
+$text-color: rgba($black, 0.7);
 
 .button {
 	text-transform: uppercase;
@@ -101,16 +138,13 @@ input[type="email"] {
 		box-shadow: none;
 		outline: none;
 		border-bottom: 2px solid $primary-color;
-		// border-bottom-color: $primary-color;
 	}
 }
-
 
 @keyframes fadeIn {
 	from { opacity: 0 }
 	to { opacity: 1 }
 }
-
 
 .fadeIn {
 	opacity: 0;
@@ -118,12 +152,7 @@ input[type="email"] {
 	animation-fill-mode: forwards;
 }
 
-
-
-
-
 .gradient-circle {
-	// border: 1px solid pink;
 	width: 100%;
 	padding-bottom: 100%;
 	position: relative;
@@ -165,8 +194,6 @@ input[type="email"] {
 		}
 	}
 }
-
-
 
 // industy page
 .industry-section {
@@ -218,9 +245,6 @@ input[type="email"] {
 	}
 }
 
-
-
-
 .accordion {
 	margin-bottom: rem-calc(60px);
 }
@@ -242,7 +266,6 @@ input[type="email"] {
 		top: 50%;
 		transform: translateY(-50%);
 		margin-top: 0;
-		// right: 0;
 
 		@include breakpoint(small down) {
 			right: 0;
@@ -276,14 +299,6 @@ input[type="email"] {
 	}
 }
 
-
-
-
-
-
-
-
-
 .social-links {
 	margin: rem-calc(20px) auto;
 
@@ -292,10 +307,6 @@ input[type="email"] {
 		width: rem-calc(40px);
 	}
 }
-
-
-
-
 
 #values {
 	.column {
@@ -324,5 +335,455 @@ input[type="email"] {
 	}
 	.item-2 hr {
 		opacity: 70%;
+	}
+}
+
+.subhead {
+	color: $primary-color;
+	margin-bottom: rem-calc(36px);
+}
+
+.headline {
+	text-align: center;
+}
+
+.description {
+	font-size: rem-calc(15px);
+	color: $primary-color;
+	text-align: center;
+}
+
+#problem {
+	@include breakpoint(xmedium up) {
+		padding-top: 80px;
+		> div {
+			justify-content: space-around;
+			max-width: $global-width;
+			margin: 0 auto;
+			@include breakpoint(large up) {
+				justify-content: center;
+			}
+			@include breakpoint(xlarge up) {
+				justify-content: space-between;
+			}
+		}
+	}
+	.detail {
+		padding-inline: rem-calc(24px);
+		padding-bottom: rem-calc(24px);
+		@include breakpoint(xmedium up) {
+			padding-top: rem-calc(50px);
+			max-width: rem-calc(400px);
+		}
+		@include breakpoint(large up) {
+			max-width: rem-calc(560px);
+		}
+		@include breakpoint(xlarge up) {
+			max-width: rem-calc(600px);
+		}
+		.paint-point {
+			margin-bottom: rem-calc(32px);
+			color: $text-color;
+		}
+	}
+	.summary {
+		padding-top: rem-calc(48px);
+		padding-inline: rem-calc(24px);
+		padding-bottom: rem-calc(56px);
+		background-color: $primary-color;
+		@include breakpoint(xmedium up) {
+			max-width: rem-calc(400px);
+			padding-bottom: rem-calc(80px);
+			border-top-left-radius: rem-calc(35px);
+			border-bottom-right-radius: rem-calc(35px);
+			box-shadow: 0 2px 5px #00000014, 0 5px 20px #0000001f;
+		}
+		@include breakpoint(large up) {
+			max-width: rem-calc(448px);
+		}
+		@include breakpoint(xlarge up) {
+			max-width: rem-calc(480px);
+		}
+	
+		h5 {
+			margin-bottom: rem-calc(48px);
+			padding: 0 rem-calc(10px);
+			color: $white;
+		}
+	
+		.column {
+			@include breakpoint(medium up) {
+				max-width: fit-content;
+				margin: 0 auto;
+			}
+			.row {
+				span {
+					color: $white;
+					font-size: rem-calc(19px);
+					font-weight: 500;
+					font-style: normal;
+					@include breakpoint(middle up) {
+						font-size: rem-calc(17px);
+					}
+				}
+				&:not(:last-child) {
+					margin-bottom: rem-calc(48px);
+				}
+			}
+		}
+	}
+	.icon-wrapper {
+		width: 100px;
+		margin-right: rem-calc(10px);
+		.icon-clock {
+			width: rem-calc(64px);
+		}
+		.icon-millions {
+			width: rem-calc(80px);
+		}
+		.icon-engineers {
+			width: rem-calc(110px);
+		}
+	}
+}
+
+.card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: rem-calc(250px);
+	min-height: rem-calc(200px);
+	max-width: rem-calc(310px);
+	padding: rem-calc(32px);
+	border-radius: 5px;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+	background-color: $white;
+	border: 1px solid #a1a0a01a;
+	font-size: rem-calc(17px);
+	font-weight: bold;
+	color: $primary-color;
+	@include breakpoint(medium up) {
+		font-size: rem-calc(19px);
+		min-height: rem-calc(250px);
+	}
+}
+
+#specialties {
+	.subhead {
+    margin: 0 auto;
+		margin-bottom: rem-calc(48px);
+		max-width: rem-calc(900px);
+    text-align: center;
+		@include breakpoint(large up) {
+			margin-bottom: rem-calc(96px);
+		}
+	}
+	.wrapper {
+		max-width: fit-content;
+    margin: 0 auto;
+	}
+	.integration {
+		position: relative;
+    border-bottom: 1px solid $primary-color;
+    border-top: 1px solid $primary-color;
+		&:before {
+			content: '';
+			position: absolute;
+			border: .5px solid $primary-color;
+			width: 1px;
+			height: 100%;
+			left: calc(50% - 2px);
+			z-index: 1;
+		}
+		> div {
+			position: relative;
+			margin: rem-calc(60px) 0;
+			padding: rem-calc(5px) 0 0 0;
+			text-align: center;
+			background: $white;
+			z-index: 2;
+			img {
+				width: 70px;
+			}
+			h4 {
+				margin-top: 0.2em;
+				margin-bottom: 0;
+				color: $primary-color;
+				font-size: rem-calc(18px);
+				@include breakpoint(medium up) {
+					font-size: rem-calc(19px);
+				}
+			}
+		}
+	}
+	.grid {
+		display: grid;
+		.logo {
+			text-align: center;
+			img {
+				margin-bottom: 5px;
+			}
+			.caption {
+				font-size: rem-calc(14px);
+				@include breakpoint(large up) {
+					font-size: rem-calc(15px);
+				}
+			}
+		}
+		&.top-grid {
+			grid-template-columns: 1fr 1fr 1fr;
+			row-gap: rem-calc(20px);
+			margin-bottom: rem-calc(15px);
+			@include breakpoint(large up) {
+				grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+				font-size: rem-calc(15px);
+			}
+		}
+		&.source-top-grid {
+			grid-template-columns: 1fr 1fr 1fr;
+			column-gap: rem-calc(20px);
+			row-gap: rem-calc(20px);
+			margin-top: rem-calc(30px);
+			@include breakpoint(large up) {
+				grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+				font-size: rem-calc(15px);
+			}
+		}
+		&.source-bottom-grid {
+			grid-template-columns: 1fr 1fr 1fr;
+			column-gap: rem-calc(20px);
+			row-gap: rem-calc(20px);
+			margin: rem-calc(20px) auto;
+			@include breakpoint(large up) {
+				grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+				width: 85%;
+				margin: rem-calc(30px) auto;
+			}
+		}
+	}
+	.other {
+    margin: rem-calc(24px) rem-calc(24px) 0 rem-calc(24px);
+		font-size: rem-calc(15px);
+		@include breakpoint(medium up) {
+			font-size: rem-calc(17px);
+		}
+	}
+}
+
+#partners {
+	.grid-y {
+		.cell {
+			width: 250px;
+			height: 70px;
+		}
+	}
+}
+
+#offerings {
+	.headline {
+		color: $primary-color;
+	}
+	.description {
+		font-size: rem-calc(17px);
+		text-align: center;
+		max-width: rem-calc(500px);
+		margin: 0 auto;
+		@include breakpoint(medium up) {
+			font-size: rem-calc(19px);
+		}
+	}
+	.benefits {
+		padding: rem-calc(60px);
+		background: $whitesmoke;
+		.row {
+			justify-content: center;
+			margin: rem-calc(60px) auto;
+			@include breakpoint(medium up) {
+				justify-content: space-between;
+			}
+		}
+	}
+	.features {
+		padding: rem-calc(60px);
+		background-color: $primary-color;
+		color: $white;
+		.row {
+			justify-content: center;
+			margin: rem-calc(60px) auto;
+			@include breakpoint(medium up) {
+				justify-content: space-between;
+			}
+		}
+		.head {
+			margin-bottom: rem-calc(60px);
+			.headline {
+				margin-bottom: rem-calc(10px);
+			}
+		}
+		.card:last-child {
+			margin-bottom: 0;
+		}
+		h2 {
+			color: $white;
+		}
+		.description {
+			color: $white;
+		}
+	}
+	.row {
+		gap: rem-calc(30px);
+	}
+}
+
+#casestudies {
+	padding: rem-calc(70px) 0;
+	.head {
+		padding: rem-calc(60px) rem-calc(24px);
+		padding-top: 0;
+		.headline {
+			margin-bottom: rem-calc(24px);
+		}
+		.subhead {
+			max-width: rem-calc(900px);
+			text-align: center;
+			margin: 0 auto;
+		}
+	}
+	.scroller {
+    display: flex;
+		max-width: rem-calc(1200px);
+    margin: 0 auto;
+		height: rem-calc(376px);
+    padding: 0 rem-calc(25px);
+		overflow-x: scroll;
+		scrollbar-width: thin;
+		&::-webkit-scrollbar {
+			-webkit-appearance: none;
+		}
+		&::-webkit-scrollbar:horizontal {
+			height:	rem-calc(10px);
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: $primary-color;
+			border: 2px solid $white;
+		}
+		&::-webkit-scrollbar-track {
+			background-color: $whitesmoke;
+		}
+		@include breakpoint(medium up) {
+			margin-top: rem-calc(40px);
+			height: rem-calc(386px);
+		}
+		.phase {
+			position: relative;
+			height: rem-calc(250px);
+			min-width: rem-calc(310px);
+			margin-bottom: rem-calc(40px);
+			margin-right: rem-calc(50px);
+			font-size: rem-calc(19px);
+			.title {
+				position: absolute;
+				text-align: center;
+				width: 95%;
+				color: $primary-color;
+			}
+			.detail {
+				padding: rem-calc(20px) rem-calc(25px);
+				margin-top: rem-calc(72px);
+				height: 100%;
+				background-color: $whitesmoke;
+				border: 1px solid #a1a0a01a;
+				box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+				@include breakpoint(medium up) {
+					margin-top: rem-calc(85px);
+				}
+				ul {
+				 li {
+						font-size: rem-calc(16px);
+    				padding-bottom: em-calc(10, 16);
+						font-weight: 500;
+    				color: #555;
+						@include breakpoint(medium up) {
+							font-size: rem-calc(17px);
+							padding-bottom: em-calc(20, 17);
+						}
+					}
+				}
+			}
+		}
+	}
+	.next {
+		padding: rem-calc(60px);
+		background-color: $primary-color;
+		h4 {
+			color: $white;
+		}
+		> p {
+			margin-bottom: 0;
+			font-size: rem-calc(21px);
+			line-height: 1.4;
+			color: $white;
+		}
+	}
+}
+
+#deployment {
+	background: $primary-color;
+	padding: rem-calc(70px) 0 rem-calc(70px) 0;
+	.head {
+		padding: 0 rem-calc(24px);
+		padding-top: 0;
+		.headline, .subhead {
+			color: $white;
+		}
+		.headline {
+			margin-bottom: rem-calc(24px);
+		}
+		.subhead {
+			max-width: rem-calc(900px);
+			text-align: center;
+			margin: 0 auto;
+		}
+	}
+	.card {
+		background: $primary-color;
+    max-width: rem-calc(200px);
+    max-height: rem-calc(100px);
+    min-height: rem-calc(170px);
+    border: 1px dashed;
+    color: $white;
+	}
+	.row {
+		justify-content: center;
+    gap: rem-calc(40px);
+		padding: rem-calc(60px) 0;
+		@include breakpoint(medium up) {
+    	padding: rem-calc(120px) 0;
+		}
+	}
+	.card:last-child {
+		margin-bottom: 0;
+	}
+	.next {
+		padding: rem-calc(60px);
+		background-color: $primary-color;
+		> h4 {
+			color: $white;
+		}
+	}
+	.cta {
+		text-align: center;
+		.action {
+			padding: rem-calc(20px);
+			color: $primary-color;
+			background: $white;
+			border-radius: 5px;
+			font-size: rem-calc(22px);
+			font-weight: 600;
+			cursor: pointer;
+			&:hover {
+				background: rgba($white, 0.95);
+			}
+		}
 	}
 }

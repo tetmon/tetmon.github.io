@@ -1,7 +1,7 @@
 footer {
-	@extend .bg-black;
 	color: $white;
 	padding: rem-calc(80px) 2em;
+	background-color: white;
 
 	a {
 		color: $white;
@@ -28,13 +28,14 @@ footer {
 				padding-right: 0;
 				margin-right: rem-calc(20px);
 				margin-left: rem-calc(20px);
+				color: $black;
 			}
 
 			&.active {
 				a {
-					border-bottom: 2px solid $white;
+					border-bottom: 2px solid $primary-color;
 					background-color: transparent;
-					color: $white;
+					color: $primary-color;
 				}
 			}
 

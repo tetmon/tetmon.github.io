@@ -1,56 +1,44 @@
 header {
-	padding: rem-calc(40px);
-	position: absolute;
+	padding: rem-calc(17px) rem-calc(20px);
+	position: fixed;
 	width: 100%;
+	background-color: $primary-color;
 	z-index: 999;
-
 	@include breakpoint(medium up) {
-		padding: rem-calc(70px);
+		padding: rem-calc(17px) rem-calc(40px);
 	}
-
+	.row {
+		max-width: 1368px;
+	}
 	.menu {
 		font-weight: 600;
 		text-transform: uppercase;
-
 		li {
 			margin-left: rem-calc(60px);
 		}
-
 		a {
 			font-size: rem-calc(15px);
 			padding-left: 0;
 			padding-right: 0;
-			// padding-top: 0;
 			border-bottom: 2px solid transparent;
 			letter-spacing: .1em;
-
 			color: $white;
-
 			&:hover {
 				color: $white;
 			}
 		}
-
 		li.active a {
 			border-bottom-color: $white;
 		}
 	}
 	img, svg {
-		height: rem-calc(26px);
+		height: rem-calc(28px);
 		width: auto;
-
 		path {
 			transition: fill 0.5s;
 		}
-
-		@include breakpoint(medium up) {
-			height: rem-calc(52px);
-		}
-
-
 	}
 }
-
 
 .mobile-menu {
 	background-color: #fff;
@@ -59,13 +47,11 @@ header {
 	left: 0;
 	bottom: 0;
 	right: 0;
-
 	padding: 0;
-
 	opacity: 0;
 	pointer-events: none;
-
 	transition: opacity 0.5s;
+	z-index: 2;
 
 	.menu-open & {
 		opacity: 1;
@@ -81,7 +67,6 @@ header {
 			&:not(:first-child) {
 				border-top: 1px solid $light-gray;
 			}
-
 			a {
 				padding: rem-calc(50px) 0;
 				font-weight: 600;
@@ -104,9 +89,11 @@ header {
 	}
 }
 
-
-
 .menu-open {
+	header {
+		background-color: $white;
+		transition: background-color .5s;
+	}
 	header svg path {
 		fill: $black !important;
 	}

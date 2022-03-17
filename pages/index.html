@@ -1,83 +1,274 @@
 ---
 
 title: Homepage
+pagetitle: No-code virtual data warehouse for anyone, within minutes
 layout: default
 permalink: /
 
-headline: EdgeSet - data integration made easy
-subhead: low-code ~ data‑virtualisation ~ data‑security
+headline: Tetmon EdgeSet
+subhead: No-code virtual data warehouse for anyone, within minutes.
+action: Schedule a Demo
 
+calendly: https://calendly.com/hyinghan
+
+problem:
+ experience:
+    headline: "Having provided professional services to various firms for DevOps, data and database, we notice one common pain point, regardless of industry:"
+    paintpoints:
+     - C-suite, operations, finance, business development, tech, customer experience, all need accurate data to operate efficiently, but the needed data is often spread across disparate databases.
+     - A central data warehouse provides immense benefits, but it’s difficult and costly to set up.
+ summary:
+    headline: "The traditional, common solution of setting up a central data warehouse could take:"
+    details:
+      - 1-2 years
+      - Millions of dollars
+      - 10-20 engineers
+    icons:
+      - {name: 'clock', title: 'Clock', src: 'icon-clock.svg'}
+      - {name: 'millions', title: 'Millions of dollars', src: 'icon-money.svg'}
+      - {name: 'engineers', title: 'Engineers', src: 'icon-engineers.svg'}
+ 
 specialties:
-  headline: EdgeSet enables both technical & business users to join disparate databases, in 10 seconds
-  sections:
-    - 360 customer view & cross-database revenue insights, by the time you finish reading this
-    - No more mind-numbing, error-prone ETL work
-    - Setup in 1-2 days, not 1-2 years
-work:
-  headline: EdgeSet integrates all necessary data into a single point of access, by ingesting from 10+ cloud & on-prem databases, and outputs to your favourite BI tools
-  subhead: >
-    Clients across hedge funds, retail, ecommerce, banking, fintech, healthcare trust us, due to:
-  sections:
-    - Scalability & Reliabilty: Run real-time analytics for multiple datasets at Petabyte scale
-    - Data access monitoring & privacy controls (for MAS remote working & ISO27001 compliance)
-    - Secure on-prem/private cloud, at 1/10 the cost
+  headline: Edgeset integrates various cloud and on-premise databases into a single point of access so that you can easily query large data within your organisation, without technical expertise!
+  caption: Data integration layer
+  other: And other on-premise and cloud databases.
+  icons:
+    tools:
+      - {title: 'DBeaver', src: 'DBeaver.svg'}
+      - {title: 'Metabase', src: 'Metabase.svg'}
+      - {title: 'Python', src: 'Python.svg'}
+      - {title: 'Redash', src: 'Redash.svg'}
+      - {title: 'Superset', src: 'Superset.svg'}
+      - {title: 'Tableau', src: 'Tableau.svg'}
+    sources_1:
+      - {title: 'Alibaba OSS', src: 'OSS.svg'}
+      - {title: 'Amazon Redshift', src: 'Redshift.svg'}
+      - {title: 'Apache Kafka', src: 'Kafka.svg'}
+      - {title: 'ElasticSearch', src: 'ElasticSearch.svg'}
+      - {title: 'Google BigQuery', src: 'BigQuery.svg'}
+      - {title: 'Microsoft SQL Server', src: 'SQL-Server.svg'}
+    sources_2:
+      - {title: 'Excel', src: 'Excel.svg'}
+      - {title: 'Sheets', src: 'Google-Sheets.svg'}    
+      - {title: 'MongoDB', src: 'MongoDB.svg'}   
+      - {title: 'MySQL', src: 'MySQL.svg'}
+      - {title: 'PostgreSQL', src: 'PostgreSQL.svg'}
+      - {title: 'Amazon S3', src: 'S3.svg'}
+
+partners:
+  headline: Our partners & clients
+  companies: 
+    - {title: 'ICS&S', src: 'icss.png'}
+    - {title: 'Pactera', src: 'pactera.png'}
+    - {title: 'Terminus', src: 'terminus.png'}
+
+offering:
+  benefits:
+    headline: EdgeSet Core Benefits
+    highlights:
+      - "Automation: <br/> Reduce error + time spent"
+      - Cost savings
+      - Insights in minutes
+    description: Data transforms now cheap & easy; reduced ETL & data engineering headcount
+  features:
+    headline: Features
+    subhead: Data Transforms, made easy
+    highlights:
+      - User access + Privacy controls
+      - "Data Discovery: <br/> Hive/AWS Glue not needed"
+      - Secure on-premise/<br/>web deployment, at fraction of the cost
+    description: 4 weeks down to 40 minutes
+
+casestudies:
+  headline: Case Study
+  subhead:  One of Singapore's premier financial institutions uses EdgeSet to join multiple Excels, to generate cost savings
+  timeline:
+    - title: Situation Before Tetmon
+      list:
+        - 5-person Operations team has to regularly work till midnight to reconcile trades
+        - Data errors hinder trade analysis
+    - title: After Implementing Tetmon EdgeSet
+      list:
+        - Operations staff can now go home on-time
+        - Automation reduced manual "eye-ball" checks
+    - title: Cost Benefits
+      list:
+        - 6 manhours saved, per day
+    - title: Other Benefits
+      list: 
+        - Better trade analysis
+        - Reduced human error
+  footer: "<b>Next stage</b>: Expand usage of EdgeSet from Operations team to firm-wide; joining Excels with internal data sources"
+
+deployment:
+  headline: Deployment
+  subhead: For a typical pilot run, EdgeSet can be deployed within few working days
+  timeline:
+    - Sign order form & decide on data sources
+    - 30 minutes video walkthrough
+    - Client provide data source details
+    - 30 minute video call to ensure successful deployment
+  footer: You can reap the benefits and showcase business insights, rapidly
+  action: Schedule a demo now
 
 ---
 
 <section id="hero">
-	<div class="row">
-		<div class="column small-12 large-8">
-			<h1>{{ page.headline }}</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="column small-12 medium-8 large-6">
-			<p class="lead">
-				{{ page.subhead }}
-			</p>
-			<a href="#specialties">
-				<img src="assets/images/icon-arrow-down.svg">
-			</a>
-		</div>
-	</div>
+  <div class="row flex-dir-column wrapper">
+    <div class="column small-12 large-8 flex-child-shrink">
+      <h1>{{ page.headline }}</h1>
+    </div>
+    <div class="column small-12 medium-8 large-6 flex-child-grow">
+      <p class="lead">
+        {{ page.subhead }}
+      </p>
+      <a href="{{page.calendly}}" target="_blank">
+        <button class="action">{{page.action}}</button>
+      </a>
+    </div>
+    <div class="column partners flex-child-shrink">
+      <p>{{ page.partners.headline }}</p>
+      <div class="row">
+        {% for item in page.partners.companies %}
+          <img alt="{{item.title}}" src="/assets/images/{{item.src}}"/>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <img class="cover" src="/assets/images/pattern-homepage.svg"/>
 </section>
 
-<section id="specialties" class="text-center">
-	<div class="row">
-		<div class="column">
-			<h2>{{ page.specialties.headline }}</h2>
-		</div>
-	</div>
-	<div class="row small-up-1 medium-up-2 large-up-3 align-center">
-		{% for item in page.specialties.sections %}
-			<div class="column item-{{ forloop.index }}">
-				<div class="gradient-circle">
-					<div class="inner">
-						<p>{{ item }}</p>
-					</div>
-				</div>
-			</div>
-		{% endfor %}
-	</div>
+<section id="problem" class="inline">
+  <div class="grid-x grid-padding-x">
+    <div class="column detail large-auto cell">
+      <h4 class="subhead">
+        {{page.problem.experience.headline}}
+      </h4>
+      {% for item in page.problem.experience.paintpoints %}
+        <p class="paint-point">{{item}}</p>
+      {% endfor %}
+    </div>
+    <div class="column summary large-auto cell">
+      <div>
+        <h5 class="text-left">
+          {{page.problem.summary.headline}}
+        </h5>
+        <div class="column">
+          {% for item in page.problem.summary.details %}
+            <div class="row align-middle">
+              <div class="icon-wrapper">
+                {% assign counter = forloop.index | minus: 1 %}
+                {% assign icon = page.problem.summary.icons[counter] %}
+                <img class="icon-{{icon.name}}" alt="{{icon.title}}" src="/assets/images/{{icon.src}}"/>
+              </div>
+              <span>{{item}}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="work" class="text-center bg-gray">
-	<div class="row">
-		<div class="column">
-			<h2>{{ page.work.headline }}</h2>
-			<h3>{{ page.work.subhead }}</h3>
-		</div>
-	</div>
-	<div class="row small-up-1 medium-up-3">
-		{% for item in page.work.sections %}
-			<div class="column">
-				<p>{{ item }}</p>
-			</div>
-		{% endfor %}
-	</div>
-	<div class="row" style="margin-top: 3em;">
-		<div class="column">
-			<a href="mailto:contact@tetmon.com" class="button">Email us now for a complimentary 2 week trial where we will have ZERO access to your internal data</a>
-		</div>
-	</div>
+<section id="specialties">
+  <h4 class="subhead">
+    {{page.specialties.headline}}
+  </h4>
+  <div class="wrapper">
+    <div class="grid top-grid">
+      {% for item in page.specialties.icons.tools %}
+        <div class="logo">
+          <img alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
+          <h6 class="caption">{{item.title}}</h6>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="integration">
+      <div>
+        <img alt="tetmon" src="/assets/images/tetmon-logo.svg"/>
+        <h4>Data Integration Layer</h4>
+      </div>
+    </div>
+    <div class="grid source-top-grid">
+      {% for item in page.specialties.icons.sources_1 %}
+        <div class="logo">
+          <img alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
+          <h6 class="caption">{{item.title}}</h6>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="grid source-bottom-grid">
+      {% for item in page.specialties.icons.sources_2 %}
+        <div class="logo">
+          <img alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
+          <h6 class="caption">{{item.title}}</h6>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <p class="description other">{{page.specialties.other}}</p>
+</section>
+
+
+<section id="offerings" class="inline">
+  <div class="benefits">
+    <h3 class="headline">{{page.offering.benefits.headline}}</h3 >
+    <div class="row medium-unstack">
+      {% for item in page.offering.benefits.highlights %}
+        <div class="columns card text-center">{{item}}</div>
+      {% endfor %}
+    </div>
+    <p class="description">{{page.offering.benefits.description}}<p>
+  </div>
+  <div class="features">
+    <div class="head">
+      <h2 class="headline">{{page.offering.features.headline}}</h2>
+    </div>
+    <div class="row medium-unstack">
+      {% for item in page.offering.features.highlights %}
+        <div class="columns card text-center">{{item}}</div>
+      {% endfor %}
+    </div>
+    <p class="description">{{page.offering.features.description}}<p>
+  </div>
+</section>
+
+<section id="casestudies" class="inline">
+  <div class="head">
+    <h2 class="headline">{{page.casestudies.headline}}</h2>
+    <h4 class="subhead">
+      {{page.casestudies.subhead}}
+    </h4>
+  </div>
+  <div class="scroller">
+    {% for item in page.casestudies.timeline %}
+      <div class="phase">
+        <h5 class="title">{{item.title}}</h5>
+        <div class="detail">
+          <ul>
+            {% for entry in item.list %}
+              <li>{{entry}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="deployment" class="inline">
+  <div class="head">
+    <h2 class="headline">{{page.deployment.headline}}</h2>
+    <h4 class="subhead">{{page.deployment.subhead}}</h4>
+  </div>
+  <div class="row medium-unstack">
+    {% for item in  page.deployment.timeline%}
+      <div class="columns card text-center">{{item}}</div>
+    {% endfor %}
+  </div>
+  <div class="cta">
+    <a href="{{page.calendly}}" target="_blank">
+      <button class="action">{{page.deployment.action}}</button>
+    </a>
+  </div>
 </section>

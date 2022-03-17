@@ -2,12 +2,9 @@ var Site = {
 	init: function() {
 		Site.menu()
 		Site.smoothScroll()
-		Site.inlinesvgs()
-	},
-	inlinesvgs: function() {
-
 	},
 	menu: function() {
+		$('.mobile-menu').removeClass('hide');
 		$(".menu-toggle").on("click", function(e) {
 			$(".hamburger").toggleClass("is-active");
 			$('body').toggleClass('menu-open');
@@ -43,11 +40,5 @@ var Site = {
 
 
 Site.init()
-$(document).foundation()
 
-inlineSVG.init({
-  svgSelector: 'img.svg', // the class attached to all images that should be inlined
-  initClass: 'js-inlinesvg', // class added to <html>
-}, function () {
-  console.log('All SVGs inlined');
-});
+$(document).foundation()
