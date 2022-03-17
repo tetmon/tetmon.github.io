@@ -62,7 +62,8 @@ gulp.task('copyJs', function() {
 gulp.task('embedSvgs', () =>
   gulp.src('_site/index.html')
     .pipe(embedSvg({
-      root: '.'
+      root: '.',
+      selectors: '.inline-icon'
     }))
     .pipe(gulp.dest('_site/')));
 

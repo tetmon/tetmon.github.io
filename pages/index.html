@@ -159,7 +159,7 @@ deployment:
               <div class="icon-wrapper">
                 {% assign counter = forloop.index | minus: 1 %}
                 {% assign icon = page.problem.summary.icons[counter] %}
-                <img class="icon-{{icon.name}}" alt="{{icon.title}}" src="/assets/images/{{icon.src}}"/>
+                <img class="icon-{{icon.name}} inline-icon" alt="{{icon.title}}" src="/assets/images/{{icon.src}}"/>
               </div>
               <span>{{item}}</span>
             </div>
@@ -178,21 +178,21 @@ deployment:
     <div class="grid top-grid">
       {% for item in page.specialties.icons.tools %}
         <div class="logo">
-          <img alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
+          <img class="inline-icon" alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
           <h6 class="caption">{{item.title}}</h6>
         </div>
       {% endfor %}
     </div>
     <div class="integration">
       <div>
-        <img alt="tetmon" src="/assets/images/tetmon-logo.svg"/>
+        <img class="inline-icon" alt="tetmon" src="/assets/images/tetmon-logo.svg"/>
         <h4>Data Integration Layer</h4>
       </div>
     </div>
     <div class="grid source-top-grid">
       {% for item in page.specialties.icons.sources_1 %}
         <div class="logo">
-          <img alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
+          <img class="inline-icon" alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
           <h6 class="caption">{{item.title}}</h6>
         </div>
       {% endfor %}
@@ -200,7 +200,7 @@ deployment:
     <div class="grid source-bottom-grid">
       {% for item in page.specialties.icons.sources_2 %}
         <div class="logo">
-          <img alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
+          <img class="inline-icon" alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
           <h6 class="caption">{{item.title}}</h6>
         </div>
       {% endfor %}
