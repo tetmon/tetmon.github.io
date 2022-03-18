@@ -33,6 +33,7 @@
 
 	.cover {
 		position: absolute;
+		pointer-events: none;
 		object-fit: cover;
 		width: 500px;
 		height: 500px;
@@ -53,7 +54,7 @@
 			margin-bottom: rem-calc(20px);
 			text-align: left;
 			color: $white;
-			font-size: rem-calc(16px);
+			font-size: rem-calc(17px);
 			font-weight: 500;
 			@include breakpoint(medium up) {
 				margin-bottom: rem-calc(25px);
@@ -78,11 +79,13 @@
 	.homepage & {
 		p.lead {
 			margin-top: rem-calc(8px);
-			margin-bottom: rem-calc(36px);
+			margin-bottom: rem-calc(40px);
 			max-width: rem-calc(400px);
+			font-size: rem-calc(17px);
 
 			@include breakpoint(xlarge up) {
 				margin-bottom: rem-calc(46px);
+				font-size: rem-calc(19px);
 			}
 		}
 	}

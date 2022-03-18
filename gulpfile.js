@@ -62,7 +62,9 @@ gulp.task('copyJs', function() {
 gulp.task('embedSvgs', () =>
   gulp.src('_site/index.html')
     .pipe(embedSvg({
-      root: '.'
+      root: '.',
+      selectors: '.inline-icon',
+      xmlMode: false
     }))
     .pipe(gulp.dest('_site/')));
 
@@ -71,6 +73,8 @@ function onError(err) {
   console.log(err);
   this.emit('end');
 }
+
+gulp.task('build-all', gulp.series('sass', 'javascript', 'embedSvgs'));
 
 gulp.task('default', gulp.series('sass', 'javascript', function() {
   gulp.watch(['_sass/**/*.scss'], gulp.series('sass'));
