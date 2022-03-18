@@ -73,6 +73,8 @@ function onError(err) {
   this.emit('end');
 }
 
+gulp.task('build-all', gulp.series('sass', 'embedSvgs', 'javascript'));
+
 gulp.task('default', gulp.series('sass', 'javascript', function() {
   gulp.watch(['_sass/**/*.scss'], gulp.series('sass'));
   gulp.watch(['assets/**/*.js'], gulp.series('javascript'));
