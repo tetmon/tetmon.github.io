@@ -66,17 +66,17 @@ offering:
   benefits:
     headline: EdgeSet Core Benefits
     highlights:
-      - "Automation: <br/> Reduce error + time spent"
-      - Cost savings
-      - Insights in minutes
+      - {title: "Automation: <br/> Reduce error + time spent", name: "automation", src: 'icon-fasttime.svg'}
+      - {title: "Cost savings", name: "savings", src: 'icon-money-savings.svg'}
+      - {title: "Insights in minutes", name: "insight",  src: 'icon-insight.svg'}
     description: Data transforms now cheap & easy; reduced ETL & data engineering headcount
   features:
     headline: Features
     subhead: Data Transforms, made easy
     highlights:
-      - User access + Privacy controls
-      - "Data Discovery: <br/> Hive/AWS Glue not needed"
-      - Secure on-premise/<br/>web deployment, at fraction of the cost
+      - {title: User access + Privacy controls, name: 'privacy', src: 'icon-privacy.svg'}
+      - {title: "Data Discovery: <br/> Hive/AWS Glue not needed", name: 'discovery', src: 'icon-magnify.svg'}
+      - {title: Secure on-premise/<br/>web deployment, at fraction of the cost, name: 'onpremise', src: 'icon-deployment.svg'}
     description: 4 weeks down to 40 minutes
 
 casestudies:
@@ -192,7 +192,11 @@ deployment:
     <div class="grid source-top-grid">
       {% for item in page.specialties.icons.sources_1 %}
         <div class="logo">
-          <img class="inline-icon" alt="{{item.title}}" src="./assets/images/icons/{{item.src}}"/>
+          {% if item.title == "ElasticSearch" %}
+            <svg width="50" height="50" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h64v64H0z"/><path d="M55.725 14.707l.003-.006C50.775 8.773 43.328 5 35 5c-10.6 0-19.767 6.112-24.186 15h35.192c2.525 0 4.983-.87 6.915-2.496a22.506 22.506 0 002.804-2.796" fill="#FEC514"/><path d="M8 32c0 2.422.324 4.767.922 7H42a7 7 0 100-14H8.922A27.02 27.02 0 008 32" fill="#343741"/><path d="M55.725 49.292l.003.006C50.775 55.226 43.328 59 35 59c-10.6 0-19.767-6.111-24.186-15h35.192c2.525 0 4.983.87 6.915 2.496a22.506 22.506 0 012.804 2.796" fill="#00BFB3"/></g></svg>
+          {% else %}
+            <img class="inline-icon" alt="{{item.title}}" src="./assets/images/icons/{{item.src}}"/>
+          {% endif %}
           <h6 class="caption">{{item.title}}</h6>
         </div>
       {% endfor %}
@@ -215,7 +219,10 @@ deployment:
     <h3 class="headline">{{page.offering.benefits.headline}}</h3 >
     <div class="row medium-unstack">
       {% for item in page.offering.benefits.highlights %}
-        <div class="columns card text-center">{{item}}</div>
+        <div class="columns card text-center flex-dir-column">
+          <img alt="{{item.title | strip_html}}"  class="icon-{{item.name}} inline-icon" src="/assets/images/cards/{{item.src}}"/>
+          <p>{{item.title}}</p>
+        </div>
       {% endfor %}
     </div>
     <p class="description">{{page.offering.benefits.description}}<p>
@@ -226,7 +233,10 @@ deployment:
     </div>
     <div class="row medium-unstack">
       {% for item in page.offering.features.highlights %}
-        <div class="columns card text-center">{{item}}</div>
+        <div class="columns card text-center flex-dir-column">
+          <img alt="{{item.title | strip_html}}"  class="icon-{{item.name}} inline-icon" src="/assets/images/cards/{{item.src}}"/>
+          <p>{{item.title}}</p>
+        </div>
       {% endfor %}
     </div>
     <p class="description">{{page.offering.features.description}}<p>
@@ -261,9 +271,13 @@ deployment:
     <h2 class="headline">{{page.deployment.headline}}</h2>
     <h4 class="subhead">{{page.deployment.subhead}}</h4>
   </div>
-  <div class="row medium-unstack">
+  <div class="row medium-unstack flex-dir-column align-middle">
     {% for item in  page.deployment.timeline%}
-      <div class="columns card text-center">{{item}}</div>
+      <div class="columns card text-center">
+        <div class="triangle triangle-1"></div>
+        <div class="triangle triangle-2"></div>
+        <p>{{item}}</p>
+      </div>
     {% endfor %}
   </div>
   <div class="cta">

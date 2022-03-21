@@ -55,19 +55,19 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
 
 
 @function em-calc($value, $fontsize) {
-	@return ($value / $fontsize) * 1em;
+  @return ($value / $fontsize) * 1em;
 }
 
 .bg-primary {
-	background-color: $primary-color;
+  background-color: $primary-color;
 }
 
 .bg-black {
-	background-color: $black;
+  background-color: $black;
 }
 
 .bg-gray {
-	background-color: $light-gray;
+  background-color: $light-gray;
 }
 
 html, body {
@@ -76,714 +76,894 @@ html, body {
 }
 
 body {
-	@extend .bg-primary;
-	min-width: rem-calc(320px);
+  @extend .bg-primary;
+  min-width: rem-calc(320px);
 
-	&.menu-open {
-		overflow: hidden;
-	}
+  &.menu-open {
+    overflow: hidden;
+  }
 }
 
 main {
-	height: 100%;
+  height: 100%;
 }
 
 section {
-	padding: rem-calc(48px) rem-calc(24px) 0 rem-calc(24px);
-	background-color: #fff;
+  padding: rem-calc(48px) rem-calc(24px) 0 rem-calc(24px);
+  background-color: #fff;
 
-	@include breakpoint(large up) {
-		padding: rem-calc(110px) 2rem 0 2rem;
-	}
+  @include breakpoint(large up) {
+    padding: rem-calc(110px) 2rem 0 2rem;
+  }
 
-	&.inline {
-		padding-inline: 0;
-	}
+  &.inline {
+    padding-inline: 0;
+  }
 }
 
 h4 {
-	@include breakpoint(medium up) {
-		font-size: rem-calc(18px);
-	}
-	@include breakpoint(large up) {
-		font-size: rem-calc(25px);
-	}
+  @include breakpoint(medium up) {
+    font-size: rem-calc(18px);
+  }
+  @include breakpoint(large up) {
+    font-size: rem-calc(25px);
+  }
 }
 
 hr {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 $text-color: rgba($black, 0.7);
 
 .button {
-	text-transform: uppercase;
+  text-transform: uppercase;
 
-	&:hover {
-		background-color: $black;
-	}
+  &:hover {
+    background-color: $black;
+  }
 }
 
 input[type="email"] {
-	text-align: center;
-	border: 0;
-	box-shadow: none;
-	border-radius: 0;
-	border-bottom: 2px solid $black;
-	margin: rem-calc(30px) auto;
-	max-width: rem-calc(460px);
+  text-align: center;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: 2px solid $black;
+  margin: rem-calc(30px) auto;
+  max-width: rem-calc(460px);
 
-	&:focus {
-		border: 0;
-		box-shadow: none;
-		outline: none;
-		border-bottom: 2px solid $primary-color;
-	}
+  &:focus {
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    border-bottom: 2px solid $primary-color;
+  }
 }
 
 @keyframes fadeIn {
-	from { opacity: 0 }
-	to { opacity: 1 }
+  from { opacity: 0 }
+  to { opacity: 1 }
 }
 
 .fadeIn {
-	opacity: 0;
-	animation: fadeIn 2s;
-	animation-fill-mode: forwards;
+  opacity: 0;
+  animation: fadeIn 2s;
+  animation-fill-mode: forwards;
 }
 
 .gradient-circle {
-	width: 100%;
-	padding-bottom: 100%;
-	position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
 
-	@include breakpoint(small down) {
-		margin-bottom: rem-calc(30px);
-	}
+  @include breakpoint(small down) {
+    margin-bottom: rem-calc(30px);
+  }
 
-	&:before {
-		content: "";
-		display: block;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background-image: url(../images/circle-1.svg);
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/circle-1.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 
-	.item-2 & {
-		&:before {
-			transform: rotate(120deg);
-		}
-	}
-	.item-3 & {
-		&:before {
-			transform: rotate(240deg);
-		}
-	}
-	.inner {
-		position: absolute;
-		width: 100%;
-		top: 50%;
-		transform: translateY(-50%);
-		padding: 0 rem-calc(30px);
+  .item-2 & {
+    &:before {
+      transform: rotate(120deg);
+    }
+  }
+  .item-3 & {
+    &:before {
+      transform: rotate(240deg);
+    }
+  }
+  .inner {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 rem-calc(30px);
 
-		p {
-			margin-bottom: 0;
-		}
-	}
+    p {
+      margin-bottom: 0;
+    }
+  }
 }
 
 // industy page
 .industry-section {
-	h2 {
-		margin-bottom: rem-calc(20px);
-	}
-	h3 {
-		margin: 0;
-	}
-	img, svg {
-		height: rem-calc(60px);
-		width: rem-calc(60px);
-		margin: rem-calc(20px) 0;
-	}
-	&:nth-child(2) {
-		@include breakpoint(medium up) {
-			padding-top: rem-calc(180px) !important;
-		}
-	}
-	&:not(:first-of-type) {
-		padding-top: rem-calc(80px);
-	}
-	&:not(:last-of-type) {
-		padding-bottom: rem-calc(60px);
-	}
+  h2 {
+    margin-bottom: rem-calc(20px);
+  }
+  h3 {
+    margin: 0;
+  }
+  img, svg {
+    height: rem-calc(60px);
+    width: rem-calc(60px);
+    margin: rem-calc(20px) 0;
+  }
+  &:nth-child(2) {
+    @include breakpoint(medium up) {
+      padding-top: rem-calc(180px) !important;
+    }
+  }
+  &:not(:first-of-type) {
+    padding-top: rem-calc(80px);
+  }
+  &:not(:last-of-type) {
+    padding-bottom: rem-calc(60px);
+  }
 }
 
 
 // founders
 #founders {
-	h4 {
-		margin: rem-calc(20px) auto;
-		color: $primary-color;
-		font-size: 1.125em;
-	}
-	img {
-		border-radius: 1000px;
-		margin-bottom: 1em;
-		border: 2px solid $primary-color;
-		filter: grayscale(1);
-		height: rem-calc(96px);
-	}
-	.founders-column {
-		&:not(:last-child) {
-			@include breakpoint(small down) {
-				margin-bottom: rem-calc(40px);
-			}
-		}
-	}
+  h4 {
+    margin: rem-calc(20px) auto;
+    color: $primary-color;
+    font-size: 1.125em;
+  }
+  img {
+    border-radius: 1000px;
+    margin-bottom: 1em;
+    border: 2px solid $primary-color;
+    filter: grayscale(1);
+    height: rem-calc(96px);
+  }
+  .founders-column {
+    &:not(:last-child) {
+      @include breakpoint(small down) {
+        margin-bottom: rem-calc(40px);
+      }
+    }
+  }
 }
 
 .accordion {
-	margin-bottom: rem-calc(60px);
+  margin-bottom: rem-calc(60px);
 }
 
 .accordion-title {
-	border-left-color: transparent;
-	border-right-color: transparent;
-	position: relative;
-	font-weight: 700;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  font-weight: 700;
 
-	@include breakpoint(small down) {
-		font-size: rem-calc(16px);
-		padding-top: rem-calc(20px);
-		padding-bottom: rem-calc(20px);
-	}
+  @include breakpoint(small down) {
+    font-size: rem-calc(16px);
+    padding-top: rem-calc(20px);
+    padding-bottom: rem-calc(20px);
+  }
 
-	&:before {
-		font-size: 2em;
-		top: 50%;
-		transform: translateY(-50%);
-		margin-top: 0;
+  &:before {
+    font-size: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0;
 
-		@include breakpoint(small down) {
-			right: 0;
-		}
-	}
+    @include breakpoint(small down) {
+      right: 0;
+    }
+  }
 }
 
 .accordion-item:first-child>:first-child,
 .accordion-item:last-child>:first-child {
-	border-radius: 0;
+  border-radius: 0;
 }
 
 .accordion-content {
-	border-top: 0;
-	border-right: 0;
-	border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
 
-	.button {
-		margin-top: rem-calc(20px);
-	}
+  .button {
+    margin-top: rem-calc(20px);
+  }
 
-	ul {
-		margin-bottom: 2em;
-		list-style-position: inside;
-	}
+  ul {
+    margin-bottom: 2em;
+    list-style-position: inside;
+  }
 
 
-	@include breakpoint(small down) {
-		padding-left: 0;
-		padding-right: 0;
-	}
+  @include breakpoint(small down) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .social-links {
-	margin: rem-calc(20px) auto;
+  margin: rem-calc(20px) auto;
 
-	img {
-		height: rem-calc(40px);
-		width: rem-calc(40px);
-	}
+  img {
+    height: rem-calc(40px);
+    width: rem-calc(40px);
+  }
 }
 
 #values {
-	.column {
-		position: relative;
-		padding-bottom: rem-calc(20px);
+  .column {
+    position: relative;
+    padding-bottom: rem-calc(20px);
 
-		@include breakpoint(medium down) {
-			margin-bottom: rem-calc(40px);
-		}
-	}
-	hr {
-		border-bottom: 4px solid $primary-color;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		margin: 0;
+    @include breakpoint(medium down) {
+      margin-bottom: rem-calc(40px);
+    }
+  }
+  hr {
+    border-bottom: 4px solid $primary-color;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
 
-		@include breakpoint(medium up) {
-			left: rem-calc(20px);
-			right: rem-calc(20px);
-		}
-	}
-	.item-1 hr {
-		opacity: 40%;
-	}
-	.item-2 hr {
-		opacity: 70%;
-	}
+    @include breakpoint(medium up) {
+      left: rem-calc(20px);
+      right: rem-calc(20px);
+    }
+  }
+  .item-1 hr {
+    opacity: 40%;
+  }
+  .item-2 hr {
+    opacity: 70%;
+  }
 }
 
 .subhead {
-	color: $primary-color;
-	margin-bottom: rem-calc(36px);
+  color: $primary-color;
+  margin-bottom: rem-calc(36px);
 }
 
 .headline {
-	text-align: center;
+  text-align: center;
 }
 
 .description {
-	font-size: rem-calc(15px);
-	color: $primary-color;
-	text-align: center;
+  font-size: rem-calc(15px);
+  color: $primary-color;
+  text-align: center;
 }
 
 #problem {
-	@include breakpoint(xmedium up) {
-		padding-top: 80px;
-		> div {
-			justify-content: space-around;
-			max-width: $global-width;
-			margin: 0 auto;
-			@include breakpoint(large up) {
-				justify-content: center;
-			}
-			@include breakpoint(xlarge up) {
-				justify-content: space-between;
-			}
-		}
-	}
-	.detail {
-		padding-inline: rem-calc(24px);
-		padding-bottom: rem-calc(24px);
-		@include breakpoint(xmedium up) {
-			padding-top: rem-calc(50px);
-			max-width: rem-calc(400px);
-		}
-		@include breakpoint(large up) {
-			max-width: rem-calc(560px);
-		}
-		@include breakpoint(xlarge up) {
-			max-width: rem-calc(600px);
-		}
-		.paint-point {
-			margin-bottom: rem-calc(32px);
-			color: $text-color;
-		}
-	}
-	.summary {
-		padding-top: rem-calc(48px);
-		padding-inline: rem-calc(24px);
-		padding-bottom: rem-calc(56px);
-		background-color: $primary-color;
-		@include breakpoint(xmedium up) {
-			max-width: rem-calc(400px);
-			padding-bottom: rem-calc(80px);
-			border-top-left-radius: rem-calc(35px);
-			border-bottom-right-radius: rem-calc(35px);
-			box-shadow: 0 2px 5px #00000014, 0 5px 20px #0000001f;
-		}
-		@include breakpoint(large up) {
-			max-width: rem-calc(448px);
-		}
-		@include breakpoint(xlarge up) {
-			max-width: rem-calc(480px);
-		}
-	
-		h5 {
-			margin-bottom: rem-calc(48px);
-			padding: 0 rem-calc(10px);
-			color: $white;
-		}
-	
-		.column {
-			@include breakpoint(medium up) {
-				max-width: fit-content;
-				margin: 0 auto;
-			}
-			.row {
-				span {
-					color: $white;
-					font-size: rem-calc(19px);
-					font-weight: 500;
-					font-style: normal;
-					@include breakpoint(middle up) {
-						font-size: rem-calc(17px);
-					}
-				}
-				&:not(:last-child) {
-					margin-bottom: rem-calc(48px);
-				}
-			}
-		}
-	}
-	.icon-wrapper {
-		width: 100px;
-		margin-right: rem-calc(10px);
-		.icon-clock {
-			width: rem-calc(64px);
-		}
-		.icon-millions {
-			width: rem-calc(80px);
-		}
-		.icon-engineers {
-			width: rem-calc(110px);
-		}
-	}
+  @include breakpoint(xmedium up) {
+    padding-top: 80px;
+    > div {
+      justify-content: space-around;
+      max-width: $global-width;
+      margin: 0 auto;
+      @include breakpoint(large up) {
+        justify-content: center;
+      }
+      @include breakpoint(xlarge up) {
+        justify-content: space-between;
+      }
+    }
+  }
+  .detail {
+    padding-inline: rem-calc(24px);
+    padding-bottom: rem-calc(24px);
+    @include breakpoint(xmedium up) {
+      padding-top: rem-calc(50px);
+      max-width: rem-calc(400px);
+    }
+    @include breakpoint(large up) {
+      max-width: rem-calc(560px);
+    }
+    @include breakpoint(xlarge up) {
+      max-width: rem-calc(600px);
+    }
+    .paint-point {
+      margin-bottom: rem-calc(32px);
+      color: $text-color;
+    }
+  }
+  .summary {
+    padding-top: rem-calc(48px);
+    padding-inline: rem-calc(24px);
+    padding-bottom: rem-calc(56px);
+    background-color: $primary-color;
+    @include breakpoint(xmedium up) {
+      max-width: rem-calc(400px);
+      padding-bottom: rem-calc(56px);
+      border-top-left-radius: rem-calc(35px);
+      border-bottom-right-radius: rem-calc(35px);
+      box-shadow: 0 2px 5px #00000014, 0 5px 20px #0000001f;
+    }
+    @include breakpoint(large up) {
+      max-width: rem-calc(448px);
+    }
+    @include breakpoint(xlarge up) {
+      max-width: rem-calc(480px);
+    }
+  
+    h5 {
+      margin-bottom: rem-calc(48px);
+      padding: 0 rem-calc(30px);
+      color: $white;
+    }
+  
+    .column {
+      @include breakpoint(medium up) {
+        max-width: fit-content;
+        margin: 0 auto;
+      }
+      .row {
+        span {
+          color: $white;
+          font-size: rem-calc(17px);
+          font-weight: 500;
+          font-style: normal;
+          @include breakpoint(medium up) {
+            font-size: rem-calc(19px);
+          }
+        }
+        &:not(:last-child) {
+          margin-bottom: rem-calc(48px);
+          @include breakpoint(medium up) {
+            margin-bottom: rem-calc(70px);
+          }
+        }
+      }
+    }
+  }
+  .icon-wrapper {
+    width: 100px;
+    margin-right: rem-calc(10px);
+    .icon-clock {
+      width: rem-calc(64px);
+    }
+    .icon-millions {
+      width: rem-calc(80px);
+    }
+    .icon-engineers {
+      width: rem-calc(110px);
+    }
+  }
 }
 
 .card {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-width: rem-calc(250px);
-	min-height: rem-calc(200px);
-	max-width: rem-calc(310px);
-	padding: rem-calc(32px);
-	border-radius: 5px;
-	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
-	background-color: $white;
-	border: 1px solid #a1a0a01a;
-	font-size: rem-calc(17px);
-	font-weight: bold;
-	color: $primary-color;
-	@include breakpoint(medium up) {
-		font-size: rem-calc(19px);
-		min-height: rem-calc(250px);
-	}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: rem-calc(250px);
+  min-height: rem-calc(200px);
+  max-width: rem-calc(310px);
+  padding: rem-calc(32px);
+  border-radius: 5px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  background-color: $white;
+  border: 1px solid #a1a0a01a;
+  font-size: rem-calc(17px);
+  font-weight: bold;
+  color: $primary-color;
+  @include breakpoint(medium up) {
+    font-size: rem-calc(19px);
+    min-height: rem-calc(250px);
+  }
 }
 
 #specialties {
-	.subhead {
+  .subhead {
     margin: 0 auto;
-		margin-bottom: rem-calc(48px);
-		max-width: rem-calc(900px);
+    margin-bottom: rem-calc(48px);
+    max-width: rem-calc(900px);
     text-align: center;
-		@include breakpoint(large up) {
-			margin-bottom: rem-calc(96px);
-		}
-	}
-	.wrapper {
-		max-width: fit-content;
+    @include breakpoint(large up) {
+      margin-bottom: rem-calc(96px);
+    }
+  }
+  .wrapper {
+    max-width: fit-content;
     margin: 0 auto;
-	}
-	.integration {
-		position: relative;
+  }
+  .integration {
+    position: relative;
     border-bottom: 1px solid $primary-color;
     border-top: 1px solid $primary-color;
-		&:before {
-			content: '';
-			position: absolute;
-			border: .5px solid $primary-color;
-			width: 1px;
-			height: 100%;
-			left: calc(50% - 2px);
-			z-index: 1;
-		}
-		> div {
-			position: relative;
-			margin: rem-calc(60px) 0;
-			padding: rem-calc(5px) 0 0 0;
-			text-align: center;
-			background: $white;
-			z-index: 2;
-			img {
-				width: 70px;
-			}
-			h4 {
-				margin-top: 0.2em;
-				margin-bottom: 0;
-				color: $primary-color;
-				font-size: rem-calc(18px);
-				@include breakpoint(medium up) {
-					font-size: rem-calc(19px);
-				}
-			}
-		}
-	}
-	.grid {
-		display: grid;
-		.logo {
-			text-align: center;
-			img {
-				margin-bottom: 5px;
-			}
-			.caption {
-				font-size: rem-calc(14px);
-				@include breakpoint(large up) {
-					font-size: rem-calc(15px);
-				}
-			}
-		}
-		&.top-grid {
-			grid-template-columns: 1fr 1fr 1fr;
-			row-gap: rem-calc(20px);
-			margin-bottom: rem-calc(15px);
-			@include breakpoint(large up) {
-				grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-				font-size: rem-calc(15px);
-			}
-		}
-		&.source-top-grid {
-			grid-template-columns: 1fr 1fr 1fr;
-			column-gap: rem-calc(20px);
-			row-gap: rem-calc(20px);
-			margin-top: rem-calc(30px);
-			@include breakpoint(large up) {
-				grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-				font-size: rem-calc(15px);
-			}
-		}
-		&.source-bottom-grid {
-			grid-template-columns: 1fr 1fr 1fr;
-			column-gap: rem-calc(20px);
-			row-gap: rem-calc(20px);
-			margin: rem-calc(20px) auto;
-			@include breakpoint(large up) {
-				grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-				width: 85%;
-				margin: rem-calc(30px) auto;
-			}
-		}
-	}
-	.other {
+    &:before {
+      content: '';
+      position: absolute;
+      border: .5px solid $primary-color;
+      width: 1px;
+      height: 100%;
+      left: calc(50% - 2px);
+      z-index: 1;
+    }
+    > div {
+      position: relative;
+      margin: rem-calc(60px) 0;
+      padding: rem-calc(5px) 0 0 0;
+      text-align: center;
+      background: $white;
+      z-index: 2;
+      img {
+        width: 70px;
+      }
+      h4 {
+        margin-top: 0.2em;
+        margin-bottom: 0;
+        color: $primary-color;
+        font-size: rem-calc(18px);
+        @include breakpoint(medium up) {
+          font-size: rem-calc(19px);
+        }
+      }
+    }
+  }
+  .grid {
+    display: grid;
+    .logo {
+      text-align: center;
+      img {
+        margin-bottom: 5px;
+      }
+      .caption {
+        font-size: rem-calc(14px);
+        @include breakpoint(large up) {
+          font-size: rem-calc(15px);
+        }
+      }
+    }
+    &.top-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      row-gap: rem-calc(20px);
+      margin-bottom: rem-calc(15px);
+      @include breakpoint(large up) {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        font-size: rem-calc(15px);
+      }
+    }
+    &.source-top-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: rem-calc(20px);
+      row-gap: rem-calc(20px);
+      margin-top: rem-calc(30px);
+      @include breakpoint(large up) {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        font-size: rem-calc(15px);
+      }
+    }
+    &.source-bottom-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: rem-calc(20px);
+      row-gap: rem-calc(20px);
+      margin: rem-calc(20px) auto;
+      @include breakpoint(large up) {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        width: 85%;
+        margin: rem-calc(30px) auto;
+      }
+    }
+  }
+  .other {
     margin: rem-calc(24px) rem-calc(24px) 0 rem-calc(24px);
-		font-size: rem-calc(15px);
-		@include breakpoint(medium up) {
-			font-size: rem-calc(17px);
-		}
-	}
+    font-size: rem-calc(15px);
+    @include breakpoint(medium up) {
+      font-size: rem-calc(17px);
+    }
+  }
 }
 
 #partners {
-	.grid-y {
-		.cell {
-			width: 250px;
-			height: 70px;
-		}
-	}
+  .grid-y {
+    .cell {
+      width: 250px;
+      height: 70px;
+    }
+  }
 }
 
 #offerings {
-	.headline {
-		color: $primary-color;
-	}
-	.description {
-		font-size: rem-calc(17px);
-		text-align: center;
-		max-width: rem-calc(500px);
-		margin: 0 auto;
-		@include breakpoint(medium up) {
-			font-size: rem-calc(19px);
-		}
-	}
-	.benefits {
-		padding: rem-calc(60px);
-		background: $whitesmoke;
-		.row {
-			justify-content: center;
-			margin: rem-calc(60px) auto;
-			@include breakpoint(medium up) {
-				justify-content: space-between;
-			}
-		}
-	}
-	.features {
-		padding: rem-calc(60px);
-		background-color: $primary-color;
-		color: $white;
-		.row {
-			justify-content: center;
-			margin: rem-calc(60px) auto;
-			@include breakpoint(medium up) {
-				justify-content: space-between;
-			}
-		}
-		.head {
-			margin-bottom: rem-calc(60px);
-			.headline {
-				margin-bottom: rem-calc(10px);
-			}
-		}
-		.card:last-child {
-			margin-bottom: 0;
-		}
-		h2 {
-			color: $white;
-		}
-		.description {
-			color: $white;
-		}
-	}
-	.row {
-		gap: rem-calc(30px);
-	}
+  .headline {
+    color: $primary-color;
+  }
+  .description {
+    font-size: rem-calc(17px);
+    text-align: center;
+    max-width: rem-calc(500px);
+    margin: 0 auto;
+    @include breakpoint(medium up) {
+      font-size: rem-calc(19px);
+    }
+  }
+  .benefits {
+    padding: rem-calc(60px);
+    background: $whitesmoke;
+    .row {
+      justify-content: center;
+      margin: rem-calc(60px) auto;
+      @include breakpoint(medium up) {
+        justify-content: space-between;
+      }
+      .inline-icon {
+        width: rem-calc(100px);
+      }
+      .icon-savings {
+        margin-top: rem-calc(-5px);
+        @include breakpoint(medium up) {
+          margin-top: rem-calc(-30px);
+        }
+      }
+      .icon-insight {
+        margin-top: rem-calc(-5px);
+        @include breakpoint(medium up) {
+          margin-top: rem-calc(-30px);
+        }
+      }
+    }
+  }
+  .features {
+    padding: rem-calc(60px);
+    background-color: $primary-color;
+    color: $white;
+    .row {
+      justify-content: center;
+      margin: rem-calc(60px) auto;
+      @include breakpoint(medium up) {
+        justify-content: space-between;
+      }
+      .inline-icon {
+        width: rem-calc(90px);
+      }
+    }
+    .head {
+      margin-bottom: rem-calc(60px);
+      .headline {
+        margin-bottom: rem-calc(10px);
+      }
+    }
+    .card:last-child {
+      margin-bottom: 0;
+    }
+    h2 {
+      color: $white;
+    }
+    .description {
+      color: $white;
+    }
+  }
+  .row {
+    gap: rem-calc(30px);
+  }
 }
 
 #casestudies {
-	padding: rem-calc(70px) 0;
-	.head {
-		padding: rem-calc(60px) rem-calc(24px);
-		padding-top: 0;
-		.headline {
-			margin-bottom: rem-calc(24px);
-		}
-		.subhead {
-			max-width: rem-calc(900px);
-			text-align: center;
-			margin: 0 auto;
-		}
-	}
-	.scroller {
+  padding: rem-calc(70px) 0;
+  .head {
+    padding: rem-calc(60px) rem-calc(24px);
+    padding-top: 0;
+    .headline {
+      margin-bottom: rem-calc(24px);
+    }
+    .subhead {
+      max-width: rem-calc(900px);
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+  .scroller {
     display: flex;
-		max-width: rem-calc(1200px);
+    max-width: rem-calc(1200px);
     margin: 0 auto;
-		height: rem-calc(376px);
+    height: rem-calc(376px);
     padding: 0 rem-calc(25px);
-		overflow-x: scroll;
-		scrollbar-width: thin;
-		&::-webkit-scrollbar {
-			-webkit-appearance: none;
-		}
-		&::-webkit-scrollbar:horizontal {
-			height:	rem-calc(10px);
-		}
-		&::-webkit-scrollbar-thumb {
-			background-color: $primary-color;
-			border: 2px solid $white;
-		}
-		&::-webkit-scrollbar-track {
-			background-color: $whitesmoke;
-		}
-		@include breakpoint(medium up) {
-			margin-top: rem-calc(40px);
-			height: rem-calc(386px);
-		}
-		.phase {
-			position: relative;
-			height: rem-calc(250px);
-			min-width: rem-calc(310px);
-			margin-bottom: rem-calc(40px);
-			margin-right: rem-calc(50px);
-			font-size: rem-calc(19px);
-			.title {
-				position: absolute;
-				text-align: center;
-				width: 95%;
-				color: $primary-color;
-			}
-			.detail {
-				padding: rem-calc(20px) rem-calc(25px);
-				margin-top: rem-calc(72px);
-				height: 100%;
-				background-color: $whitesmoke;
-				border: 1px solid #a1a0a01a;
-				box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
-				@include breakpoint(medium up) {
-					margin-top: rem-calc(85px);
-				}
-				ul {
-				 li {
-						font-size: rem-calc(16px);
-    				padding-bottom: em-calc(10, 16);
-						font-weight: 500;
-    				color: #555;
-						@include breakpoint(medium up) {
-							font-size: rem-calc(17px);
-							padding-bottom: em-calc(20, 17);
-						}
-					}
-				}
-			}
-		}
-	}
-	.next {
-		padding: rem-calc(60px);
-		background-color: $primary-color;
-		h4 {
-			color: $white;
-		}
-		> p {
-			margin-bottom: 0;
-			font-size: rem-calc(21px);
-			line-height: 1.4;
-			color: $white;
-		}
-	}
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+    &::-webkit-scrollbar:horizontal {
+      height:	rem-calc(10px);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $primary-color;
+      border: 2px solid $white;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: $whitesmoke;
+    }
+    @include breakpoint(medium up) {
+      margin-top: rem-calc(40px);
+      height: rem-calc(386px);
+    }
+    .phase {
+      position: relative;
+      height: rem-calc(250px);
+      min-width: rem-calc(310px);
+      margin-bottom: rem-calc(40px);
+      margin-right: rem-calc(50px);
+      font-size: rem-calc(19px);
+      .title {
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        color: $primary-color;
+      }
+      .detail {
+        padding: rem-calc(20px) rem-calc(25px);
+        margin-top: rem-calc(72px);
+        height: 100%;
+        background-color: $whitesmoke;
+        border: 1px solid #a1a0a01a;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+        @include breakpoint(medium up) {
+          margin-top: rem-calc(85px);
+        }
+        ul {
+         li {
+            font-size: rem-calc(16px);
+            padding-bottom: em-calc(10, 16);
+            font-weight: 500;
+            color: #555;
+            @include breakpoint(medium up) {
+              font-size: rem-calc(17px);
+              padding-bottom: em-calc(20, 17);
+            }
+          }
+        }
+      }
+    }
+  }
+  .next {
+    padding: rem-calc(60px);
+    background-color: $primary-color;
+    h4 {
+      color: $white;
+    }
+    > p {
+      margin-bottom: 0;
+      font-size: rem-calc(21px);
+      line-height: 1.4;
+      color: $white;
+    }
+  }
 }
 
 #deployment {
-	background: $primary-color;
-	padding: rem-calc(70px) 0 rem-calc(70px) 0;
-	.head {
-		padding: 0 rem-calc(24px);
-		padding-top: 0;
-		.headline, .subhead {
-			color: $white;
-		}
-		.headline {
-			margin-bottom: rem-calc(24px);
-		}
-		.subhead {
-			max-width: rem-calc(900px);
-			text-align: center;
-			margin: 0 auto;
-		}
-	}
-	.card {
-		background: $primary-color;
-    max-width: rem-calc(200px);
-    max-height: rem-calc(100px);
+  background: $primary-color;
+  padding: rem-calc(70px) 0 rem-calc(70px) 0;
+  .head {
+    padding: 0 rem-calc(24px);
+    padding-top: 0;
+    .headline, .subhead {
+      color: $white;
+    }
+    .headline {
+      margin-bottom: rem-calc(24px);
+    }
+    .subhead {
+      max-width: rem-calc(900px);
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+  .card {
+    position: relative;
     min-height: rem-calc(170px);
+    max-height: rem-calc(170px);
+    max-width: rem-calc(200px);
+    padding: 0 rem-calc(15px) 0 rem-calc(45px);
+    background: $primary-color;
     border: 1px dashed;
+    border-radius: 0;
+    box-shadow: none;
     color: $white;
-	}
-	.row {
-		justify-content: center;
+    min-width: 20%;
+    @include breakpoint(xlarge up) {
+      min-width: none;
+    }
+    p {
+      font-size: rem-calc(16px);
+      padding-top: rem-calc(20px);
+      @include breakpoint(medium up) {
+        font-size: rem-calc(17px);
+      }
+      @include breakpoint(xlarge up) {
+        font-size: inherit;
+      }
+    }
+    &:nth-child(1) {
+      padding-left: rem-calc(15px);
+      border-left: 1px dashed;
+      border-right: 1px dashed;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      border-bottom: 0;
+      @include breakpoint(large up) {
+        max-width: none;
+        padding-left: rem-calc(45px);
+        border-bottom: 1px dashed;
+        border-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 3px;
+      }
+    }
+    &:nth-child(2) {
+      left: 0;
+      top: rem-calc(-38px);
+      padding-left: rem-calc(15px);
+      border-top: 0;
+      border-bottom: 0;
+      border-left: 1px dashed;
+      border-right: 1px dashed;
+      p {
+        padding-top: rem-calc(70px);
+      }
+      @include breakpoint(large up) {
+        max-width: none;
+        left: rem-calc(-40px);
+        top: 0;
+        padding-left: rem-calc(100px);
+        border-left: 0;
+        border-right: 0;
+        border-top: 1px dashed;
+        border-bottom: 1px dashed;
+        p {
+          padding-top: rem-calc(20px);
+        }
+      }
+    }
+    &:nth-child(3) {
+      left: 0;
+      top: rem-calc(-76px);
+      border-top: 0;
+      border-bottom: 0;
+      padding-left: rem-calc(15px);
+      border-left: 1px dashed;
+      border-right: 1px dashed;
+      p {
+        padding-top: rem-calc(70px);
+      }
+      @include breakpoint(large up) {
+        top: 0;
+        max-width: none;
+        left: rem-calc(-78px);
+        padding-left: rem-calc(100px);
+        border-left: 0;
+        border-right: 0;
+        border-top: 1px dashed;
+        border-bottom: 1px dashed;
+        p {
+          padding-top: rem-calc(20px);
+        }
+      }
+    }
+    &:nth-child(4) {
+      left: 0;
+      top: rem-calc(-114px);	
+      padding-left: rem-calc(15px);
+      border-bottom: 0;
+      border-top: 0;
+      border-left: 1px dashed;
+      border-right: 1px dashed;
+      p {
+        padding-top: rem-calc(75px);
+      }
+      @include breakpoint(large up) {
+        top: 0;
+        max-width: none;
+        left: rem-calc(-115px);
+        min-width: rem-calc(250px);
+        padding-left: rem-calc(94px);
+        border-left: 0;
+        border-right: 0;
+        border-top: 1px dashed;
+        border-bottom: 1px dashed;
+        p {
+          padding-top: rem-calc(20px);
+        }
+      }
+      @include breakpoint(xlarge up) {
+        min-width: rem-calc(300px);
+        p {
+          position: relative;
+          left: 7%;
+        }
+      }
+    }
+  }
+  .triangle {
+    display: inline-block;
+    position: absolute;
+    transform: rotate(-45deg);
+    right: rem-calc(-62px);
+    width: rem-calc(120px);
+    height: rem-calc(120px);
+    background: transparent;
+    border-bottom: 1px dashed $white;
+    border-right: 1px dashed $white;
+    z-index: 1;
+  }
+  .triangle-1 {
+    bottom: -18%;
+    left: 10%;
+    transform: rotate(25deg);
+    width: rem-calc(105px);
+    border-top: 0;
+    border-right: 0;
+    @include breakpoint(large up) {
+      bottom: auto;
+      left: auto;
+      transform: rotate(-45deg);
+      width: rem-calc(120px);
+      border-right: 1px dashed $white;
+    }
+  }
+  .triangle-2 {
+    bottom: -15%;
+    left: 31%;
+    transform: rotate(65deg);
+    height: rem-calc(112px);
+    right: rem-calc(11px);
+    border-bottom: 0;
+    @include breakpoint(large up) {
+      display: none;
+    }
+  }
+  .row {
+    max-width: rem-calc(1200px);
+    justify-content: center;
     gap: rem-calc(40px);
-		padding: rem-calc(60px) 0;
-		@include breakpoint(medium up) {
-    	padding: rem-calc(120px) 0;
-		}
-	}
-	.card:last-child {
-		margin-bottom: 0;
-	}
-	.next {
-		padding: rem-calc(60px);
-		background-color: $primary-color;
-		> h4 {
-			color: $white;
-		}
-	}
-	.cta {
-		text-align: center;
-		.action {
-			padding: rem-calc(20px);
-			color: $primary-color;
-			background: $white;
-			border-radius: 5px;
-			font-size: rem-calc(22px);
-			font-weight: 600;
-			cursor: pointer;
-			&:hover {
-				background: rgba($white, 0.95);
-			}
-		}
-	}
+    padding: rem-calc(60px) 0;
+    @include breakpoint(large up) {
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: rem-calc(100px) 0;
+      padding-left: 30px;
+    }
+  }
+  .card:last-child {
+    margin-bottom: 0;
+  }
+  .next {
+    padding: rem-calc(60px);
+    background-color: $primary-color;
+    > h4 {
+      color: $white;
+    }
+  }
+  .cta {
+    text-align: center;
+    .action {
+      padding: rem-calc(20px);
+      color: $primary-color;
+      background: $white;
+      border-radius: 5px;
+      font-size: rem-calc(22px);
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        background: rgba($white, 0.95);
+      }
+    }
+  }
 }
