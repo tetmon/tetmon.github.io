@@ -412,24 +412,22 @@ input[type="email"] {
     }
   
     .column {
-      @include breakpoint(medium up) {
-        max-width: fit-content;
-        margin: 0 auto;
-      }
+      max-width: fit-content;
+      margin: 0 auto;
       .row {
         span {
           color: $white;
           font-size: rem-calc(17px);
           font-weight: 500;
           font-style: normal;
-          @include breakpoint(medium up) {
-            font-size: rem-calc(19px);
+          @include breakpoint(large up) {
+            font-size: rem-calc(18px);
           }
         }
         &:not(:last-child) {
           margin-bottom: rem-calc(48px);
           @include breakpoint(medium up) {
-            margin-bottom: rem-calc(70px);
+            margin-bottom: rem-calc(60px);
           }
         }
       }
@@ -439,13 +437,13 @@ input[type="email"] {
     width: 100px;
     margin-right: rem-calc(10px);
     .icon-clock {
-      width: rem-calc(64px);
+      width: rem-calc(60px);
     }
     .icon-millions {
-      width: rem-calc(80px);
+      width: rem-calc(70px);
     }
     .icon-engineers {
-      width: rem-calc(110px);
+      width: rem-calc(100px);
     }
   }
 }
@@ -934,6 +932,7 @@ input[type="email"] {
     justify-content: center;
     gap: rem-calc(40px);
     padding: rem-calc(60px) 0;
+    padding-bottom: 0;
     @include breakpoint(large up) {
       flex-direction: row;
       justify-content: flex-start;

@@ -44,7 +44,7 @@ h5 {
 	font-size: rem-calc(17px);
 	line-height: 1.6;
 	@include breakpoint(large up) {
-		font-size: 19px;
+		font-size: rem-calc(19px);
 	}
 }
 
