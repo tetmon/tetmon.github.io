@@ -526,6 +526,7 @@ input[type="email"] {
       }
       .caption {
         font-size: rem-calc(14px);
+        color: $dark-gray-500;
         @include breakpoint(large up) {
           font-size: rem-calc(15px);
         }
@@ -721,7 +722,7 @@ input[type="email"] {
             font-size: rem-calc(16px);
             padding-bottom: em-calc(10, 16);
             font-weight: 500;
-            color: #555;
+            color: $dark-gray-500;
             @include breakpoint(medium up) {
               font-size: rem-calc(17px);
               padding-bottom: em-calc(20, 17);
