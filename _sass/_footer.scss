@@ -29,6 +29,9 @@ footer {
 				margin-right: rem-calc(20px);
 				margin-left: rem-calc(20px);
 				color: $dark-gray;
+				&:hover {
+					color: $primary-color;
+				}
 			}
 
 			&.active {
