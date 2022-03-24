@@ -301,10 +301,39 @@ input[type="email"] {
 
 .social-links {
   margin: rem-calc(20px) auto;
+ 
+  @include breakpoint(xsmall up) {
+    text-align: right;
+  }
 
   img {
-    height: rem-calc(40px);
-    width: rem-calc(40px);
+    height: rem-calc(25px);
+    width: rem-calc(25px);
+  }
+
+  a {
+    padding-right: rem-calc(8px);
+  }
+
+  &.menu {
+    justify-content: center;
+    @include breakpoint(xsmall up) {
+      justify-content: flex-end;
+    }
+    li:first-child {
+      a {
+        padding-left: 0;
+        @include breakpoint(xsmall up) {
+          padding-left: auto;
+        }
+      }
+    }
+    li:last-child {
+      a {
+        margin-right: 0;
+        padding-right: 0;
+      }
+    }
   }
 }
 
@@ -344,12 +373,6 @@ input[type="email"] {
 }
 
 .headline {
-  text-align: center;
-}
-
-.description {
-  font-size: rem-calc(15px);
-  color: $primary-color;
   text-align: center;
 }
 
@@ -565,8 +588,10 @@ input[type="email"] {
   }
   .other {
     margin: rem-calc(24px) rem-calc(24px) 0 rem-calc(24px);
+    text-align: center;
     font-size: rem-calc(15px);
-    @include breakpoint(medium up) {
+    color: $primary-color;
+    @include breakpoint(large up) {
       font-size: rem-calc(17px);
     }
   }
@@ -586,10 +611,11 @@ input[type="email"] {
     color: $primary-color;
   }
   .description {
-    font-size: rem-calc(17px);
-    text-align: center;
     max-width: rem-calc(500px);
     margin: 0 auto;
+    text-align: center;
+    font-size: rem-calc(17px);
+    color: $primary-color;
     @include breakpoint(medium up) {
       font-size: rem-calc(19px);
     }
@@ -648,6 +674,7 @@ input[type="email"] {
     }
     .description {
       color: $white;
+      text-align: center;
     }
   }
   .row {
