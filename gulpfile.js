@@ -33,26 +33,29 @@ gulp.task('sass', function() {
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
-    .pipe(gulp.dest('assets/css'))
-    .pipe(cleanCSS())
-    .pipe(rename('app.min.css'))
     .pipe(gulp.dest('assets/css'));
 });
 
+gulp.task('minifyCSS', gulp.series('sass', function() {
+  return gulp.src('assets/css/app.css')
+    .pipe(cleanCSS())
+    .pipe(rename('app.min.css'))
+    .pipe(gulp.dest('_site/assets/css'));
+}));
 
 gulp.task('javascript', function() {
-
   return gulp.src(scripts)
-    // .pipe($.sourcemaps.init())
     .pipe($.concat('app.js'))
-    // .pipe($.sourcemaps.write())
     .on('error', onError)
-    // .pipe(gulp.dest('./assets/javascript'))
+    .pipe(gulp.dest('_site/assets/javascript'))
+});
+
+gulp.task('minifyJs',  gulp.series('javascript', function() {
+  return gulp.src('_site/assets/javascript/app.js')
     .pipe(uglify())
     .pipe(rename('app.min.js'))
-    .pipe(gulp.dest('./assets/javascript'))
-    // .on('finish', browser.reload);
-});
+    .pipe(gulp.dest('_site/assets/javascript/'));
+}));
 
 gulp.task('copyJs', function() {
   return gulp.src(copyJs)
@@ -74,7 +77,7 @@ function onError(err) {
   this.emit('end');
 }
 
-gulp.task('build-all', gulp.series('sass', 'javascript', 'embedSvgs'));
+gulp.task('build-all', gulp.series('minifyCSS', 'minifyJs', 'embedSvgs'));
 
 gulp.task('default', gulp.series('sass', 'javascript', function() {
   gulp.watch(['_sass/**/*.scss'], gulp.series('sass'));
