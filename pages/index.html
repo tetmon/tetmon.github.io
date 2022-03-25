@@ -44,7 +44,7 @@ specialties:
       - {title: 'Alibaba OSS', src: 'OSS.svg'}
       - {title: 'Amazon Redshift', src: 'Redshift.svg'}
       - {title: 'Apache Kafka', src: 'Kafka.svg'}
-      - {title: 'ElasticSearch', src: 'ElasticSearch.svg'}
+      - {title: 'ElasticSearch', src: 'Elasticsearch.svg'}
       - {title: 'Google BigQuery', src: 'BigQuery.svg'}
       - {title: 'Microsoft SQL Server', src: 'SQL-Server.svg'}
     sources_2:
@@ -83,11 +83,11 @@ casestudies:
   headline: Case Study
   subhead:  One of Singapore's premier financial institutions uses EdgeSet to join multiple Excels, to generate cost savings
   timeline:
-    - title: Situation Before Tetmon
+    - title: Situation Before Edgeset
       list:
         - 5-person Operations team has to regularly work till midnight to reconcile trades
         - Data errors hinder trade analysis
-    - title: After Implementing Tetmon EdgeSet
+    - title: After Implementing EdgeSet
       list:
         - Operations staff can now go home on-time
         - Automation reduced manual "eye-ball" checks
@@ -102,7 +102,7 @@ casestudies:
 
 deployment:
   headline: Deployment
-  subhead: For a typical pilot run, EdgeSet can be deployed within few working days
+  subhead: For a typical pilot run, EdgeSet can be deployed within 1 to 5 working days
   timeline:
     - Sign order form & decide on data sources
     - 30 minutes video walkthrough
@@ -186,17 +186,13 @@ deployment:
     <div class="integration">
       <div>
         <img class="inline-icon" alt="tetmon" src="/assets/images/tetmon-logo.svg"/>
-        <h4>Data Integration Layer</h4>
+        <h4>{{page.specialties.caption}}</h4>
       </div>
     </div>
     <div class="grid source-top-grid">
       {% for item in page.specialties.icons.sources_1 %}
         <div class="logo">
-          {% if item.title == "ElasticSearch" %}
-            <svg width="50" height="50" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h64v64H0z"/><path d="M55.725 14.707l.003-.006C50.775 8.773 43.328 5 35 5c-10.6 0-19.767 6.112-24.186 15h35.192c2.525 0 4.983-.87 6.915-2.496a22.506 22.506 0 002.804-2.796" fill="#FEC514"/><path d="M8 32c0 2.422.324 4.767.922 7H42a7 7 0 100-14H8.922A27.02 27.02 0 008 32" fill="#343741"/><path d="M55.725 49.292l.003.006C50.775 55.226 43.328 59 35 59c-10.6 0-19.767-6.111-24.186-15h35.192c2.525 0 4.983.87 6.915 2.496a22.506 22.506 0 012.804 2.796" fill="#00BFB3"/></g></svg>
-          {% else %}
-            <img class="inline-icon" alt="{{item.title}}" src="./assets/images/icons/{{item.src}}"/>
-          {% endif %}
+          <img class="inline-icon" alt="{{item.title}}" src="/assets/images/icons/{{item.src}}"/>
           <h6 class="caption">{{item.title}}</h6>
         </div>
       {% endfor %}
