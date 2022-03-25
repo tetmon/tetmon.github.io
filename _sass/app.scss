@@ -635,6 +635,11 @@ input[type="email"] {
           margin-top: rem-calc(-30px);
         }
       }
+      .card {
+        p {
+          white-space: nowrap;
+        }
+      }
     }
   }
   .features {
@@ -656,6 +661,10 @@ input[type="email"] {
       .headline {
         margin-bottom: rem-calc(10px);
       }
+    }
+    .card-zh-2, .card-zh-3 {
+      justify-content: flex-end;
+      padding-bottom: 0;
     }
     .card:last-child {
       margin-bottom: 0;
@@ -834,18 +843,21 @@ input[type="email"] {
       border-right: 1px dashed;
       p {
         padding-top: rem-calc(70px);
+        padding-inline: rem-calc(10px);
       }
       @include breakpoint(large up) {
         max-width: none;
         left: rem-calc(-40px);
         top: 0;
-        padding-left: rem-calc(100px);
+        padding-left: rem-calc(106px);
         border-left: 0;
         border-right: 0;
         border-top: 1px dashed;
         border-bottom: 1px dashed;
         p {
+          padding-inline: 0;
           padding-top: rem-calc(20px);
+          padding-left: rem-calc(10px);
         }
       }
     }
@@ -859,18 +871,20 @@ input[type="email"] {
       border-right: 1px dashed;
       p {
         padding-top: rem-calc(70px);
+        padding-inline: rem-calc(10px);
       }
       @include breakpoint(large up) {
         top: 0;
         max-width: none;
         left: rem-calc(-78px);
-        padding-left: rem-calc(100px);
+        padding-left: rem-calc(112px);
         border-left: 0;
         border-right: 0;
         border-top: 1px dashed;
         border-bottom: 1px dashed;
         p {
           padding-top: rem-calc(20px);
+          padding-inline: 0;
         }
       }
     }

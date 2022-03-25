@@ -231,7 +231,7 @@ deployment:
     </div>
     <div class="row medium-unstack">
       {% for item in page.offering.features.highlights %}
-        <div class="columns card text-center flex-dir-column">
+        <div class="columns card text-center flex-dir-column card-zh-{{forloop.index}}">
           <img alt="{{item.title | strip_html}}"  class="icon-{{item.name}} inline-icon" src="/assets/images/cards/{{item.src}}"/>
           <p>{{item.title}}</p>
         </div>
