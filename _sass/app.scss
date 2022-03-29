@@ -439,11 +439,14 @@ input[type="email"] {
       margin: 0 auto;
       .row {
         span {
+          max-width: 60%;
           color: $white;
           font-size: rem-calc(17px);
+          line-height: 1.6;
           font-weight: 500;
           font-style: normal;
           @include breakpoint(large up) {
+            max-width: none;
             font-size: rem-calc(18px);
           }
         }
