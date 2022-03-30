@@ -665,12 +665,28 @@ input[type="email"] {
         margin-bottom: rem-calc(10px);
       }
     }
-    .card-zh-2, .card-zh-3 {
-      justify-content: flex-end;
-      padding-bottom: 0;
+    .card {
+      [lang="en"] & {
+        @include breakpoint(medium up) {
+          &:nth-child(2) {
+            img, p {
+              position: relative;
+              top: rem-calc(14px);
+            }
+          }
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
-    .card:last-child {
-      margin-bottom: 0;
+    [lang="zh-CN"] & {
+      .card {
+        &:nth-child(2), &:nth-child(3) {
+          justify-content: flex-end;
+          padding-bottom: 0;
+        }
+      }
     }
     h2 {
       color: $white;
