@@ -3,9 +3,5 @@
 	<li class="item {% if page.title == item.title %} active{% endif %}"><a href="{{ item.url }}">{{ item.title }}</a></li>
 {% endfor %}
 <li class="item">
-	{% if page.permalink == '/' %}
-		<a href="/zh-CN{{ page.url }}">中文</a>
-	{% else %}
-		<a href="/">EN</a>
-	{% endif %}
+	<a href="/zh-CN{{ page.url }}">中文</a>
 </li>
