@@ -563,7 +563,7 @@ input[type="email"] {
       row-gap: rem-calc(20px);
       margin-bottom: rem-calc(15px);
       @include breakpoint(large up) {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         font-size: rem-calc(15px);
       }
     }
