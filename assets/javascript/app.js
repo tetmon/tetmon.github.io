@@ -10921,9 +10921,11 @@ var Site = {
 				}
 			});
 	}
-}
+};
 
 
-Site.init()
 
-$(document).foundation()
+(function($) {
+	Site.init();
+	$(document).foundation();
+})(jQuery)
