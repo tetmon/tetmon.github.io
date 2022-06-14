@@ -1,6 +1,8 @@
 main_menu:
   - title: Case studies
     url: case-studies
+  - title: Press
+    url: press
   - title: About
     url: about
   - title: Careers
@@ -17,6 +19,8 @@ social-links:
 main-menu-zh-CN:
   - title: 使用案例
     url: case-studies
+  - title: Press
+    url: press
   - title: 关于我们
     url: about
   - title: 职业发展

@@ -1018,3 +1018,30 @@ input[type="email"] {
     }
   }
 }
+
+
+#press {
+  padding-top: rem-calc(110px);
+  padding-bottom: rem-calc(5px);
+  .column {
+    margin: 0 auto;
+    p {
+      font-size: rem-calc(17px);
+    }
+  }
+  .header {
+    margin-bottom: rem-calc(24px);
+    .hero {
+      background-image: url("/assets/images/tetmon_and_newgen.png");
+      height: rem-calc(250px);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+    }
+    .headline {
+      text-align: left;
+      text-decoration: underline;
+      margin: 0;
+    }
+  }
+}

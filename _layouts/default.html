@@ -113,6 +113,8 @@
     {% if jekyll.environment == "production" %}
       <script src="/assets/javascript/app.min.js?v={{ version }}"></script>
     {% else %}
+      <script src="/assets/js/jquery.min.js"></script>
+      <script src="/assets/js/foundation.min.js"></script>
       <script src="/assets/javascript/app.js?v={{ version }}"></script>
     {% endif %}
   </body>
