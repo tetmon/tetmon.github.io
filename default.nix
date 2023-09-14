@@ -1,10 +1,10 @@
 let
   pkgs = import (fetchGit {
-    url = git://github.com/NixOS/nixpkgs;
+    url = https://github.com/NixOS/nixpkgs.git;
     ref = "nixos-21.05";
   }) { };
   npmlock2nix = import (fetchGit {
-    url = git://github.com/tweag/npmlock2nix;
+    url = https://github.com/tweag/npmlock2nix.git;
     rev = "50479248c913ac9816e2b64a2aae792caf4f58d2";
   }) { inherit pkgs; };
   nm = npmlock2nix.node_modules {
