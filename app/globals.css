@@ -16,6 +16,14 @@
     mask-image: linear-gradient(to bottom, black 3.5rem, transparent);
     backdrop-filter: blur(10px);
   }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 * {
@@ -70,26 +78,19 @@ h6 {
   transition: opacity 400ms ease-in-out;
 }
 
-html[data-menu-open=true] header g {
+html[data-request-demo=true] header g {
   fill: white;
 }
 
-html[data-menu-open=true] header button[data-label="request-demo"] {
+html[data-request-demo=true] header button[data-label="request-demo"] {
   visibility: hidden;
 }
 
-html[data-menu-open=true] header button[data-label="burger"] {
+html[data-request-demo=true] body,
+html[data-show-menu=true] body {
+  overflow: hidden;
+}
+
+html[data-request-demo=true] header button[data-label="burger"] {
   color: white;
-}
-
-/* Temporary */
-
-html {
-  background: #333;
-}
-
-body {
-  max-width: 320px;
-  margin: 0 auto;
-  background: white;
 }

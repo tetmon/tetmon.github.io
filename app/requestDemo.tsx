@@ -14,7 +14,7 @@ const workSans = Work_Sans({
 
 const Demo = ({ showDemo, toggleDemo }: { showDemo: boolean, toggleDemo: (arg: boolean) => void }) => {
   useEffect(() => {
-    document.documentElement.dataset.menuOpen = `${showDemo}`;
+    document.documentElement.dataset.requestDemo = `${showDemo}`;
   }, [showDemo]);
 
   return (
@@ -25,7 +25,7 @@ const Demo = ({ showDemo, toggleDemo }: { showDemo: boolean, toggleDemo: (arg: b
         timeout={100}
         unmountOnExit
       >
-        <div className='fixed top-0 z-20 grid h-full w-full max-w-[320px] grid-cols-18 overflow-auto bg-edgeset'>
+        <div className='fixed top-0 z-20 grid h-full w-full grid-cols-18 overflow-auto bg-edgeset'>
           <div className='col-span-16 col-start-2 pt-28'>
             <h1 className='text-4xl leading-10 text-white'>
               Discover the power of visualizing your business metrics.
@@ -70,14 +70,14 @@ const Demo = ({ showDemo, toggleDemo }: { showDemo: boolean, toggleDemo: (arg: b
         </div>
       </CSSTransition>,
       document.body
-    ))
+    ));
 }
 
-export default function RequestDemo({ size }: { size: 'sm' | 'lg' }) {
+export default function RequestDemo({ size, outline }: { size: 'sm' | 'lg', outline?: boolean }) {
   const [showDemo, toggleDemo] = useState<boolean>(false);
   return (
     <>
-      <button data-label="request-demo" className={`rounded-3xl bg-slate-900 py-3 ${size === 'sm' ? 'px-4 text-xs' : 'px-5 text-base'} ${size === 'sm' ? 'font-semibold' : 'font-medium'} text-white`} onClick={() => {
+      <button data-label="request-demo" className={`rounded-3xl bg-slate-900 py-3 ${size === 'sm' ? 'px-4 text-xs' : 'px-5 text-base'} ${size === 'sm' ? 'font-semibold' : 'font-medium'} ${outline ? 'border border-white bg-[#19495a] text-white' : ' text-white'}`} onClick={() => {
         toggleDemo(true);
       }}>
         Request a demo
