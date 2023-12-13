@@ -13,6 +13,15 @@ const config: Config = {
       },
       height: {
       },
+      fontSize: {
+        '4xl': '2.5rem'
+      },
+      lineHeight: {
+        '11': '2.75rem'
+      },
+      maxWidth: {
+        '8xl': '1400px'
+      },
       maxHeight: {
         '100': '30rem',
       },
@@ -26,6 +35,10 @@ const config: Config = {
       },
       gridColumn: {
         'span-16': 'span 16 / span 16'
+      },
+      gridColumnEnd: {
+        '16': '16',
+        'none': 'none'
       },
       keyframes: {
         'fade-in-down': {

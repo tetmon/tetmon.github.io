@@ -73,15 +73,19 @@ const Demo = ({ showDemo, toggleDemo }: { showDemo: boolean, toggleDemo: (arg: b
     ));
 }
 
-export default function RequestDemo({ size, outline }: { size: 'sm' | 'lg', outline?: boolean }) {
+export default function RequestDemo({ size, outline, showInput }: { size: 'sm' | 'lg', outline?: boolean, showInput?: boolean }) {
   const [showDemo, toggleDemo] = useState<boolean>(false);
   return (
     <>
-      <button data-label="request-demo" className={`rounded-3xl bg-slate-900 py-3 ${size === 'sm' ? 'px-4 text-xs' : 'px-5 text-base'} ${size === 'sm' ? 'font-semibold' : 'font-medium'} ${outline ? 'border border-white bg-[#19495a] text-white' : ' text-white'}`} onClick={() => {
-        toggleDemo(true);
-      }}>
-        Request a demo
-      </button>
+      <div className='flex flex-col items-center md:flex-row md:items-baseline'>
+        {showInput ?
+          <input type="text" placeholder='Enter your email address' className='mx-3 mb-4 rounded-md border border-gray-200 p-4' /> : null}
+        <button data-label="request-demo" className={`rounded-3xl bg-slate-900 py-3  ${size === 'sm' ? 'px-4 text-xs' : 'px-5 text-base'} ${size === 'sm' ? 'font-semibold' : 'font-medium'} ${outline ? 'border border-white bg-[#19495a] text-white' : ' text-white'} border hover:border-black hover:bg-white hover:text-black`} onClick={() => {
+          toggleDemo(true);
+        }}>
+          Get demo
+        </button>
+      </div>
       {typeof window === 'object' ? <Demo showDemo={showDemo} toggleDemo={toggleDemo} /> : null}
     </>
   )

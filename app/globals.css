@@ -12,8 +12,8 @@
   }
 
   .header-mask {
-    -webkit-mask-image: linear-gradient(to bottom, black 3.5rem, transparent);
-    mask-image: linear-gradient(to bottom, black 3.5rem, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black 4.2rem, transparent);
+    mask-image: linear-gradient(to bottom, black 4.2rem, transparent);
     backdrop-filter: blur(10px);
   }
 
@@ -28,6 +28,7 @@
 
 * {
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 :root {
@@ -58,6 +59,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-sans), sans-serif;
+  letter-spacing: -0.125rem;
 }
 
 .portal-fade-enter {
@@ -93,4 +95,40 @@ html[data-show-menu=true] body {
 
 html[data-request-demo=true] header button[data-label="burger"] {
   color: white;
+}
+
+.card-appear {
+  opacity: 0;
+}
+
+.card-appear-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.card-enter {
+  opacity: 0;
+}
+
+.card-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.snapshot-appear {
+  opacity: 0;
+}
+
+.snapshot-appear-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
+.snapshot-enter {
+  opacity: 0;
+}
+
+.snapshot-enter-active {
+  opacity: 1;
+  transition: opacity 400ms;
 }
