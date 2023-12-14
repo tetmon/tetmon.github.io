@@ -21,7 +21,7 @@ export default function CaseStudies() {
             Edgeset is in early stages of development. We are working with few companies to help them get the most out of their data. We will be publishing more case studies soon.
           </p>
           <p>
-            Meanwhile, on this page, we've compiled some of the most helpful case studies for you.
+            Meanwhile, on this page, we&apos;ve compiled some of the most helpful case studies for you.
           </p>
         </div>
       </div>
