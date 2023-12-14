@@ -154,7 +154,7 @@ export default function Home() {
             Finally, business metrics at your fingertips.
           </h1>
           <p className='max-w-lg py-8 text-base leading-7 text-gray-600 md:m-auto md:text-center md:text-lg'>
-            Handle key business metrics yourself, with <span className='text-edgeset'>EdgeSet</span>. Data
+            Introducing <span className='font-medium text-edgeset'>EdgeSet</span>. Handle key business metrics yourself. Data
             can be from your ERP, or just simply google sheets.
           </p>
           <div className='flex justify-center'>

@@ -126,14 +126,14 @@ const Features = ({ features, title, dir }: { features: Array<IFeature>, title: 
               </div>
             </CSSTransition>
           </div>
-          <div ref={pillsRef} className='scrollbar-hide mb-4 ml-2 hidden flex-wrap gap-2 overflow-x-auto md:ml-0 md:flex lg:overflow-x-visible'>
+          <div ref={pillsRef} className='scrollbar-hide mb-4 ml-2 hidden flex-wrap gap-2 overflow-x-auto md:ml-0 md:flex lg:gap-4 lg:overflow-x-visible'>
             {
               features.map((item, index) => (
                 <div key={item.title} className={`min-w-fit ${index !== 0 ? 'mr-0' : 'lg:pl-0'}`} onClick={() => {
                   setActiveIndex(index);
                 }}>
-                  <button className={`rounded-xl border p-[5px] text-xs font-medium uppercase tracking-tighter lg:text-sm
-              ${index === activeIndex ? 'bg-slate-900  text-white' : 'border-slate-400 text-gray-500'} hover:bg-slate-900 hover:text-white`}>
+                  <button className={`rounded-xl border p-[5px] px-3 text-xs font-medium uppercase lg:text-sm
+              ${index === activeIndex ? 'bg-slate-900  text-white' : 'border-slate-400 bg-white text-gray-500'} hover:bg-slate-900 hover:text-white`}>
                     {item.pill ?? item.title}
                   </button>
                 </div>))
