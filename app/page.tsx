@@ -18,7 +18,7 @@ const companies = [
 const features = [
   {
     pill: 'Spreadsheets',
-    title: 'Built for Spreadsheets',
+    title: 'Built for Spreadsheets!',
     description: 'Use your Google sheets and Excels as if they were SQL databases and get the benefits of a CRM, ERP without losing the flexibility of a spreadsheet.',
     hasPadding: true,
     file: '/features/sheets.png'
