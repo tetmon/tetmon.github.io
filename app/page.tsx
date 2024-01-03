@@ -19,55 +19,83 @@ const features = [
   {
     pill: 'Spreadsheets',
     title: 'Built for Spreadsheets',
-    description: 'Use your Google sheets and Excels as if they were SQL databases and get the benefits of a CRM, ERP without losing the flexibility of a spreadsheet.'
+    description: 'Use your Google sheets and Excels as if they were SQL databases and get the benefits of a CRM, ERP without losing the flexibility of a spreadsheet.',
+    hasPadding: true,
+    file: '/features/sheets.png'
   },
   {
     title: 'Zero ETL',
-    description: 'EdgeSet is a zero ETL solution. No need to move your data to a data warehouse. Query your data directly from your source.'
+    description: 'EdgeSet is a zero ETL solution. No need to move your data to a data warehouse. Query your data directly from your source.',
+    file: '/features/zero_etl.png'
   },
   {
     title: 'Join across databases',
-    description: 'Join tables across different databases easily with one click. Query across data sources with single query.'
+    description: 'Join tables across different databases easily with one click. Query across data sources with single query.',
+    file: '/features/join.png'
   },
   {
     title: 'On-demand Row Fetching',
-    description: 'Supports exploring millions of records through the interface while keeping the connection open throughout the exploration.'
+    description: 'Supports exploring millions of records through the interface while keeping the connection open throughout the exploration.',
+    file: '/features/scroll.png'
   },
   {
     title: 'Built-in AI',
-    description: 'EdgeSet deploys AI to automatically infer columns for you.'
+    description: 'EdgeSet deploys AI to automatically infer columns for you.',
+    hasPadding: true,
+    p: '60px',
+    file: '/features/data_type.png'
   },
   {
     title: 'Table inference',
-    description: 'Support importing semi-structured data (i.e. tabular files) without any manual error-prone data engineering work.'
+    description: 'Support importing semi-structured data (i.e. tabular files) without any manual error-prone data engineering work.',
+    hasPadding: true,
+    p: '60px',
+    file: '/features/table_infer.png'
   },
   {
     title: 'Data range Detection',
-    description: 'Scans each spreadsheet to detect all cell ranges that could form possible data tables and performs table inference on all such ranges.'
+    description: 'Scans each spreadsheet to detect all cell ranges that could form possible data tables and performs table inference on all such ranges.',
+    hasPadding: true,
+    p: '60px',
+    file: '/features/data_range.png'
   },
   {
     title: 'Dashboards',
-    description: 'Create dashboards from your data, without technical help, or build custom visuals to aid your decision making.'
+    description: 'Create dashboards from your data, without technical help, or build custom visuals to aid your decision making.',
+    p: '60px',
+    hasPadding: true,
+    file: '/features/dash.png'
   },
   {
     title: 'Share Dashboard',
-    description: 'Share your dashboards publicly on your website, via our PHP connector for feedback and analysis.'
+    description: 'Share your dashboards publicly on your website, via our PHP connector for feedback and analysis.',
+    hasPadding: true,
+    p: '60px',
+    file: '/features/dash_php.png'
   },
   {
     title: 'Connect to BI tools',
-    description: 'Easily connect to your favorite analytical tool, with zero configuration to generate custom output.'
+    description: 'Easily connect to your favorite analytical tool, with zero configuration to generate custom output.',
+    hasPadding: true,
+    p: '60px',
+    file: '/features/bi.png'
   },
   {
     title: 'Hosting',
-    description: 'Choose from web-hosting, on-premise or desktop version: no one but you (not even us) sees your valuable data.'
+    description: 'Choose from web-hosting, on-premise or desktop version: no one but you (not even us) sees your valuable data.',
+    file: '/features/hosting.png'
   },
   {
     title: 'Granular Control',
-    description: 'Retain total access control over your database, including granular access control down to the column per table.'
+    description: 'Retain total access control over your database, including granular access control down to the column per table.',
+    p: '60px',
+    hasPadding: true,
+    file: '/features/control.png'
   },
   {
     title: 'P2P',
-    description: 'Secure due to P2P.'
+    description: 'Secure due to P2P.',
+    file: '/features/p2p.png'
   }
 ];
 
@@ -128,19 +156,23 @@ const testimonials = [
     name: 'Tita Sara',
     company: '1000steps',
     quote: 'We couldn’t dashboard our google sheets, now we can!',
-    file: '/testimonials/worker.jpg'
+    file: '/companies/1000-steps-empty.png',
+    bg: '#ffeef9',
+    width: 150
   },
   {
     name: 'Richard',
     company: 'Oxquant',
-    quote: 'EdgeSet and OxQuant is a perfect match. EdgeSet does away with all the data wrangling, so that we can focus on our ML models.',
-    file: '/testimonials/arlington.jpg'
+    quote: 'EdgeSet and Oxquant is a perfect match. EdgeSet does away with all the data wrangling, so that we can focus on our ML models.',
+    file: '/companies/oxquant-empty.png',
+    bg: '#002247'
   },
   {
     name: 'Michella',
     company: 'SPDJ',
     quote: 'CEOs used to have to ask so many layers of people for the data.  The higher you go, the further you get away from data.  But now, you can get data at finger tips.',
-    file: '/testimonials/engineering.jpg'
+    file: '/companies/spd-empty.png',
+    bg: '#eeeeee'
   }
 ];
 
@@ -153,20 +185,23 @@ export default function Home() {
           <h1 className='text-4xl font-medium leading-11 lg:text-5xl'>
             Finally, business metrics at your fingertips.
           </h1>
-          <p className='max-w-lg py-8 text-base leading-7 text-gray-600 md:m-auto md:text-center md:text-lg'>
-            Introducing <span className='font-medium text-edgeset'>EdgeSet</span>. Handle key business metrics yourself. Data
+          <p className='max-w-lg py-8 text-left text-base leading-7 text-gray-600  md:m-auto md:text-center md:text-lg'>
+            Introducing <span className='h-5 w-5'><svg viewBox="0 0 557 517" stroke="#215f74" className='mr-1 inline h-4 w-4' fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="#215f74"><path d="M214.115 161.038 187.228 18.295C184.939 6.16 173.16-1.888 161.026.402L18.282 27.288C6.15 29.578-1.9 41.358.39 53.468L27.276 196.21c2.29 12.133 14.07 20.183 26.179 17.893l142.744-26.887c12.133-2.29 20.183-14.069 17.893-26.202l.023.023ZM218.058 324.06c-2.29-12.11-14.069-20.183-26.203-17.894l-75.68 14.258c-12.133 2.29-20.183 14.069-17.893 26.179l14.258 75.68c2.29 12.133 14.069 20.183 26.179 17.893l75.68-14.258c12.133-2.29 20.183-14.069 17.893-26.179l-14.258-75.679h.024ZM556.611 465.741l-24.243-128.698c-2.29-12.134-14.069-20.183-26.179-17.893l-128.698 24.243c-12.134 2.289-20.183 14.069-17.894 26.178L383.84 498.27c2.29 12.133 14.069 20.183 26.179 17.893l128.698-24.243c12.134-2.29 20.183-14.069 17.894-26.203v.024ZM407.777 179.191l19.829 137.244 30.876-5.784-19.617-135.945c36.141-12.912 58.779-50.682 51.484-89.513-8.096-42.986-49.878-71.525-92.864-63.428-33.284 6.255-57.811 32.764-63.476 64.349l-115.975 2.809 5.925 31.207 110.805-2.668c2.502 11.024 7.224 21.033 13.644 29.625L215.791 293.868c.897.543 1.724 1.109 2.621 1.652 8.38 5.783 14.234 14.376 16.288 24.267l137.007-151.691c10.835 6.445 23.157 10.34 36.07 11.095Z"></path></g></svg></span><span className='font-medium text-edgeset'>EdgeSet</span>. Handle key business metrics yourself. Data
             can be from your ERP, or just simply google sheets.
           </p>
           <div className='flex justify-center'>
             <RequestDemo size="lg" showInput />
           </div>
-          <div className='m-auto flex max-w-fit justify-start p-4 md:p-2'>
+          <div className='flex max-w-fit justify-start p-4 pl-0 sm:mx-auto md:m-auto md:p-2'>
             <div>or <a className='border-b border-edgeset text-edgeset hover:text-[#21363d]' href="https://calendly.com/edgeset-demo" target="_blank">Schedule a call</a> with us.</div>
           </div>
         </div>
       </section>
       <section>
         <div className='m-auto my-10 h-[650px] w-full max-w-6xl animate-fade-in-down bg-gray-300'>
+          <video autoPlay playsInline loop muted>
+            <source src="sheets.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
       <section className='grid grid-cols-18 py-8'>
@@ -179,11 +214,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="grid grid-cols-18 overflow-hidden bg-gray-100 py-8">
-        <Features features={features.slice(0, 4)} title="Data Discovery" dir="right" />
-        <Features features={features.slice(4, 7)} title="Automatic Inference" dir="left" />
-        <Features features={features.slice(7, 10)} title="Visualization" dir="right" />
-        <Features features={features.slice(10, 13)} title="Privacy and Security" dir="left" />
+      <section className="grid grid-cols-18 overflow-hidden bg-gray-100 py-8 pt-14">
+        <Features features={features.slice(0, 4)} title="Data Discovery" icon={<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 64 80" className='relative top-1 ml-4 h-10 w-10 fill-[#215f74] pr-2 md:top-0 md:ml-0 md:h-14 md:w-14'><g><polygon points="22.7,41.3 33.9,36.5 27.5,30.1" /><path d="M45.3,4H18.7C10.6,4,4,10.6,4,18.7v26.6C4,53.4,10.6,60,18.7,60h26.6C53.4,60,60,53.4,60,45.3V18.7C60,10.6,53.4,4,45.3,4z    M46.4,20l-7.6,17.8c-0.1,0.3-0.3,0.5-0.5,0.7c-0.1,0.1-0.3,0.2-0.4,0.2L20,46.4c-0.7,0.3-1.5,0.1-2-0.4c-0.5-0.5-0.7-1.3-0.4-2   l7.6-17.8c0.2-0.4,0.5-0.7,0.9-0.9L44,17.6c0.7-0.3,1.5-0.1,2,0.4S46.7,19.3,46.4,20z" /></g></svg>} dir="right" />
+        <Features features={features.slice(4, 7)} title="Automatic Inference" dir="left" icon={<svg version="1.1" x="0px" y="0px" viewBox="0 0 100 125" className='relative top-1 ml-4 h-10 w-10 fill-[#215f74] pr-2 md:top-0 md:ml-0 md:h-14 md:w-14'><path d="M96.0300293,37.0999756c0.8099976,0,1.4699707-0.6599731,1.4699707-1.4699707s-0.6599731-1.4700317-1.4699707-1.4700317  h-9.5400391v-6.6400127h9.5400391c0.8099976,0,1.4699707-0.6499634,1.4699707-1.4599609  c0-0.8200073-0.6599731-1.4700317-1.4699707-1.4700317h-9.5400391v-4.0899658c0-3.8699932-3.1499634-7.0200186-7.0100098-7.0200186  h-4.0599976V3.9699748c0-0.8099976-0.6599731-1.4699707-1.4699707-1.4699707s-1.4700317,0.6599731-1.4700317,1.4699707v9.5100088  h-6.6399536V3.9699748c0-0.8099976-0.6600342-1.4699707-1.4700317-1.4699707s-1.4699707,0.6599731-1.4699707,1.4699707v9.5100088  h-6.6400146V3.9699748c0-0.8099976-0.6600342-1.4699707-1.4700317-1.4699707s-1.4699707,0.6599731-1.4699707,1.4699707v9.5100088  h-6.6400146V3.9699748c0-0.8099976-0.6599731-1.4699707-1.4699707-1.4699707s-1.4700317,0.6599731-1.4700317,1.4699707v9.5100088  h-6.6400146V3.9699748c0-0.8099976-0.6599731-1.4699707-1.4699707-1.4699707s-1.4700317,0.6599731-1.4700317,1.4699707v9.5100088  h-6.6399536V3.9699748c0-0.8099976-0.6600342-1.4699707-1.4700317-1.4699707s-1.4599609,0.6599731-1.4599609,1.4699707v9.5100088  h-4.1200562c-3.8699951,0-7.0099487,3.1500254-7.0099487,7.0200186v4.0899658H3.9699702  c-0.8099976,0-1.4699707,0.6500244-1.4699707,1.4700317c0,0.8099976,0.6599731,1.4599609,1.4699707,1.4599609h9.4900513v6.6400127  H3.9699702c-0.8099976,0-1.4699707,0.6600342-1.4699707,1.4700317s0.6599731,1.4699707,1.4699707,1.4699707h9.4900513v6.6400146  H3.9699702c-0.8099976,0-1.4699707,0.6599731-1.4699707,1.4699707s0.6599731,1.4700317,1.4699707,1.4700317h9.4900513v6.6400146  H3.9699702c-0.8099976,0-1.4699707,0.6599731-1.4699707,1.4699707s0.6599731,1.4700317,1.4699707,1.4700317h9.4900513v6.6399536  H3.9699702c-0.8099976,0-1.4699707,0.6600342-1.4699707,1.4700317c0,0.8099365,0.6599731,1.4699707,1.4699707,1.4699707h9.4900513  v6.6400146H3.9699702c-0.8099976,0-1.4699707,0.6600342-1.4699707,1.4699707c0,0.8100586,0.6599731,1.4699707,1.4699707,1.4699707  h9.4900513V79.5c0,3.8699951,3.1399536,7.0200195,7.0099487,7.0200195h4.1200562v9.5100021  c0,0.8099365,0.6499634,1.4699707,1.4599609,1.4699707s1.4700317-0.6600342,1.4700317-1.4699707v-9.5100021h6.6399536v9.5100021  c0,0.8099365,0.6600342,1.4699707,1.4700317,1.4699707s1.4699707-0.6600342,1.4699707-1.4699707v-9.5100021h6.6400146v9.5100021  c0,0.8099365,0.6600342,1.4699707,1.4700317,1.4699707s1.4699707-0.6600342,1.4699707-1.4699707v-9.5100021h6.6400146v9.5100021  c0,0.8099365,0.6599731,1.4699707,1.4699707,1.4699707s1.4700317-0.6600342,1.4700317-1.4699707v-9.5100021h6.6400146v9.5100021  c0,0.8099365,0.6599731,1.4699707,1.4699707,1.4699707s1.4700317-0.6600342,1.4700317-1.4699707v-9.5100021h6.6399536v9.5100021  c0,0.8099365,0.6600342,1.4699707,1.4700317,1.4699707s1.4699707-0.6600342,1.4699707-1.4699707v-9.5100021h4.0599976  c3.8600464,0,7.0100098-3.1500244,7.0100098-7.0200195v-4.0800781h9.5400391c0.8099976,0,1.4699707-0.6599121,1.4699707-1.4699707  c0-0.8099365-0.6599731-1.4699707-1.4699707-1.4699707h-9.5400391v-6.6400146h9.5400391  c0.8099976,0,1.4699707-0.6600342,1.4699707-1.4699707c0-0.8099976-0.6599731-1.4700317-1.4699707-1.4700317h-9.5400391v-6.6399536  h9.5400391c0.8099976,0,1.4699707-0.6600342,1.4699707-1.4700317s-0.6599731-1.4699707-1.4699707-1.4699707h-9.5400391v-6.6400146  h9.5400391c0.8099976,0,1.4699707-0.6600342,1.4699707-1.4700317s-0.6599731-1.4699707-1.4699707-1.4699707h-9.5400391v-6.6400146  H96.0300293z M75.3599854,73.9199219c0,0.8100586-0.6599731,1.4700928-1.4699707,1.4700928H26.0499878  c-0.8099976,0-1.4599609-0.6600342-1.4599609-1.4700928V26.079958c0-0.8099976,0.6499634-1.4699707,1.4599609-1.4699707h47.8400269  c0.8099976,0,1.4699707,0.6599731,1.4699707,1.4699707V73.9199219z" /><rect x="27.5200195" y="27.5499897" width="44.8999634" height="44.8999596" /></svg>} />
+        <Features features={features.slice(7, 10)} title="Visualization" dir="right" icon={<svg xmlns="http://www.w3.org/2000/svg" className='relative ml-4 h-12 w-12 pr-2 md:top-0 md:ml-0 md:h-14 md:w-14' viewBox="0 3 24 24" x="0px" y="0px"><path fillRule="evenodd" clipRule="evenodd" d="M20 9.4L16 13.4L8 5.4L4 9.4V5L8 3L16 7L20 5V9.4ZM4 11L8 7L16 15L20 11V19H4V11Z" fill="#215f74" /></svg>} />
+        <Features features={features.slice(10, 13)} title="Privacy and Security" dir="left" icon={<svg xmlns="http://www.w3.org/2000/svg" className='relative top-1 ml-4 h-10 w-10 fill-[#215f74] pr-2 md:top-0 md:ml-0 md:h-14 md:w-14' viewBox="0 10 64 64" x="0px" y="0px"><defs></defs><path className="stroke-none" d="m16.906,17.814l.504,8.158c.535,8.647,4.838,16.562,11.803,21.714l2.787,2.062,2.787-2.062c6.965-5.151,11.268-13.066,11.803-21.714l.504-8.158-15.093-3.783-15.095,3.783Z" /><path className='stroke-none' d="m49.637,12.39l-17.393-4.359c-.16-.041-.326-.041-.486,0l-17.395,4.359c-2.214.554-3.719,2.61-3.578,4.89l.586,9.487c.629,10.174,5.689,19.484,13.884,25.545l3.57,2.642c.949.702,2.062,1.054,3.175,1.054s2.226-.352,3.175-1.054l3.57-2.642c8.193-6.061,13.255-15.372,13.884-25.545l.586-9.487c.141-2.279-1.364-4.336-3.578-4.89Zm-1.051,13.706c-.572,9.239-5.168,17.695-12.609,23.198l-3.382,2.503c-.177.131-.386.196-.595.196s-.418-.065-.595-.196l-3.382-2.503c-7.441-5.503-12.037-13.959-12.609-23.198l-.555-8.987c-.029-.48.288-.914.755-1.031l16.144-4.047c.16-.041.326-.041.486,0l16.142,4.047c.467.117.784.551.755,1.031l-.555,8.987Z" /></svg>} />
       </section>
       <section className='m-auto mb-8 mt-24 grid max-w-6xl grid-cols-18 bg-edgeset py-14 xl:rounded-xl xl:py-24'>
         <div className='col-span-16 col-start-2 m-auto grid max-w-fit xl:grid-flow-col'>
@@ -335,33 +370,36 @@ export default function Home() {
       </section>
       <section className='m-auto grid max-w-8xl grid-cols-18 py-8 pb-24'>
         <div className="col-span-16 col-start-2">
-          <div className='mb-12 mt-4 flex items-baseline justify-center'>
-            <h6 className='pl-2 text-3xl font-medium text-slate-600'>
+          <div className='mb-12 mt-4 flex items-center justify-center'>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 64 64" className='h-12 w-12 fill-[#215f74]'><path d="M52.6099854,31.4100037c0-11.3900146-9.2199707-20.6199951-20.6099854-20.6199951  S11.3900146,20.019989,11.3900146,31.4100037c0,5.1300049,1.8800049,9.8099976,4.9899902,13.4199829h-0.0200195l-4.039978,8.3800049  l17.8399658-1.2799683C30.7700195,51.980011,31.3800049,52.019989,32,52.019989  c1.6300049,0,3.2000122-0.2099609,4.7199707-0.5599976l0.1000366-0.0099487L36.789978,51.440033  C45.8599854,49.2799988,52.6099854,41.1400452,52.6099854,31.4100037z M20.039978,25.3399963v-4.5c0-0.5499878,0.4500122-1,1-1  h7.1500244c0.5499878,0,1,0.4500122,1,1v5.5c0,4.25-3.9700317,5.9299927-3.9700317,5.9299927l-2.5799561-1.4099731  c2.9899902-2.4000244,2.3299561-4.5200195,2.3299561-4.5200195H21.039978  C20.4899902,26.3399963,20.039978,25.8900452,20.039978,25.3399963z M36.2999878,45.1600037h-9.8699951  c-0.5499878,0-1-0.4500122-1-1c0-0.5599976,0.4500122-1,1-1h9.8699951c0.5499878,0,1,0.4400024,1,1  C37.2999878,44.7099915,36.8499756,45.1600037,36.2999878,45.1600037z M42.0499878,41.4700012H21.9500122  c-0.5499878,0-1-0.4500122-1-1c0-0.5599976,0.4500122-1,1-1h20.0999756c0.5499878,0,1,0.4400024,1,1  C43.0499878,41.019989,42.5999756,41.4700012,42.0499878,41.4700012z M42.0499878,37.7799988H21.9500122  c-0.5499878,0-1-0.4500122-1-1c0-0.5599976,0.4500122-1,1-1h20.0999756c0.5499878,0,1,0.4400024,1,1  C43.0499878,37.3299866,42.5999756,37.7799988,42.0499878,37.7799988z M43.960022,26.3399963  c0,4.25-3.9800415,5.9299927-3.9800415,5.9299927l-2.5799561-1.4099731  c2.9899902-2.4000244,2.3299561-4.5200195,2.3299561-4.5200195h-3.9199829c-0.5499878,0-1-0.4499512-1-1v-4.5  c0-0.5499878,0.4500122-1,1-1h7.1500244c0.5499878,0,1,0.4500122,1,1V26.3399963z" /></svg>
+            <h6 className='text-3xl font-medium text-edgeset'>
               Testimonials
             </h6>
           </div>
-          <p className='m-auto mb-6 max-w-2xl text-center text-xl font-medium tracking-tighter text-slate-500 md:text-2xl'>&quot;No Tech Department? <span className='bg-yellow-200 text-edgeset '>No problem</span>. <span className='text-edgeset underline'>Edgeset</span> will handle the integration.&quot;</p>
+          <p className='m-auto mb-6 max-w-2xl rounded-lg border border-slate-200 bg-[#f8ffff] p-5 text-center text-xl font-medium tracking-tighter text-slate-500 md:text-2xl'>&quot;No Tech Department? No problem. <span className='text-edgeset underline'>Edgeset</span> will handle the integration.&quot;</p>
           <p className='mb-14 text-center text-base font-semibold text-slate-500 md:text-lg'>- Yinghan Hu, Founder</p>
           <p className='mb-8 text-center text-lg font-medium tracking-tighter text-slate-500 md:mb-14 md:text-2xl'>
             Here&apos;s what our <span className='text-edgeset underline'>happy</span> customers <i>say</i>:
           </p>
-          <div className='grid gap-14 sm:grid-cols-2 lg:gap-12'>
+          <div className='grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12'>
             {
               testimonials.map((item) => (
-                <div key={item.name} className='flex flex-col'>
-                  <div className='w-full bg-gray-300'>
-                    <Image className='w-full' key={item.name} src={item.file} alt={item.name} width={1200} height={800} />
+                <div key={item.name} className='m-auto flex min-w-[300px] max-w-[400px] flex-col rounded-md border border-slate-200'>
+                  <div className='flex h-60 w-full items-center justify-center' style={{ backgroundColor: item.bg }}>
+                    <Image src={item.file} width={item.width ?? 100} height={100} alt={item.company} />
                   </div>
-                  <q className='my-4 text-gray-700'>{item.quote}</q>
-                  <div className='flex items-center justify-between'>
-                    <div className='flex flex-col'>
-                      <b className='text-base font-semibold text-gray-700'>{item.name}</b>
-                      <b className='text-sm font-semibold text-edgeset lg:text-base'>MD, {item.company}</b>
+                  <div className='flex flex-[196px] flex-col px-4'>
+                    <q className='my-4 text-gray-700'>{item.quote}</q>
+                    <div className='flex items-center justify-between pb-5'>
+                      <div className='flex flex-col'>
+                        <b className='text-base font-semibold text-gray-700'>{item.name}</b>
+                        <b className='text-sm font-semibold text-edgeset lg:text-base'>MD, {item.company}</b>
+                      </div>
+                      {/* <button className='flex items-center rounded-3xl border border-edgeset bg-white px-3 py-2 text-sm font-medium text-edgeset hover:border-black hover:bg-edgeset hover:text-white'>
+                        <span className='pr-1 font-semibold'>Case Study</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                      </button> */}
                     </div>
-                    <button className='flex items-center rounded-3xl border border-edgeset bg-white px-3 py-2 text-sm font-medium text-edgeset hover:border-black hover:bg-edgeset hover:text-white'>
-                      <span className='pr-1 font-semibold'>Case Study</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </button>
                   </div>
                 </div>
               ))

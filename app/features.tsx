@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import { createContext, useContext, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
@@ -9,6 +10,9 @@ interface IFeature {
   pill?: string;
   title: string;
   description: string;
+  file: string;
+  hasPadding: boolean;
+  p: number;
 }
 
 function debounce(func: Function, wait: number) {
@@ -24,7 +28,7 @@ function debounce(func: Function, wait: number) {
 };
 
 
-const Features = ({ features, title, dir }: { features: Array<IFeature>, title: string, dir: string }) => {
+const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, title: string, dir: string }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const pillsRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -56,13 +60,17 @@ const Features = ({ features, title, dir }: { features: Array<IFeature>, title: 
       isScrollEnabled.current = true;
       return;
     }
-    if (!(e.target instanceof HTMLElement)) return;
-    const childElements = Array.from(e.target.childNodes);
+    const scrollContainer = e.target;
+    if (!(scrollContainer instanceof HTMLElement)) return;
+    const childElements = Array.from(scrollContainer.childNodes);
     childElements.forEach(async (child, index) => {
       if (!(child instanceof HTMLElement)) return;
       const left = child.getBoundingClientRect().left;
       if (left <= 4) {
         scrollToPill(index);
+        return;
+      } else if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollToPill(childElements.length - 1);
         return;
       }
     });
@@ -74,10 +82,13 @@ const Features = ({ features, title, dir }: { features: Array<IFeature>, title: 
   return (
     <ActiveContext.Provider value={activeIndex}>
       <div className='col-span-full md:grid md:grid-cols-18'>
-        <div className='md:col-start-2 md:col-end-10 md:max-w-xl md:py-20 lg:col-start-5'>
-          <h2 className='mb-4 flex pl-4 text-2xl font-medium text-edgeset md:pl-0 md:text-3xl lg:mb-12 lg:text-4xl'>
-            {title}
-          </h2>
+        <div className='md:col-start-2 md:col-end-10 md:max-w-xl md:py-20 xl:col-start-5'>
+          <div className="mb-4 flex lg:mb-12">
+            {icon}
+            <h2 className='flex pt-[5px] text-2xl font-medium text-edgeset md:pl-0 md:text-3xl lg:text-4xl'>
+              {title}
+            </h2>
+          </div>
           <div ref={pillsRef} className='scrollbar-hide mb-4 ml-2 flex overflow-x-auto md:hidden'>
             {
               features.map((item, index) => (
@@ -105,13 +116,14 @@ const Features = ({ features, title, dir }: { features: Array<IFeature>, title: 
             ref={scrollRef}>
             {
               features.map((item) => (
-                <div key={item.title} className='snap-start pl-4'>
-                  <div className='flex min-w-[300px] flex-col overflow-hidden rounded-md bg-white'>
+                <div key={item.title} className='max-w-sm snap-start pl-4'>
+                  <div className='flex min-w-[300px] max-w-[100vw] flex-col overflow-hidden rounded-md bg-white'>
                     <div className='py-6 pl-5 pr-3'>
                       <h2 className='text-2xl font-medium text-edgeset'>{item.title}.</h2>
                       <span className='text-base text-gray-700' dangerouslySetInnerHTML={{ __html: item.description }}></span>
                     </div>
-                    <div className='ml-5 h-48 w-full rounded-sm bg-gray-300'>
+                    <div className={`box-content flex w-full items-center justify-center rounded-sm bg-edgeset p-4 ${item.hasPadding && !item.p ? 'pl-11' : 'p-0'} ${item.p ? 'py-4 pl-16' : ''}`}>
+                      <Image src={item.file} className="h-64 max-w-fit" alt="hey" width={500} height={300} />
                     </div>
                   </div>
                 </div>
@@ -140,18 +152,19 @@ const Features = ({ features, title, dir }: { features: Array<IFeature>, title: 
             }
           </div>
         </div>
-        <Snapshots dir={dir} />
+        <Snapshots dir={dir} feature={features[activeIndex]} />
       </div>
     </ActiveContext.Provider>
   );
 }
 
-export const Snapshots = ({ dir }: { dir: string }) => {
+export const Snapshots = ({ dir, feature }: { dir: string, feature: IFeature }) => {
   const activeIndex = useContext(ActiveContext);
-
+  const { file, hasPadding } = feature;
   return (
     <CSSTransition key={activeIndex} timeout={200} classNames="snapshot" appear in={true} unmountOnExit>
-      <div className={`col-start-12 col-end-16 mt-20 hidden h-80 w-full min-w-[300px] rounded-sm bg-red-100 md:flex ${activeIndex === 0 ? 'bg-slate-200' : ''}`}>
+      <div className={`col-end-16 mt-20 hidden h-80 w-full min-w-[400px] overflow-hidden rounded-md bg-edgeset md:col-start-11 lg:col-start-12 ${hasPadding ? 'pl-12 pt-12' : 'justify-center'} md:flex ${activeIndex === 0 ? 'bg-edgeset' : ''}`}>
+        <Image src={file} className="relative top-[2px] max-w-fit" alt="hey" width={500} height={300} />
       </div>
     </CSSTransition>
   )
