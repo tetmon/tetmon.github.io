@@ -76,7 +76,7 @@ jobs:
       - name: Build with Next.js and static HTML export
         run: ${{ steps.detect-package-manager.outputs.runner }} run build
       - name: Temp dir
-      - run: mkdir tmp-dir && mv out tmp-dir/ && mv tmp-dir out
+        run: mkdir tmp-dir && mv out tmp-dir/ && mv tmp-dir out
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
