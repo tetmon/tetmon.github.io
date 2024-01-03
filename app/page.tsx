@@ -156,7 +156,7 @@ const testimonials = [
     name: 'Tita Sara',
     company: '1000steps',
     quote: 'We couldn’t dashboard our google sheets, now we can!',
-    file: 'companies/1000-steps-empty.png',
+    file: '/companies/1000-steps-empty.png',
     bg: '#ffeef9',
     width: 150
   },
@@ -164,14 +164,14 @@ const testimonials = [
     name: 'Richard',
     company: 'Oxquant',
     quote: 'EdgeSet and Oxquant is a perfect match. EdgeSet does away with all the data wrangling, so that we can focus on our ML models.',
-    file: 'companies/oxquant-empty.png',
+    file: '/companies/oxquant-empty.png',
     bg: '#002247'
   },
   {
     name: 'Michella',
     company: 'SPDJ',
     quote: 'CEOs used to have to ask so many layers of people for the data.  The higher you go, the further you get away from data.  But now, you can get data at finger tips.',
-    file: 'companies/spd-empty.png',
+    file: '/companies/spd-empty.png',
     bg: '#eeeeee'
   }
 ];
