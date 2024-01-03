@@ -42,27 +42,27 @@ const features = [
     title: 'Built-in AI',
     description: 'EdgeSet deploys AI to automatically infer columns for you.',
     hasPadding: true,
-    p: '60px',
+    mobilePadding: true,
     file: '/features/data_type.png'
   },
   {
     title: 'Table inference',
     description: 'Support importing semi-structured data (i.e. tabular files) without any manual error-prone data engineering work.',
     hasPadding: true,
-    p: '60px',
+    mobilePadding: true,
     file: '/features/table_infer.png'
   },
   {
     title: 'Data range Detection',
     description: 'Scans each spreadsheet to detect all cell ranges that could form possible data tables and performs table inference on all such ranges.',
     hasPadding: true,
-    p: '60px',
+    mobilePadding: true,
     file: '/features/data_range.png'
   },
   {
     title: 'Dashboards',
     description: 'Create dashboards from your data, without technical help, or build custom visuals to aid your decision making.',
-    p: '60px',
+    mobilePadding: true,
     hasPadding: true,
     file: '/features/dash.png'
   },
@@ -70,14 +70,14 @@ const features = [
     title: 'Share Dashboard',
     description: 'Share your dashboards publicly on your website, via our PHP connector for feedback and analysis.',
     hasPadding: true,
-    p: '60px',
+    mobilePadding: true,
     file: '/features/dash_php.png'
   },
   {
     title: 'Connect to BI tools',
     description: 'Easily connect to your favorite analytical tool, with zero configuration to generate custom output.',
     hasPadding: true,
-    p: '60px',
+    mobilePadding: true,
     file: '/features/bi.png'
   },
   {
@@ -88,7 +88,7 @@ const features = [
   {
     title: 'Granular Control',
     description: 'Retain total access control over your database, including granular access control down to the column per table.',
-    p: '60px',
+    mobilePadding: true,
     hasPadding: true,
     file: '/features/control.png'
   },

@@ -1,18 +1,18 @@
 'use client'
 
 import Image from "next/image";
-import { createContext, useContext, useRef, useState } from "react";
+import { ReactElement, ReactSVGElement, createContext, useContext, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 const ActiveContext = createContext(0);
 
 interface IFeature {
-  pill?: string;
   title: string;
   description: string;
   file: string;
-  hasPadding: boolean;
-  p: number;
+  pill?: string;
+  hasPadding?: boolean;
+  mobilePadding?: boolean;
 }
 
 function debounce(func: Function, wait: number) {
@@ -28,7 +28,7 @@ function debounce(func: Function, wait: number) {
 };
 
 
-const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, title: string, dir: string }) => {
+const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, title: string, icon: ReactElement, dir: string }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const pillsRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -122,7 +122,7 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
                       <h2 className='text-2xl font-medium text-edgeset'>{item.title}.</h2>
                       <span className='text-base text-gray-700' dangerouslySetInnerHTML={{ __html: item.description }}></span>
                     </div>
-                    <div className={`box-content flex w-full items-center justify-center rounded-sm bg-edgeset p-4 ${item.hasPadding && !item.p ? 'pl-11' : 'p-0'} ${item.p ? 'py-4 pl-16' : ''}`}>
+                    <div className={`box-content flex w-full items-center justify-center rounded-sm bg-edgeset p-4 ${item.hasPadding && !item.mobilePadding ? 'pl-11' : 'p-0'} ${item.mobilePadding ? 'py-4 pl-16' : ''}`}>
                       <Image src={item.file} className="h-64 max-w-fit" alt="hey" width={500} height={300} />
                     </div>
                   </div>
