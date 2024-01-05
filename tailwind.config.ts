@@ -29,9 +29,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'node-pattern': 'url(/node-pattern.svg)',
-        'dot-pattern': 'url(/dot-pattern.svg)',
-        'globe-pattern': 'url(/globe-pattern.svg)',
+        'node-pattern': 'url(/assets/node-pattern.svg)'
       },
       gridTemplateColumns: {
         '18': 'repeat(18, minmax(0, 1fr))',

@@ -20,82 +20,82 @@ const features = [
     title: 'Built for Spreadsheets',
     description: 'Use your Google sheets and Excels as if they were SQL databases and get the benefits of a CRM, ERP without losing the flexibility of a spreadsheet.',
     hasPadding: true,
-    file: '/features/sheets.png'
+    file: 'features/sheets.png'
   },
   {
     title: 'Zero ETL',
     description: 'EdgeSet is a zero ETL solution. No need to move your data to a data warehouse. Query your data directly from your source.',
-    file: '/features/zero_etl.png'
+    file: 'features/zero_etl.png'
   },
   {
     title: 'Join across databases',
     description: 'Join tables across different databases easily with one click. Query across data sources with single query.',
-    file: '/features/join.png'
+    file: 'features/join.png'
   },
   {
     title: 'On-demand Row Fetching',
     description: 'Supports exploring millions of records through the interface while keeping the connection open throughout the exploration.',
-    file: '/features/scroll.png'
+    file: 'features/scroll.png'
   },
   {
     title: 'Built-in AI',
     description: 'EdgeSet deploys AI to automatically infer columns for you.',
     hasPadding: true,
     mobilePadding: true,
-    file: '/features/data_type.png'
+    file: 'features/data_type.png'
   },
   {
     title: 'Table inference',
     description: 'Support importing semi-structured data (i.e. tabular files) without any manual error-prone data engineering work.',
     hasPadding: true,
     mobilePadding: true,
-    file: '/features/table_infer.png'
+    file: 'features/table_infer.png'
   },
   {
     title: 'Data range Detection',
     description: 'Scans each spreadsheet to detect all cell ranges that could form possible data tables and performs table inference on all such ranges.',
     hasPadding: true,
     mobilePadding: true,
-    file: '/features/data_range.png'
+    file: 'features/data_range.png'
   },
   {
     title: 'Built-in dashboards',
     description: 'Create dashboards from your data, without technical help, or build custom visuals to aid your decision making.',
     mobilePadding: true,
     hasPadding: true,
-    file: '/features/dash.png'
+    file: 'features/dash.png'
   },
   {
     title: 'Share Dashboard',
     description: 'Share your dashboards publicly on your website, via our PHP connector for feedback and analysis.',
     hasPadding: true,
     mobilePadding: true,
-    file: '/features/dash_php.png'
+    file: 'features/dash_php.png'
   },
   {
     title: 'Connect to BI tools',
     description: 'Easily connect to your favorite analytical tool, with zero configuration to generate custom output.',
     hasPadding: true,
     mobilePadding: true,
-    file: '/features/bi.png'
+    file: 'features/bi.png'
   },
   {
     title: 'Hosting',
     description: 'Choose from web-hosting, on-premise or desktop version: no one but you (not even us) sees your valuable data.',
     // description: 'EdgeSet is not a hosted service; hence, Tetmon has no access to the data you add to EdgeSet. Only users you create and grant access to can view your data.',
-    file: '/features/hosting.png'
+    file: 'features/hosting.png'
   },
   {
     title: 'Granular Control',
     description: 'Retain total access control over your database, including granular access control down to the column per table.',
     mobilePadding: true,
     hasPadding: true,
-    file: '/features/control.png'
+    file: 'features/control.png'
   },
   {
     title: 'P2P',
     description: 'Secure due to P2P.',
-    file: '/features/p2p.png'
+    file: 'features/p2p.png'
   }
 ];
 
@@ -199,7 +199,7 @@ export default function Home() {
       <section>
         <div className='m-auto my-10 h-[650px] w-full max-w-6xl animate-fade-in-down bg-gray-300'>
           <video autoPlay playsInline loop muted>
-            <source src="sheets.mp4" type="video/mp4" />
+            <source src="assets/sheets.mp4" type="video/mp4" />
           </video>
         </div>
       </section>
