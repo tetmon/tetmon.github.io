@@ -4,7 +4,6 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { Work_Sans } from "next/font/google";
 import { useSearchParams, useRouter } from 'next/navigation'
-import Script from 'next/script'
 
 
 const workSans = Work_Sans({
@@ -90,7 +89,6 @@ export default function GetDemo(props: any) {
         </div>
       </div>
       <Footer />
-      <Script src="https://assets.calendly.com/assets/external/widget.js" />
     </main>
   )
 }

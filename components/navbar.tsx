@@ -15,7 +15,7 @@ const Navbar = () => {
           <a href="about" className='rounded-xl border border-transparent px-2 py-1 font-medium hover:border-gray-600'>About</a>
         </nav>
         <div className='flex gap-2'>
-          <Link href="/get-demo">
+          <Link href="get-demo">
             <button type="submit" data-label="request-demo" className='rounded-3xl border bg-slate-900 px-4 py-3 text-xs font-semibold text-white hover:border-black hover:bg-white hover:text-black'>
               Get demo
             </button>

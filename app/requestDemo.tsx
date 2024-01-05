@@ -12,9 +12,9 @@ export default function RequestDemo({ size, outline, showInput }: { size: 'sm' |
         <form onSubmit={(e) => {
           e.preventDefault();
           if (email) {
-            router.push(`/get-demo?email=${email}`);
+            router.push(`get-demo?email=${email}`);
           } else {
-            router.push('/get-demo');
+            router.push('get-demo');
           }
           return false;
         }}>
