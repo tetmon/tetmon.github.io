@@ -5,12 +5,9 @@ import Footer from '@/components/footer';
 import Discover from '@/components/discover';
 
 const companies = [
-  { file: '/companies/philippines.png', name: 'Philippines chamber of commerce' },
-  { file: '/companies/spd.png', name: 'SPD Jobs inc' },
-  { file: '/companies/cbrc.png', name: 'CBRC' },
-  // { file: '/companies/1000.png', name: '1000 steps' },
-  // { file: '/companies/oxquant.png', name: 'Oxquant' },
-  // { file: '/companies/h.png', name: 'China Huaneng' }
+  { file: 'companies/philippines.png', name: 'Philippines chamber of commerce' },
+  { file: 'companies/spd.png', name: 'SPD Jobs inc' },
+  { file: 'companies/cbrc.png', name: 'CBRC' },
 ];
 
 
