@@ -4,16 +4,16 @@ const studies = [
   {
     title: 'How we created our own CRM with just EdgeSet and google sheets.',
     description: 'No need to grapple with, and pay for, painful CRM/ERP like Salesforce.',
-    link: '/case-studies/sales',
-    file: '/casestudies/crm/legos.png',
+    link: 'case-studies/sales',
+    file: 'casestudies/crm/legos.png',
     width: 400,
     height: 300
   },
   {
     title: 'From data integration to business decisions.',
     description: 'How SPD Jobs drastically shortened the time taken to analyze their data.',
-    link: '/case-studies/spd',
-    file: '/companies/spd-empty.png',
+    link: 'case-studies/spd',
+    file: 'companies/spd-empty.png',
     width: 100,
     height: 100
   }
