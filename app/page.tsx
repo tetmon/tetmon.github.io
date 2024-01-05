@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import RequestDemo from './requestDemo';
 import Features from './features';
 import Navbar from '@/components/navbar';
@@ -154,19 +153,12 @@ const databases = [
 
 const testimonials = [
   {
-    name: 'Tita Sara',
+    name: 'Louis',
     company: '1000steps',
-    quote: 'We couldn’t dashboard our google sheets, now we can!',
+    quote: 'I don\'t know how I survived pulling information from different databases prior to Edgeset.',
     file: '/companies/1000-steps-empty.png',
     bg: '#ffeef9',
     width: 150
-  },
-  {
-    name: 'Richard',
-    company: 'Oxquant',
-    quote: 'EdgeSet and Oxquant is a perfect match. EdgeSet does away with all the data wrangling, so that we can focus on our ML models.',
-    file: '/companies/oxquant-empty.png',
-    bg: '#002247'
   },
   {
     name: 'Michella',
@@ -174,6 +166,13 @@ const testimonials = [
     quote: 'CEOs used to have to ask so many layers of people for the data.  The higher you go, the further you get away from data.  But now, you can get data at finger tips.',
     file: '/companies/spd-empty.png',
     bg: '#eeeeee'
+  },
+  {
+    name: 'A customers engineering staff',
+    company: 'Oxquant',
+    quote: 'Can I resell your product?',
+    file: '/companies/oxquant-empty.png',
+    bg: '#002247'
   }
 ];
 
@@ -209,7 +208,7 @@ export default function Home() {
           <div className='text-center text-base leading-7 text-gray-700'>EdgeSet is trusted by business owners.</div>
           <div className='m-auto grid max-w-2xl grid-flow-row grid-cols-2 items-center justify-items-center gap-2 pt-8 md:grid-flow-col md:grid-cols-none'>
             {
-              companies.map((item) => <Image className='animate-fade-in-down grayscale hover:filter-none' key={item.name} src={item.file} alt={item.name} width={120} height={120} />)
+              companies.map((item) => <img className='animate-fade-in-down grayscale hover:filter-none' key={item.name} src={item.file} alt={item.name} width={120} height={120} />)
             }
           </div>
         </div>
@@ -241,7 +240,7 @@ export default function Home() {
                   databases.slice(0, 6).map((item) => (
                     <div key={item.title} className='mb-2 flex flex-col items-center justify-center gap-4 rounded-md bg-[#184f61] p-6'>
                       <div className='flex h-8 w-8 rounded-full'>
-                        {item.type === 'png' ? <Image src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
+                        {item.type === 'png' ? <img src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
                       </div>
                       <span className='text-center text-xs font-medium text-gray-300'>{item.title}</span>
                     </div>
@@ -253,7 +252,7 @@ export default function Home() {
                   databases.slice(0, 6).map((item) => (
                     <div key={item.title} className='mb-2 flex flex-col items-center justify-center gap-4 rounded-md bg-[#184f61] p-6'>
                       <div className='flex h-8 w-8 rounded-full'>
-                        {item.type === 'png' ? <Image src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
+                        {item.type === 'png' ? <img src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
                       </div>
                       <span className='text-center text-xs font-medium text-gray-300'>{item.title}</span>
                     </div>
@@ -267,7 +266,7 @@ export default function Home() {
                   databases.slice(0, 4).map((item) => (
                     <div key={item.title} className='mb-2 flex flex-col items-center justify-center gap-4 rounded-md bg-[#184f61] p-6'>
                       <div className='flex h-8 w-8 rounded-full'>
-                        {item.type === 'png' ? <Image src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
+                        {item.type === 'png' ? <img src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
                       </div>
                       <span className='text-center text-xs font-medium text-gray-300'>{item.title}</span>
                     </div>
@@ -279,7 +278,7 @@ export default function Home() {
                   databases.slice(0, 4).map((item) => (
                     <div key={item.title} className='mb-2 flex flex-col items-center justify-center gap-4 rounded-md bg-[#184f61] p-6'>
                       <div className='flex h-8 w-8 rounded-full'>
-                        {item.type === 'png' ? <Image src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
+                        {item.type === 'png' ? <img src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
                       </div>
                       <span className='text-center text-xs font-medium text-gray-300'>{item.title}</span>
                     </div>
@@ -385,16 +384,16 @@ export default function Home() {
             {
               testimonials.map((item) => (
                 <div key={item.name} className='m-auto flex min-w-[300px] max-w-[400px] flex-col rounded-md border border-slate-200'>
-                  <div className='flex h-60 w-full items-center justify-center' style={{ backgroundColor: item.bg }}>
-                    <Image src={item.file} width={item.width ?? 100} height={100} alt={item.company} />
-                  </div>
-                  <div className='flex flex-[196px] flex-col px-4'>
+                  {/* <div className='flex h-60 w-full items-center justify-center' style={{ backgroundColor: item.bg }}>
+                    <img src={item.file} width={item.width ?? 100} height={100} alt={item.company} />
+                  </div> */}
+                  <div className='flex flex-auto flex-col px-4'>
                     <q className='my-4 text-gray-700'>{item.quote}</q>
-                    <div className='flex items-center justify-between pb-5'>
-                      <div className='flex flex-col'>
-                        <b className='text-base font-semibold text-gray-700'>{item.name}</b>
-                        <b className='text-sm font-semibold text-edgeset lg:text-base'>MD, {item.company}</b>
-                      </div>
+                    <div className='flex items-center justify-end pb-5'>
+                      {/* <div className='flex flex-col'> */}
+                      <b className='max-w-[200px] text-center text-base font-semibold text-edgeset'>{item.name}</b>
+                      {/* <b className='text-sm font-semibold text-edgeset lg:text-base'>MD, {item.company}</b> */}
+                      {/* </div> */}
                       {/* <button className='flex items-center rounded-3xl border border-edgeset bg-white px-3 py-2 text-sm font-medium text-edgeset hover:border-black hover:bg-edgeset hover:text-white'>
                         <span className='pr-1 font-semibold'>Case Study</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
