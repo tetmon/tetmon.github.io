@@ -78,8 +78,6 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} run build
           touch out/.nojekyll
-          grep -rl '/_next' * | xargs sed -i 's|/_next|/nextbuild|g'
-          mv out/_next out/nextbuild
           ls -a out
           cd out
           pwd
