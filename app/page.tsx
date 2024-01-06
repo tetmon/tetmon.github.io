@@ -204,9 +204,12 @@ export default function Home() {
       <section className='grid grid-cols-18 py-8'>
         <div className='col-span-16 col-start-2'>
           <div className='text-center text-base leading-7 text-gray-700'>EdgeSet is trusted by business owners.</div>
-          <div className='m-auto grid max-w-2xl grid-flow-row grid-cols-2 items-center justify-items-center gap-2 pt-8 md:grid-flow-col md:grid-cols-none'>
+          <div className='m-auto grid max-w-2xl grid-flow-row grid-cols-3 items-center justify-items-center gap-2 pt-8 md:grid-flow-col md:grid-cols-none'>
             {
-              companies.map((item) => <Image className='animate-fade-in-down grayscale hover:filter-none' key={item.name} src={item.file} alt={item.name} width={120} height={120} />)
+              companies.map((item) => <div key={item.name} className='max-w-[80px] md:max-w-[160px]'><Image className='animate-fade-in-down grayscale hover:filter-none' src={item.file} alt={item.name} width={120} height={120} style={{
+                width: '100%',
+                height: 'auto',
+              }} /></div>)
             }
           </div>
         </div>
