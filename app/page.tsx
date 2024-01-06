@@ -195,8 +195,8 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className='m-auto my-10 h-[650px] w-full max-w-6xl animate-fade-in-down bg-gray-300'>
-          <video autoPlay playsInline loop muted>
+        <div className='m-auto my-10 aspect-[1.77] w-full max-w-6xl animate-fade-in-down bg-gray-300'>
+          <video autoPlay playsInline loop muted >
             <source src="assets/sheets.mp4" type="video/mp4" />
           </video>
         </div>
