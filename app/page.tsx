@@ -3,6 +3,7 @@ import Features from './features';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import Discover from '@/components/discover';
+import Image from 'next/image';
 
 const companies = [
   { file: 'companies/philippines.png', name: 'Philippines chamber of commerce' },
@@ -205,7 +206,7 @@ export default function Home() {
           <div className='text-center text-base leading-7 text-gray-700'>EdgeSet is trusted by business owners.</div>
           <div className='m-auto grid max-w-2xl grid-flow-row grid-cols-2 items-center justify-items-center gap-2 pt-8 md:grid-flow-col md:grid-cols-none'>
             {
-              companies.map((item) => <img className='animate-fade-in-down grayscale hover:filter-none' key={item.name} src={item.file} alt={item.name} width={120} height={120} />)
+              companies.map((item) => <Image className='animate-fade-in-down grayscale hover:filter-none' key={item.name} src={item.file} alt={item.name} width={120} height={120} />)
             }
           </div>
         </div>
@@ -237,7 +238,7 @@ export default function Home() {
                   databases.slice(0, 6).map((item) => (
                     <div key={item.title} className='mb-2 flex flex-col items-center justify-center gap-4 rounded-md bg-[#184f61] p-6'>
                       <div className='flex h-8 w-8 rounded-full'>
-                        {item.type === 'png' ? <img src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
+                        {item.type === 'png' ? <Image src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
                       </div>
                       <span className='text-center text-xs font-medium text-gray-300'>{item.title}</span>
                     </div>
@@ -249,7 +250,7 @@ export default function Home() {
                   databases.slice(0, 6).map((item) => (
                     <div key={item.title} className='mb-2 flex flex-col items-center justify-center gap-4 rounded-md bg-[#184f61] p-6'>
                       <div className='flex h-8 w-8 rounded-full'>
-                        {item.type === 'png' ? <img src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
+                        {item.type === 'png' ? <Image src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
                       </div>
                       <span className='text-center text-xs font-medium text-gray-300'>{item.title}</span>
                     </div>
@@ -263,7 +264,7 @@ export default function Home() {
                   databases.slice(0, 4).map((item) => (
                     <div key={item.title} className='mb-2 flex flex-col items-center justify-center gap-4 rounded-md bg-[#184f61] p-6'>
                       <div className='flex h-8 w-8 rounded-full'>
-                        {item.type === 'png' ? <img src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
+                        {item.type === 'png' ? <Image src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
                       </div>
                       <span className='text-center text-xs font-medium text-gray-300'>{item.title}</span>
                     </div>
@@ -275,7 +276,7 @@ export default function Home() {
                   databases.slice(0, 4).map((item) => (
                     <div key={item.title} className='mb-2 flex flex-col items-center justify-center gap-4 rounded-md bg-[#184f61] p-6'>
                       <div className='flex h-8 w-8 rounded-full'>
-                        {item.type === 'png' ? <img src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
+                        {item.type === 'png' ? <Image src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
                       </div>
                       <span className='text-center text-xs font-medium text-gray-300'>{item.title}</span>
                     </div>
@@ -380,9 +381,9 @@ export default function Home() {
           <div className='grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12'>
             {
               testimonials.map((item) => (
-                <div key={item.name} className='m-auto flex min-w-[300px] max-w-[400px] flex-col rounded-md border border-slate-200'>
+                <div key={item.name} className='m-auto flex min-w-[300px] max-w-[400px] flex-col rounded-md border border-slate-200 bg-white'>
                   {/* <div className='flex h-60 w-full items-center justify-center' style={{ backgroundColor: item.bg }}>
-                    <img src={item.file} width={item.width ?? 100} height={100} alt={item.company} />
+                    <Image src={item.file} width={item.width ?? 100} height={100} alt={item.company} />
                   </div> */}
                   <div className='flex flex-auto flex-col px-4'>
                     <q className='my-4 text-gray-700'>{item.quote}</q>
