@@ -13,7 +13,7 @@ export default function DemoConfirmation() {
             We&apos;ll get back to you shortly. In the meantime, feel free to directly schedule a meeting with Tetmon&apos;s CEO, Yinghan Hu.
           </p>
           <div>
-            <div data-url="https://calendly.com/edgeset-demo/30-minute-edgeset-demo-europe-timezone" className="calendly-inline-widget h-[700px] min-w-[320px]"></div>
+            <div data-url="https://calendly.com/data-diagnostics" className="calendly-inline-widget h-[700px] min-w-[320px]"></div>
           </div>
         </div>
       </div>
