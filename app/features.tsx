@@ -123,7 +123,7 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
                       <span className='text-base text-gray-700' dangerouslySetInnerHTML={{ __html: item.description }}></span>
                     </div>
                     <div className={`box-content flex w-full items-center justify-center rounded-sm bg-edgeset p-4 ${item.hasPadding && !item.mobilePadding ? 'pl-11' : 'p-0'} ${item.mobilePadding ? 'py-4 pl-16' : ''}`}>
-                      <Image src={item.file} className="h-64 max-w-fit" alt="hey" width={500} height={300} />
+                      <Image src={item.file} className="h-64 max-w-fit object-contain" alt="hey" width={500} height={300} />
                     </div>
                   </div>
                 </div>
@@ -145,7 +145,7 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
                   setActiveIndex(index);
                 }}>
                   <button className={`rounded-xl border p-[5px] px-3 text-xs font-medium uppercase lg:text-sm
-              ${index === activeIndex ? 'bg-slate-900  text-white' : 'border-slate-400 bg-white text-gray-500'} hover:bg-slate-900 hover:text-white`}>
+              ${index === activeIndex ? 'bg-slate-900  text-white' : 'border-slate-400 bg-white text-slate-800'} hover:bg-slate-900 hover:text-white`}>
                     {item.pill ?? item.title}
                   </button>
                 </div>))
@@ -164,7 +164,7 @@ export const Snapshots = ({ dir, feature }: { dir: string, feature: IFeature }) 
   return (
     <CSSTransition key={activeIndex} timeout={200} classNames="snapshot" appear in={true} unmountOnExit>
       <div className={`col-end-16 mt-20 hidden h-80 w-full min-w-[400px] overflow-hidden rounded-md bg-edgeset md:col-start-11 lg:col-start-12 ${hasPadding ? 'pl-12 pt-12' : 'justify-center'} md:flex ${activeIndex === 0 ? 'bg-edgeset' : ''}`}>
-        <Image src={file} className="relative top-[2px] max-w-fit" alt="hey" width={500} height={300} />
+        <Image src={file} className="relative top-[2px] max-w-fit object-contain" alt="hey" width={500} height={300} />
       </div>
     </CSSTransition>
   )
