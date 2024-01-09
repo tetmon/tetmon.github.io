@@ -1,7 +1,7 @@
 1:HL["/_next/static/media/6905431624c34d00-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 3:HL["/_next/static/css/ef8573037d16de7a.css","style",{"crossOrigin":""}]
-0:["Lir3jUkNhPiYL9fqZlHgA",[[["",{"children":["case-studies",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ef8573037d16de7a.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
+0:["ZWXY_QE1zenth4wU-Up1R",[[["",{"children":["case-studies",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ef8573037d16de7a.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
 6:I[6954,[],""]
 7:I[7264,[],""]
 8:I[8326,["186","static/chunks/186-e5608991d1cd5a1d.js","930","static/chunks/app/case-studies/layout-f27c2650081e3d69.js"],""]
