@@ -8,15 +8,15 @@ const studies = [
     file: 'casestudies/crm/legos.png',
     width: 400,
     height: 300
-  },
-  {
-    title: 'From data integration to business decisions.',
-    description: 'How SPD Jobs drastically shortened the time taken to analyze their data.',
-    link: 'case-studies/spd',
-    file: 'companies/spd-empty.png',
-    width: 100,
-    height: 100
   }
+  // {
+  //   title: 'From data integration to business decisions.',
+  //   description: 'How SPD Jobs drastically shortened the time taken to analyze their data.',
+  //   link: 'case-studies/spd',
+  //   file: 'companies/spd-empty.png',
+  //   width: 100,
+  //   height: 100
+  // }
 ]
 
 export default function CaseStudies() {
