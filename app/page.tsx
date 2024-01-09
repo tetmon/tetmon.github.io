@@ -18,82 +18,82 @@ const features = [
     title: 'Built for Spreadsheets',
     description: 'Use your Google sheets and Excels as if they were SQL databases and get the benefits of a CRM, ERP without losing the flexibility of a spreadsheet.',
     hasPadding: true,
-    file: 'features/sheets.png'
+    file: 'features/sheets.webp'
   },
   {
     title: 'Zero ETL',
     description: 'EdgeSet is a zero ETL solution. No need to move your data to a data warehouse. Query your data directly from your source.',
-    file: 'features/zero_etl.png'
+    file: 'features/zero_etl.webp'
   },
   {
     title: 'Join across databases',
     description: 'Join tables across different databases easily with one click. Query across data sources with single query.',
-    file: 'features/join.png'
+    file: 'features/join.webp'
   },
   {
     title: 'On-demand Row Fetching',
     description: 'Supports exploring millions of records through the interface while keeping the connection open throughout the exploration.',
-    file: 'features/scroll.png'
+    file: 'features/scroll.webp'
   },
   {
     title: 'Built-in AI',
     description: 'EdgeSet deploys AI to automatically infer columns for you.',
     hasPadding: true,
     mobilePadding: true,
-    file: 'features/data_type.png'
+    file: 'features/data_type.webp'
   },
   {
     title: 'Table inference',
     description: 'Support importing semi-structured data (i.e. tabular files) without any manual error-prone data engineering work.',
     hasPadding: true,
     mobilePadding: true,
-    file: 'features/table_infer.png'
+    file: 'features/table_infer.webp'
   },
   {
     title: 'Data range Detection',
     description: 'Scans each spreadsheet to detect all cell ranges that could form possible data tables and performs table inference on all such ranges.',
     hasPadding: true,
     mobilePadding: true,
-    file: 'features/data_range.png'
+    file: 'features/data_range.webp'
   },
   {
     title: 'Built-in dashboards',
     description: 'Create dashboards from your data, without technical help, or build custom visuals to aid your decision making.',
     mobilePadding: true,
     hasPadding: true,
-    file: 'features/dash.png'
+    file: 'features/dash.webp'
   },
   {
     title: 'Share Dashboard',
     description: 'Share your dashboards publicly on your website, via our PHP connector for feedback and analysis.',
     hasPadding: true,
     mobilePadding: true,
-    file: 'features/dash_php.png'
+    file: 'features/dash_php.webp'
   },
   {
     title: 'Connect to BI tools',
     description: 'Easily connect to your favorite analytical tool, with zero configuration to generate custom output.',
     hasPadding: true,
     mobilePadding: true,
-    file: 'features/bi.png'
+    file: 'features/bi.webp'
   },
   {
     title: 'Hosting',
     description: 'Choose from web-hosting, on-premise or desktop version: no one but you (not even us) sees your valuable data.',
     // description: 'EdgeSet is not a hosted service; hence, Tetmon has no access to the data you add to EdgeSet. Only users you create and grant access to can view your data.',
-    file: 'features/hosting.png'
+    file: 'features/hosting.webp'
   },
   {
     title: 'Granular Control',
     description: 'Retain total access control over your database, including granular access control down to the column per table.',
     mobilePadding: true,
     hasPadding: true,
-    file: 'features/control.png'
+    file: 'features/control.webp'
   },
   {
     title: 'P2P',
     description: 'Secure due to P2P.',
-    file: 'features/p2p.png'
+    file: 'features/p2p.webp'
   }
 ];
 
@@ -241,7 +241,7 @@ export default function Home() {
                   databases.slice(0, 6).map((item) => (
                     <div key={item.title} className='mb-2 flex flex-col items-center justify-center gap-4 rounded-md bg-[#184f61] p-6'>
                       <div className='flex h-8 w-8 rounded-full'>
-                        {item.type === 'png' ? <Image src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
+                        {item.type === 'png' ? <Image loading='lazy' src={item.icon} alt="sqlserver" width="100" height="100" /> : <div dangerouslySetInnerHTML={{ __html: item.icon }} className='w-full text-gray-300' />}
                       </div>
                       <span className='text-center text-xs font-medium text-gray-300'>{item.title}</span>
                     </div>
