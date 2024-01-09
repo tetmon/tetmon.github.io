@@ -15,10 +15,10 @@ export const metadata: Metadata = {
   title: 'Edgeset',
   description: 'A data warehouse tool',
   // TODO: separate this out through runtime env
-  // robots: {
-  //   follow: false,
-  //   index: false
-  // }
+  robots: {
+    follow: false,
+    index: false
+  }
 }
 
 export default function RootLayout({
