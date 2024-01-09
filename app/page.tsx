@@ -10,8 +10,8 @@ const companies = [
   { file: 'companies/spd.webp', name: 'SPD Jobs inc' },
   { file: 'companies/cbrc.webp', name: 'CBRC' },
 ];
-
-
+ 
+// On cache issue => https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages
 const features = [
   {
     pill: 'Spreadsheets',
