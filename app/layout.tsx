@@ -12,7 +12,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Edgeset',
+  title: 'Force multiplier for business owners | Edgeset',
   description: 'Force multiplier for business owners',
   // TODO: separate this out through runtime env
   robots: {
