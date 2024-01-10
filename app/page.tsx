@@ -377,7 +377,7 @@ export default function Home() {
               Testimonials
             </h6>
           </div>
-          <p className='m-auto mb-10 max-w-2xl rounded-lg  p-5 text-center text-xl font-medium tracking-tighter text-slate-500 md:text-2xl'>&quot;No Tech Department? No problem. <span className='text-edgeset underline'>Edgeset</span> will handle the integration.&quot;</p>
+          <p className='m-auto mb-10 max-w-2xl rounded-lg  p-5 text-center text-xl font-medium tracking-tighter text-slate-500 md:text-2xl'>No Tech Department? No problem. <span className='text-edgeset underline'>Edgeset</span> will handle the integration.</p>
           {/* <p className='mb-14 text-center text-base font-semibold text-slate-500 md:text-lg'>- Yinghan Hu, Founder</p> */}
           <p className='mb-8 text-center text-lg font-medium tracking-tighter text-slate-500 md:mb-14 md:text-2xl'>
             Here&apos;s what our <span className='text-edgeset underline'>happy</span> users <i>say</i>
