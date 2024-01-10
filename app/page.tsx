@@ -159,14 +159,14 @@ const testimonials = [
     width: 150
   },
   {
-    name: 'Michella',
+    name: 'Michelle',
     company: 'SPDJ',
-    quote: 'CEOs used to have to ask so many layers of people for the data.  The higher you go, the further you get away from data.  But now, you can get data at finger tips.',
+    quote: 'CEO\'s used to have to ask so many layers of people for the data.  The higher you go, the further you get away from data.  But now, you can get data at your fingertips.',
     file: '/companies/spd-empty.png',
     bg: '#eeeeee'
   },
   {
-    name: 'A customers engineering staff',
+    name: 'A customer\'s engineering staff',
     company: 'Oxquant',
     quote: 'Can I resell your product?',
     file: '/companies/oxquant-empty.png',
@@ -380,26 +380,17 @@ export default function Home() {
           <p className='m-auto mb-10 max-w-2xl rounded-lg  p-5 text-center text-xl font-medium tracking-tighter text-slate-500 md:text-2xl'>&quot;No Tech Department? No problem. <span className='text-edgeset underline'>Edgeset</span> will handle the integration.&quot;</p>
           {/* <p className='mb-14 text-center text-base font-semibold text-slate-500 md:text-lg'>- Yinghan Hu, Founder</p> */}
           <p className='mb-8 text-center text-lg font-medium tracking-tighter text-slate-500 md:mb-14 md:text-2xl'>
-            Here&apos;s what our <span className='text-edgeset underline'>happy</span> users <i>say</i>:
+            Here&apos;s what our <span className='text-edgeset underline'>happy</span> users <i>say</i>
           </p>
           <div className='grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12'>
             {
               testimonials.map((item) => (
-                <div key={item.name} className='m-auto flex min-w-[300px] max-w-[400px] flex-col rounded-md border border-slate-200 bg-white'>
-                  {/* <div className='flex h-60 w-full items-center justify-center' style={{ backgroundColor: item.bg }}>
-                    <Image src={item.file} width={item.width ?? 100} height={100} alt={item.company} />
-                  </div> */}
+                <div key={item.name} className='m-auto flex w-full max-w-[400px] flex-col rounded-md border border-slate-200 bg-white pt-4'>
+                  <svg className='relative left-4' xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512" fill="#2885a4"><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z"/></svg>
                   <div className='flex flex-auto flex-col px-4'>
-                    <q className='my-4 text-gray-700'>{item.quote}</q>
+                    <p className='my-4 text-gray-700'>{item.quote}</p>
                     <div className='flex items-center justify-end pb-5'>
-                      {/* <div className='flex flex-col'> */}
                       <b className='max-w-[200px] text-center text-base font-semibold text-edgeset'>{item.name}</b>
-                      {/* <b className='text-sm font-semibold text-edgeset lg:text-base'>MD, {item.company}</b> */}
-                      {/* </div> */}
-                      {/* <button className='flex items-center rounded-3xl border border-edgeset bg-white px-3 py-2 text-sm font-medium text-edgeset hover:border-black hover:bg-edgeset hover:text-white'>
-                        <span className='pr-1 font-semibold'>Case Study</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                      </button> */}
                     </div>
                   </div>
                 </div>

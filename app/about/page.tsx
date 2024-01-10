@@ -3,9 +3,9 @@ import Navbar from "@/components/navbar";
 import Image from "next/image";
 
 const headlines = [
-  'Tetmon represented Singapore to Chongqing Tech Unicorn summit, and regularly speak at corporate innovation workshops',
-  'We partner with some of the world’s top technology firms',
-  'Tool of choice by top funds, financial institutions, government linked corporations, and more'
+  'Tetmon represented Singapore to Chongqing Tech Unicorn summit, and regularly speak at corporate innovation workshops.',
+  'We partner with some of the world’s top technology firms.',
+  'Tool of choice by top funds, financial institutions, government linked corporations, and more.'
 ];
 
 const members = [
@@ -13,7 +13,7 @@ const members = [
     name: 'Christopher Forno',
     title: 'Co-founder',
     description: `
-    For two decades, Chris has built and led global software engineering teams to execute challenging projects ranging from very large distributed systems to computer vision. He has worked in most mainstream programming languages and has extensive experience from DevOps and Cybersecurity to front-end.
+    For two decades, Chris has built and led global software engineering teams to execute challenging projects ranging from very large distributed systems to computer vision. He has worked in most mainstream programming languages and has extensive experience from devOps and cybersecurity to front-end.
     <br/>  <br/>
 Previous employers and clients have included top Californian tech companies, the private equity fund Yucaipa Companies, and more recently in Asia, Global Fashion Group and Lazada. Chris has written popular articles on a number of themes, his GitHub projects have 500 stars and 100 forks, and his YouTube programming tutorials have been viewed over half a million times.
     `,
