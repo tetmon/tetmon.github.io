@@ -1,7 +1,7 @@
 'use client'
 
-import Image from "next/image";
-import { ReactElement, ReactSVGElement, createContext, useContext, useRef, useState } from "react";
+import NextImage from "next/image";
+import { ReactElement, ReactSVGElement, createContext, useContext, useEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 const ActiveContext = createContext(0);
@@ -32,6 +32,7 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
   const [activeIndex, setActiveIndex] = useState(0);
   const pillsRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const featureRef = useRef<HTMLDivElement>(null);
   let isScrollEnabled = useRef<boolean>(true);
 
   function scrollToPill(index: number) {
@@ -79,9 +80,25 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
   const debouncedScroll = debounce(handleScroll, 100);
   const item = features[activeIndex];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const intersecting = entry.isIntersecting
+        if (intersecting) {
+          features.forEach((_f, index) => {
+            let im = new Image();
+            im.src = features[index].file;
+          });
+        }
+      })
+    })
+    
+    featureRef.current && observer.observe(featureRef.current);
+  }, [])
+
   return (
     <ActiveContext.Provider value={activeIndex}>
-      <div className='col-span-full md:grid md:grid-cols-18'>
+      <div className='col-span-full md:grid md:grid-cols-18' ref={featureRef}>
         <div className='md:col-start-2 md:col-end-10 md:max-w-xl md:py-20 xl:col-start-5'>
           <div className="mb-4 flex lg:mb-12">
             {icon}
@@ -123,7 +140,7 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
                       <span className='text-base text-gray-700' dangerouslySetInnerHTML={{ __html: item.description }}></span>
                     </div>
                     <div className={`box-content flex w-full items-center justify-center rounded-sm bg-edgeset p-4 ${item.hasPadding && !item.mobilePadding ? 'pl-11' : 'p-0'} ${item.mobilePadding ? 'py-4 pl-16' : ''}`}>
-                      <Image src={item.file} className="h-64 max-w-fit object-contain" alt="hey" width={500} height={300} />
+                      <NextImage src={item.file} className="h-64 max-w-fit object-contain" alt="hey" width={500} height={300} />
                     </div>
                   </div>
                 </div>
@@ -164,7 +181,7 @@ export const Snapshots = ({ dir, feature }: { dir: string, feature: IFeature }) 
   return (
     <CSSTransition key={activeIndex} timeout={200} classNames="snapshot" appear in={true} unmountOnExit>
       <div className={`col-end-16 mt-20 hidden h-80 w-full min-w-[400px] overflow-hidden rounded-md bg-edgeset md:col-start-11 lg:col-start-12 ${hasPadding ? 'pl-12 pt-12' : 'justify-center'} md:flex ${activeIndex === 0 ? 'bg-edgeset' : ''}`}>
-        <Image src={file} className="relative top-[2px] max-w-fit object-contain" alt="hey" width={500} height={300} />
+        <NextImage src={file} className="relative top-[2px] max-w-fit object-contain" alt="hey" width={500} height={300} />
       </div>
     </CSSTransition>
   )

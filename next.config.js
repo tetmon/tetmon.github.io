@@ -5,6 +5,10 @@ const isProd = process.env.NODE_ENV === 'production'
 const nextConfig = {
   reactStrictMode: false,
   output: isProd ? 'export' : undefined,
+  optimizeFonts: true,
+  experimental: {
+    optimizeCss: true,
+  },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     unoptimized: true
