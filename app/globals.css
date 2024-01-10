@@ -24,6 +24,24 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  @media (pointer:coarse) and (orientation: landscape) {
+    .pointer-coarse-video-l {
+      max-height: 100%;
+    }
+  }
+
+  @media (pointer:coarse) and (orientation: portrait) {
+    .pointer-coarse-video-p {
+      max-height: 50%;
+    }
+  }
+
+  @media (pointer:fine) {
+    .pointer-coarse-video-f {
+      max-height: 50%;
+    }
+  }
 }
 
 * {

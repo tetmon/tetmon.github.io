@@ -1,27 +1,44 @@
 'use client'
 
+import Modal from '@/components/modal';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react'
+import { createPortal } from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
 
-export default function RequestDemo({ size, outline, showInput }: { size: 'sm' | 'lg', outline?: boolean, showInput?: boolean }) {
-  const [email, setEmail] = useState<string>('');
+export default function RequestDemo({ size, outline, showVideo }: { size: 'sm' | 'lg', outline?: boolean, showVideo?: boolean }) {
   const router = useRouter();
+  const [showPortal, togglePortal] = useState(false);
   return (
     <>
       <div className='z-10 flex flex-col items-center md:flex-row md:items-baseline'>
         <form onSubmit={(e) => {
           e.preventDefault();
-          if (email) {
-            router.push(`get-demo?email=${email}`);
-          } else {
-            router.push('get-demo');
-          }
+          router.push('get-demo');
           return false;
         }}>
-          {showInput ? <input type="email" required onChange={(e) => setEmail(e.target.value)} placeholder='Enter your email address' className='mb-4 mr-3 rounded-md border border-gray-200 p-4' /> : null}
           <button type="submit" data-label="request-demo" className={`rounded-3xl bg-slate-900 py-3  ${size === 'sm' ? 'px-4 text-xs' : 'px-5 text-base'} ${size === 'sm' ? 'font-semibold' : 'font-medium'} ${outline ? 'border border-white bg-[#19495a] text-white' : ' text-white'} border hover:border-black hover:bg-white hover:text-black`}>
-            Get demo
+            Get a Demo
           </button>
+          {showVideo ? <button onClick={(e) => {
+            e.preventDefault();
+            togglePortal(true);
+          }} data-label="request-demo" className={`rounded-3xl py-3 bg-white ${size === 'sm' ? 'px-4 text-xs' : 'px-5 text-base'} ${size === 'sm' ? 'font-semibold' : 'font-medium'} border text-edgeset border-edgeset hover:bg-white hover:text-black hover:border-black ml-3`}>
+            Watch Video
+          </button>: null}
+          {
+           createPortal(
+              <CSSTransition
+                classNames="portal-fade"
+                in={showPortal}
+                timeout={100}
+                unmountOnExit
+              >
+                <Modal onClose={() => togglePortal(false)}/>
+              </CSSTransition>,
+                document.body
+              )
+          }
         </form>
       </div>
     </>
