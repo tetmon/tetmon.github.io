@@ -23,11 +23,11 @@ export default function RequestDemo({ size, outline, showVideo }: { size: 'sm' |
           {showVideo ? <button onClick={(e) => {
             e.preventDefault();
             togglePortal(true);
-          }} data-label="request-demo" className={`rounded-3xl py-3 bg-white ${size === 'sm' ? 'px-4 text-xs' : 'px-5 text-base'} ${size === 'sm' ? 'font-semibold' : 'font-medium'} border text-edgeset border-edgeset hover:bg-white hover:text-black hover:border-black ml-3`}>
+          }} data-label="request-demo" className={`rounded-3xl bg-white py-3 ${size === 'sm' ? 'px-4 text-xs' : 'px-5 text-base'} ${size === 'sm' ? 'font-semibold' : 'font-medium'} ml-3 border border-edgeset text-edgeset hover:border-black hover:bg-white hover:text-black`}>
             Watch Video
           </button>: null}
           {
-           createPortal(
+           typeof window !== 'undefined' ? createPortal(
               <CSSTransition
                 classNames="portal-fade"
                 in={showPortal}
@@ -37,7 +37,7 @@ export default function RequestDemo({ size, outline, showVideo }: { size: 'sm' |
                 <Modal onClose={() => togglePortal(false)}/>
               </CSSTransition>,
                 document.body
-              )
+              ): null
           }
         </form>
       </div>

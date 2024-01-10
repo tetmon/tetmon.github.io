@@ -10,7 +10,7 @@ const Menu = ({ showMenu }: { showMenu: boolean }) => {
     document.documentElement.dataset.showMenu = `${showMenu}`;
   }, [showMenu]);
 
-  return (
+  return (typeof window !== 'undefined' ?
     createPortal(
       <CSSTransition
         classNames="portal-fade"
@@ -18,7 +18,7 @@ const Menu = ({ showMenu }: { showMenu: boolean }) => {
         timeout={100}
         unmountOnExit
       >
-        <div className='fixed top-[50px] h-full w-full backdrop-blur-lg z-10'>
+        <div className='fixed top-[50px] z-10 h-full w-full backdrop-blur-lg'>
           <nav>
             <ul className="flex flex-col px-5 pt-5">
               {/* <a href="/case-studies">
@@ -31,7 +31,7 @@ const Menu = ({ showMenu }: { showMenu: boolean }) => {
         </div>
       </CSSTransition>,
       document.body
-    ));
+    ): null);
 }
 
 

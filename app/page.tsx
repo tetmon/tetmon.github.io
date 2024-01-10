@@ -189,7 +189,7 @@ export default function Home() {
           <div className='flex justify-center'>
             <RequestDemo size="lg" showVideo />
           </div>
-          <div className='flex max-w-fit justify-start p-4 pl-0 mx-auto md:p-2 mt-4'>
+          <div className='mx-auto mt-4 flex max-w-fit justify-start p-4 pl-0 md:p-2'>
             <div>or <a className='border-b border-edgeset text-edgeset hover:text-[#21363d]' href="https://calendly.com/data-diagnostics" target="_blank">Schedule a call</a> with us.</div>
           </div>
         </div>

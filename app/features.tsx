@@ -1,7 +1,7 @@
 'use client'
 
 import NextImage from "next/image";
-import { ReactElement, ReactSVGElement, createContext, useContext, useEffect, useRef, useState } from "react";
+import { ReactElement, createContext, useContext, useEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 const ActiveContext = createContext(0);
