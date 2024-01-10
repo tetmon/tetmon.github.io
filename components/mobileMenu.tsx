@@ -21,7 +21,9 @@ const Menu = ({ showMenu }: { showMenu: boolean }) => {
         <div className='fixed top-[50px] h-full w-full backdrop-blur-lg'>
           <nav>
             <ul className="flex flex-col px-5 pt-5">
-              <a href="/case-studies"><li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>Case Studies</li></a>
+              {/* <a href="/case-studies">
+                <li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>Case Studies</li>
+              </a> */}
               <a href="/careers"><li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>FAQ</li></a>
               <a href="/about"><li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>About</li></a>
             </ul>
