@@ -51,12 +51,12 @@ export default function Blog() {
                 </p>
                 <Meta date={date} time={time} author={author} />
               </div>
-              <div className='order-2 col-span-12 rounded-md border bg-slate-400 lg:col-span-6'>
+              <div className='order-2 col-span-12 rounded-md border bg-white lg:col-span-6'>
                 <Image src={`/blog/${image}`} alt='better' width={600} height={400} className='h-full w-full'/>
               </div>
             </Link> :
-            <Link className='my-4 grid grid-cols-12 gap-4 rounded-md py-4 font-medium transition-all hover:bg-gray-50' href={`/blog/${id}`}>
-              <div className='col-span-12 rounded-md border bg-slate-400 lg:col-span-2'>
+            <Link className='my-4 grid grid-cols-12 gap-4 rounded-md py-4 font-medium transition-all hover:bg-gray-50 md:px-4' href={`/blog/${id}`}>
+              <div className='col-span-12 rounded-md border bg-white lg:col-span-2'>
                 <Image src={`/blog/${image}`} alt='better' width={600} height={400} className='h-full w-full'/>
               </div>
               <div className='col-span-12 flex flex-col justify-center lg:col-span-6'>
