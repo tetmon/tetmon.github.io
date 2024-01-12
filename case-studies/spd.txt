@@ -1,7 +1,7 @@
 1:HL["/_next/static/media/6905431624c34d00-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 3:HL["/_next/static/css/1131f99f7b561571.css","style",{"crossOrigin":""}]
-0:["q1lIrkEoBaxsMyR4_UpN2",[[["",{"children":["case-studies",{"children":["spd",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/1131f99f7b561571.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
+0:["D1ZVAW5rgUjg49H0dPJZZ",[[["",{"children":["case-studies",{"children":["spd",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/1131f99f7b561571.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
 6:I[6954,[],""]
 7:I[7264,[],""]
 8:I[8326,["326","static/chunks/326-3e5332a8ca93b3ed.js","808","static/chunks/808-e65011cf6ce0287a.js","930","static/chunks/app/case-studies/layout-943a7d16d4b89a3a.js"],""]
