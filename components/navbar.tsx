@@ -12,7 +12,8 @@ const Navbar = () => {
         <nav className='mx-9 hidden gap-8 md:flex'>
           {/* <a href="case-studies" className='rounded-md border border-transparent px-2 py-1 font-medium hover:border-gray-600'>Case Studies</a> */}
           {/* <a href="/faq" className='rounded-xl border border-transparent px-2 py-1 font-medium hover:border-gray-600'>FAQ</a> */}
-          <a href="about" className='rounded-xl border border-transparent px-2 py-1 font-medium hover:border-gray-600'>About</a>
+          <a href="/blog" className='rounded-xl border border-transparent px-2 py-1 font-medium hover:border-gray-600'>Blog</a>
+          <a href="/about" className='rounded-xl border border-transparent px-2 py-1 font-medium hover:border-gray-600'>About</a>
         </nav>
         <div className='flex gap-2'>
           <Link href="get-demo">

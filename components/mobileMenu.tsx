@@ -25,6 +25,7 @@ const Menu = ({ showMenu }: { showMenu: boolean }) => {
                 <li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>Case Studies</li>
               </a> */}
               {/* <a href="/careers"><li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>FAQ</li></a> */}
+               <a href="/blog"><li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>Blog</li></a>
               <a href="/about"><li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>About</li></a>
             </ul>
           </nav>

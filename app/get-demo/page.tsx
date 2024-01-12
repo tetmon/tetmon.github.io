@@ -4,6 +4,8 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { Work_Sans } from "next/font/google";
 import { useSearchParams, useRouter } from 'next/navigation'
+import { companies } from "../page";
+import Image from "next/image";
 
 
 const workSans = Work_Sans({
@@ -22,15 +24,17 @@ export default function GetDemo(props: any) {
     <main>
       <Navbar />
       <div className='z-20 m-auto grid h-full w-full max-w-8xl grid-cols-18'>
+        <div className="col-span-16 col-start-2 pt-8">
+          <h1 className='text-4xl font-medium leading-11'>
+            Discover the power of visualizing your business metrics.
+          </h1>
+          <p className='max-w-2xl pt-8'>
+            The team is excited to show you just how much Edgeset is capable of. Submit a request today and we&apos;ll be in touch soon.
+          </p>
+        </div>
         <div className='col-span-16 col-start-2 grid grid-cols-12 py-12'>
-          <div className="col-span-12 col-start-1 max-w-2xl md:col-span-6">
-            <h1 className='text-4xl font-medium leading-11'>
-              Discover the power of visualizing your business metrics.
-            </h1>
-            <p className='py-8'>
-              The team is excited to show you just how much Edgeset is capable of. Submit a request today and we&apos;ll be in touch soon.
-            </p>
-            <form className='my-5 flex max-w-lg flex-col gap-6' action="https://formspree.io/f/xaygrrpy" onSubmit={(e) => {
+          <div className="col-span-8 col-start-1 max-w-2xl md:col-span-6">
+            <form className='flex max-w-lg flex-col gap-6' action="https://formspree.io/f/xaygrrpy" onSubmit={(e) => {
               e.preventDefault();
               const form = e.target;
               if (form instanceof HTMLFormElement) {
@@ -83,9 +87,32 @@ export default function GetDemo(props: any) {
               </div>
             </form>
           </div>
-          <div className="col-span-6">
-            <div data-url="https://calendly.com/edgeset-demo/30-minute-edgeset-demo-europe-timezone" className="calendly-inline-widget h-[700px] min-w-[320px]"></div>
+          <div className="col-start-8 col-end-11 min-w-[300px]">
+            <div className='max-w-sm text-center text-base leading-7 text-gray-700'>EdgeSet is trusted by following business owners.</div>
+            <div className='m-auto grid grid-flow-row grid-cols-3 items-center justify-items-center gap-4 pt-8 md:grid-flow-col md:grid-cols-none'>
+              {
+                companies.map((item) => <div key={item.name} className='max-w-[80px]'>
+                  <Image className='grayscale hover:filter-none' src={item.file} alt={item.name} width={100} height={100} style={{
+                  width: '100%',
+                  height: 'auto',
+                }} /></div>)
+              }
+            </div>
           </div>
+          {/* <div className="col-span-4 ">
+            <div className="px-6">
+              <div className='max-w-sm text-center text-base leading-7 text-gray-700'>EdgeSet is trusted by following business owners.</div>
+              <div className='m-auto grid grid-flow-row grid-cols-3 items-center justify-items-center gap-2 pt-8 md:grid-flow-col md:grid-cols-none'>
+                {
+                  companies.map((item) => <div key={item.name} className='max-w-[80px] md:max-w-[90px]'>
+                    <Image className='grayscale hover:filter-none' src={item.file} alt={item.name} width={100} height={100} style={{
+                    width: '100%',
+                    height: 'auto',
+                  }} /></div>)
+                }
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
       <Footer />
