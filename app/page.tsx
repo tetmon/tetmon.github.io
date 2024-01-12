@@ -5,7 +5,7 @@ import Footer from '@/components/footer';
 import Discover from '@/components/discover';
 import Image from 'next/image';
 
-export const companies = [
+const companies = [
   { file: 'companies/philippines.webp', name: 'Philippines chamber of commerce' },
   { file: 'companies/spd.webp', name: 'SPD Jobs inc' },
   { file: 'companies/cbrc.webp', name: 'CBRC' },

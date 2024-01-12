@@ -1,6 +1,8 @@
+import fs from 'fs'
 import { getPostData } from '@/lib/posts'
 import formatDate from '@/lib/format'
 import Link from 'next/link'
+import path from 'path'
 
 type Params = {
   slug: string
@@ -56,6 +58,17 @@ export async function generateMetadata({ params }: Props) {
     title: postData.title,
   }
 }
+
+export function generateStaticParams() {
+  const postsDirectory = path.join(process.cwd(), 'posts');
+  const fileNames = fs.readdirSync(postsDirectory) 
+  return fileNames.map((fileName) => {
+    return {
+      slug: path.basename(fileName, '.md')
+    }
+  });
+}
+ 
 
 // -< Post >-
 export default async function Post({ params }: Props) {

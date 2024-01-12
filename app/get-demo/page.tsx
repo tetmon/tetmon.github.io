@@ -4,9 +4,13 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { Work_Sans } from "next/font/google";
 import { useSearchParams, useRouter } from 'next/navigation'
-import { companies } from "../page";
 import Image from "next/image";
 
+const companies = [
+  { file: 'companies/philippines.webp', name: 'Philippines chamber of commerce' },
+  { file: 'companies/spd.webp', name: 'SPD Jobs inc' },
+  { file: 'companies/cbrc.webp', name: 'CBRC' },
+];
 
 const workSans = Work_Sans({
   weight: ['400', '500', '600'],
