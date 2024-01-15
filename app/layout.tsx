@@ -28,7 +28,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${workSans.variable}`}>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <script defer data-api="https://analytics.tetmon.com/api/event" src="/assets/plausible.js"></script>
+      </body>
     </html>
   )
 }
