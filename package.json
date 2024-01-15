@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
+    "build": "tinacms build && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -20,11 +20,13 @@
     "react-dom": "^18",
     "react-transition-group": "^4.4.5",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "tinacms": "^1.5.28"
   },
   "devDependencies": {
+    "@tinacms/cli": "^1.5.39",
     "@types/luxon": "^3.4.0",
-    "@types/node": "^20",
+    "@types/node": "^20.11.1",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-transition-group": "^4.4.9",

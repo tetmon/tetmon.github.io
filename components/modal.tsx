@@ -28,7 +28,7 @@ export default function Modal({ onClose }: {onClose: () => void}) {
         </svg>
         <span className="sr-only">Loading...</span>
       </div>: null}
-      {showVideo ? <video autoPlay controls loop muted className={`pointer-coarse-video-l pointer-coarse-video-f mx-auto p-5 ${loadedVideo ? 'visible': 'invisible'}`} onLoadedData={() => {
+      {showVideo ? <video autoPlay controls muted className={`pointer-coarse-video-l pointer-coarse-video-f mx-auto p-5 ${loadedVideo ? 'visible': 'invisible'}`} onLoadedData={() => {
         toggleLoaded(true);
       }}>
         <source src="assets/edgeset.webm" type="video/webm" />

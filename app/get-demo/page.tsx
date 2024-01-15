@@ -70,7 +70,7 @@ export default function GetDemo(props: any) {
               <div className='flex flex-col gap-2'>
                 <label htmlFor="role" className='text-sm'>What role best describe you?*</label>
                 <select name="role" required className='border p-2 text-sm'>
-                  <option value="Manager">Manager</option>
+                  <option value="Management">Management</option>
                   <option value="Data Scientist">Data Scientist</option>
                   <option value="Sales Executive">Sales Executive</option>
                   <option value="Engineer">Engineer</option>

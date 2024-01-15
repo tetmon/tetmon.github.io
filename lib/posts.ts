@@ -57,13 +57,13 @@ export function getSortedPostsData() {
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1
-    } else {
+    } else {  
       return -1
     }
   }).map((post, i) => {
     return {
       ...post,
-      image: images[i]
+      image: `${post.id}/hero.png`
     }
   })
 }

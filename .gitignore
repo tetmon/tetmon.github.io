@@ -40,3 +40,6 @@ next-env.d.ts
 .devenv*
 devenv.local.nix
 
+
+node_modules
+.env

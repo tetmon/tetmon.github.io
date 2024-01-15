@@ -1,6 +1,6 @@
 ---
 title: 'The Benefits of SaaS without the Downsides'
-description: 'Learn how Edgeset differs from conventional SaaS applications.'
+description: 'Learn how EdgeSet differs from conventional SaaS applications.'
 date: '2024-01-10'
 author: 'Chris Forno'
 ---

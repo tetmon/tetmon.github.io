@@ -36,21 +36,21 @@ export default function about(props: any) {
     <main>
       <Navbar />
       <section className='grid grid-cols-18 pt-14 md:pt-24'>
-        <div className="col-span-12 col-start-4">
+        <div className="col-span-full px-6 md:px-10 lg:px-14 xl:px-56">
           <h1 className='text-4xl font-medium leading-11 md:text-center lg:text-5xl'>EdgeSet is trusted by Industry Leaders</h1>
           <p className='max-w-3xl py-8 text-left text-base leading-7 text-gray-600  md:m-auto md:text-center md:text-lg'>
-            Tetmon’s EdgeSet eliminates the need for ETL or a traditional data warehouse (DWH). Instead of shifting the DWH into the cloud, EdgeSet reconstructs DWH from first principles. EdgeSet creates a virtual representation of all your data centrally, then fetches the data from the edges when you require it.
+          Tetmon’s EdgeSet eliminates the need for ETL or a traditional data warehouse. EdgeSet create a virtual representation of all your data centrally, then fetches the data from the edges when you require it.
           </p>
-          <div className="grid gap-16 py-12 md:grid-cols-3">
+          <div className="grid grid-rows-3 items-center gap-6 py-6 md:grid-cols-3 md:grid-rows-none md:items-baseline md:gap-16 md:py-12">
             {
               headlines.map((headline, index) => {
                 return (
-                  <div key={index} className="max-w-xs font-medium">{headline}</div>
+                  <div key={index} className="font-medium">{headline}</div>
                 )
               })
             }
           </div>
-          <div className="grid gap-16 py-8 md:grid-cols-3">
+          <div className="grid gap-10 py-8 md:grid-cols-3 md:gap-16">
             {
               members.map((member, index) => {
                 return (
