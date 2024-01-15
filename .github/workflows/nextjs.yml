@@ -80,6 +80,8 @@ jobs:
       - name: Build with Next.js and static HTML export
         # https://github.com/vercel/next.js/discussions/45422#discussioncomment-7593569
         run: |
+          NEXT_PUBLIC_TINA_CLIENT_ID=${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+          TINA_TOKEN=${{ secrets.TINA_TOKEN }}
           ${{ steps.detect-package-manager.outputs.runner }} run build
           touch out/.nojekyll
           ls -a out
