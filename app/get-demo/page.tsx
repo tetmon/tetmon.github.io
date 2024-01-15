@@ -3,7 +3,7 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { Work_Sans } from "next/font/google";
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import Image from "next/image";
 
 const companies = [
@@ -22,8 +22,6 @@ const workSans = Work_Sans({
 
 export default function GetDemo(props: any) {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const email = searchParams.get('email') || undefined;
   return (
     <main>
       <Navbar />
@@ -65,7 +63,7 @@ export default function GetDemo(props: any) {
               </div>
               <div className='flex flex-col gap-2'>
                 <label htmlFor="email" className='text-sm'>Email*</label>
-                <input type="email" defaultValue={email} required id="email" name="email" className='rounded-sm border p-2 text-sm' />
+                <input type="email" required id="email" name="email" className='rounded-sm border p-2 text-sm' />
               </div>
               <div className='flex flex-col gap-2'>
                 <label htmlFor="role" className='text-sm'>What role best describe you?*</label>
