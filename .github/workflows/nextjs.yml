@@ -29,9 +29,7 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    environment: github-pages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -80,20 +78,14 @@ jobs:
       - name: Build with Next.js and static HTML export
         # https://github.com/vercel/next.js/discussions/45422#discussioncomment-7593569
         run: |
-          echo "$HELLO"
-          echo "$SAMPLE"
-          echo "$NEXT_PUBLIC_TINA_CLIENT_ID"
-          echo "$TINA_TOKEN"
           ${{ steps.detect-package-manager.outputs.runner }} run build
           touch out/.nojekyll
           ls -a out
           cd out
           pwd
         env:
-          HELLO: "world"
           NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-          SAMPLE: ${{ vars.SAMPLE_VAR}}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
