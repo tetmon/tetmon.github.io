@@ -15,10 +15,10 @@ export const metadata: Metadata = {
   title: 'Force multiplier for business owners | EdgeSet',
   description: 'Force multiplier for business owners',
   // TODO: separate this out through runtime env
-  robots: {
-    follow: false,
-    index: false
-  }
+  // robots: {
+  //   follow: false,
+  //   index: false
+  // }
 }
 
 export default function RootLayout({
