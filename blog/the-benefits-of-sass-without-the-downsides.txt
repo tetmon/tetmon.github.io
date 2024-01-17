@@ -1,7 +1,7 @@
 1:HL["/_next/static/media/6905431624c34d00-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 3:HL["/_next/static/css/bdfa4847bf54cc54.css","style",{"crossOrigin":""}]
-0:["iQuSnZn5D1eNzo87P7fBv",[[["",{"children":["blog",{"children":[["slug","the-benefits-of-sass-without-the-downsides","d"],{"children":["__PAGE__?{\"slug\":\"the-benefits-of-sass-without-the-downsides\"}",{}]}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/bdfa4847bf54cc54.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
+0:["RuwGNGiK7YGOX4DgvvOgs",[[["",{"children":["blog",{"children":[["slug","the-benefits-of-sass-without-the-downsides","d"],{"children":["__PAGE__?{\"slug\":\"the-benefits-of-sass-without-the-downsides\"}",{}]}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/bdfa4847bf54cc54.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
 6:HL["/_next/static/css/a973e6cd44e715e8.css","style",{"crossOrigin":""}]
 7:I[6954,[],""]
 8:I[7264,[],""]
