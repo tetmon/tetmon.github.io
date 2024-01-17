@@ -3,7 +3,7 @@ title: 'Don’t ETL, ELT, or EtLT'
 date: '2023-12-01'
 author: 'Chris Forno'
 ---
-## “ETL is dead, long live ELT!”
+<h2 style="margin-top:0;"> “ETL is dead, long live ELT!”</h2>
 The industry has long known the problems of centralizing data via ETL (Extract Transform Load):
 
 - **ETL destroys data lineage**: transforms happen before loads, discarding the original data. Transformed and aggregated data is difficult to understand and trust since it cannot be traced back to the source.

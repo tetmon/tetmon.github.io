@@ -1,7 +1,7 @@
 ---
 title: Data Engineering as a Product
 date: '2024-01-15'
-author: 'Chris Forno, Yinghan Hu'
+author: 'Chris Forno'
 ---
 
 Data engineering is essential for all value-added data work, but it’s hard to do well and ripe for disruption.

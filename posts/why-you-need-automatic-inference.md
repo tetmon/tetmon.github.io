@@ -2,7 +2,7 @@
 title: Why You Need Automatic Inference
 description: 'Learn about EdgeSet support for inferring data on spreadsheets and CSV files.'
 date: '2024-01-15'
-author: 'Chris Forno, Yinghan Hu'
+author: 'Chris Forno'
 ---
 
 No matter what your data and reporting goals are now, you will eventually want to analyze data outside of a SQL database.

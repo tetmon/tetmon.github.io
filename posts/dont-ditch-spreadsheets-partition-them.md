@@ -1,7 +1,7 @@
 ---
 title: Don’t Ditch Spreadsheets. Partition Them.
 date: '2024-01-15'
-author: 'Chris Forno, Yinghan Hu'
+author: 'Chris Forno'
 ---
 
 We often hear customers say that they want to move away from spreadsheets and start using a “real” system backed by a database (whether that be an ERP, CRM, etc.). And they’re sometimes shocked when we advise them to keep using spreadsheets. After all, it’s common knowledge that spreadsheets are not “scalable”. What will they do when they hit the hard limits (10 million cells for Google Sheets, 1 million rows for Microsoft Excel)?
