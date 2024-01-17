@@ -129,18 +129,18 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
                 </div>))
             }
           </div>
-          <div className='scrollbar-hide mb-6 flex snap-x snap-mandatory overflow-x-auto pb-6 md:hidden' onScroll={debouncedScroll}
+          <div className='scrollbar-hide mb-6 flex snap-x snap-mandatory overflow-x-auto pb-6 pr-4 md:hidden' onScroll={debouncedScroll}
             ref={scrollRef}>
             {
               features.map((item) => (
                 <div key={item.title} className='max-w-sm snap-start pl-4'>
-                  <div className='flex min-w-[300px] max-w-[100vw] flex-col overflow-hidden rounded-md bg-white'>
+                  <div className='flex max-w-[calc(100vw-60px)] flex-col overflow-hidden rounded-md bg-white'>
                     <div className='py-6 pl-5 pr-3'>
                       <h2 className='text-2xl font-medium text-edgeset'>{item.title}.</h2>
                       <span className='text-base text-gray-700' dangerouslySetInnerHTML={{ __html: item.description }}></span>
                     </div>
-                    <div className={`box-content flex w-full items-center justify-center rounded-sm bg-edgeset p-4 ${item.hasPadding && !item.mobilePadding ? 'pl-11' : 'p-0'} ${item.mobilePadding ? 'py-4 pl-16' : ''}`}>
-                      <NextImage src={item.file} className="h-64 max-w-fit object-contain" alt="hey" width={500} height={300} />
+                    <div className={`box-content flex w-[90%] items-center justify-center rounded-sm bg-edgeset p-4 md:w-full ${item.hasPadding && !item.mobilePadding ? 'pl-11' : 'p-0'} ${item.mobilePadding ? 'py-4 pl-16' : ''}`}>
+                      <NextImage src={item.file} className="h-36 max-w-fit object-contain md:h-64" alt={item.title} width={500} height={300} />
                     </div>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
               </div>
             </CSSTransition>
           </div>
-          <div ref={pillsRef} className='scrollbar-hide mb-4 ml-2 hidden flex-wrap gap-2 overflow-x-auto md:ml-0 md:flex lg:gap-4 lg:overflow-x-visible'>
+          <div className='scrollbar-hide mb-4 ml-2 hidden flex-wrap gap-2 overflow-x-auto md:ml-0 md:flex lg:gap-4 lg:overflow-x-visible'>
             {
               features.map((item, index) => (
                 <div key={item.title} className={`min-w-fit ${index !== 0 ? 'mr-0' : 'lg:pl-0'}`} onClick={() => {
@@ -177,11 +177,11 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
 
 export const Snapshots = ({ dir, feature }: { dir: string, feature: IFeature }) => {
   const activeIndex = useContext(ActiveContext);
-  const { file, hasPadding } = feature;
+  const { file, hasPadding, title } = feature;
   return (
     <CSSTransition key={activeIndex} timeout={200} classNames="snapshot" appear in={true} unmountOnExit>
       <div className={`col-end-16 mt-20 hidden h-80 w-full min-w-[400px] overflow-hidden rounded-md bg-edgeset md:col-start-11 lg:col-start-12 ${hasPadding ? 'pl-12 pt-12' : 'justify-center'} md:flex ${activeIndex === 0 ? 'bg-edgeset' : ''}`}>
-        <NextImage src={file} className="relative top-[2px] max-w-fit object-contain" alt="hey" width={500} height={300} />
+        <NextImage src={file} className="relative top-[2px] max-w-fit object-contain" alt={title} width={500} height={300} />
       </div>
     </CSSTransition>
   )
