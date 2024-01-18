@@ -80,6 +80,7 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} run build
           touch out/.nojekyll
+          ls public
           ls -a out
           cd out
           pwd
