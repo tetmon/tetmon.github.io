@@ -85,6 +85,8 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} run build
           touch out/.nojekyll
+          rm public/admin/.gitignore
+          rm tina/.gitignore
           cp -rf tina out
       - name: Deploy to GitHub Pages
         id: deployment

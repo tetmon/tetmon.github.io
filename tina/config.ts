@@ -2,8 +2,7 @@ import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
-  process.env.NEXT_PUBLIC_TINA_BRANCH ||
-  "main";
+  process.env.NEXT_PUBLIC_TINA_BRANCH || 'gh-pages';
 
 export default defineConfig({
   branch,
