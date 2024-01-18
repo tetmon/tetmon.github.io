@@ -88,6 +88,7 @@ jobs:
           rm public/admin/.gitignore
           rm tina/.gitignore
           cp -rf tina out
+          cp out/admin/index.html out/404.html
       - name: Deploy to GitHub Pages
         id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
