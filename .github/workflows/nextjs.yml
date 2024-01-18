@@ -85,6 +85,7 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} run build
           touch out/.nojekyll
+          cp -rf tina out
       - name: Deploy to GitHub Pages
         id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
