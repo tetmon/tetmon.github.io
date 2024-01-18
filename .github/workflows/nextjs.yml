@@ -81,6 +81,7 @@ jobs:
           ${{ steps.detect-package-manager.outputs.runner }} run build
           touch out/.nojekyll
           ls public/admin
+          cp -rf public/admin/ out/
           ls -a out
           cd out
           pwd
