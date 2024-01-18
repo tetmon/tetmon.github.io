@@ -82,6 +82,7 @@ jobs:
           touch out/.nojekyll
           ls public/admin
           cp -rf public/admin/ out/
+          rm out/admin/.gitignore
           ls -a out
           echo "-----------"
           ls -a out/admin
