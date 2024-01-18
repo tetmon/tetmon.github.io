@@ -83,6 +83,8 @@ jobs:
           ls public/admin
           cp -rf public/admin/ out/
           ls -a out
+          echo "-----------"
+          ls -a out/admin
           cd out
           pwd
         env:
