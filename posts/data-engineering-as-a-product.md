@@ -1,7 +1,7 @@
 ---
-title: Data Engineering as a Product
 date: '2024-01-15'
-author: 'Chris Forno'
+author: Chris Forno
+title: Data Engineering as a Product
 ---
 
 Data engineering is essential for all value-added data work, but it’s hard to do well and ripe for disruption.
@@ -14,9 +14,9 @@ Data Engineers are paid more than Data Scientists ($127K vs $123K in the US acco
 
 According to various surveys, “data engineering” (collection, copying, cleaning, etc.) is the most hated part of data scientists’ jobs. Data engineering consists of:
 
-* Copying data from one place to another (often with [ETL pipelines](dont-etl-elt-or-etlt))
-* Converting data between different formats (such as [CSV](why-you-need-automatic-inference))
-* Aligning data from different sources
+* Copying data from one place to another (often with [ETL pipelines](dont-etl-elt-or-etlt)).
+* Converting data between different formats (such as [CSV](why-you-need-automatic-inference)).
+* Aligning data from different sources.
 
 These are all repetitive, error-prone tasks: exactly the kinds of tasks that are well-suited to automation.
 
