@@ -24,7 +24,7 @@ As leads started to come in after EdgeSet’s re-launch, I started to look aroun
 
 As the idea took hold, we wrote out the information that we want to see in our CRM over one afternoon, followed up with a couple of in-person sessions to refine it, and the first cut of our own CRM is:
 
-![](/casestudies/crm/dash.png)
+![](/casestudies/crm/dash.png "Sales dashboard useful for weekly sales stand-up")
 
 ![](/casestudies/crm/sheet-0.png)
 
