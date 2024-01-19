@@ -24,17 +24,43 @@ As leads started to come in after EdgeSet’s re-launch, I started to look aroun
 
 As the idea took hold, we wrote out the information that we want to see in our CRM over one afternoon, followed up with a couple of in-person sessions to refine it, and the first cut of our own CRM is:
 
+<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
+
 ![](/casestudies/crm/dash.png "Sales dashboard useful for weekly sales stand-up")
+<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Sales dashboard useful for weekly sales stand-up</strong>
 
-![](/casestudies/crm/sheet-0.png)
+</div>
 
-![](/casestudies/crm/sheet-1.png)
+<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
 
-![](/casestudies/crm/sheet-2.png)
+![](/casestudies/crm/sheet-0.png "Prospect list (sample)")
+<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Prospect list (sample)</strong>
+
+</div>
+
+
+<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
+
+![](/casestudies/crm/sheet-1.png "Sales meeting notes (sample)")
+<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Sales meeting notes (sample)</strong>
+
+</div>
+
+<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
+
+![](/casestudies/crm/sheet-2.png "Sales pipeline (sample)")
+<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Sales pipeline (sample)</strong>
+
+</div>
 
 We were so overjoyed with the first iteration that we continuously added things that we want to see to it, including ageing:
 
-![](/casestudies/crm/charts.png)
+<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
+
+![](/casestudies/crm/charts.png "Expected revenues by month of closing")
+<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Expected revenues by month of closing</strong>
+
+</div>
 
 It makes for easier communication internally within our startup during our weekly standups, and also for external communications by just taking screenshots.
 
