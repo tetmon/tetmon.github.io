@@ -59,7 +59,7 @@ We were so overjoyed with the first iteration that we continuously added things 
 
 <div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
 
-![](/blog/how-we-created-our-own-crm-with-just-edgeset-and-google-sheets/charts.webp "Expected revenues by month of closing") <strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Expected revenues by month of closing</strong>
+![](/blog/how-we-created-our-own-crm-with-just-edgeset-and-google-sheets/projections.webp "Expected revenues by month of closing") <strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Expected revenues by month of closing</strong>
 
 </div>
 
