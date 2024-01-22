@@ -24,41 +24,42 @@ As leads started to come in after EdgeSet’s re-launch, I started to look aroun
 
 As the idea took hold, we wrote out the information that we want to see in our CRM over one afternoon, followed up with a couple of in-person sessions to refine it, and the first cut of our own CRM is:
 
-<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
 
-![](/casestudies/crm/dash.png "Sales dashboard useful for weekly sales stand-up")
-<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Sales dashboard useful for weekly sales stand-up</strong>
-
+<div style="text-align:center; display: flex; flex-direction: column; justify-content: center; margin-top: 20px;">
+  <img src="/blog/how-we-created-our-own-crm-with-just-edgeset-and-google-sheets/dash.webp" alt="Prospect list (sample)" style="height:500px; width: 100%; margin: auto; object-fit:contain; object-position: top left;"/>
+  <strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Weekly sales demo (sample)</strong>
 </div>
 
-<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
+<br/>
 
-![](/casestudies/crm/sheet-0.png "Prospect list (sample)")
-<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Prospect list (sample)</strong>
-
+<div style="text-align:center; display: flex; flex-direction: column; justify-content: center; margin-top: 20px;">
+  <img src="/blog/how-we-created-our-own-crm-with-just-edgeset-and-google-sheets/prospects.webp" alt="Prospect list (sample)" style="height:390px; width: 100%; margin: auto; object-fit:none; object-position: top left;"/>
+  <strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Prospect list (sample)</strong>
 </div>
 
+<br/>
 
-<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
-
-![](/casestudies/crm/sheet-1.png "Sales meeting notes (sample)")
-<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Sales meeting notes (sample)</strong>
-
+<div style="text-align:center; display: flex; flex-direction: column; justify-content: center; margin-top: 20px;">
+  <img src="/blog/how-we-created-our-own-crm-with-just-edgeset-and-google-sheets/notes.webp" alt="Prospect list (sample)" style="height:382px; width: 100%; margin: auto; object-fit:none; object-position: top left;"/>
+  <strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Sales meeting notes (sample)</strong>
 </div>
 
-<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
+<br/>
 
-![](/casestudies/crm/sheet-2.png "Sales pipeline (sample)")
-<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Sales pipeline (sample)</strong>
-
+<div style="text-align:center; display: flex; flex-direction: column; justify-content: center; margin-top: 20px;">
+  <img src="/blog/how-we-created-our-own-crm-with-just-edgeset-and-google-sheets/pipeline.webp" alt="Prospect list (sample)" style="height:400px; width: 100%; margin: auto; object-fit:none; object-position: top left;"/>
+  <strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Sales pipeline (sample)</strong>
 </div>
+
+<br/>
 
 We were so overjoyed with the first iteration that we continuously added things that we want to see to it, including ageing:
 
+<br/>
+
 <div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
 
-![](/casestudies/crm/charts.png "Expected revenues by month of closing")
-<strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Expected revenues by month of closing</strong>
+![](/blog/how-we-created-our-own-crm-with-just-edgeset-and-google-sheets/charts.webp "Expected revenues by month of closing") <strong style="padding-top: 10px; display: flex; justify-content: center; font-size: 0.9rem; color: #555;">Expected revenues by month of closing</strong>
 
 </div>
 
