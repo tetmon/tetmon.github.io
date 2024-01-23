@@ -1,4 +1,3 @@
-const withMDX = require('@next/mdx')();
 const isProd = process.env.NODE_ENV === 'production'
 
 /** @type {import('next').NextConfig} */
@@ -27,4 +26,4 @@ if (!isProd) {
   }
 }
 
-module.exports = withMDX(nextConfig)
+module.exports = nextConfig;
