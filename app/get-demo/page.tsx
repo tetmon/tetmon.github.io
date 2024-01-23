@@ -89,32 +89,18 @@ export default function GetDemo(props: any) {
               </div>
             </form>
           </div>
-          <div className="col-start-8 col-end-11 min-w-[300px]">
+          <div className="col-start-8 col-end-11 hidden min-w-[300px] md:block">
             <div className='max-w-sm text-center text-base leading-7 text-gray-700'>EdgeSet is trusted by following business owners.</div>
             <div className='m-auto grid grid-flow-row grid-cols-3 items-center justify-items-center gap-4 pt-8 md:grid-flow-col md:grid-cols-none'>
               {
                 companies.map((item) => <div key={item.name} className='max-w-[80px]'>
                   <Image className='grayscale hover:filter-none' src={item.file} alt={item.name} width={100} height={100} style={{
-                  width: '100%',
-                  height: 'auto',
-                }} /></div>)
-              }
-            </div>
-          </div>
-          {/* <div className="col-span-4 ">
-            <div className="px-6">
-              <div className='max-w-sm text-center text-base leading-7 text-gray-700'>EdgeSet is trusted by following business owners.</div>
-              <div className='m-auto grid grid-flow-row grid-cols-3 items-center justify-items-center gap-2 pt-8 md:grid-flow-col md:grid-cols-none'>
-                {
-                  companies.map((item) => <div key={item.name} className='max-w-[80px] md:max-w-[90px]'>
-                    <Image className='grayscale hover:filter-none' src={item.file} alt={item.name} width={100} height={100} style={{
                     width: '100%',
                     height: 'auto',
                   }} /></div>)
-                }
-              </div>
+              }
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
       <Footer />
