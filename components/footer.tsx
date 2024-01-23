@@ -5,7 +5,7 @@ const Footer = () => (
       <ul className='mb-12 grid grid-cols-2 gap-4'>
         <li className='text-base font-normal text-gray-800'><a href="/get-demo" className='hover:underline'>Request a Demo</a></li>
         {/* <li className='text-base font-normal text-gray-800'><a className='hover:underline' href="/case-studies">Case Studies</a></li> */}
-        {/* <li className='text-base font-normal text-gray-800'><a href="/faq" className='hover:underline'>FAQ</a></li> */}
+        <li className='text-base font-normal text-gray-800'><a href="/faq" className='hover:underline'>FAQ</a></li>
         <li className='text-base font-normal text-gray-800'><a href="/about" className='hover:underline'>About</a></li>
         <li className='text-base font-normal text-gray-800'><a href="/blog" className='hover:underline'>Blog</a></li>
       </ul>
