@@ -26,17 +26,17 @@ export default function faq() {
           </div>
           <h1 className='py-8 text-3xl font-medium md:text-4xl md:leading-11'>Business Questions</h1>
           <p className="pb-5">
-            <strong>What is Edgeset?</strong>
+            <strong>What is EdgeSet?</strong>
           </p>
           <p>
             EdgeSet is a data integration software product that joins up disparate cloud and on-premise data sources to a single access point, within minutes. It is an alternative to and complement to traditional data warehouses and data lakes.
           </p>
 
           <p className="py-5">
-            <strong>Is Edgeset a cloud solution?</strong>
+            <strong>Is EdgeSet a cloud solution?</strong>
           </p>
           <p>
-            Edgeset can be deployed on desktop, as self-hosted/ on-premise, or managed hosting.
+            EdgeSet can be deployed on desktop, as self-hosted/ on-premise, or managed hosting.
           </p>
 
           <p className="py-5">
@@ -65,7 +65,7 @@ export default function faq() {
 
           <p className="pb-5"><strong>Do I need to learn a new SQL dialect to be able to use EdgeSet? How do I write queries for different databases with different SQL dialects?</strong></p>
           <p>
-            Edgeset, through its embedded Trino engine, understands standard ANSI SQL. The Trino engine will translate ANSI SQL into the native language of the data sources it’s connected to.
+            EdgeSet, through its embedded Trino engine, understands standard ANSI SQL. The Trino engine will translate ANSI SQL into the native language of the data sources it’s connected to.
           </p>
 
           <p className="py-5"><strong>Can EdgeSet connect to live data?</strong></p>
@@ -99,8 +99,8 @@ export default function faq() {
             </table>
           </div>
 
-          <p className="py-5"><strong>How does Edgeset create a virtual data warehouse?</strong></p>
-          Once the user has added their data sources to Edgeset, Edgeset will then use its auto inference feature to build the structure of the virtual data warehouse. With the structure built, users can now query the data warehouse with SQL queries.
+          <p className="py-5"><strong>How does EdgeSet create a virtual data warehouse?</strong></p>
+          Once the user has added their data sources to EdgeSet, EdgeSet will then use its auto inference feature to build the structure of the virtual data warehouse. With the structure built, users can now query the data warehouse with SQL queries.
 
           <p className="py-5"><strong>What happens to the information/data once the desired reports have been generated? Is it stored? If so, where is it stored?</strong></p>
 
