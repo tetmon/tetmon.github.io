@@ -1,16 +1,15 @@
 .markdown-content h2 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 500;
+  line-height: 1.4;
   letter-spacing: -0.05rem;
 }
 
 @media (min-width: 768px) {
   .markdown-content h2 {
-    font-size: 1.5rem;
-    line-height: 1;
+    font-size: 1.7rem;
   }
 }
 

@@ -5,7 +5,7 @@ import { DateTime } from 'luxon'
 import Image from 'next/image'
 
 
-const sourceSerifPro = Source_Serif_4({ subsets: ['latin'], weight: ['400', '500', '700'] })
+const sourceSerifPro = Source_Serif_4({ subsets: ['latin'], weight: ['400', '500', '600'] })
 
 
 type AllPostsData = {

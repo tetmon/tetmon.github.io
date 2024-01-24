@@ -5,7 +5,7 @@ import formatDate from '@/lib/format'
 import Link from 'next/link'
 import path from 'path'
 
-const sourceSerifPro = Source_Serif_4({ subsets: ['latin'], weight: ['400', '500', '700'] })
+const sourceSerifPro = Source_Serif_4({ subsets: ['latin'], weight: ['400', '500', '600'] })
 
 type Params = {
   slug: string
@@ -94,7 +94,7 @@ export default async function Post({ params }: Props) {
         {/* Post Content */}
         <div
           // eslint-disable-next-line tailwindcss/no-custom-classname
-          className={`markdown-content pt-4 leading-7 ${sourceSerifPro.className} text-lg leading-8`}
+          className={`markdown-content pt-4 ${sourceSerifPro.className} text-lg leading-8`}
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
       </div>
