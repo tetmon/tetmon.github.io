@@ -1,8 +1,11 @@
 import fs from 'fs'
+import { Source_Serif_4 } from 'next/font/google'
 import { getPostData } from '@/lib/posts'
 import formatDate from '@/lib/format'
 import Link from 'next/link'
 import path from 'path'
+
+const sourceSerifPro = Source_Serif_4({ subsets: ['latin'], weight: ['400', '500', '700'] })
 
 type Params = {
   slug: string
@@ -30,7 +33,7 @@ type AllPostsData = {
 }[]
 
 
-const Meta = ({date, time, author}: Partial<AllPostsData[0]> ) => {
+const Meta = ({ date, time, author }: Partial<AllPostsData[0]>) => {
   return (
     <div className='flex flex-col py-4'>
       <div>
@@ -45,9 +48,9 @@ const Meta = ({date, time, author}: Partial<AllPostsData[0]> ) => {
         <span className='px-1'>|</span>
         {date ? <small className='font-bold text-gray-500'>
           {formatDate(date)}
-        </small>: null}
+        </small> : null}
       </div>
-  </div>
+    </div>
   )
 }
 
@@ -61,14 +64,14 @@ export async function generateMetadata({ params }: Props) {
 
 export function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), 'posts');
-  const fileNames = fs.readdirSync(postsDirectory) 
+  const fileNames = fs.readdirSync(postsDirectory)
   return fileNames.map((fileName) => {
     return {
       slug: path.basename(fileName, '.md')
     }
   });
 }
- 
+
 
 // -< Post >-
 export default async function Post({ params }: Props) {
@@ -91,7 +94,7 @@ export default async function Post({ params }: Props) {
         {/* Post Content */}
         <div
           // eslint-disable-next-line tailwindcss/no-custom-classname
-          className='markdown-content pt-4'
+          className={`markdown-content pt-4 leading-7 ${sourceSerifPro.className} text-lg leading-8`}
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
       </div>
