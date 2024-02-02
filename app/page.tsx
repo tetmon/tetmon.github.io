@@ -1,16 +1,11 @@
+import Image from 'next/image';
 import RequestDemo from './requestDemo';
 import Features from './features';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import Discover from '@/components/discover';
-import Image from 'next/image';
+import companies from '@/lib/common';
 
-const companies = [
-  { file: 'companies/philippines.webp', name: 'Philippines chamber of commerce' },
-  { file: 'companies/spd.webp', name: 'SPD Jobs inc' },
-  { file: 'companies/cbrc.webp', name: 'CBRC' },
-];
- 
 // On cache issue => https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages
 const features = [
   {
@@ -204,9 +199,9 @@ export default function Home() {
       <section className='grid grid-cols-18 py-8'>
         <div className='col-span-16 col-start-2'>
           <div className='text-center text-base leading-7 text-gray-700'>EdgeSet is trusted by business owners.</div>
-          <div className='m-auto grid max-w-2xl grid-flow-row grid-cols-3 items-center justify-items-center gap-2 pt-8 md:grid-flow-col md:grid-cols-none'>
+          <div className='m-auto grid max-w-xs grid-flow-row grid-cols-3 items-center justify-items-center gap-2 pt-8 md:grid-flow-col md:grid-cols-none'>
             {
-              companies.map((item) => <div key={item.name} className='max-w-[80px] md:max-w-[160px]'><Image className='animate-fade-in-down grayscale hover:filter-none' src={item.file} alt={item.name} width={120} height={120} style={{
+              companies.map((item) => <div key={item.name} className='max-w-[80px] md:max-w-[200px]'><Image className='animate-fade-in-down grayscale hover:filter-none' src={item.file} alt={item.name} width={160} height={160} style={{
                 width: '100%',
                 height: 'auto',
               }} /></div>)
@@ -385,7 +380,7 @@ export default function Home() {
             {
               testimonials.map((item) => (
                 <div key={item.name} className='m-auto flex w-full max-w-[400px] flex-col rounded-md border border-slate-200 bg-white pt-4'>
-                  <svg className='relative left-4' xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512" fill="#2885a4"><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z"/></svg>
+                  <svg className='relative left-4' xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512" fill="#2885a4"><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z" /></svg>
                   <div className='flex flex-auto flex-col px-4'>
                     <p className='my-4 text-gray-700'>{item.quote}</p>
                     <div className='flex items-center justify-end pb-5'>

@@ -5,12 +5,7 @@ import Navbar from "@/components/navbar";
 import { Work_Sans } from "next/font/google";
 import { useRouter } from 'next/navigation'
 import Image from "next/image";
-
-const companies = [
-  { file: 'companies/philippines.webp', name: 'Philippines chamber of commerce' },
-  { file: 'companies/spd.webp', name: 'SPD Jobs inc' },
-  { file: 'companies/cbrc.webp', name: 'CBRC' },
-];
+import companies from "@/lib/common";
 
 const workSans = Work_Sans({
   weight: ['400', '500', '600'],
@@ -18,7 +13,6 @@ const workSans = Work_Sans({
   subsets: ['latin'],
   display: 'swap',
 });
-
 
 export default function GetDemo(props: any) {
   const router = useRouter();
@@ -91,9 +85,9 @@ export default function GetDemo(props: any) {
           </div>
           <div className="col-start-8 col-end-11 hidden min-w-[300px] md:block">
             <div className='max-w-sm text-center text-base leading-7 text-gray-700'>EdgeSet is trusted by following business owners.</div>
-            <div className='m-auto grid grid-flow-row grid-cols-3 items-center justify-items-center gap-4 pt-8 md:grid-flow-col md:grid-cols-none'>
+            <div className='m-auto grid max-w-[250px] grid-flow-row grid-cols-2 items-center justify-items-center pt-8 md:grid-flow-col md:grid-cols-none'>
               {
-                companies.map((item) => <div key={item.name} className='max-w-[80px]'>
+                companies.map((item) => <div key={item.name} className='max-w-[100px]'>
                   <Image className='grayscale hover:filter-none' src={item.file} alt={item.name} width={100} height={100} style={{
                     width: '100%',
                     height: 'auto',
