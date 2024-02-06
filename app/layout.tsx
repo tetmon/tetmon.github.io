@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
         <script defer data-api="https://analytics.tetmon.com/api/event" src="/assets/plausible.js"></script>
-        <Script id="my-script">
+        {/* <Script id="my-script">
           {`
           (function(w, d, s, u) {
             w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
@@ -41,7 +41,7 @@ export default function RootLayout({
             h.parentNode.insertBefore(j, h);
           })(window, document, 'script', 'https://chat.tetmon.com/livechat');
           `}
-        </Script>
+        </Script> */}
       </body>
     </html>
   )
