@@ -8,6 +8,12 @@ No need to grapple with, and pay for, painful CRM/ ERP like Salesforce.
 
 **TLDR;** **for a small sales team of 1-5, EdgeSet and google sheets, works well as a CRM due to the flexibility and cost.**
 
+<div style="text-align:center; display: flex; justify-content: center; margin-top: 20px;">
+
+![](/blog/how-we-created-our-own-crm-with-just-edgeset-and-google-sheets/legos.webp "Sales")
+
+</div>
+
 As a business owner and entrepreneur, Sales is always on the top of my mind. It’s the first thing I think about when I wake up, and the last thing I think about before I sleep.  Naturally, I want to know the latest sales figures, the bottlenecks, the wins, and the losses, to better improve. And I believe this is the same for the majority, if not all, business owners.
 
 However, I will be the first to admit that I had trouble keeping detailed sales records myself; and also getting Tetmon’s star sales teammates to fill up the company CRM, which is a common refrain when I speak to other business owners. 
@@ -16,14 +22,13 @@ It is not due to the lack of resolve: I had personally tried salesforce, sugarCR
 
 For one sales CRM, it will be the pain to keep repeatedly adding the same names to Accounts, Contacts, Leads and Opportunities; for another, it will be the need to put in details (e.g full name, title, company name, address, office number, mobile number, email address) per contact that I don’t have, and instinctively know, are not relevant. The unwieldy-ness of changing expected chance of closing, expected revenue, and expected close-date by clicking through Opportunities one-by-one, right before our weekly sales meeting, also always gets to me - without this, the monthly sales visual dashboards become meaningless, very fast.  
 
-Sales has changed, but our CRM tools have not evolved.  "It’s frustrating to grapple with CRM, I just want to do sales!" were my exact words to my co-founder. One VP of sales with 100 salespersons also shared with me that try as they might, they couldn’t get their salespeople to take the time to learn Salesforce, Hubspot, or any other CRM of the company’s choice, and the salespeople will only submit their sales records via Excel, however much cajoling is done.
+Sales has changed, but our CRM tools have not evolved.  "It’s frustrating to grapple with CRM, I just want to do sales!" were my exact words to my co-founder. One VP of sales with 100 salespersons also shared with me that try as they might, thmeey couldn’t get their salespeople to take the time to learn Salesforce, Hubspot, or any other CRM of the company’s choice, and the salespeople will only submit their sales records via Excel, however much cajoling is done.
 
 The issue appears not to be with CRM, but with ERP in general.  ERP is necessary for it adds structure to data, but its inflexibility is infuriating.  That’s when EdgeSet can enter: **EdgeSet marries the structure of ERP, with the flexibility of spreadsheets.**
 
 As leads started to come in after EdgeSet’s re-launch, I started to look around for a CRM system again. I thought: why not dog-food our own product, by trying to create our own CRM using EdgeSet, and see if it actually works? 
 
 As the idea took hold, we wrote out the information that we want to see in our CRM over one afternoon, followed up with a couple of in-person sessions to refine it, and the first cut of our own CRM is:
-
 
 <div style="text-align:center; display: flex; flex-direction: column; justify-content: center; margin-top: 20px;">
   <img src="/blog/how-we-created-our-own-crm-with-just-edgeset-and-google-sheets/dash.webp" alt="Prospect list (sample)" style="height:500px; width: 100%; margin: auto; object-fit:contain; object-position: top left;"/>
