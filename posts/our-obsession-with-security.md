@@ -10,9 +10,9 @@ We already talked about our biggest security advantage in [The Benefits of SaaS 
 EdgeSet is designed from the ground up to protect your data:
 
 - EdgeSet stores data source credentials (passwords and keys) encrypted. It uses the ChaCha20 cipher designed by the legendary cryptographer DJ Bernstein and selected by Google for use in HTTP/3.
-- Every EdgeSet instance uses a unique encryption key (and we will soon introduce a feature to allow you to set your own encryption passphrase). Reverse engineering the EdgeSet source code does not allow attackers to decrypt your credentials.
-- EdgeSet uses a type system to guarantee that any sensitive data (i.e. credentials) are automatically scrubbed from memory when they go out of scope. This, combined with other techniques, prevent unencrypted data from being accidentally written to disk.
-- EdgeSet does not transparently cache any data from your data sources. The only data that is held on disk are data for saved queries and visualizations (which are usually aggregated non-identifiable data).
+- Every EdgeSet instance uses a unique encryption key. Reverse engineering the EdgeSet source code does not allow attackers to decrypt your credentials.
+- EdgeSet uses a type system to guarantee that any sensitive data (i.e. credentials) are automatically scrubbed from memory when they go out of scope. This prevents unencrypted data from being accidentally written to disk.
+- EdgeSet does not implicitly cache any data from your data sources. The only data that is held on disk are data for saved queries and visualizations (which are usually aggregated non-identifying data).
 - All user passwords are hashed with individual salts using a modern memory-hard hashing function with GPU resistance.
 - EdgeSet does not run OpenSSH or allow shell logins of any kind. It does provide a terminal interface that operates over the SSH protocol, but it cannot be escaped to a shell.
 - The permissions system (which allows for granting or blocking access down to the column level) applies safe defaults: users are not automatically granted access, even to new data sources.
