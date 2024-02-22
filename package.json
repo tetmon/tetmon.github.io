@@ -16,6 +16,7 @@
     "react-dom": "^18",
     "react-transition-group": "^4.4.5",
     "remark": "^15.0.1",
+    "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1",
     "tinacms": "^1.5.28"
   },

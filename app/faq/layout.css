@@ -1,0 +1,75 @@
+.markdown-content h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  line-height: 2.75rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.05rem;
+}
+
+@media (min-width: 768px) {
+  .markdown-content h2 {
+    font-size: 1.7rem;
+  }
+}
+
+.markdown-content a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.markdown-content ul {
+  padding: 1rem;
+  list-style: disc;
+  padding-left: 2rem;
+}
+
+.markdown-content ul>li {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.5rem;
+}
+
+.markdown-content table {
+  border-width: 1px;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.markdown-content table>thead>tr {
+  background: rgb(241, 245, 249);
+}
+
+.markdown-content table>thead>tr>th {
+  padding: 1rem;
+  padding-bottom: .75rem;
+  line-height: normal;
+  padding-left: 2rem;
+  font-size: .875rem;
+  text-align: left;
+  border-bottom-width: 1px;
+}
+
+.markdown-content table>tbody>tr>td {
+  padding: .875rem;
+  padding-bottom: .875rem;
+  padding-left: 2rem;
+  border-bottom-width: 1px;
+  font-size: .875rem;
+}
+
+.markdown-content .table-wrapper {
+  width: 100%;
+  overflow: auto;
+}

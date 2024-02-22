@@ -49,6 +49,26 @@ export default defineConfig({
           router: ({ document }) => `/demo/blog/${document._sys.filename}`,
         },
       },
+      {
+        name: "faq",
+        label: "FAQ",
+        path: "app/faq",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
+        ]
+      },
     ],
   },
 });

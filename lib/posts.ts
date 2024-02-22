@@ -19,6 +19,7 @@ import matter from 'gray-matter'
 // Import 'remark', library for rendering markdown
 import { remark } from 'remark'
 import html from 'remark-html'
+import remarkGfm from 'remark-gfm'
 
 // --------------------------------
 // GET THE PATH OF THE POSTS FOLDER
@@ -49,7 +50,7 @@ export function getSortedPostsData() {
     return {
       id,
       time,
-      ...{...data},
+      ...{ ...data },
     }
   })
 
@@ -57,7 +58,7 @@ export function getSortedPostsData() {
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1
-    } else {  
+    } else {
       return -1
     }
   }).map((post, i) => {
@@ -84,9 +85,9 @@ function wordCounter(input: string) {
   const text = input.split(/\s+/)
   let wordCount = 0
   for (let i = 0; i < text.length; i++) {
-      if (text[i] !== ' ' && isWord(text[i])) {
-          wordCount++
-      }
+    if (text[i] !== ' ' && isWord(text[i])) {
+      wordCount++
+    }
   }
   return wordCount
 }
@@ -94,13 +95,13 @@ function wordCounter(input: string) {
 function isWord(str: string) {
   let alphaNumericFound = false
   for (let i = 0; i < str.length; i++) {
-      const code = str.charCodeAt(i)
-      if ((code > 47 && code < 58) || // numeric (0-9)
-          (code > 64 && code < 91) || // upper alpha (A-Z)
-          (code > 96 && code < 123)) { // lower alpha (a-z)
-          alphaNumericFound = true
-          return alphaNumericFound
-      }
+    const code = str.charCodeAt(i)
+    if ((code > 47 && code < 58) || // numeric (0-9)
+      (code > 64 && code < 91) || // upper alpha (A-Z)
+      (code > 96 && code < 123)) { // lower alpha (a-z)
+      alphaNumericFound = true
+      return alphaNumericFound
+    }
   }
   return alphaNumericFound
 }
@@ -108,29 +109,30 @@ function isWord(str: string) {
 const wordsPerMinute = 225
 
 function readingTime(text: string) {
-    return Math.ceil(wordCounter(text) / wordsPerMinute)
+  return Math.ceil(wordCounter(text) / wordsPerMinute);
 }
 
 // The returned array must have the params key otherwise `getStaticPaths` will fail
 
 // --------------------------------
 // GET THE DATA OF A SINGLE POST FROM THE ID
-export async function getPostData(id: string) {
-  const fullPath = path.join(postsDirectory, `${id}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
+export async function getPostData(id: string, dir: string = postsDirectory) {
+  const fullPath = path.join(dir, `${id}.md`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   const time = readingTime(fileContents);
 
   // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents)
+  const matterResult = matter(fileContents);
 
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
-    .use(html, {sanitize: false})
-    .process(matterResult.content)
-  const contentHtml = processedContent.toString()
+    .use(html, { sanitize: false })
+    .use(remarkGfm)
+    .process(matterResult.content);
+  const contentHtml = processedContent.toString();
 
-  const data = matterResult.data as PostData
+  const data = matterResult.data as PostData;
 
   // Combine the data with the id
   return {
