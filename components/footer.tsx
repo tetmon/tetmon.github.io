@@ -7,7 +7,7 @@ const Footer = () => (
         {/* <li className='text-base font-normal text-gray-800'><a className='hover:underline' href="/case-studies">Case Studies</a></li> */}
         <li className='text-base font-normal text-gray-800'><a href="/faq" className='hover:underline'>FAQ</a></li>
         <li className='text-base font-normal text-gray-800'><a href="/about" className='hover:underline'>About</a></li>
-        <li className='text-base font-normal text-gray-800'><a href="/edgeset/manual/current/en-US/backups.html" className='hover:underline'>Documentation</a></li>
+        <li className='text-base font-normal text-gray-800'><a href="/edgeset/manual/current/en-US/" className='hover:underline'>Documentation</a></li>
         <li className='text-base font-normal text-gray-800'><a href="/blog" className='hover:underline'>Blog</a></li>
       </ul>
       <div className='mb-4 flex gap-4 text-gray-700'>
