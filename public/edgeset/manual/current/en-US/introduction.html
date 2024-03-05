@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Sources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Connect Data Sources</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -212,7 +212,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#gui" id="toc-gui" class="nav-link active" data-scroll-target="#gui">GUI</a></li>
+  <li><a href="#sql" id="toc-sql" class="nav-link" data-scroll-target="#sql">SQL</a></li>
+  <li><a href="#live" id="toc-live" class="nav-link" data-scroll-target="#live">Live</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -234,19 +242,19 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>EdgeSet is an interface to access your organization’s data. Depending on your industry, you may think of it as a virtual data warehouse, a data fabric, or a data integration system. It presents a unified view of the databases, spreadsheets, queues, and big data spread across your organization.</p>
-<section id="gui" class="level2 unnumbered unlisted">
-<h2 class="unnumbered unlisted anchored" data-anchor-id="gui">GUI</h2>
+<p>EdgeSet is an interface to your organization’s data. Depending on your needs, you may use it as a virtual data warehouse, a data integration system, or a business intelligence tool. It presents a unified view of the databases, spreadsheets, and various other data sources spread across your organization.</p>
+<section id="gui" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="gui">GUI</h2>
 <p>Everything in EdgeSet can be done through a graphical web interface. You don’t need to learn any commands or edit any configuration files.</p>
-<p>You’re not limited to the GUI though. EdgeSet exposes a Presto-compatible API allowing you to connect from any tool or programming language that speaks the Presto protocol. It also provides a REST API for all non-query functionality so that you can automate or integrate EdgeSet from any system that speaks HTTP.</p>
+<p>You’re not limited to the GUI though. EdgeSet exposes a PostgreSQL-compatible interface and Presto-compatible API allowing you to connect from almost any tool or programming language.</p>
 </section>
-<section id="sql" class="level2 unnumbered unlisted">
-<h2 class="unnumbered unlisted anchored" data-anchor-id="sql">SQL</h2>
-<p>All data in EdgeSet is represented as SQL tables, even if the data resides in a non-SQL data source. You can join data from any data sources as if they lived in a single SQL database. You can use the filtering, aggregating, window, and statistical functions seamlessly on all your data.</p>
+<section id="sql" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sql">SQL</h2>
+<p>All data in EdgeSet is represented as SQL tables, even if the data resides in a non-SQL data source. You can join data from any data sources as if they lived in a single SQL database. You can use filtering, aggregating, windowing, and statistical functions seamlessly on all your data.</p>
 </section>
-<section id="live" class="level2 unnumbered unlisted">
-<h2 class="unnumbered unlisted anchored" data-anchor-id="live">Live</h2>
-<p>Compared to traditional data warehouses, EdgeSet has no ETL (Extract, Transform, Load) process. The data necessary to answer a query is fetched at query runtime. Adding a new data source takes minutes, not days. There is also no need to provision storage space. The tradeoff is that load may increase on the data sources you add, so use read replicas when available (see <a href="./scaling.html">Scaling</a>).</p>
+<section id="live" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="live">Live</h2>
+<p>Compared to traditional data warehouses, EdgeSet does not rely on an ETL (Extract, Transform, Load) pipeline. The data necessary to answer a query is fetched at query runtime. Adding a new data source takes minutes, not days. There is also no need to provision storage space.</p>
 
 
 </section>

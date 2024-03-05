@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EdgeSet Manual - 4&nbsp; Data Sources</title>
+<title>EdgeSet Manual - 4&nbsp; Connect Data Sources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-sources.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Sources</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-sources.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Connect Data Sources</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-sources.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Sources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Connect Data Sources</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -226,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Sources</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Connect Data Sources</span></h1>
 </div>
 
 
@@ -241,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>To add a data source to EdgeSet, first navigate to “Data Sources” in the menu. Available data sources are listed on the “Add New Data Source” card.</p>
+<p>To connect to a data source in EdgeSet, first navigate to “Connect” in the navigation bar. Available data sources are listed on the “Add new data source” card.</p>
 <p>You can add any number of each data source type. For example, you can add multiple PostgreSQL databases.</p>
 <section id="google-sheets" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="google-sheets"><span class="header-section-number">4.1</span> Google Sheets</h2>
@@ -300,13 +300,23 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">unauthenticated only</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">MariaDB</td>
+<td style="text-align: left;">10.0 or higher</td>
+<td style="text-align: left;">add as MySQL</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">MongoDB</td>
 <td style="text-align: left;">4.0 or higher</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">MySQL</td>
 <td style="text-align: left;">5.7 or higher</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oracle</td>
+<td style="text-align: left;">11g or higher</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
@@ -321,6 +331,19 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+TPC-DS
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The TPC-DS data source is a built-in data source that can be used for testing. We will use it for illustration throughout the rest of the manual.</p>
+</div>
+</div>
 
 
 </section>

@@ -296,10 +296,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="screenshots/column-restriction.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption"><code>connectors</code> 表格中的 <code>enc_conn_info</code> 列现在被限定为只有管理员才能访问</figcaption>
+<figcaption class="figure-caption"><code>connectors</code> 表格中的 <code>props</code> 列现在被限定为只有管理员才能访问</figcaption>
 </figure>
 </div>
-<p>通过对 <code>enc_conn_info</code> 的限定访问， <code>analysts</code> 组中的用户将可以查看 <code>connectors</code> 表格，但无法查看 <code>enc_conn_info</code> 列。</p>
+<p>通过对 <code>props</code> 的限定访问， <code>analysts</code> 组中的用户将可以查看 <code>connectors</code> 表格，但无法查看 <code>props</code> 列。</p>
 <p>你可以在限定列表中添加多个组或用户。任何不在列表中的用户都将无法访问。</p>
 <p>访问限定适用于受限对象所包含的任何对象。比如，对一个模式的访问限定意味着这一模式中的表格和列同样会被限定。这也意味着，更低级别对象的受限范围必须包含于更高级别对象的组和用户。比方说，如果 <code>edgeset</code> 模式已经被限定成只有 <code>admin</code> 组中的管理员可以访问，那么 <code>edgeset</code> 模式下的一个表格要是包含 <code>analysts</code> 就不合理了。因为 <code>analysts</code> 组中的用户已经被限制无法访问这一模式了。</p>
 

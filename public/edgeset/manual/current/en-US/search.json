@@ -11,63 +11,49 @@
     "href": "index.html#about-this-manual",
     "title": "EdgeSet Manual",
     "section": "About this manual",
-    "text": "About this manual\nThis manual will guide you through every step of setting up and using EdgeSet as a comprehensive and secure virtual data warehouse.\nIt’s organized into chapters ordered to first acquaint you with how EdgeSet operates and then explain how to onboard the rest of the users in your organization.\nThe first 7 chapters will get you started connecting to different data sources and running queries.\n\nChapter 1, “Introduction”\nChapter 2, “Installation”\nChapter 3, “Setup”\nChapter 4, “Data Sources”\nChapter 5, “Query Engine”\nChapter 6, “Catalog”\nChapter 7, “Query Notebook”\n\nThe next 6 chapters will help you roll out access to the rest of your company and ensure that your data remains protected.\n\nChapter 8, “Users and Groups”\nChapter 9, “Permissions”\nChapter 10, “Clients”\nChapter 11, “Security”\nChapter 12, “Backups”\nChapter 13, “Scaling”\n\nThe final chapters explain some of the inner workings of EdgeSet’s distinctive features.\n\nChapter 14, “Tabular Files”"
+    "text": "About this manual\nThis manual will guide you through every step of setting up and using EdgeSet as a comprehensive and secure virtual data warehouse and business intelligence tool.\nIt’s organized into chapters ordered to first acquaint you with how EdgeSet operates and then explain how to onboard the rest of the users in your organization.\nThe first 7 chapters will get you started connecting to different data sources and analyzing data.\n\nChapter 1: Introduction\nChapter 2: Installation\nChapter 3: Setup\nChapter 4: Data Sources\nChapter 5: Query Engine\nChapter 6: Catalog\nChapter 7: Query Notebook\n\nThe next 6 chapters will help you roll out access to the rest of your company and ensure that your data remains protected.\n\nChapter 8: Users and Groups\nChapter 9: Permissions\nChapter 10: Clients\nChapter 11: Security\nChapter 12: Backups\nChapter 13: Scaling\n\nThe final chapters explain some of the inner workings of EdgeSet’s distinctive features.\n\nChapter 14: Tabular Files"
   },
   {
     "objectID": "index.html#intended-audience",
     "href": "index.html#intended-audience",
     "title": "EdgeSet Manual",
     "section": "Intended audience",
-    "text": "Intended audience\nThis manual is intended for EdgeSet administrators. Whether you are a DBA, sysadmin, DevOps, tech lead, analyst, or startup CEO, if you are the one who will setup and manage your EdgeSet instance, this manual is for you.\nYou should be familiar with SQL and should have administrator access to the data sources you intend to connect to."
+    "text": "Intended audience\nThis manual is intended for EdgeSet users and administrators. You should be familiar with SQL and should have access to the data sources you intend to connect to."
   },
   {
     "objectID": "introduction.html#gui",
     "href": "introduction.html#gui",
     "title": "1  Introduction",
     "section": "GUI",
-    "text": "GUI\nEverything in EdgeSet can be done through a graphical web interface. You don’t need to learn any commands or edit any configuration files.\nYou’re not limited to the GUI though. EdgeSet exposes a Presto-compatible API allowing you to connect from any tool or programming language that speaks the Presto protocol. It also provides a REST API for all non-query functionality so that you can automate or integrate EdgeSet from any system that speaks HTTP."
+    "text": "GUI\nEverything in EdgeSet can be done through a graphical web interface. You don’t need to learn any commands or edit any configuration files.\nYou’re not limited to the GUI though. EdgeSet exposes a PostgreSQL-compatible interface and Presto-compatible API allowing you to connect from almost any tool or programming language."
   },
   {
     "objectID": "introduction.html#sql",
     "href": "introduction.html#sql",
     "title": "1  Introduction",
     "section": "SQL",
-    "text": "SQL\nAll data in EdgeSet is represented as SQL tables, even if the data resides in a non-SQL data source. You can join data from any data sources as if they lived in a single SQL database. You can use the filtering, aggregating, window, and statistical functions seamlessly on all your data."
+    "text": "SQL\nAll data in EdgeSet is represented as SQL tables, even if the data resides in a non-SQL data source. You can join data from any data sources as if they lived in a single SQL database. You can use filtering, aggregating, windowing, and statistical functions seamlessly on all your data."
   },
   {
     "objectID": "introduction.html#live",
     "href": "introduction.html#live",
     "title": "1  Introduction",
     "section": "Live",
-    "text": "Live\nCompared to traditional data warehouses, EdgeSet has no ETL (Extract, Transform, Load) process. The data necessary to answer a query is fetched at query runtime. Adding a new data source takes minutes, not days. There is also no need to provision storage space. The tradeoff is that load may increase on the data sources you add, so use read replicas when available (see Scaling)."
+    "text": "Live\nCompared to traditional data warehouses, EdgeSet does not rely on an ETL (Extract, Transform, Load) pipeline. The data necessary to answer a query is fetched at query runtime. Adding a new data source takes minutes, not days. There is also no need to provision storage space."
   },
   {
-    "objectID": "installation.html#requirements",
-    "href": "installation.html#requirements",
+    "objectID": "installation.html#desktop-application",
+    "href": "installation.html#desktop-application",
     "title": "2  Installation",
-    "section": "2.1 Requirements",
-    "text": "2.1 Requirements\nEdgeSet is designed to run on-premise or in a private cloud. You can install it on a physical server (“bare metal”) or a VM (such as from AWS, Azure, Digital Ocean, etc.). Mid tier and Enterprise versions can run without an internet connection.\nEdgeSet requires a 64-bit Intel-compatible (x86-64) server.\n\nMinimum system requirements\n\n\nLicense\nConcurrent query slots\nMemory\nDisk\n\n\n\n\nTrial\n2\n8GB\n16GB\n\n\nStarter\n5\n12GB\n20GB\n\n\nMid tier\n15\n24GB\n30GB\n\n\nEnterprise\n50\n64GB\n60GB"
+    "section": "2.1 Desktop Application",
+    "text": "2.1 Desktop Application\nNote that the desktop application is a standalone EdgeSet installation: it does not require or support connecting to the web application. It is intended for use when the web application cannot be installed.\n\n2.1.1 Requirements\n\nmacOS 13+1\n12GB of free disk space\nEdgeSet license key\ninternet connection\n\n1 The desktop application is tested on Apple Silicon Macs only, not Intel Macs.\n\n2.1.2 Installation\n\nDownload EdgeSet from https://www.tetmon.com/EdgeSet.dmg.\nOpen your Downloads folder and double-click the EdgeSet.dmg file. \nDrag the EdgeSet icon to the Applications folder. \nOpen the EdgeSet application from the Applications folder. \nWhen you first start EdgeSet, you might see the following prompt. Click Open to proceed. \nDuring installation and whenever you launch EdgeSet, you might be prompted to allow EdgeSet access to the keychain. EdgeSet will only access data that it stores on the keychain itself. Select Always Allow.2 \nEdgeSet will begin downloading the query engine. This is a one-time setup. \nOnce the query engine download is complete, EdgeSet will start up. \nThe first time EdgeSet starts, it will prompt you for your license key. \nClick Upload license file… and Open the license.key file you were provided. \nEdgeSet will show a brief loading screen with progress indicator while it generates an encryption key. Then the EdgeSet interface will appear and you are ready to begin adding data sources. \n\n2 EdgeSet uses the macOS keychain to store credentials in order to protect your data from other applications on the system.\n\n2.1.3 Uninstallation\n\nTo uninstall EdgeSet, move the EdgeSet Application to the Trash. \nOpen the ~/Library/Application Support folder and move the EdgeSet folder there into the Trash (this is the folder that holds the query engine).3 \n\n3 To easily navigate to the Application Support folder from the Finder, you can press ⌘Command + Shift + G and type in ~/Library/Application Support."
   },
   {
-    "objectID": "installation.html#aws",
-    "href": "installation.html#aws",
+    "objectID": "installation.html#web-application",
+    "href": "installation.html#web-application",
     "title": "2  Installation",
-    "section": "2.2 AWS",
-    "text": "2.2 AWS\nLaunch an EC2 instance using the EdgeSet AMI ID provided to you."
-  },
-  {
-    "objectID": "installation.html#digital-ocean",
-    "href": "installation.html#digital-ocean",
-    "title": "2  Installation",
-    "section": "2.3 Digital Ocean",
-    "text": "2.3 Digital Ocean\nImport the provided EdgeSet disk image URL (edgeset.img) to your DigitalOcean account as a “Custom Image” (see https://www.digitalocean.com/blog/custom-images/). Launch a droplet with the custom image."
-  },
-  {
-    "objectID": "installation.html#bare-metal",
-    "href": "installation.html#bare-metal",
-    "title": "2  Installation",
-    "section": "2.4 Bare metal",
-    "text": "2.4 Bare metal\nCopy the provided EdgeSet disk image (edgeset.img) to the server’s boot disk, then boot the server. Some possible methods for copying the disk image are:\n\n2.4.1 With a Linux live CD\n\nBoot the target server from the Linux live CD.\nNote the device name of the target disk (we will use /dev/target for this example).\nStream edgeset.img to the target disk: curl https://tetmon.com/your/link/to/edgeset.img | dd of=/dev/target bs=64K\nReboot from the target disk.\n\n\n\n2.4.2 On a Linux computer\n\nConnect the target disk to a Linux computer.\nNote the device name of the target disk (we will use /dev/target for this example).\nDownload edgeset.img on the Linux computer.\nCopy edgeset.img to the target disk: dd if=edgeset.img of=/dev/target bs=64K\nConnect the target disk to the target server and boot the server from the target disk."
+    "section": "2.2 Web Application",
+    "text": "2.2 Web Application\n\n2.2.1 Requirements\nEdgeSet is designed to run on-premise or in a private cloud. You can install it on a physical server (“bare metal”) or a VM (such as from AWS, Azure, Digital Ocean, etc.).\nEdgeSet requires a 64-bit Intel-compatible (x86-64) or ARM64 (aarch64) CPU.\n\nMinimum system requirements\n\n\nConcurrent query slots\nMemory\nDisk\n\n\n\n\n2\n8GB\n16GB\n\n\n5\n12GB\n20GB\n\n\n15\n24GB\n30GB\n\n\n50\n64GB\n60GB\n\n\n\nEdgeSet also requires UEFI support.44 Most computers since 2006 have UEFI support.\n\n\n2.2.2 AWS\nLaunch an EC2 instance using the EdgeSet AMI ID provided to you.\n\n\n2.2.3 Digital Ocean\nImport the provided EdgeSet disk image URL (x86_64 or arm64) to your DigitalOcean account as a “Custom Image” (see https://www.digitalocean.com/blog/custom-images/). Launch a droplet with the custom image.\n\n\n2.2.4 Unattended Installer ISO\nYou can install EdgeSet on physical hardware and most VMs via the unattended installer ISO.\n\n\n\n\n\n\nWarning\n\n\n\nThe unattended installer ISO will automatically partition the first connected hard drive of any machine it boots on."
   },
   {
     "objectID": "setup.html#dns-optional",
@@ -93,16 +79,16 @@
   {
     "objectID": "data-sources.html#google-sheets",
     "href": "data-sources.html#google-sheets",
-    "title": "4  Data Sources",
+    "title": "4  Connect Data Sources",
     "section": "4.1 Google Sheets",
     "text": "4.1 Google Sheets\nTo access Google Sheets, you need to:\n\nEnable Google Drive API and Google Sheets API.\nCreate a Service Account user.\nGrant the Service Account user permissions:\nDownload the credentials (JSON) file for the Service Account user."
   },
   {
     "objectID": "data-sources.html#supported-data-source-versions",
     "href": "data-sources.html#supported-data-source-versions",
-    "title": "4  Data Sources",
+    "title": "4  Connect Data Sources",
     "section": "4.2 Supported Data Source Versions",
-    "text": "4.2 Supported Data Source Versions\n\n\n\nData Source\nVersions\nNotes\n\n\n\n\nAlibaba OSS\nN/A\nrequires an API key\n\n\nAmazon Redshift\nany\n\n\n\nAmazon S3\nN/A\nrequires an API key\n\n\nApache Kafka\n0.10.0 or higher\nunauthenticated only\n\n\nGoogle BigQuery\nN/A\nrequires a Google Cloud service account\n\n\nGoogle Sheets\nN/A\nrequires a Google Cloud service account\n\n\nElasticsearch\n6.0.0 or higher\nunauthenticated only\n\n\nMongoDB\n4.0 or higher\n\n\n\nMySQL\n5.7 or higher\n\n\n\nPostgreSQL\n10.0 or higher\n\n\n\nSQL Server\n2012 or higher or Azure SQL"
+    "text": "4.2 Supported Data Source Versions\n\n\n\nData Source\nVersions\nNotes\n\n\n\n\nAlibaba OSS\nN/A\nrequires an API key\n\n\nAmazon Redshift\nany\n\n\n\nAmazon S3\nN/A\nrequires an API key\n\n\nApache Kafka\n0.10.0 or higher\nunauthenticated only\n\n\nGoogle BigQuery\nN/A\nrequires a Google Cloud service account\n\n\nGoogle Sheets\nN/A\nrequires a Google Cloud service account\n\n\nElasticsearch\n6.0.0 or higher\nunauthenticated only\n\n\nMariaDB\n10.0 or higher\nadd as MySQL\n\n\nMongoDB\n4.0 or higher\n\n\n\nMySQL\n5.7 or higher\n\n\n\nOracle\n11g or higher\n\n\n\nPostgreSQL\n10.0 or higher\n\n\n\nSQL Server\n2012 or higher or Azure SQL\n\n\n\n\n\n\n\n\n\n\nTPC-DS\n\n\n\nThe TPC-DS data source is a built-in data source that can be used for testing. We will use it for illustration throughout the rest of the manual."
   },
   {
     "objectID": "query-engine.html#restarting-the-engine",
@@ -144,14 +130,14 @@
     "href": "query-notebook.html#the-query-box",
     "title": "7  Query Notebook",
     "section": "7.1 The query box",
-    "text": "7.1 The query box\nThe query box is the first thing you see when loading EdgeSet.\n\n\n\nEdgeSet loads with an empty query box ready for SQL input\n\n\nEnter your SQL query into the box and run the query by clicking Run or pressing Ctrl+Enter.\n\n7.1.1 Notifications\nBelow the query box is a Notify checkbox. If selected, EdgeSet will send you a notification once data is available. How the notification is displayed depends on your web browser and operating system.\nNote that the first time you click the Notify checkbox your web browser may prompt you to allow notifications from EdgeSet."
+    "text": "7.1 The query box\nThe query box is the first thing you see when navigating to the “Query” menu in EdgeSet.\n\n\n\nthe query notebook loads with an empty query box ready for SQL input\n\n\nEnter your SQL query into the box and run the query by clicking Run or pressing Ctrl+Enter.\n\n7.1.1 Notifications\nBelow the query box is a Notify checkbox. If selected, EdgeSet will send you a notification once data is available. How the notification is displayed depends on your web browser and operating system.\nNote that the first time you click the Notify checkbox your web browser may prompt you to allow notifications from EdgeSet."
   },
   {
     "objectID": "query-notebook.html#query-cards",
     "href": "query-notebook.html#query-cards",
     "title": "7  Query Notebook",
     "section": "7.2 Query cards",
-    "text": "7.2 Query cards\nOnce you’ve run a query, a query card will appear for it in the notebook above the query box. The query card will show information about the query, whether EdgeSet has returned a result already or the query is still active or waiting.\n\n\n\nThis query card is displaying the query result table\n\n\nIn case of a result table, you can resize the columns of the table by dragging the top right part of a column in the header. Each column can be automatically resized to fit the column’s content by double clicking the same part top right part of the column header. The result table also supports toggleable viewers for JSON and Long text on the cell for ease of viewing those values.\n\n\n\nA column resizer displayed on hover over the table header column\n\n\nYou can also reload the results of a previously completed query or revise the query. Clicking the “edit” icon on a query card will load that query’s SQL into the query box (overwriting anything already in the box).\nThe controls on the query card allow you to move the card up and down or minimize or close them in the notebook. A drag handle is also provided at the top of the card to allow dragging the card to a desired location.\n\n\n\nA query result bar showing the “move query up”, “move query down”, “edit”, “reload”, “minimize” and “close” icons\n\n\n\n\n\nDrag handle on the query card\n\n\nEdgeset supports exporting of query result. Currently, EdgeSet supports export in formats: CSV, TSV, and Excel. Also, if any of the export option is selected before Edgeset returns the query result, the query will be marked for export and the file download will get triggered automatically once the result becomes available.\n\n\n\nExport menu as displayed on the query card footer\n\n\nClicking the “close” (x) icon on a running query will cancel the query."
+    "text": "7.2 Query cards\nOnce you’ve run a query, a query card will appear for it in the notebook above the query box. The query card will show information about the query, whether EdgeSet has returned a result already or the query is still active or waiting.\n\n\n\nThis query card is displaying the query result table\n\n\nIn case of a result table, you can resize the columns of the table by dragging the top right part of a column in the header. Each column can be automatically resized to fit the column’s content by double clicking the same part top right part of the column header. The result table also supports toggleable viewers for JSON and Long text on the cell for ease of viewing those values.\n\n\n\nA column resizer displayed on hover over the table header column\n\n\nYou can also reload the results of a previously completed query or revise the query. Clicking the “edit” icon on a query card will load that query’s SQL into the query box (overwriting anything already in the box).\nThe controls on the query card allow you to move the card up and down or minimize or close them in the notebook. A drag handle is also provided at the top of the card to allow dragging the card to a desired location.\n\n\n\nA query result bar showing the “move query up”, “move query down”, “edit”, “reload”, “minimize” and “close” icons\n\n\n\n\n\nDrag handle on the query card\n\n\nEdgeset supports exporting query results to CSV or TSV. At any point during the query’s lifetime you can select an export option (if the query has not started yet, an export and file download will be triggered automatically once the result becomes available).\n\n\n\nExport menu as displayed on the query card footer\n\n\nClicking the “close” (x) icon on a running query will cancel the query."
   },
   {
     "objectID": "query-notebook.html#large-query-results",
@@ -200,14 +186,14 @@
     "href": "permissions.html#restricting-access",
     "title": "9  Permissions",
     "section": "9.3 Restricting access",
-    "text": "9.3 Restricting access\nNow click the Restricted tab and click the edgeset data source to expand it and show the restrictions currently applied to it.\n\n\n\nthe edgeset data source has no restrictions for any schema\n\n\nNote that information_schema and edgeset here are schemas within the edgeset data source. You cannot apply any restrictions to the information_schema. All users with access to a data source will have read-only access to its information_schema (which provides metadata about the data source itself).\nNext, click on the edgeset schema to expand the list of tables it contains.\n\n\n\nhovering over a data source object (table, column, or schema) shows a dropdown menu for adding restrictions\n\n\nTo restrict access to the permissions table, select the group or user you’d like to restrict access to from the dropdown menu.\n\n\n\nthe permissions table has been restricted to admins\n\n\nBy restricting access to the permissions table to the admin group, users in the analysts group will not be able to view the permissions table, even though they have access to the edgeset data source.\nTo restrict access to a column, click on a table to expand it and then add the restriction to the column.\n\n\n\nthe enc_conn_info column of the connectors table has been restricted to admins\n\n\nBy restricting access to the enc_conn_info column, analysts will be able to view the connectors table but not the enc_conn_info column.\nYou can add multiple groups and/or users to the restricted list. Any users who are not in the list will not have access.\nRestrictions apply to any objects contained by the restricted object. For example, restricting access to a schema means that the tables and columns in that schema will be restricted as well. This also means that restrictions applied to a lower level object must be limited to the set of restricted groups and users at a higher level. For example, if you’ve restricted access to the edgeset schema to admin users only, it would not make sense to restrict a table in the edgeset schema to analysts since analysts are already restricted from accessing the schema."
+    "text": "9.3 Restricting access\nNow click the Restricted tab and click the edgeset data source to expand it and show the restrictions currently applied to it.\n\n\n\nthe edgeset data source has no restrictions for any schema\n\n\nNote that information_schema and edgeset here are schemas within the edgeset data source. You cannot apply any restrictions to the information_schema. All users with access to a data source will have read-only access to its information_schema (which provides metadata about the data source itself).\nNext, click on the edgeset schema to expand the list of tables it contains.\n\n\n\nhovering over a data source object (table, column, or schema) shows a dropdown menu for adding restrictions\n\n\nTo restrict access to the permissions table, select the group or user you’d like to restrict access to from the dropdown menu.\n\n\n\nthe permissions table has been restricted to admins\n\n\nBy restricting access to the permissions table to the admin group, users in the analysts group will not be able to view the permissions table, even though they have access to the edgeset data source.\nTo restrict access to a column, click on a table to expand it and then add the restriction to the column.\n\n\n\nthe props column of the connectors table has been restricted to admins\n\n\nBy restricting access to the props column, analysts will be able to view the connectors table but not the props column.\nYou can add multiple groups and/or users to the restricted list. Any users who are not in the list will not have access.\nRestrictions apply to any objects contained by the restricted object. For example, restricting access to a schema means that the tables and columns in that schema will be restricted as well. This also means that restrictions applied to a lower level object must be limited to the set of restricted groups and users at a higher level. For example, if you’ve restricted access to the edgeset schema to admin users only, it would not make sense to restrict a table in the edgeset schema to analysts since analysts are already restricted from accessing the schema."
   },
   {
     "objectID": "clients.html#authentication",
     "href": "clients.html#authentication",
     "title": "10  Clients",
     "section": "10.1 Authentication",
-    "text": "10.1 Authentication\nClients connect with the same username and password used for the EdgeSet web interface. All connections are over HTTPS, so neither passwords nor data are transmitted unencrypted."
+    "text": "10.1 Authentication\nClients connect with the same username and password used for the EdgeSet web interface. All connections are encrypted, so neither passwords nor data are transmitted unencrypted."
   },
   {
     "objectID": "clients.html#non-human-users",
@@ -221,7 +207,7 @@
     "href": "security.html#firewall",
     "title": "11  Security",
     "section": "11.1 Firewall",
-    "text": "11.1 Firewall\nEdgeSet requires only port 443 (HTTPS) for normal operation. After setup, port 80 (HTTP) can be blocked for enhanced security.\n\nEdgeSet listening ports\n\n\nPort\nProtocol\nPurpose\n\n\n\n\n80\nTCP\nHTTP: Setup web interface (required only during setup)\n\n\n443\nTCP\nHTTPS: Web interface + Presto-compatible clients (required)"
+    "text": "11.1 Firewall\nEdgeSet requires only port 443 (HTTPS) for normal operation. During setup, port 80 (for web setup) or port 22 (for terminal setup) can be used. After setup, ports 22 and 80 can be blocked. Port 5432 is optional.\n\nEdgeSet listening ports\n\n\nPort\nProtocol\nPurpose\n\n\n\n\n22\nTCP\nSSH: SSH interface (for setup)\n\n\n80\nTCP\nHTTP: Setup web interface (required only during setup)\n\n\n443\nTCP\nHTTPS: Web interface + Presto-compatible clients (required)\n\n\n5432\nTCP\nPostgreSQL: PostgreSQL-compatible interface"
   },
   {
     "objectID": "security.html#data-source-credentials",
@@ -229,6 +215,13 @@
     "title": "11  Security",
     "section": "11.2 Data source credentials",
     "text": "11.2 Data source credentials\nEdgeSet stores all data source credentials (passwords, keys, etc.) encrypted on disk (in EdgeSet’s internal database). The credentials are also encrypted in EdgeSet backups. Once a data source is created, there is no way for a user or application to retrieve the data source credentials. When editing a data source, the credentials are not sent to the web interface.\nEdgeSet decrypts the credentials when connecting to a data source. It also passes the credentials (in memory) to the query engine for executing queries."
+  },
+  {
+    "objectID": "security.html#user-passwords",
+    "href": "security.html#user-passwords",
+    "title": "11  Security",
+    "section": "11.3 User passwords",
+    "text": "11.3 User passwords\nOnly salted hashes of user passwords are stored.1"
   },
   {
     "objectID": "backups.html#restoring",
@@ -270,6 +263,6 @@
     "href": "FAQ.html",
     "title": "Appendix A — FAQ",
     "section": "",
-    "text": "Does EdgeSet support window functions?\n\nYes.\n\nDoes EdgeSet support CTEs?\n\nYes.\n\nHow does EdgeSet handle tables with different collations?\n\nEdgeSet does not support setting or using collation(s). All string comparison and sorting is done by comparing unicode code points literally. For case-insensitive comparison, you can use LOWER(), UPPER(), or case-insensitive regular expressions. Note that these functions don’t support languages that have ambiguous case conversion (i.e. where one lowercase character could be represented various uppercase versions), but that should only be an issue if dealing with Eastern European languages."
+    "text": "Does EdgeSet support window functions?\n\nYes.\n\nDoes EdgeSet support CTEs (Common Table Expressions)?\n\nYes.\n\nHow does EdgeSet handle tables with different collations?\n\nEdgeSet does not support setting or using collation(s). All string comparison and sorting is done by comparing unicode code points literally. For case-insensitive comparison, you can use LOWER(), UPPER(), or case-insensitive regular expressions. Note that these functions don’t support languages that have ambiguous case conversion (i.e. where one lowercase character could be represented various uppercase versions), but that should only be an issue if dealing with Eastern European languages."
   }
 ]

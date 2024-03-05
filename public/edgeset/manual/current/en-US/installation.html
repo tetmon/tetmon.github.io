@@ -65,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Sources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Connect Data Sources</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -216,19 +216,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link active" data-scroll-target="#requirements"><span class="header-section-number">2.1</span> Requirements</a></li>
-  <li><a href="#aws" id="toc-aws" class="nav-link" data-scroll-target="#aws"><span class="header-section-number">2.2</span> AWS</a></li>
-  <li><a href="#digital-ocean" id="toc-digital-ocean" class="nav-link" data-scroll-target="#digital-ocean"><span class="header-section-number">2.3</span> Digital Ocean</a></li>
-  <li><a href="#bare-metal" id="toc-bare-metal" class="nav-link" data-scroll-target="#bare-metal"><span class="header-section-number">2.4</span> Bare metal</a>
+  <li><a href="#desktop-application" id="toc-desktop-application" class="nav-link active" data-scroll-target="#desktop-application"><span class="header-section-number">2.1</span> Desktop Application</a>
   <ul class="collapse">
-  <li><a href="#with-a-linux-live-cd" id="toc-with-a-linux-live-cd" class="nav-link" data-scroll-target="#with-a-linux-live-cd"><span class="header-section-number">2.4.1</span> With a Linux live CD</a></li>
-  <li><a href="#on-a-linux-computer" id="toc-on-a-linux-computer" class="nav-link" data-scroll-target="#on-a-linux-computer"><span class="header-section-number">2.4.2</span> On a Linux computer</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements"><span class="header-section-number">2.1.1</span> Requirements</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation"><span class="header-section-number">2.1.2</span> Installation</a></li>
+  <li><a href="#uninstallation" id="toc-uninstallation" class="nav-link" data-scroll-target="#uninstallation"><span class="header-section-number">2.1.3</span> Uninstallation</a></li>
+  </ul></li>
+  <li><a href="#web-application" id="toc-web-application" class="nav-link" data-scroll-target="#web-application"><span class="header-section-number">2.2</span> Web Application</a>
+  <ul class="collapse">
+  <li><a href="#requirements-1" id="toc-requirements-1" class="nav-link" data-scroll-target="#requirements-1"><span class="header-section-number">2.2.1</span> Requirements</a></li>
+  <li><a href="#aws" id="toc-aws" class="nav-link" data-scroll-target="#aws"><span class="header-section-number">2.2.2</span> AWS</a></li>
+  <li><a href="#digital-ocean" id="toc-digital-ocean" class="nav-link" data-scroll-target="#digital-ocean"><span class="header-section-number">2.2.3</span> Digital Ocean</a></li>
+  <li><a href="#unattended-installer-iso" id="toc-unattended-installer-iso" class="nav-link" data-scroll-target="#unattended-installer-iso"><span class="header-section-number">2.2.4</span> Unattended Installer ISO</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -247,81 +252,120 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="requirements" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="requirements"><span class="header-section-number">2.1</span> Requirements</h2>
-<p>EdgeSet is designed to run on-premise or in a private cloud. You can install it on a physical server (“bare metal”) or a VM (such as from AWS, Azure, Digital Ocean, etc.). Mid tier and Enterprise versions can run without an internet connection.</p>
-<p>EdgeSet requires a 64-bit Intel-compatible (x86-64) server.</p>
+<p>EdgeSet can run either as a single-user desktop application or as a multi-user web application.</p>
+<section id="desktop-application" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="desktop-application"><span class="header-section-number">2.1</span> Desktop Application</h2>
+<p>Note that the desktop application is a standalone EdgeSet installation: it does not require or support connecting to the web application. It is intended for use when the web application cannot be installed.</p>
+<section id="requirements" class="level3 page-columns page-full" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="requirements"><span class="header-section-number">2.1.1</span> Requirements</h3>
+<ul>
+<li>macOS 13+<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>12GB of free disk space</li>
+<li>EdgeSet license key</li>
+<li>internet connection</li>
+</ul>
+<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;The desktop application is tested on Apple Silicon Macs only, not Intel Macs.</p></li></div></section>
+<section id="installation" class="level3 page-columns page-full" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="installation"><span class="header-section-number">2.1.2</span> Installation</h3>
+<ol type="1">
+<li>Download EdgeSet from <a href="https://www.tetmon.com/EdgeSet.dmg">https://www.tetmon.com/EdgeSet.dmg</a>.</li>
+<li>Open your Downloads folder and double-click the <code>EdgeSet.dmg</code> file. <img src="macOS/dmg.png" class="img-fluid" alt="the EdgeSet.dmg file in the Downloads folder"></li>
+<li>Drag the EdgeSet icon to the Applications folder. <img src="macOS/installer.png" class="img-fluid" alt="the EdgeSet installation folder"></li>
+<li>Open the EdgeSet application from the Applications folder. <img src="macOS/applications.png" class="img-fluid" alt="EdgeSet in the Applications folder"></li>
+<li>When you first start EdgeSet, you might see the following prompt. Click <code>Open</code> to proceed. <img src="macOS/open-prompt.png" class="img-fluid" alt="macOS prompt that EdgeSet has been downloaded from the internet"></li>
+<li>During installation and whenever you launch EdgeSet, you might be prompted to allow EdgeSet access to the keychain. EdgeSet will only access data that it stores on the keychain itself. Select <code>Always Allow</code>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <img src="macOS/keychain.png" class="img-fluid" alt="macOS keychain prompt"></li>
+<li>EdgeSet will begin downloading the query engine. This is a one-time setup. <img src="macOS/download-query-engine.png" class="img-fluid" alt="EdgeSet query engine download progress"></li>
+<li>Once the query engine download is complete, EdgeSet will start up. <img src="macOS/starting-up.png" class="img-fluid" alt="EdgeSet startup message"></li>
+<li>The first time EdgeSet starts, it will prompt you for your license key. <img src="macOS/license-key.png" class="img-fluid" alt="EdgeSet upload license key dialog"></li>
+<li>Click <code>Upload license file…</code> and <code>Open</code> the license.key file you were provided. <img src="macOS/open-license-key.png" class="img-fluid" alt="browse to EdgeSet license key"></li>
+<li>EdgeSet will show a brief loading screen with progress indicator while it generates an encryption key. Then the EdgeSet interface will appear and you are ready to begin adding data sources. <img src="macOS/EdgeSet-interface.png" class="img-fluid" alt="the EdgeSet interface"></li>
+</ol>
+<div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;EdgeSet uses the macOS keychain to store credentials in order to protect your data from other applications on the system.</p></li></div></section>
+<section id="uninstallation" class="level3 page-columns page-full" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="uninstallation"><span class="header-section-number">2.1.3</span> Uninstallation</h3>
+<ol type="1">
+<li>To uninstall EdgeSet, move the EdgeSet Application to the Trash. <img src="macOS/application-to-trash.png" class="img-fluid" alt="move the EdgeSet Application to the Trash"></li>
+<li>Open the ~/Library/Application Support folder and move the EdgeSet folder there into the Trash (this is the folder that holds the query engine).<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <img src="macOS/folder-to-trash.png" class="img-fluid" alt="move the EdgeSet Application Support folder to the Trash"></li>
+</ol>
+<div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;To easily navigate to the Application Support folder from the Finder, you can press ⌘Command + Shift + G and type in ~/Library/Application Support.</p></li></div></section>
+</section>
+<section id="web-application" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="web-application"><span class="header-section-number">2.2</span> Web Application</h2>
+<section id="requirements-1" class="level3 page-columns page-full" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="requirements-1"><span class="header-section-number">2.2.1</span> Requirements</h3>
+<p>EdgeSet is designed to run on-premise or in a private cloud. You can install it on a physical server (“bare metal”) or a VM (such as from AWS, Azure, Digital Ocean, etc.).</p>
+<p>EdgeSet requires a 64-bit Intel-compatible (x86-64) or ARM64 (aarch64) CPU.</p>
 <table class="table">
 <caption>Minimum system requirements</caption>
 <thead>
 <tr class="header">
-<th>License</th>
-<th style="text-align: right;">Concurrent query slots</th>
-<th style="text-align: right;">Memory</th>
-<th style="text-align: right;">Disk</th>
+<th style="text-align: left;">Concurrent query slots</th>
+<th style="text-align: left;">Memory</th>
+<th style="text-align: left;">Disk</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Trial</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">8GB</td>
-<td style="text-align: right;">16GB</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">8GB</td>
+<td style="text-align: left;">16GB</td>
 </tr>
 <tr class="even">
-<td>Starter</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">12GB</td>
-<td style="text-align: right;">20GB</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">12GB</td>
+<td style="text-align: left;">20GB</td>
 </tr>
 <tr class="odd">
-<td>Mid tier</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">24GB</td>
-<td style="text-align: right;">30GB</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">24GB</td>
+<td style="text-align: left;">30GB</td>
 </tr>
 <tr class="even">
-<td>Enterprise</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">64GB</td>
-<td style="text-align: right;">60GB</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">64GB</td>
+<td style="text-align: left;">60GB</td>
 </tr>
 </tbody>
 </table>
+<div class="page-columns page-full"><p>EdgeSet also requires UEFI support.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;Most computers since 2006 have UEFI support.</p></li></div></div>
 </section>
-<section id="aws" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="aws"><span class="header-section-number">2.2</span> AWS</h2>
+<section id="aws" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="aws"><span class="header-section-number">2.2.2</span> AWS</h3>
 <p>Launch an EC2 instance using the EdgeSet AMI ID provided to you.</p>
 </section>
-<section id="digital-ocean" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="digital-ocean"><span class="header-section-number">2.3</span> Digital Ocean</h2>
-<p>Import the provided EdgeSet disk image URL (<code>edgeset.img</code>) to your DigitalOcean account as a “Custom Image” (see https://www.digitalocean.com/blog/custom-images/). Launch a droplet with the custom image.</p>
+<section id="digital-ocean" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="digital-ocean"><span class="header-section-number">2.2.3</span> Digital Ocean</h3>
+<p>Import the provided EdgeSet disk image URL (<a href="https://release.tetmon.com/edgeset-x86_64.img">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.img">arm64</a>) to your DigitalOcean account as a “Custom Image” (see https://www.digitalocean.com/blog/custom-images/). Launch a droplet with the custom image.</p>
 </section>
-<section id="bare-metal" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="bare-metal"><span class="header-section-number">2.4</span> Bare metal</h2>
-<p>Copy the provided EdgeSet disk image (<code>edgeset.img</code>) to the server’s boot disk, then boot the server. Some possible methods for copying the disk image are:</p>
-<section id="with-a-linux-live-cd" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="with-a-linux-live-cd"><span class="header-section-number">2.4.1</span> With a Linux live CD</h3>
-<ol type="1">
-<li>Boot the target server from the Linux live CD.</li>
-<li>Note the device name of the target disk (we will use <code>/dev/target</code> for this example).</li>
-<li>Stream <code>edgeset.img</code> to the target disk: <code>curl https://tetmon.com/your/link/to/edgeset.img | dd of=/dev/target bs=64K</code></li>
-<li>Reboot from the target disk.</li>
-</ol>
-</section>
-<section id="on-a-linux-computer" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="on-a-linux-computer"><span class="header-section-number">2.4.2</span> On a Linux computer</h3>
-<ol type="1">
-<li>Connect the target disk to a Linux computer.</li>
-<li>Note the device name of the target disk (we will use <code>/dev/target</code> for this example).</li>
-<li>Download <code>edgeset.img</code> on the Linux computer.</li>
-<li>Copy <code>edgeset.img</code> to the target disk: <code>dd if=edgeset.img of=/dev/target bs=64K</code></li>
-<li>Connect the target disk to the target server and boot the server from the target disk.</li>
-</ol>
+<section id="unattended-installer-iso" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="unattended-installer-iso"><span class="header-section-number">2.2.4</span> Unattended Installer ISO</h3>
+<p>You can install EdgeSet on physical hardware and most VMs via the <a href="https://release.tetmon.com/edgeset-unattended-installer-x86_64.img">unattended installer ISO</a>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The unattended installer ISO will automatically partition the first connected hard drive of any machine it boots on.</p>
+</div>
+</div>
 
 
 </section>
 </section>
+<aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+
+
+
+
+</ol>
+</aside>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

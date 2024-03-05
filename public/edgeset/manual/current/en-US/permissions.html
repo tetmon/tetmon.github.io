@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Sources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Connect Data Sources</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -302,10 +302,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="screenshots/column-restriction.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">the <code>enc_conn_info</code> column of the <code>connectors</code> table has been restricted to admins</figcaption>
+<figcaption class="figure-caption">the <code>props</code> column of the <code>connectors</code> table has been restricted to admins</figcaption>
 </figure>
 </div>
-<p>By restricting access to the <code>enc_conn_info</code> column, analysts will be able to view the <code>connectors</code> table but not the <code>enc_conn_info</code> column.</p>
+<p>By restricting access to the <code>props</code> column, analysts will be able to view the <code>connectors</code> table but not the <code>props</code> column.</p>
 <p>You can add multiple groups and/or users to the restricted list. Any users who are not in the list will not have access.</p>
 <p>Restrictions apply to any objects contained by the restricted object. For example, restricting access to a schema means that the tables and columns in that schema will be restricted as well. This also means that restrictions applied to a lower level object must be limited to the set of restricted groups and users at a higher level. For example, if you’ve restricted access to the <code>edgeset</code> schema to <code>admin</code> users only, it would not make sense to restrict a table in the <code>edgeset</code> schema to <code>analysts</code> since analysts are already restricted from accessing the schema.</p>
 

@@ -211,7 +211,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#前言" id="toc-前言" class="nav-link active" data-scroll-target="#前言">前言</a></li>
+  <li><a href="#前言" id="toc-前言" class="nav-link active" data-scroll-target="#前言">前言</a>
+  <ul class="collapse">
+  <li><a href="#关于本手册" id="toc-关于本手册" class="nav-link" data-scroll-target="#关于本手册">关于本手册</a></li>
+  <li><a href="#目标读者" id="toc-目标读者" class="nav-link" data-scroll-target="#目标读者">目标读者</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -252,32 +256,32 @@ ul.task-list li input[type="checkbox"] {
 <p>欢迎加入数据驱动组织的社区。</p>
 <p><strong>一个简单易用的数据科学笔记本</strong> EdgeSet 使用一个简单而熟悉的笔记本界面。这一灵感来自众多流行的数据科学与分析工具。连接数据源仅需要简单地填入连接详细信息即可。你可以用一种 SQL 方言来查询所有的数据源——即使数据源本身并非 SQL 数据库。</p>
 <p><strong>如同一个大数据集群一般强大</strong> EdgeSet 可以连接到任意数量的数据源上，并在一个查询中将它们的数据组合到一起。通过将查询下发给数据源， EdgeSet 可以将你分散的数据源变成一个分布式的并发数据处理结构系统（fabric）。</p>
-<section id="关于本手册" class="level2 unnumbered unlisted">
-<h2 class="unnumbered unlisted anchored" data-anchor-id="关于本手册">关于本手册</h2>
+<section id="关于本手册" class="level2">
+<h2 class="anchored" data-anchor-id="关于本手册">关于本手册</h2>
 <p>本手册将引导你一步步地完成从初始设置到将 EdgeSet 作为一个完整安全的虚拟数据仓库的整个过程。</p>
 <p>它的章节编排将让先你熟悉 EdgeSet 的运作方式，再介绍如何把你组织中的其他用户纳入其中。</p>
 <p>前 7 章将帮助你开始连接到不同的数据源上，并允许查询。</p>
 <ul>
-<li>第 1 章，“简介”</li>
-<li>第 2 章，“安装”</li>
-<li>第 3 章，“初始设置”</li>
-<li>第 4 章，“数据源”</li>
-<li>第 5 章，“查询引擎”</li>
-<li>第 6 章，“数据目录”</li>
-<li>第 7 章，“查询笔记本”</li>
+<li><a href="./introduction.html">第 1 章：简介</a></li>
+<li><a href="./installation.html">第 2 章：安装</a></li>
+<li><a href="./setup.html">第 3 章：初始设置</a></li>
+<li><a href="./data-sources.html">第 4 章：数据源</a></li>
+<li><a href="./query-engine.html">第 5 章：查询引擎</a></li>
+<li><a href="./catalog.html">第 6 章：数据目录</a></li>
+<li><a href="./query-notebook.html">第 7 章：查询笔记本</a></li>
 </ul>
 <p>后 6 章将帮助你在你的公司中分发访问权限，并确保你的数据受到保护。</p>
 <ul>
-<li>第 8 章，“用户和组”</li>
-<li>第 9 章，“权限”</li>
-<li>第 10 章，“客户端”</li>
-<li>第 11 章，“安全”</li>
-<li>第 12 章，“备份”</li>
-<li>第 13 章，“规模缩放”</li>
+<li><a href="./users-and-groups.html">第 8 章：用户和组</a></li>
+<li><a href="./permissions.html">第 9 章：权限</a></li>
+<li><a href="./clients.html">第 10 章：客户端</a></li>
+<li><a href="./security.html">第 11 章：安全</a></li>
+<li><a href="./backups.html">第 12 章：备份</a></li>
+<li><a href="./scaling.html">第 13 章：规模缩放</a></li>
 </ul>
 </section>
-<section id="目标读者" class="level2 unnumbered unlisted">
-<h2 class="unnumbered unlisted anchored" data-anchor-id="目标读者">目标读者</h2>
+<section id="目标读者" class="level2">
+<h2 class="anchored" data-anchor-id="目标读者">目标读者</h2>
 <p>这本手册的目标读者是 EdgeSet 管理员。无论你是数据库管理员、系统管理员、DevOp、技术主管、分析师，还是初创公司的 CEO ，如果你就是那个设置并管理 EdgeSet 实例的人，那么这本手册就是为你准备的。</p>
 <p>你应当熟悉 SQL 并拥有你想要连接的数据源的管理员权限。</p>
 

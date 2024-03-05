@@ -127,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Sources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Connect Data Sources</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -217,7 +217,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+  <ul class="collapse">
+  <li><a href="#about-this-manual" id="toc-about-this-manual" class="nav-link" data-scroll-target="#about-this-manual">About this manual</a></li>
+  <li><a href="#intended-audience" id="toc-intended-audience" class="nav-link" data-scroll-target="#intended-audience">Intended audience</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -258,38 +262,37 @@ ul.task-list li input[type="checkbox"] {
 <p>Welcome to the community of data-driven organizations.</p>
 <p><strong>As easy to use as a Data Science notebook.</strong> EdgeSet uses a simple and familiar notebook interface inspired by popular data science and analysis tools. Connecting to a data source is as simple as filling in the connection details. You can use the same SQL dialect to query any data source—even if the data source isn’t a SQL database.</p>
 <p><strong>As powerful as a Big Data cluster.</strong> EdgeSet can connect to any number of data sources and combine data from these sources in a single query. By pushing queries down to the sources, EdgeSet turns your scattered data sources into a distributed parallel data processing fabric.</p>
-<section id="about-this-manual" class="level2 unnumbered unlisted">
-<h2 class="unnumbered unlisted anchored" data-anchor-id="about-this-manual">About this manual</h2>
-<p>This manual will guide you through every step of setting up and using EdgeSet as a comprehensive and secure virtual data warehouse.</p>
+<section id="about-this-manual" class="level2">
+<h2 class="anchored" data-anchor-id="about-this-manual">About this manual</h2>
+<p>This manual will guide you through every step of setting up and using EdgeSet as a comprehensive and secure virtual data warehouse and business intelligence tool.</p>
 <p>It’s organized into chapters ordered to first acquaint you with how EdgeSet operates and then explain how to onboard the rest of the users in your organization.</p>
-<p>The first 7 chapters will get you started connecting to different data sources and running queries.</p>
+<p>The first 7 chapters will get you started connecting to different data sources and analyzing data.</p>
 <ul>
-<li>Chapter 1, “Introduction”</li>
-<li>Chapter 2, “Installation”</li>
-<li>Chapter 3, “Setup”</li>
-<li>Chapter 4, “Data Sources”</li>
-<li>Chapter 5, “Query Engine”</li>
-<li>Chapter 6, “Catalog”</li>
-<li>Chapter 7, “Query Notebook”</li>
+<li><a href="./introduction.html">Chapter 1: Introduction</a></li>
+<li><a href="./installation.html">Chapter 2: Installation</a></li>
+<li><a href="./setup.html">Chapter 3: Setup</a></li>
+<li><a href="./data-sources.html">Chapter 4: Data Sources</a></li>
+<li><a href="./query-engine.html">Chapter 5: Query Engine</a></li>
+<li><a href="./catalog.html">Chapter 6: Catalog</a></li>
+<li><a href="./query-notebook.html">Chapter 7: Query Notebook</a></li>
 </ul>
 <p>The next 6 chapters will help you roll out access to the rest of your company and ensure that your data remains protected.</p>
 <ul>
-<li>Chapter 8, “Users and Groups”</li>
-<li>Chapter 9, “Permissions”</li>
-<li>Chapter 10, “Clients”</li>
-<li>Chapter 11, “Security”</li>
-<li>Chapter 12, “Backups”</li>
-<li>Chapter 13, “Scaling”</li>
+<li><a href="./users-and-groups.html">Chapter 8: Users and Groups</a></li>
+<li><a href="./permissions.html">Chapter 9: Permissions</a></li>
+<li><a href="./clients.html">Chapter 10: Clients</a></li>
+<li><a href="./security.html">Chapter 11: Security</a></li>
+<li><a href="./backups.html">Chapter 12: Backups</a></li>
+<li><a href="./scaling.html">Chapter 13: Scaling</a></li>
 </ul>
 <p>The final chapters explain some of the inner workings of EdgeSet’s distinctive features.</p>
 <ul>
-<li>Chapter 14, “Tabular Files”</li>
+<li><a href="./tabular-files.html">Chapter 14: Tabular Files</a></li>
 </ul>
 </section>
-<section id="intended-audience" class="level2 unnumbered unlisted">
-<h2 class="unnumbered unlisted anchored" data-anchor-id="intended-audience">Intended audience</h2>
-<p>This manual is intended for EdgeSet administrators. Whether you are a DBA, sysadmin, DevOps, tech lead, analyst, or startup CEO, if you are the one who will setup and manage your EdgeSet instance, this manual is for you.</p>
-<p>You should be familiar with SQL and should have administrator access to the data sources you intend to connect to.</p>
+<section id="intended-audience" class="level2">
+<h2 class="anchored" data-anchor-id="intended-audience">Intended audience</h2>
+<p>This manual is intended for EdgeSet users and administrators. You should be familiar with SQL and should have access to the data sources you intend to connect to.</p>
 
 
 </section>
