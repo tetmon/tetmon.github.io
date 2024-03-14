@@ -227,7 +227,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#requirements-1" id="toc-requirements-1" class="nav-link" data-scroll-target="#requirements-1"><span class="header-section-number">2.2.1</span> Requirements</a></li>
   <li><a href="#aws" id="toc-aws" class="nav-link" data-scroll-target="#aws"><span class="header-section-number">2.2.2</span> AWS</a></li>
   <li><a href="#digital-ocean" id="toc-digital-ocean" class="nav-link" data-scroll-target="#digital-ocean"><span class="header-section-number">2.2.3</span> Digital Ocean</a></li>
-  <li><a href="#unattended-installer-iso" id="toc-unattended-installer-iso" class="nav-link" data-scroll-target="#unattended-installer-iso"><span class="header-section-number">2.2.4</span> Unattended Installer ISO</a></li>
+  <li><a href="#contabo" id="toc-contabo" class="nav-link" data-scroll-target="#contabo"><span class="header-section-number">2.2.4</span> Contabo</a></li>
+  <li><a href="#physical-hardware" id="toc-physical-hardware" class="nav-link" data-scroll-target="#physical-hardware"><span class="header-section-number">2.2.5</span> Physical hardware</a></li>
+  <li><a href="#unattended-installer-iso" id="toc-unattended-installer-iso" class="nav-link" data-scroll-target="#unattended-installer-iso"><span class="header-section-number">2.2.6</span> Unattended Installer ISO</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -335,10 +337,18 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="digital-ocean" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="digital-ocean"><span class="header-section-number">2.2.3</span> Digital Ocean</h3>
-<p>Import the provided EdgeSet disk image URL (<a href="https://release.tetmon.com/edgeset-x86_64.img">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.img">arm64</a>) to your DigitalOcean account as a “Custom Image” (see https://www.digitalocean.com/blog/custom-images/). Launch a droplet with the custom image.</p>
+<p>Import the provided EdgeSet qcow disk image (<a href="https://release.tetmon.com/edgeset-x86_64.qcow2">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.qcow2">arm64</a>) to your DigitalOcean account as a “Custom Image” (see https://www.digitalocean.com/blog/custom-images/). Launch a droplet with the custom image.</p>
 </section>
-<section id="unattended-installer-iso" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="unattended-installer-iso"><span class="header-section-number">2.2.4</span> Unattended Installer ISO</h3>
+<section id="contabo" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="contabo"><span class="header-section-number">2.2.4</span> Contabo</h3>
+<p>Import the provided EdgeSet qcow2 disk image (<a href="https://release.tetmon.com/edgeset-x86_64.qcow2">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.qcow2">arm64</a>) to your Contabo account as a “Custom Image” (see https://docs.contabo.com/docs/products/Cloud-VPS-and-VDS/Tutorial/custom-images/). Launch a VPS with the image.</p>
+</section>
+<section id="physical-hardware" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="physical-hardware"><span class="header-section-number">2.2.5</span> Physical hardware</h3>
+<p>Write the raw disk image (<a href="https://release.tetmon.com/edgeset-x86_64.img">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.img">arm64</a>) to the boot hard drive.</p>
+</section>
+<section id="unattended-installer-iso" class="level3" data-number="2.2.6">
+<h3 data-number="2.2.6" class="anchored" data-anchor-id="unattended-installer-iso"><span class="header-section-number">2.2.6</span> Unattended Installer ISO</h3>
 <p>You can install EdgeSet on physical hardware and most VMs via the <a href="https://release.tetmon.com/edgeset-unattended-installer-x86_64.iso">unattended installer ISO</a>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
