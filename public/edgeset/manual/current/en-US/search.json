@@ -77,6 +77,13 @@
     "text": "3.3 Admin user\nBefore creating your first admin user, you must upload your license file. This prevents anyone without a license file from hijacking your EdgeSet instance during setup.\n\n\n\nUpload your license file to complete the admin setup\n\n\nYou can choose any username consisting of ASCII alphanumeric characters and dots (beginning with a letter). This user will be added to the special admin group.\n\n\n\nCreating your first admin user\n\n\nNote that this first admin user is not special. You can add additional users to the admin group later and they will also receive full admin privileges."
   },
   {
+    "objectID": "setup.html#ssh-optional",
+    "href": "setup.html#ssh-optional",
+    "title": "3  Setup",
+    "section": "3.4 SSH (optional)",
+    "text": "3.4 SSH (optional)\nIf for any reason you are unable to access EdgeSet’s web interface, you can perform some operations via its terminal interface over SSH.\nEdgeSet listens for SSH connections on TCP port 22. You can connect with any SSH client.\nIf you have not setup an admin user yet, you can connect with any username and no password. This is to allow you to perform initial setup (including creating an admin user) without using the web interface.\n\n\n\ninterface available over SSH\n\n\nIf you have already setup an admin user, you can connect with an admin username and password (just like connecting via the web interface)."
+  },
+  {
     "objectID": "data-sources.html#google-sheets",
     "href": "data-sources.html#google-sheets",
     "title": "4  Connect Data Sources",

@@ -223,6 +223,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#self-signed" id="toc-self-signed" class="nav-link" data-scroll-target="#self-signed"><span class="header-section-number">3.2.2</span> Self-signed</a></li>
   </ul></li>
   <li><a href="#admin-user" id="toc-admin-user" class="nav-link" data-scroll-target="#admin-user"><span class="header-section-number">3.3</span> Admin user</a></li>
+  <li><a href="#ssh-optional" id="toc-ssh-optional" class="nav-link" data-scroll-target="#ssh-optional"><span class="header-section-number">3.4</span> SSH (optional)</a></li>
   </ul>
 </nav>
     </div>
@@ -259,7 +260,7 @@ Note
 <p>The following is not necessary if you installed the desktop application version of EdgeSet.</p>
 </div>
 </div>
-<p>When your EdgeSet server boots for the first time, it begins listening for web requests (on port 80). At this point, it does not have any user accounts or authentication.</p>
+<p>When your EdgeSet server boots for the first time, it begins listening for web requests (on TCP port 80). At this point, it does not have any user accounts or authentication.</p>
 <section id="dns-optional" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="dns-optional"><span class="header-section-number">3.1</span> DNS (optional)</h2>
 <p>You can navigate to your EdgeSet server using its IP address (e.g.&nbsp;http://10.88.0.188/), but you should assign it a domain name if possible (e.g.&nbsp;http://edgeset.your.org/). Doing so will allow you to register a trusted TLS certificate.</p>
@@ -307,6 +308,19 @@ Note
 </figure>
 </div>
 <p>Note that this first admin user is not special. You can add additional users to the <code>admin</code> group later and they will also receive full admin privileges.</p>
+</section>
+<section id="ssh-optional" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="ssh-optional"><span class="header-section-number">3.4</span> SSH (optional)</h2>
+<p>If for any reason you are unable to access EdgeSet’s web interface, you can perform some operations via its terminal interface over SSH.</p>
+<p>EdgeSet listens for SSH connections on TCP port 22. You can connect with any SSH client.</p>
+<p>If you have not setup an admin user yet, you can connect with any username and no password. This is to allow you to perform initial setup (including creating an admin user) without using the web interface.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="screenshots/ssh-login.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">interface available over SSH</figcaption>
+</figure>
+</div>
+<p>If you have already setup an admin user, you can connect with an admin username and password (just like connecting via the web interface).</p>
 
 
 </section>
