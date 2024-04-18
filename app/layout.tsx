@@ -13,8 +13,8 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Getting your data in order, so that AI can happen | EdgeSet',
-  description: 'Getting your data in order, so that AI can happen',
+  title: '"Data plumbing, before AI can happen | EdgeSet',
+  description: '"Data plumbing, before AI can happen',
   // TODO: separate this out through runtime env
   // robots: {
   //   follow: false,
