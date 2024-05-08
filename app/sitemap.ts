@@ -29,6 +29,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: 1,
     },
+    {
+      url: `${URL}/faq`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${URL}/get-demo`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${URL}/edgeset/manual/current/en-US`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
     ...posts.map((post) => ({
       url: `${URL}/blog/${post.id}`,
       lastModified: new Date(post.date),
