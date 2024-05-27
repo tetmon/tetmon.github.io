@@ -12,6 +12,7 @@ EdgeSet is designed from the ground up to protect your data:
 - EdgeSet stores data source credentials (passwords and keys) encrypted. It uses the ChaCha20 cipher designed by the legendary cryptographer DJ Bernstein and selected by Google for use in HTTP/3.
 - Every EdgeSet instance uses a unique encryption key. Reverse engineering the EdgeSet source code does not allow attackers to decrypt your credentials.
 - EdgeSet uses a type system to guarantee that any sensitive data (i.e. credentials) are automatically scrubbed from memory when they go out of scope. This prevents unencrypted data from being accidentally written to disk.
+- Data is never sent in the clear. From the first step of setup, all connections to EdgeSet use TLS or SSH encryption.
 - EdgeSet does not implicitly cache any data from your data sources. The only data that is held on disk are data for saved queries and visualizations (which are usually aggregated non-identifying data).
 - All user passwords are hashed with individual salts using a modern memory-hard hashing function with GPU resistance.
 - EdgeSet does not run OpenSSH or allow shell logins of any kind. It does provide a terminal interface that operates over the SSH protocol, but it cannot be escaped to a shell.
