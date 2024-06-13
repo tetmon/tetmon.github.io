@@ -60,10 +60,10 @@ const features = [
   },
   {
     title: 'Share Dashboard',
-    description: 'Share your dashboards publicly on your website, via our PHP connector for feedback and analysis.',
+    description: 'Share and embed your dashboards publicly on your website for feedback and analysis.',
     hasPadding: true,
     mobilePadding: true,
-    file: 'features/dash_php.webp'
+    file: 'features/share.webp'
   },
   {
     title: 'Connect to BI tools',
