@@ -63,7 +63,7 @@ const features = [
     description: 'Share and embed dashboards publicly on your website for feedback and analysis.',
     hasPadding: true,
     mobilePadding: true,
-    file: 'features/share.webp'
+    file: 'features/share.png'
   },
   {
     title: 'Connect to BI tools',
