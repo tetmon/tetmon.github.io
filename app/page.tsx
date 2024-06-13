@@ -60,7 +60,7 @@ const features = [
   },
   {
     title: 'Share Dashboard',
-    description: 'Share and embed your dashboards publicly on your website for feedback and analysis.',
+    description: 'Share and embed dashboards publicly on your website for feedback and analysis.',
     hasPadding: true,
     mobilePadding: true,
     file: 'features/share.webp'
