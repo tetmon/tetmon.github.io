@@ -362,7 +362,7 @@ export default function Home() {
       </section>
       <section>
         <div className="z-10 flex flex-col items-center p-12 px-11 md:p-20">
-          <h1 className="mb-7 text-center text-3xl font-medium leading-11 text-edgeset md:text-4xl">Discover the power of visualizing your business.</h1>
+          <h1 className="mb-7 text-center text-3xl font-medium leading-11  md:text-4xl">Discover the power of visualizing your business.</h1>
           <RequestDemo size='lg' outline />
         </div>
       </section>
