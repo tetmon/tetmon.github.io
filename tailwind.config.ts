@@ -60,11 +60,35 @@ const config: Config = {
           '100%': {
             transform: 'translateY(-100%)'
           }
-        }
+        },
+        moveDot: {
+          '0%': { opacity: '1', right: '-10px' },
+          '99%': { opacity: '1', right: '-34px' },
+          '100%': { opacity: '0', right: '-34px' },
+        },
+        moveLeftToMiddle: {
+          '0%': { opacity: '1', left: '32%' },
+          '100%': { opacity: '1', left: '50%' },
+        },
+        moveMiddleToRight: {
+          '0%': { opacity: '0', left: '50%' },
+          '1%': { opacity: '1', left: '50%' },
+          '99%': { opacity: '1', left: '68%' },
+          '100%': { opacity: '0', left: '68%' },
+        },
+        moveRightDot: {
+          '0%': { opacity: '0', left: '-25px' },
+          '1%': { opacity: '1', left: '-25px' },
+          '100%': { opacity: '1', left: '-5px' },
+        },
       },
       animation: {
         'fade-in-down': 'fade-in-down 0.5s ease-out',
-        'conveyor': 'conveyor 60s linear infinite'
+        'conveyor': 'conveyor 60s linear infinite',
+        moveDot: 'moveDot 0.25s linear forwards',
+        moveLeftToMiddle: 'moveLeftToMiddle 1.2s linear 0.27s forwards',
+        moveMiddleToRight: 'moveMiddleToRight 0.8s linear 1s forwards',
+        moveRightDot: 'moveRightDot 0.2s linear 1.8s forwards',
       }
     },
   }

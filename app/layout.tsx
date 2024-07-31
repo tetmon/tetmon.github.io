@@ -12,9 +12,10 @@ const workSans = Work_Sans({
   display: 'swap',
 });
 
+
 export const metadata: Metadata = {
-  title: 'Data plumbing, before AI can happen | EdgeSet',
-  description: 'Data plumbing, before AI can happen',
+  // title: 'Data plumbing, before AI can happen | EdgeSet',
+  // description: 'Data plumbing, before AI can happen',
   // TODO: separate this out through runtime env
   // robots: {
   //   follow: false,

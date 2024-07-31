@@ -66,7 +66,7 @@ select {
 }
 
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -74,9 +74,9 @@ h5,
 h6 {
   font-family: var(--font-sans), sans-serif;
   letter-spacing: -0.125rem;
-}
+} */
 
-.portal-fade-enter {
+/* .portal-fade-enter {
   opacity: 0.01;
 }
 
@@ -145,4 +145,50 @@ html[data-request-demo=true] header button[data-label="burger"] {
 .snapshot-enter-active {
   opacity: 1;
   transition: opacity 400ms;
+} */
+
+svg {
+  overflow: visible;
+}
+
+.animated-group {
+  transform-origin: center bottom;
+  animation: squish 2s ease-out forwards;
+  transform: scaleY(0.75);
+}
+
+/* @keyframes squish {
+  0% {
+    transform: scaleY(0.75);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+} */
+
+.iso-grid-container {
+  width: 800px;
+  height: 800px;
+  perspective: 1100px;
+  position: absolute;
+  top: 0;
+  top: -152px;
+  left: 20%;
+}
+
+.iso-grid {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(#ddd 0,
+      #ddd 1px,
+      transparent 1px,
+      transparent 90px),
+    repeating-linear-gradient(90deg,
+      #ddd 0,
+      #ddd 1px,
+      transparent 1px,
+      transparent 90px);
+  transform: rotateX(50deg) rotateZ(45deg) rotate3d(1, 0, 0, 0deg);
+  transform-origin: center;
 }
