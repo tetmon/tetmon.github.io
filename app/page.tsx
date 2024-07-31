@@ -360,37 +360,13 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className='m-auto grid max-w-8xl grid-cols-18 py-8 pb-24'>
-        <div className="col-span-16 col-start-2">
-          <div className='mb-12 mt-4 flex items-center justify-center'>
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 64 64" className='h-12 w-12 fill-[#215f74]'><path d="M52.6099854,31.4100037c0-11.3900146-9.2199707-20.6199951-20.6099854-20.6199951  S11.3900146,20.019989,11.3900146,31.4100037c0,5.1300049,1.8800049,9.8099976,4.9899902,13.4199829h-0.0200195l-4.039978,8.3800049  l17.8399658-1.2799683C30.7700195,51.980011,31.3800049,52.019989,32,52.019989  c1.6300049,0,3.2000122-0.2099609,4.7199707-0.5599976l0.1000366-0.0099487L36.789978,51.440033  C45.8599854,49.2799988,52.6099854,41.1400452,52.6099854,31.4100037z M20.039978,25.3399963v-4.5c0-0.5499878,0.4500122-1,1-1  h7.1500244c0.5499878,0,1,0.4500122,1,1v5.5c0,4.25-3.9700317,5.9299927-3.9700317,5.9299927l-2.5799561-1.4099731  c2.9899902-2.4000244,2.3299561-4.5200195,2.3299561-4.5200195H21.039978  C20.4899902,26.3399963,20.039978,25.8900452,20.039978,25.3399963z M36.2999878,45.1600037h-9.8699951  c-0.5499878,0-1-0.4500122-1-1c0-0.5599976,0.4500122-1,1-1h9.8699951c0.5499878,0,1,0.4400024,1,1  C37.2999878,44.7099915,36.8499756,45.1600037,36.2999878,45.1600037z M42.0499878,41.4700012H21.9500122  c-0.5499878,0-1-0.4500122-1-1c0-0.5599976,0.4500122-1,1-1h20.0999756c0.5499878,0,1,0.4400024,1,1  C43.0499878,41.019989,42.5999756,41.4700012,42.0499878,41.4700012z M42.0499878,37.7799988H21.9500122  c-0.5499878,0-1-0.4500122-1-1c0-0.5599976,0.4500122-1,1-1h20.0999756c0.5499878,0,1,0.4400024,1,1  C43.0499878,37.3299866,42.5999756,37.7799988,42.0499878,37.7799988z M43.960022,26.3399963  c0,4.25-3.9800415,5.9299927-3.9800415,5.9299927l-2.5799561-1.4099731  c2.9899902-2.4000244,2.3299561-4.5200195,2.3299561-4.5200195h-3.9199829c-0.5499878,0-1-0.4499512-1-1v-4.5  c0-0.5499878,0.4500122-1,1-1h7.1500244c0.5499878,0,1,0.4500122,1,1V26.3399963z" /></svg>
-            <h6 className='text-4xl font-medium text-edgeset'>
-              Testimonials
-            </h6>
-          </div>
-          <p className='m-auto mb-10 max-w-2xl rounded-lg  p-5 text-center text-xl font-medium tracking-tighter text-slate-500 md:text-2xl'>No Tech Department? No problem. EdgeSet will handle the integration.</p>
-          {/* <p className='mb-14 text-center text-base font-semibold text-slate-500 md:text-lg'>- Yinghan Hu, Founder</p> */}
-          <p className='mb-8 text-center text-lg font-medium tracking-tighter text-slate-500 md:mb-14 md:text-2xl'>
-            Here&apos;s what our <span className='text-edgeset underline'>happy</span> users <i>say</i>
-          </p>
-          <div className='grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12'>
-            {
-              testimonials.map((item) => (
-                <div key={item.name} className='m-auto flex w-full max-w-[400px] flex-col rounded-md border border-slate-200 bg-white pt-4'>
-                  <svg className='relative left-4' xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512" fill="#2885a4"><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z" /></svg>
-                  <div className='flex flex-auto flex-col px-4'>
-                    <p className='my-4 text-gray-700'>{item.quote}</p>
-                    <div className='flex items-center justify-end pb-5'>
-                      <b className='max-w-[200px] text-center text-base font-semibold text-edgeset'>{item.name}</b>
-                    </div>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
+      <section>
+        <div className={`z-10 flex flex-col items-center p-12 px-11 md:p-24`}>
+          <h1 className={`mb-7 text-center text-3xl font-medium leading-11 text-edgeset md:text-4xl`}>Discover the power of visualizing your business.</h1>
+          <RequestDemo size='lg' outline />
         </div>
       </section>
-      <Discover />
+      {/* <Discover /> */}
       <Footer />
     </main >
   )
