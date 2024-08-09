@@ -224,7 +224,7 @@
     "href": "query-notebook.html",
     "title": "7  Query Notebook",
     "section": "",
-    "text": "7.1 The query box\nThe query box is the first thing you see when navigating to the “Query” menu in EdgeSet.\nEnter your SQL query into the box and run the query by clicking Run or pressing Ctrl+Enter.",
+    "text": "7.1 The query box\nThe query box is the first thing you see when navigating to the “Notebook” menu in EdgeSet.\nEnter your SQL query into the box and run the query by clicking Run or pressing Ctrl+Enter.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Query Notebook</span>"
     ]
@@ -314,7 +314,7 @@
     "href": "permissions.html#granting-access",
     "title": "9  Permissions",
     "section": "9.2 Granting access",
-    "text": "9.2 Granting access\nTo grant a group or user access to a data source, click on the data source to expand it and then select the group or user from the Group or user dropdown menu.\n\n\n\nthe analysts group has been granted read-only access to the edgeset data source\n\n\nBy default, groups and users are granted read-only access to data sources. You can use the dropdown menu to grant all access which allows for making changes to the underlying data source. In this case, we want analysts to have only read-only access to the EdgeSet database. If they had all access, they could write SQL to make changes to EdgeSet that are normally restricted to admins.",
+    "text": "9.2 Granting access\nTo grant a group or user access to a data source, click on the data source to expand it and then select the group or user from the Group or user dropdown menu.\n\n\n\nthe analysts group has been granted access to the edgeset data source",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Permissions</span>"
     ]
