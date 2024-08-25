@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter, Work_Sans } from 'next/font/google'
-import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] })
@@ -29,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${workSans.variable}`}>
-      <body className={inter.className}>
+    <html lang="en">
+      <body>
         {children}
         <script defer data-api="https://analytics.tetmon.com/api/event" src="/assets/plausible.js"></script>
       </body>

@@ -10,7 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        edgeset: "#215f74"
+        primary: "#215f74",
+        primaryLight: "#2995B9"
       },
       height: {
       },
@@ -21,7 +22,8 @@ const config: Config = {
         '11': '2.75rem'
       },
       maxWidth: {
-        '8xl': '1400px'
+        '8xl': '1400px',
+        container: '1536px'
       },
       maxHeight: {
         '100': '30rem',
@@ -30,7 +32,16 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'node-pattern': 'url(/assets/node-pattern.svg)'
+        'node-pattern': 'url(/assets/node-pattern.svg)',
+        'box-pattern': 'url(/assets/box-pattern.svg)',
+        'left': 'url(/assets/left.svg)',
+        'right': 'url(/assets/right.svg)',
+        'left-right': "url('/assets/left.svg'), url('/assets/right.svg')",
+        // "halo-gradient": "radial-gradient(40% 40% at 70% 30%, #215f7473 0%, rgba(255, 239, 92, 0) 100%)"
+        "number-gradient": "linear-gradient(180deg, #0ea5e9bf -40.72%, rgba(135, 252, 196, .06) 99.03%)",
+        "halo-gradient": "radial-gradient(39.4% 77% at 67.6% 56.5%, #215f742e 0%, rgba(255, 239, 92, 0) 100%)",
+        "halo-b-gradient": "radial-gradient(39.4% 77% at 70.6% 67.5%, #215f742e 0%, rgba(255, 239, 92, 0) 100%)",
+        "temp-gradient": "radial-gradient(37.4% 50% at 75.5% 50%,rgba(255,239,92,.2) 0%,rgba(255,239,92,0) 100%)"
       },
       gridTemplateColumns: {
         '18': 'repeat(18, minmax(0, 1fr))',

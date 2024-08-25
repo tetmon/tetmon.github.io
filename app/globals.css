@@ -42,6 +42,13 @@
       max-height: 50%;
     }
   }
+
+  .text-stroke {
+    background-image: linear-gradient(180deg, #0ea5e9bf -40.72%, rgba(135, 252, 196, .06) 99.03%);
+    -webkit-text-stroke: 1px transparent !important;
+    background-clip: text;
+    color: #121212;
+  }
 }
 
 * {
