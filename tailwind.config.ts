@@ -11,9 +11,9 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#215f74",
-        primaryLight: "#2995B9"
-      },
-      height: {
+        highlight: "#3f788b",
+        primaryLight: "#2995B9",
+        borderLight: "#bbd1d9"
       },
       fontSize: {
         '4xl': '2.5rem'
@@ -45,6 +45,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         '18': 'repeat(18, minmax(0, 1fr))',
+        '16': 'repeat(16, minmax(0, 1fr))',
       },
       gridColumn: {
         'span-16': 'span 16 / span 16'
@@ -92,6 +93,28 @@ const config: Config = {
           '1%': { opacity: '1', left: '-25px' },
           '100%': { opacity: '1', left: '-5px' },
         },
+        drawBorder: {
+          '0%': { backgroundSize: '0% 2px, 2px 0%, 0% 2px, 2px 0%' },
+          '25%': { backgroundSize: '100% 2px, 2px 0%, 0% 2px, 2px 0%' },
+          '50%': { backgroundSize: '100% 2px, 2px 100%, 0% 2px, 2px 0%' },
+          '75%': { backgroundSize: '100% 2px, 2px 100%, 100% 2px, 2px 0%' },
+          '100%': { backgroundSize: '100% 2px, 2px 100%, 100% 2px, 2px 100%' },
+        },
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        appear: {
+          'to': { opacity: '1', transform: 'translateX(0)' },
+        },
+        'extend-line': {
+          '0%': { width: '0' },
+          '100%': { width: '30px' },
+        },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         'fade-in-down': 'fade-in-down 0.5s ease-out',
@@ -100,6 +123,14 @@ const config: Config = {
         moveLeftToMiddle: 'moveLeftToMiddle 1.2s linear 0.27s forwards',
         moveMiddleToRight: 'moveMiddleToRight 0.8s linear 1s forwards',
         moveRightDot: 'moveRightDot 0.2s linear 1.8s forwards',
+        'draw-border': 'drawBorder 1s linear forwards',
+        'draw-border-delayed': 'drawBorder 2s linear 2s forwards',
+        'scroll': 'scroll 54.4s linear infinite',
+        'appear': 'appear 1s forwards',
+        'extend-line': 'extend-line 1s forwards',
+        'fade-in': 'fade-in 0.5s forwards',
+        'fade-in-delay': 'fade-in 0.5s forwards 2.5s',
+        'extend-line-delay': 'extend-line 1s forwards 1.5s',
       }
     },
   }

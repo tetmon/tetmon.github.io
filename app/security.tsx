@@ -2,8 +2,12 @@
 
 import { DINish } from "./fonts";
 
-import { useRive, Layout, Fit, Alignment, Rive } from "@rive-app/react-canvas-lite";
+// @ts-ignore
+import riveWASMResource from '@rive-app/canvas/rive.wasm';
+import { useRive, Layout, Fit, Alignment, Rive, RuntimeLoader } from "@rive-app/react-canvas-lite";
 import { useEffect, useRef, useState } from "react";
+
+RuntimeLoader.setWasmUrl(riveWASMResource);
 
 export default function App() {
   const granularRef = useRef(null);
@@ -112,11 +116,27 @@ export default function App() {
     observer.observe(granularRef.current);
     observer.observe(internalRef.current);
     observer.observe(encryptionRef.current);
-    observer.observe(containerRef.current);
+    // observer.observe(containerRef.current);
+
+    let containerObserver = new IntersectionObserver((entries) => {
+      entries.map((entry) => {
+        if (entry.isIntersecting) {
+          console.log('container enter')
+          toggleHalo(true);
+        } else {
+          console.log('container exit')
+          toggleHalo(false);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    containerObserver.observe(containerRef.current)
   });
 
   return (
-    <section id="container" ref={containerRef} className="relative z-[-1] bg-neutral-900 text-zinc-100">
+    <section id="container" ref={containerRef} className="relative z-[-1] bg-neutral-900 text-zinc-100 ">
       {showHalo ? <div className="pointer-events-none fixed top-0 h-full w-full bg-halo-gradient">
       </div> : null}
       <div className="container mx-auto">
@@ -127,17 +147,16 @@ export default function App() {
               <path d="M69 14.7273L37.7919 8L7 14.7273V49.2045C11.1074 68.7112 18.7145 75.157 37.7919 82C56.3936 75.8815 63.3594 68.8663 69 49.2045V14.7273Z" fill="black" stroke="#323637" />
               <path d="M54.6921 32.0196L32.9111 53.8046C32.6806 54.0351 32.3056 54.0351 32.0713 53.8046L21.1803 42.9096C20.6295 42.3588 21.4654 41.519 22.0201 42.0698L32.4931 52.5428L43.1746 41.8613L53.8561 31.1798C54.4069 30.629 55.2468 31.4688 54.6921 32.0196Z" fill="#2995B9" />
             </svg>
-            <h2 className={`text-4xl font-bold ${DINish.className} pl-2`}>Security</h2>
+            <h2 className={`text-4xl font-bold ${DINish.className} pl-2`}>Security-focused</h2>
           </div>
-          <p className={`${DINish.className} pt-2 text-xl`}>EdgeSet addresses all<span className="font-bold text-primaryLight"> three</span> classes of threat vectors.</p>
+          <p className={`${DINish.className} pt-6 text-xl`}>EdgeSet addresses all<span className="font-bold text-primaryLight"> three</span> classes of threat vectors.</p>
         </div>
         <div className="grid grid-cols-12">
-
           <div className="relative col-span-5 col-start-3 grid grid-rows-[420px_800px_600px] gap-y-[120px]">
             <div id="granular" ref={granularRef} className="flex gap-4">
               <div className="text-stroke absolute left-[-35%] top-0 bg-clip-text text-[180px] font-black">01</div>
               <div className="self-center">
-                <h3 className={`text-4xl font-bold ${DINish.className}`}>To counter <span className="text-primaryLight">Employee Threats</span></h3>
+                <h3 className={`text-4xl font-bold ${DINish.className}`}>To counter <span className="text-primaryLight">Insider Threats</span></h3>
                 <ul className={`${DINish.className} max-w-lg`}>
                   <li className="text-xl">
                     EdgeSet has fine-grained access controls.
@@ -204,6 +223,6 @@ export default function App() {
           </div>
         </div>
       </div>
-    </section >
+    </section>
   );
 }

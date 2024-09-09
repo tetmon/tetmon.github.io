@@ -12,7 +12,15 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  distDir: 'out'
+  distDir: 'out',
+  webpack: (config, options) => {
+    config.module.rules.push({
+      test: /\.wasm$/,
+      type: "asset/resource"
+    });
+
+    return config;
+  },
 }
 
 if (!isProd) {

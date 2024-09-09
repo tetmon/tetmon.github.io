@@ -199,3 +199,39 @@ svg {
   transform: rotateX(50deg) rotateZ(45deg) rotate3d(1, 0, 0, 0deg);
   transform-origin: center;
 }
+
+.selected {
+  border: double 0.1px transparent;
+  border-radius: 16px;
+  background-image: linear-gradient(#125166, #125166),
+    linear-gradient(to left, #ffffff, #52c4e9);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.shadow-test {
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+@layer components {
+  .animated-border {
+    @apply relative inline-block;
+  }
+
+  .animated-border::before {
+    content: '';
+    @apply absolute -top-[1px] -left-[5px] -right-[5px] -bottom-[1px] rounded-md bg-no-repeat animate-draw-border;
+    background-image:
+      linear-gradient(to right, var(--border-color) 100%, transparent 100%),
+      linear-gradient(to bottom, var(--border-color) 100%, transparent 100%),
+      linear-gradient(to left, var(--border-color) 100%, transparent 100%),
+      linear-gradient(to top, var(--border-color) 100%, transparent 100%);
+    background-position: top left, top right, bottom right, bottom left;
+  }
+}
+
+@layer utilities {
+  .pause-on-hover:hover .animate-scroll {
+    animation-play-state: paused;
+  }
+}

@@ -4,7 +4,11 @@
 // import ThreeV from './threeV';
 // import Hero from './hero';
 import Platform from './platform';
+import Summary from './summary';
 import Security from './security';
+import Federated from './federated';
+import RealTime from './realtime';
+import Interactive from './interactive';
 
 export default function Home() {
   return (
@@ -14,6 +18,10 @@ export default function Home() {
       {/* <SinglePane /> */}
       {/* <ThreeV /> */}
       <Platform />
+      <Summary />
+      <Federated />
+      <RealTime />
+      <Interactive />
       <Security />
     </main >
   )
