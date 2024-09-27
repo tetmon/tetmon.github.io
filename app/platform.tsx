@@ -79,17 +79,17 @@ export default function Platform() {
           className="flex min-w-[800px] snap-x snap-mandatory overflow-x-auto"
           style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth', scrollbarWidth: 'none' }}
         >
-          <div className="mr-24 flex h-[660px] w-full shrink-0 snap-center justify-center items-center rounded-lg p-8 flex-col overflow-hidden">
-            <div className={`text-xl ${DINish.className} p-8 pt-12 pb-14 text-center leading-relaxed text-zinc-100`}>{lines[0].description}</div>
-            <img width={900} height={570} src="single.png" alt="single point of source" className="rounded-md" />
+          <div className="mr-24 flex w-full shrink-0 snap-center justify-center items-center rounded-lg flex-col overflow-hidden">
+            <div className={`text-xl ${DINish.className} p-8 pb-14 text-center leading-relaxed text-zinc-100`}>{lines[0].description}</div>
+            <img width={900} height={625} style={{ height: 625, width: 900 }} src="single.png" alt="single point of source" className="rounded-md" />
           </div>
-          <div className="mr-24 flex h-[600px] w-full shrink-0 snap-center justify-center items-center rounded-lg p-8 flex-col overflow-hidden">
-            <div className={`text-xl ${DINish.className} p-8 pt-12 pb-14 text-center leading-relaxed text-zinc-100`}>{lines[1].description}</div>
-            <img height={570} width={900} style={{ height: 570, width: 900 }} src="compare.png" alt="single point of source" className="rounded-md" />
+          <div className="mr-24 flex w-full shrink-0 snap-center justify-center items-center rounded-lg flex-col overflow-hidden">
+            <div className={`text-xl ${DINish.className} p-8 pb-14 text-center leading-relaxed text-zinc-100`}>{lines[1].description}</div>
+            <img width={900} height={625} style={{ height: 625, width: 900 }} src="compare.png" alt="single point of source" className="rounded-md" />
           </div>
-          <div className="mr-24 flex h-[600px] w-full shrink-0 snap-center justify-center items-center rounded-lg p-8 flex-col overflow-hidden">
-            <div className={`text-xl ${DINish.className} p-8 pt-12 pb-14 text-center leading-relaxed text-zinc-100`}>{lines[2].description}</div>
-            <img height={570} width={900} style={{ height: 570, width: 900 }} src="dash.png" alt="single point of source" className="rounded-md" />
+          <div className="mr-24 flex w-full shrink-0 snap-center justify-center items-center rounded-lg flex-col overflow-hidden">
+            <div className={`text-xl ${DINish.className} p-8 pb-14 text-center leading-relaxed text-zinc-100`}>{lines[2].description}</div>
+            <img width={900} height={625} style={{ height: 625, width: 900 }} src="dash.png" alt="single point of source" className="rounded-md" />
           </div>
         </div>
       </div>
