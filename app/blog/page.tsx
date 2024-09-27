@@ -3,6 +3,7 @@ import { Source_Serif_4 } from 'next/font/google'
 import Link from 'next/link'
 import { DateTime } from 'luxon'
 import Image from 'next/image'
+import { DINish } from '../fonts'
 
 
 const sourceSerifPro = Source_Serif_4({ subsets: ['latin'], weight: ['400', '500', '600'] })
@@ -52,8 +53,8 @@ export default function Blog() {
             {index === 0 ?
               <Link className='mb-1 mt-5 grid grid-cols-12 gap-4 border-b pb-6 font-medium' href={`/blog/${id}`}>
                 <div className='order-1 col-span-12 flex flex-col justify-center lg:col-span-6'>
-                  <h1 className='text-3xl font-medium leading-8 md:leading-11 lg:text-4xl'>{title}</h1>
-                  <p className={`max-w-lg py-8 text-left text-base text-gray-600 md:text-lg ${sourceSerifPro.className}`}>
+                  <h1 className={`${DINish.className} text-3xl font-semibold text-zinc-700 leading-8 md:leading-11 lg:text-4xl`}>{title}</h1>
+                  <p className={`max-w-lg py-8 text-left text-base text-gray-600 md:text-base ${sourceSerifPro.className}`}>
                     {description}
                   </p>
                   <Meta date={date} time={time} author={author} />
@@ -67,7 +68,7 @@ export default function Blog() {
                   <Image src={`/blog/${image}`} alt='better' width={600} height={400} className='h-full w-full' />
                 </div>
                 <div className='col-span-12 flex flex-col justify-center lg:col-span-6'>
-                  <h1 className='pb-4 text-2xl font-medium md:leading-11 lg:text-3xl'>{title}</h1>
+                  <h1 className={`${DINish.className} pb-4 text-2xl font-semibold text-zinc-600 md:leading-11 lg:text-3xl`}>{title}</h1>
                   <Meta date={date} time={time} author={author} />
                 </div>
               </Link>}

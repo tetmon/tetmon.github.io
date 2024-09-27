@@ -12,8 +12,8 @@
   }
 
   .header-mask {
-    -webkit-mask-image: linear-gradient(to bottom, black 4.2rem, transparent);
-    mask-image: linear-gradient(to bottom, black 4.2rem, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black 4.7rem, transparent);
+    mask-image: linear-gradient(to bottom, black 4.7rem, transparent);
     backdrop-filter: blur(10px);
   }
 

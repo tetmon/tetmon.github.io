@@ -131,7 +131,10 @@ const config: Config = {
         'fade-in': 'fade-in 0.5s forwards',
         'fade-in-delay': 'fade-in 0.5s forwards 2.5s',
         'extend-line-delay': 'extend-line 1s forwards 1.5s',
-      }
+      },
+      screens: {
+        'xs': '480px',
+      },
     },
   }
 }

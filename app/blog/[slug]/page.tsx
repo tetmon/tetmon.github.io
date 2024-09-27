@@ -4,6 +4,7 @@ import { getPostData } from '@/lib/posts'
 import formatDate from '@/lib/format'
 import Link from 'next/link'
 import path from 'path'
+import { DINish } from '@/app/fonts'
 
 const sourceSerifPro = Source_Serif_4({ subsets: ['latin'], weight: ['400', '500', '600'] })
 
@@ -88,7 +89,7 @@ export default async function Post({ params }: Props) {
           </svg>
           <span className='px-2'>Back to posts</span>
         </Link>
-        <h1 className='text-3xl font-medium md:text-4xl md:leading-11'>{postData.title}</h1>
+        <h1 className={`${DINish.className} text-3xl font-semibold text-zinc-700 md:text-4xl md:leading-11`}>{postData.title}</h1>
         <Meta date={date} time={time} author={author} />
 
         {/* Post Content */}

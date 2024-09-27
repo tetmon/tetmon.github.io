@@ -1,13 +1,28 @@
 'use client'
 
+import { DINish } from "@/app/fonts";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 
 
 const Menu = ({ showMenu }: { showMenu: boolean }) => {
+  const [isWhite, setIsWhite] = useState(false);
+
   useEffect(() => {
     document.documentElement.dataset.showMenu = `${showMenu}`;
+    document.addEventListener('security-enter', () => {
+      setIsWhite(true);
+    });
+    document.addEventListener('security-exit', () => {
+      setIsWhite(false);
+    });
+    document.addEventListener('platform-enter', () => {
+      setIsWhite(true);
+    });
+    document.addEventListener('platform-exit', () => {
+      setIsWhite(false);
+    });
   }, [showMenu]);
 
   return (typeof window !== 'undefined' ?
@@ -18,21 +33,21 @@ const Menu = ({ showMenu }: { showMenu: boolean }) => {
         timeout={100}
         unmountOnExit
       >
-        <div className='fixed top-[50px] z-10 h-full w-full backdrop-blur-lg'>
+        <div className='fixed top-[50px] z-10 h-full w-full backdrop-blur-lg bg-white' style={{ color: "#215f74" }}>
           <nav>
-            <ul className="flex flex-col px-5 pt-5">
+            <ul className="flex flex-col pt-5">
               {/* <a href="/case-studies">
                 <li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>Case Studies</li>
               </a> */}
               {/* <a href="/careers"><li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>FAQ</li></a> */}
-               <a href="/blog"><li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>Blog</li></a>
-              <a href="/about"><li className='border-b border-[#e7eaee] py-5 text-base font-medium text-gray-700'>About</li></a>
+              <a href="/blog"><li className={`${DINish.className} border-b border-[#e7eaee] py-5 px-8 text-lg font-semibold `}>Blog</li></a>
+              <a href="/about"><li className={`${DINish.className} border-b border-[#e7eaee] py-5 px-8 text-lg font-semibold `}>About</li></a>
             </ul>
           </nav>
         </div>
       </CSSTransition>,
       document.body
-    ): null);
+    ) : null);
 }
 
 
