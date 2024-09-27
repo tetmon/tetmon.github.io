@@ -92,9 +92,9 @@ const Features = ({ features, title, icon, dir }: { features: Array<IFeature>, t
         }
       })
     })
-    
+
     featureRef.current && observer.observe(featureRef.current);
-  }, [])
+  }, [features])
 
   return (
     <ActiveContext.Provider value={activeIndex}>

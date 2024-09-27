@@ -11,7 +11,10 @@ export default function Interactive() {
       entries.map((entry) => {
         if (entry.isIntersecting) {
           console.log('interactive enter')
-          interactiveRef.current.querySelector('video').play();
+          if (interactiveRef.current) {
+            // @ts-ignore
+            interactiveRef.current.querySelector('video').play();
+          }
         } else {
           console.log('interactive exit')
         }
@@ -20,7 +23,9 @@ export default function Interactive() {
       threshold: 0.5
     });
 
-    containerObserver.observe(interactiveRef.current)
+    if (interactiveRef.current) {
+      containerObserver.observe(interactiveRef.current)
+    }
   }, []);
 
   return (

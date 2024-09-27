@@ -111,7 +111,7 @@ const ContentSection = ({ content }) => {
           aria-hidden='true'
         >
           <svg
-            className='absolute top-12 left-full transform translate-x-32'
+            className='absolute top-12 left-full translate-x-32'
             width={404}
             height={384}
             fill='none'
@@ -143,7 +143,7 @@ const ContentSection = ({ content }) => {
             />
           </svg>
           <svg
-            className='absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-32'
+            className='absolute top-1/2 right-full -translate-y-1/2 -translate-x-32'
             width={404}
             height={384}
             fill='none'
@@ -175,7 +175,7 @@ const ContentSection = ({ content }) => {
             />
           </svg>
           <svg
-            className='absolute bottom-12 left-full transform translate-x-32'
+            className='absolute bottom-12 left-full translate-x-32'
             width={404}
             height={384}
             fill='none'

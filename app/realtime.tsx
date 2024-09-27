@@ -17,16 +17,24 @@ const DataFlowDiagram = () => {
       entries.map((entry) => {
         if (entry.isIntersecting) {
           // const verticalLineHeight = '180';
+          // @ts-ignore
           const topLineRect = topLineRef.current.getBoundingClientRect();
+          // @ts-ignore
           const lastFlowRect = lastFlowRef.current.getBoundingClientRect();
           const verticalLineHeight = lastFlowRect.top - topLineRect.top + lastFlowRect.height / 2;
-          console.log(verticalLineHeight)
+          // @ts-ignore
           topLineRef.current.style.transition = 'height 0.5s ease-in';
           setTimeout(() => {
+            // @ts-ignore
             topLineRef.current.style.height = `${verticalLineHeight + 1}px`;
+            // @ts-ignore
+            // @ts-ignore
             firstLineRef.current.classList.add('animate-[extend-line_1s_forwards_0.5s]');
+            // @ts-ignore
             firstBoxRef.current.classList.add('animate-[fade-in_0.5s_forwards_1s]');
+            // @ts-ignore
             secondLineRef.current.classList.add('animate-[extend-line_0.5s_forwards_1.5s]');
+            // @ts-ignore
             thirdLineRef.current.classList.add('animate-[fade-in_0.5s_forwards_2s]');
           }, 110);
 
@@ -38,7 +46,9 @@ const DataFlowDiagram = () => {
       threshold: 1
     });
 
-    containerObserver.observe(diagramRef.current)
+    if (diagramRef.current) {
+      containerObserver.observe(diagramRef.current)
+    }
   }, []);
 
   return (

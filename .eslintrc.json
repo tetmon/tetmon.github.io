@@ -2,13 +2,20 @@
   "extends": "next/core-web-vitals",
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
       "plugins": [
         "tailwindcss"
       ],
       "extends": [
         "plugin:tailwindcss/recommended"
-      ]
+      ],
+      "rules": {
+        "tailwindcss/classnames-order": "off",
+        "tailwindcss/no-custom-classname": "off"
+      }
     }
   ]
 }

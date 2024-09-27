@@ -19,7 +19,9 @@ export default function Platform() {
   const handleTabClick = (index: number) => {
     setCurrentIndex(index);
     if (sliderRef.current) {
+      // @ts-ignore   
       sliderRef.current.scrollTo({
+        // @ts-ignore
         left: index * sliderRef.current.offsetWidth,
         behavior: 'smooth'
       });

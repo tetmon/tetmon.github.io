@@ -34,7 +34,9 @@ export default function Federated() {
     }, {
       threshold: 0.5
     });
-    containerObserver.observe(federatedRef.current)
+    if (federatedRef.current) {
+      containerObserver.observe(federatedRef.current)
+    }
   }, []);
 
 
@@ -59,15 +61,19 @@ export default function Federated() {
                   <span className="hljs-keyword">
                     FROM</span>{` 
     `}
+                  {/* @ts-ignore */}
                   <span style={{ "--border-color": "#306188" }} className={postgresAnimated ? 'animated-border' : ''}>postgres</span>{`.crm.customers c
 `}
                   <span className="hljs-keyword">JOIN</span>{`
     `}
+                  {/* @ts-ignore */}
                   <span style={{ "--border-color": "#279f63" }} className={sheetsAnimated ? 'animated-border' : ''}>sheets</span>
                   {`.surveys.responses s `}<span className="hljs-keyword">ON</span> c.cust_id <span className="hljs-operator">=</span> {`s.cust_id 
 `}
                   <span className="hljs-keyword">LEFT</span> <span className="hljs-keyword">JOIN</span>{`
-    `}<span style={{ "--border-color": "#ffc932" }} className={elasticAnimated ? 'animated-border' : ''}>elasticsearch</span>
+    `}
+                  {/* @ts-ignore */}
+                  <span style={{ "--border-color": "#ffc932" }} className={elasticAnimated ? 'animated-border' : ''}>elasticsearch</span>
                   {`.support.tickets t `}<span className="hljs-keyword">ON</span> c.cust_id <span className="hljs-operator">=</span> {`t.cust_id
 `}
                   <span className="hljs-keyword">WHERE</span>

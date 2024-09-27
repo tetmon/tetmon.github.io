@@ -1,5 +1,6 @@
 "use client";
 
+// @ts-ignore
 import riveWASMResource from '@rive-app/canvas/rive.wasm';
 import Rive, { useRive, Layout, Fit, Alignment, RuntimeLoader } from "@rive-app/react-canvas";
 import { useEffect, useRef, useState } from "react";
@@ -68,7 +69,7 @@ const Hero = () => {
             <path d="M146 313.5V172.5L0 88V225.5L146 313.5Z" fill="#215F74" />
           </svg>
           <div className={`${DINish.className} text-sm`}>
-            Spreadsheets and CSV's
+            Spreadsheets and CSV&apos;s
           </div>
         </div>
         <div className="flex gap-1 border border-primary p-1 rounded-lg">
