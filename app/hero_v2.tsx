@@ -45,7 +45,7 @@ const Hero = () => {
     <section className="grid grid-cols-12 gap-8 pt-8 md:pt-16 md:gap-12 relative" ref={containerRef}>
       <h1 className={`text-4xl font-bold col-start-2 col-span-8 ${DINish.className} leading-[40px] xs:col-span-10 xs:col-start-2 md:text-5xl md:leading-[56px] md:text-center`}>Finally, business metrics at your fingertips</h1>
       <p className={`leading-6 text-lg xl:text-xl col-start-2 col-span-10 ${DINish.className} xs:col-span-10 xs:col-start-2 md:col-span-8 md:col-start-3 md:text-center max-w-xl mx-auto leading-relaxed`}>
-        Introducing Edgeset, data virtualization platform that joins up disparate cloud and on-premise data sources to a single access point, within minutes.
+        Introducing Edgeset, a data virtualization platform that joins up disparate cloud and on-premise data sources to a single access point, within minutes.
       </p>
       {stateMachine === 'hero_sm_sme' ? <div className="col-start-1 col-span-10 h-64 xs:col-start-2">
         <Rive
@@ -74,7 +74,7 @@ const Hero = () => {
             <path d="M146 313.5V172.5L0 88V225.5L146 313.5Z" fill="#215F74" />
           </svg>
           <div className={`${DINish.className} text-sm`}>
-            Spreadsheets and CSV&apos;s
+            Spreadsheets and CSVs
           </div>
         </div>
         <div className="flex gap-1 border border-primary p-1 rounded-lg">

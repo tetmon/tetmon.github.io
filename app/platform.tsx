@@ -69,7 +69,7 @@ export default function Platform() {
       <div className="hidden lg:flex lg:flex-col lg:py-8">
         <div className="flex w-full flex-col items-center pt-6">
           <div className={`mb-6 flex flex-row gap-7 ${DINish.className}`}>
-            <button className={`rounded-2xl px-4 py-2 text-lg  text-zinc-200 ${DINish.className} ${currentIndex === 0 ? 'selected' : 'border border-[#ffffff38] bg-[#155970]'}`} onClick={() => handleTabClick(0)}>Single point of source</button>
+            <button className={`rounded-2xl px-4 py-2 text-lg  text-zinc-200 ${DINish.className} ${currentIndex === 0 ? 'selected' : 'border border-[#ffffff38] bg-[#155970]'}`} onClick={() => handleTabClick(0)}>Single source of truth</button>
             <button className={`focus-visible:outline-neutral-white bg-neutral-n11 rounded-2xl px-4 py-2 text-lg leading-none tracking-wide text-zinc-200 transition-colors  ${currentIndex === 1 ? 'selected' : 'border border-[#ffffff38] bg-[#155970]'}`} onClick={() => handleTabClick(1)}>Compare and analyse</button>
             <button className={`focus-visible:outline-neutral-white hover:text-neutral-n3 rounded-2xl px-4 py-2 text-lg leading-none tracking-wide text-zinc-200 transition-colors ${currentIndex === 2 ? 'selected' : 'border border-[#ffffff38] bg-[#155970]'}`} onClick={() => handleTabClick(2)}>Dashboard and reports</button>
           </div>
@@ -81,15 +81,15 @@ export default function Platform() {
         >
           <div className="mr-24 flex w-full shrink-0 snap-center justify-center items-center rounded-lg flex-col overflow-hidden">
             <div className={`text-xl ${DINish.className} p-8 pb-14 text-center leading-relaxed text-zinc-100`}>{lines[0].description}</div>
-            <img width={900} height={625} style={{ height: 625, width: 900 }} src="single.png" alt="single point of source" className="rounded-md" />
+            <img width={900} height={625} style={{ height: 625, width: 900 }} src="single.png" alt="single source of truth" className="rounded-md" />
           </div>
           <div className="mr-24 flex w-full shrink-0 snap-center justify-center items-center rounded-lg flex-col overflow-hidden">
             <div className={`text-xl ${DINish.className} p-8 pb-14 text-center leading-relaxed text-zinc-100`}>{lines[1].description}</div>
-            <img width={900} height={625} style={{ height: 625, width: 900 }} src="compare.png" alt="single point of source" className="rounded-md" />
+            <img width={900} height={625} style={{ height: 625, width: 900 }} src="compare.png" alt="single source of truth" className="rounded-md" />
           </div>
           <div className="mr-24 flex w-full shrink-0 snap-center justify-center items-center rounded-lg flex-col overflow-hidden">
             <div className={`text-xl ${DINish.className} p-8 pb-14 text-center leading-relaxed text-zinc-100`}>{lines[2].description}</div>
-            <img width={900} height={625} style={{ height: 625, width: 900 }} src="dash.png" alt="single point of source" className="rounded-md" />
+            <img width={900} height={625} style={{ height: 625, width: 900 }} src="dash.png" alt="single source of truth" className="rounded-md" />
           </div>
         </div>
       </div>
@@ -127,15 +127,15 @@ export default function Platform() {
           >
             <div className="mr-24 flex h-[600px] w-full shrink-0 snap-center justify-center rounded-lg p-8">
               <div className={`text-3xl ${DINish.className} py-8 pl-16 pr-3 text-center leading-relaxed text-zinc-100`}>{lines[0]}</div>
-              <img width={785} height={500} src="single.png" alt="single point of source" className="rounded-md" />
+              <img width={785} height={500} src="single.png" alt="single source of truth" className="rounded-md" />
             </div>
             <div className="mr-24 flex h-[600px] w-full shrink-0 snap-center justify-center rounded-lg p-8">
               <div className={`text-3xl ${DINish.className} p-8 text-center leading-relaxed text-zinc-100`}>{lines[1]}</div>
-              <img height={500} width={785} style={{ height: 500, width: 785 }} src="compare.png" alt="single point of source" className="rounded-md" />
+              <img height={500} width={785} style={{ height: 500, width: 785 }} src="compare.png" alt="single source of truth" className="rounded-md" />
             </div>
             <div className="mr-24 flex h-[600px] w-full shrink-0 snap-center justify-center rounded-lg p-8">
               <div className={`text-3xl ${DINish.className} p-8 text-center leading-relaxed text-zinc-100`}>{lines[2]}</div>
-              <img height={500} width={785} style={{ height: 500, width: 785 }} src="dash.png" alt="single point of source" className="rounded-md" />
+              <img height={500} width={785} style={{ height: 500, width: 785 }} src="dash.png" alt="single source of truth" className="rounded-md" />
             </div>
           </div>
         </div>
