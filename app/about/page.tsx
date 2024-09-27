@@ -1,6 +1,7 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Image from "next/image";
+import { DINish } from "../fonts";
 
 const headlines = [
   'Tetmon represented Singapore to Chongqing Tech Unicorn summit, and regularly speak at corporate innovation workshops.',
@@ -37,15 +38,15 @@ export default function about(props: any) {
       <Navbar />
       <section className='grid grid-cols-18 pt-14 md:pt-24'>
         <div className="col-span-full px-6 md:px-10 lg:px-14 xl:px-56">
-          <h1 className='text-4xl font-medium leading-11 md:text-center lg:text-5xl'>EdgeSet is trusted by Industry Leaders</h1>
-          <p className='max-w-3xl py-8 text-left text-base leading-7 text-gray-600  md:m-auto md:text-center md:text-lg'>
-          Tetmon’s EdgeSet eliminates the need for ETL or a traditional data warehouse. EdgeSet create a virtual representation of all your data centrally, then fetches the data from the edges when you require it.
+          <h1 className={`${DINish.className} text-4xl font-semibold leading-11 md:text-center lg:text-5xl`}>EdgeSet is trusted by Industry Leaders</h1>
+          <p className={`${DINish.className} max-w-3xl py-8 text-left text-base leading-7 text-gray-600  md:m-auto md:text-center md:text-lg`}>
+            Tetmon’s EdgeSet eliminates the need for ETL or a traditional data warehouse. EdgeSet create a virtual representation of all your data centrally, then fetches the data from the edges when you require it.
           </p>
           <div className="grid grid-rows-3 items-center gap-6 py-6 md:grid-cols-3 md:grid-rows-none md:items-baseline md:gap-16 md:py-12">
             {
               headlines.map((headline, index) => {
                 return (
-                  <div key={index} className="font-medium">{headline}</div>
+                  <div key={index} className={`${DINish.className} font-medium`}>{headline}</div>
                 )
               })
             }
@@ -56,9 +57,9 @@ export default function about(props: any) {
                 return (
                   <div key={index}>
                     <Image src={member.file} alt={member.name} width={100} height={100} className="grayscale" />
-                    <h3 className="pt-4 text-xl font-medium tracking-tight">{member.name}</h3>
-                    <p className="text-sm font-medium tracking-tight">{member.title}</p>
-                    <div className="py-5" dangerouslySetInnerHTML={{ __html: member.description }}></div>
+                    <h3 className={`${DINish.className} pt-4 text-xl font-medium tracking-tight`}>{member.name}</h3>
+                    <p className={`${DINish.className} text-sm font-medium tracking-tight`}>{member.title}</p>
+                    <div className={`${DINish.className} py-5`} dangerouslySetInnerHTML={{ __html: member.description }}></div>
                   </div>
                 )
               })
