@@ -3,7 +3,7 @@
 // @ts-ignore
 import riveWASMResource from '@rive-app/canvas/rive.wasm';
 import Rive, { useRive, Layout, Fit, Alignment, RuntimeLoader } from "@rive-app/react-canvas";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { DINish } from './fonts';
 import { createPortal } from 'react-dom';
 import Modal from '@/components/modal';
@@ -13,9 +13,14 @@ RuntimeLoader.setWasmUrl(riveWASMResource);
 
 const Hero = () => {
   const [artboard, setArtboard] = useState('Artboard_sm');
-  const [stateMachine, setStateMachine] = useState(window.innerWidth >= 1024 ? 'hero_sme' : 'hero_sm_sme');
+  const [stateMachine, setStateMachine] = useState('hero_sme');
   const containerRef = useRef<HTMLDivElement>(null);
   const [showPortal, togglePortal] = useState(false);
+
+  useLayoutEffect(() => {
+    const initialStateMachine = window.innerWidth >= 1024 ? 'hero_sme' : 'hero_sm_sme';
+    setStateMachine(initialStateMachine);
+  }, [])
 
   useEffect(() => {
     const ro = new ResizeObserver((entries) => {
