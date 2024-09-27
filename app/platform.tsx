@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { DINish } from "./fonts";
 
 const lines = [
-  { title: "Single point of source", description: "EdgeSet enables organizations to have a single point of access for all their data.", image: "single.png" },
+  { title: "Single source of truth", description: "EdgeSet enables organizations to have a single point of access for all their data.", image: "single.png" },
   { title: "Compare and analyse", description: "Easily compare and analyze data between different data sources.", image: "compare.png" },
   { title: "Dashboard and reports", description: "Create meaningful dashboards and generate reports to aid in making impactful decisions.", image: "dash.png" }
 ];
