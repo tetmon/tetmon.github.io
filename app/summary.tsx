@@ -3,7 +3,7 @@ import { DINish, Inter } from "./fonts";
 export default function Summary() {
   return (
     <section className="bg-neutral-200 py-12">
-      <div className="grid px-14 [grid-template-areas:'fq'_'ra'_'ia'_'sf'] gap-12 md:[grid-template-areas:'fq_ra'_'ia_sf'] lg:px-28 xl:[grid-template-areas:'fq_ra_ia_sf'] max-w-[1490px] mx-auto">
+      <div className="grid px-14 [grid-template-areas:'fq'_'ra'_'ia'_'sf'] gap-12 md:[grid-template-areas:'fq_ra'_'ia_sf'] lg:px-28 xl:[grid-template-areas:'fq_ra_ia_sf'] max-w-[1460px] mx-auto">
         <div className="flex flex-col border-l-[1px] border-gray-400 pl-4 [grid-area:fq] gap-4">
           <h2 className={`text-2xl font-semibold ${DINish.className}`}>Federated queries</h2>
           <p className={`${DINish.className} min-h-[110px] text-lg font-normal text-gray-600`}>

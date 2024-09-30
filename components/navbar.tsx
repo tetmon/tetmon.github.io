@@ -24,7 +24,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-30 m-auto grid grid-cols-12 border-b bg-white ${isWhite ? 'border-transparent' : 'border-gray-200'}`}>
+    <header className={`sticky top-0 z-30 grid grid-cols-12 border-b bg-white ${isWhite ? 'border-transparent' : 'border-gray-200'} 2xl:px-24`}>
       <div className='header-mask pointer-events-none absolute inset-0'></div>
       <div className='z-[1] col-end-[-2] col-start-2 flex items-center justify-between' style={{ color: isWhite ? "#ffffff" : "#215f74" }}>
         <a href="/" className='grow'>

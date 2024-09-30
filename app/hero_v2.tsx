@@ -49,7 +49,7 @@ const Hero = () => {
       </p>
       {stateMachine === 'hero_sm_sme' ? <div className="col-start-1 col-span-10 h-64 xs:col-start-2">
         <Rive
-          src="hero_sm.riv"
+          src="hero_v1.1.riv"
           artboard="Artboard_sm"
           stateMachines={["hero_sm_sme"]}
           layout={new Layout({ fit: Fit.Contain, alignment: Alignment.TopCenter })}
@@ -58,7 +58,7 @@ const Hero = () => {
       </div> : null}
       {stateMachine === 'hero_sme' ? <div className="col-start-2 col-span-10 h-96 my-24 mb-36">
         <Rive
-          src="hero_sm.riv"
+          src="hero_v1.1.riv"
           artboard="Artboard"
           stateMachines={["hero_sme"]}
           layout={new Layout({ fit: Fit.Contain, alignment: Alignment.TopCenter })}
