@@ -404,7 +404,7 @@ export default function App() {
                     </ul>
                   </div>
                   <div className="relative">
-                    <div className="absolute right-0 bg-primaryLight p-1 text-sm">Edgeset</div>
+                    <div className="absolute right-0 bg-primaryLight p-1 text-sm">EdgeSet</div>
                     <ul className={`${DINish.className} rounded-md border border-primaryLight p-3 text-lg`}>
                       <li className="before:pr-2 before:content-['_•']">Tetmon’s employees cannot access your data.</li>
                       <li className="before:pr-2 before:content-['_•']">Your data does not leave your network.</li>
@@ -488,7 +488,7 @@ export default function App() {
                   </ul>
                 </div>
                 <div className="relative">
-                  <div className={`${DINish.className} absolute right-0 bg-primaryLight p-1 text-xs`}>Edgeset</div>
+                  <div className={`${DINish.className} absolute right-0 bg-primaryLight p-1 text-xs`}>EdgeSet</div>
                   <ul className={`${DINish.className} rounded-md border border-primaryLight p-3 pt-6 text-base`}>
                     <li className="before:pr-2 before:content-['_•']">Tetmon’s employees cannot access your data.</li>
                     <li className="before:pr-2 before:content-['_•']">Your data does not leave your network.</li>

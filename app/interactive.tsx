@@ -44,7 +44,7 @@ export default function Interactive() {
     //             Quickly slice and dice your data to uncover key business insights.
     //           </p>
     //           <p className={`${DINish.className} max-w-xl pt-5 text-xl`}>
-    //             Edgeset supports a variety of visualizations, offering flexibility in how data can be displayed.
+    //             EdgeSet supports a variety of visualizations, offering flexibility in how data can be displayed.
     //           </p>
     //         </div>
     //         <div className="relative">
@@ -69,7 +69,7 @@ export default function Interactive() {
             </div>
             <div className="xl:max-w-lg">
               <p className={`${DINish.className} pt-5 text-lg`}>Quickly slice and dice your data to uncover key business insights.</p>
-              <p className={`${DINish.className} pt-5 text-lg`}>Edgeset supports a variety of visualizations, offering flexibility in how data can be displayed.</p>
+              <p className={`${DINish.className} pt-5 text-lg`}>EdgeSet supports a variety of visualizations, offering flexibility in how data can be displayed.</p>
             </div>
           </div>
         </div>

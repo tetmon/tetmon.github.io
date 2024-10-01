@@ -135,7 +135,7 @@ export default function RealTime() {
           <div className="col-span-full xl:flex xl:flex-row-reverse xl:justify-between">
             <DataFlowDiagram />
             <div className="col-span-full xl:max-w-lg">
-              <p className={`${DINish.className} pt-5 text-lg`}> Unlike traditional ETL/ELT systems, Edgeset processes data on-demand, querying source systems directly for the most up-to-date information.</p>
+              <p className={`${DINish.className} pt-5 text-lg`}> Unlike traditional ETL/ELT systems, EdgeSet processes data on-demand, querying source systems directly for the most up-to-date information.</p>
               <p className={`${DINish.className} pt-5 text-lg`}>This simplifies the architecture, saving man-hours and reducing the time to generate reports, thereby improving efficiency.</p>
             </div>
           </div>
