@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        {/* <script defer data-api="https://analytics.tetmon.com/api/event" src="/assets/plausible.js"></script> */}
+        <script defer data-api="https://analytics.tetmon.com/api/event" src="/assets/plausible.js"></script>
       </body>
     </html>
   )
