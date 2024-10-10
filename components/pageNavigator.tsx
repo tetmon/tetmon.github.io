@@ -37,7 +37,7 @@ const PageNavigator: React.FC = () => {
   }, [])
 
   return (
-    <nav className="hidden lg:block top-32 w-64 overflow-auto fixed right-0">
+    <nav className="hidden xl:block top-32 w-64 overflow-auto fixed right-0">
       <ul className="space-y-2 bg-gray-100">
         {headings.map((heading) => (
           <li key={heading.id}>
