@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter, Work_Sans } from 'next/font/google'
-import riveWASMResource from '@rive-app/canvas/rive.wasm';
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] })
@@ -30,9 +29,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preload" href={riveWASMResource} as="fetch" crossOrigin="anonymous" />
-      </head>
       <body>
         {children}
         <script defer data-api="https://analytics.tetmon.com/api/event" src="/assets/plausible.js"></script>

@@ -1,7 +1,7 @@
 "use client";
 
 // @ts-ignore
-// import riveWASMResource from '@rive-app/canvas/rive.wasm';
+import riveWASMResource from '@rive-app/canvas/rive.wasm';
 import Rive, { useRive, Layout, Fit, Alignment, RuntimeLoader } from "@rive-app/react-canvas";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { DINish } from './fonts';
@@ -9,7 +9,7 @@ import { createPortal } from 'react-dom';
 import Modal from '@/components/modal';
 import { CSSTransition } from 'react-transition-group';
 
-// RuntimeLoader.setWasmUrl(riveWASMResource);
+RuntimeLoader.setWasmUrl(riveWASMResource);
 
 const Hero = () => {
   const [artboard, setArtboard] = useState('Artboard_sm');
