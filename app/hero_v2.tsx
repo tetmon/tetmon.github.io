@@ -1,7 +1,7 @@
 "use client";
 
 // @ts-ignore
-import riveWASMResource from '@rive-app/canvas/rive.wasm';
+// import riveWASMResource from '@rive-app/canvas/rive.wasm';
 import Rive, { useRive, Layout, Fit, Alignment, RuntimeLoader } from "@rive-app/react-canvas";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { DINish } from './fonts';
@@ -9,7 +9,7 @@ import { createPortal } from 'react-dom';
 import Modal from '@/components/modal';
 import { CSSTransition } from 'react-transition-group';
 
-RuntimeLoader.setWasmUrl(riveWASMResource);
+// RuntimeLoader.setWasmUrl(riveWASMResource);
 
 const Hero = () => {
   const [artboard, setArtboard] = useState('Artboard_sm');
@@ -26,7 +26,6 @@ const Hero = () => {
     const ro = new ResizeObserver((entries) => {
       const { width, height } = entries[0].contentRect;
       if (width >= 1024) {
-        console.log('update')
         setArtboard('Artboard')
         setStateMachine('hero_sme')
       } else {
@@ -38,8 +37,6 @@ const Hero = () => {
       ro.observe(containerRef.current)
     }
   }, []);
-
-  console.log('stateMachine', stateMachine)
 
   return (
     <section className="grid grid-cols-12 gap-8 pt-8 md:pt-16 md:gap-12 relative" ref={containerRef}>

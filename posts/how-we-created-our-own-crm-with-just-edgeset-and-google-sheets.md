@@ -70,7 +70,7 @@ We were so overjoyed with the first iteration that we continuously added things 
 
 It makes for easier communication internally within our startup during our weekly standups, and also for external communications by just taking screenshots.
 
-## Advantages:
+## Advantages
 
 * Use your google sheets and Excels as if they were SQL databases, not only for this, **but also to digitally transform your whole business**. 
   * Fast to setup (less than one hour) and real-time display of the sales pipeline.
@@ -84,11 +84,11 @@ It makes for easier communication internally within our startup during our weekl
 * Security and privacy
   * On-premise or desktop version: no one but you (not even us) sees your valuable data.
 
-<h2 style="margin-top:0">Disadvantage:</h2>
+## Disadvantage
 
 You may get criticised or laughed at  for not having a proper CRM, but hey, a simple exercise routine of 10 minutes a day that you can keep to, beats a fancy personal-trainer crafted routine that you end up lapsing on. And, once you show your actual sales numbers, criticism melts away, and morphs into respect. 
 
-## Conclusion:
+## Conclusion
 
 One may think that buying a sales CRM tool or ERP system is a part of your business "growing up", but from our direct experience with sales organizations with 100+ salespeople, people naturally fall back to using spreadsheets, exporting data in CSVs, and doing analysis from there. EdgeSet allows your sales numbers to actually speak for themselves, not some fancy CRM software. 
 

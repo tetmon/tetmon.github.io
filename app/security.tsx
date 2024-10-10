@@ -1,13 +1,10 @@
 "use client";
 
+import useIsMobile from "@/hooks/useIsMobile";
 import { DINish } from "./fonts";
 
-// @ts-ignore
-import riveWASMResource from '@rive-app/canvas/rive.wasm';
 import Rive, { useRive, Layout, Fit, Alignment, Rive as RType, RuntimeLoader } from "@rive-app/react-canvas";
 import { useEffect, useRef, useState } from "react";
-
-RuntimeLoader.setWasmUrl(riveWASMResource);
 
 export default function App() {
   const granularRef = useRef(null);
@@ -16,183 +13,53 @@ export default function App() {
   const granularInlineRef = useRef(null);
   const internalInlineRef = useRef(null);
   const encryptionInlineRef = useRef(null);
-  const riveRef = useRef<RType>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef(null);
   const [showHalo, toggleHalo] = useState(false);
+  const isMobile = useIsMobile();
 
   let { RiveComponent, rive } = useRive({
-    // Load a local riv `clean_the_car.riv` or upload your own!
     src: "security.riv",
     artboard: "Granular_Artboard",
-    // Be sure to specify the correct state machine (or animation) name
     stateMachines: ["Granular", "Internal", "Encryption"],
-    onLoop: (event) => {
-      console.log("Looping", event);
-    },
-    onLoad: (event) => {
-      console.log("Loaded", event);
-      // rive?.play();
-    },
-    onPlay: (event) => {
-      console.log("Playing", event);
-    },
-    // onAdvance: (event) => { console.log("Advance", event); },
-    onStateChange: (event) => {
-      console.log("State Change", event);
-
-      if (Array.isArray(event.data) && event.data.includes("exit")) {
-        console.log('stop--')
-        // setIsPlaying(false);
-        // riveRef.current?.reset();
-        // riveRef.current?.play("Granular");
-        // globalRive?.stopRendering();
-        // rive.
-      }
-    },
-    onStop: (event) => { console.log("Stopped", event, riveRef.current); },
-    // onAdvance: (event) => { console.log("Advanced", event); },
-    onPause: (event) => { console.log("Paused", event, rive); },
-    // This is optional.Provides additional layout control.
     layout: new Layout({
       fit: Fit.Contain,
-      // fit: Fit.Cover, // Change to: rive.Fit.Contain, or Cover
       alignment: Alignment.TopCenter,
-      // maxX: 500,
-      // minY: 500
     }),
     autoplay: true,
   });
 
-  let { RiveComponent: GranularRiveComponent, rive: granularRive } = useRive({
-    // Load a local riv `clean_the_car.riv` or upload your own!
+  let { RiveComponent: GranularRiveComponent, rive: granularRive } = isMobile ? useRive({
     src: "security.riv",
     artboard: "Granular_Artboard",
-    // Be sure to specify the correct state machine (or animation) name
     stateMachines: ["Granular"],
-    onLoop: (event) => {
-      console.log("Looping", event);
-    },
-    onLoad: (event) => {
-      console.log("Loaded", event);
-      // rive?.play();
-    },
-    onPlay: (event) => {
-      console.log("Playing", event);
-    },
-    // onAdvance: (event) => { console.log("Advance", event); },
-    onStateChange: (event) => {
-      console.log("State Change", event);
-
-      if (Array.isArray(event.data) && event.data.includes("exit")) {
-        console.log('stop--')
-        // setIsPlaying(false);
-        // riveRef.current?.reset();
-        // riveRef.current?.play("Granular");
-        // globalRive?.stopRendering();
-        // rive.
-      }
-    },
-    onStop: (event) => { console.log("Stopped", event, riveRef.current); },
-    // onAdvance: (event) => { console.log("Advanced", event); },
-    onPause: (event) => { console.log("Paused", event, rive); },
-    // This is optional.Provides additional layout control.
+    autoplay: true,
     layout: new Layout({
       fit: Fit.FitWidth,
-      // fit: Fit.Cover, // Change to: rive.Fit.Contain, or Cover
       alignment: Alignment.TopCenter,
-      // maxX: 500,
-      // minY: 500
     }),
-    autoplay: true,
-  });
+  }) : { RiveComponent: null, rive: null };
 
-
-  let { RiveComponent: InternalRiveComponent, rive: internalRive } = useRive({
-    // Load a local riv `clean_the_car.riv` or upload your own!
+  let { RiveComponent: InternalRiveComponent, rive: internalRive } = isMobile ? useRive({
     src: "security.riv",
     artboard: "Internal_Artboard",
-    // Be sure to specify the correct state machine (or animation) name
     stateMachines: ["Internal"],
-    onLoop: (event) => {
-      console.log("Looping", event);
-    },
-    onLoad: (event) => {
-      console.log("Loaded", event);
-      // rive?.play();
-    },
-    onPlay: (event) => {
-      console.log("Playing", event);
-    },
-    // onAdvance: (event) => { console.log("Advance", event); },
-    onStateChange: (event) => {
-      console.log("State Change", event);
-
-      if (Array.isArray(event.data) && event.data.includes("exit")) {
-        console.log('stop--')
-        // setIsPlaying(false);
-        // riveRef.current?.reset();
-        // riveRef.current?.play("Granular");
-        // globalRive?.stopRendering();
-        // rive.
-      }
-    },
-    onStop: (event) => { console.log("Stopped", event, riveRef.current); },
-    // onAdvance: (event) => { console.log("Advanced", event); },
-    onPause: (event) => { console.log("Paused", event, rive); },
-    // This is optional.Provides additional layout control.
+    autoplay: true,
     layout: new Layout({
       fit: Fit.FitWidth,
-      // fit: Fit.Cover, // Change to: rive.Fit.Contain, or Cover
       alignment: Alignment.TopCenter,
-      // maxX: 500,
-      // minY: 500
     }),
-    autoplay: true,
-  });
+  }) : { RiveComponent: null, rive: null };
 
-  let { RiveComponent: EncryptionRiveComponent, rive: encryptionRive } = useRive({
-    // Load a local riv `clean_the_car.riv` or upload your own!
+  let { RiveComponent: EncryptionRiveComponent, rive: encryptionRive } = isMobile ? useRive({
     src: "security.riv",
     artboard: "Encryption_Artboard",
-    // Be sure to specify the correct state machine (or animation) name
     stateMachines: ["Encryption"],
-    onLoop: (event) => {
-      console.log("Looping", event);
-    },
-    onLoad: (event) => {
-      console.log("Loaded", event);
-      // rive?.play();
-    },
-    onPlay: (event) => {
-      console.log("Playing", event);
-    },
-    // onAdvance: (event) => { console.log("Advance", event); },
-    onStateChange: (event) => {
-      console.log("State Change", event);
-
-      if (Array.isArray(event.data) && event.data.includes("exit")) {
-        console.log('stop--')
-        // setIsPlaying(false);
-        // riveRef.current?.reset();
-        // riveRef.current?.play("Granular");
-        // globalRive?.stopRendering();
-        // rive.
-      }
-    },
-    onStop: (event) => { console.log("Stopped", event, riveRef.current); },
-    // onAdvance: (event) => { console.log("Advanced", event); },
-    onPause: (event) => { console.log("Paused", event, rive); },
-    // This is optional.Provides additional layout control.
     layout: new Layout({
       fit: Fit.FitWidth,
-      // fit: Fit.Cover, // Change to: rive.Fit.Contain, or Cover
       alignment: Alignment.TopCenter,
-      // maxX: 500,
-      // minY: 500
     }),
     autoplay: true,
-  });
+  }) : { RiveComponent: null, rive: null };
 
   useEffect(() => {
     if (!granularRef.current || !internalRef.current || !encryptionRef.current || !containerRef.current) {
@@ -210,8 +77,6 @@ export default function App() {
         if (entry.isIntersecting) {
           console.log('entry', entry.target.id);
           toggleHalo(true);
-          // console.log('Log event and unobserve: granular');
-          // observer.unobserve(entry.target);
           if (entry.target.id === 'encryption' && rive) {
             rive.reset({ artboard: "Encryption_Artboard" });
             try {
@@ -237,12 +102,8 @@ export default function App() {
               console.log('Error playing rive')
             }
           }
-          // if (riveRef.current) {
-          //   riveRef.current?.play("Granular");
-          // }
         } else {
           console.log('exit', entry.target.id);
-          // toggleHalo(false);
         }
       });
     }, options);
@@ -250,43 +111,7 @@ export default function App() {
     observer.observe(granularRef.current);
     observer.observe(internalRef.current);
     observer.observe(encryptionRef.current);
-    // observer.observe(containerRef.current);
-
-    let containerObserver = new IntersectionObserver((entries) => {
-      entries.map((entry) => {
-        if (entry.isIntersecting) {
-          console.log('container enter')
-          toggleHalo(true);
-        } else {
-          console.log('container exit')
-          toggleHalo(false);
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-
-    containerObserver.observe(containerRef.current)
-  });
-
-  // useEffect(() => {
-  //   if (!containerRef.current) {
-  //     return;
-  //   }
-  //   let containerObserver = new IntersectionObserver((entries) => {
-  //     entries.map((entry) => {
-  //       if (entry.isIntersecting) {
-  //         document.dispatchEvent(new Event('security-enter'));
-  //       } else {
-  //         document.dispatchEvent(new Event('security-exit'));
-  //       }
-  //     });
-  //   }, {
-  //     threshold: 0.2
-  //   });
-
-  //   containerObserver.observe(containerRef.current)
-  // }, []);
+  }, [rive, internalRive, encryptionRive]);
 
   useEffect(() => {
     if (granularInlineRef.current && granularRive) {
@@ -460,7 +285,7 @@ export default function App() {
             <div className="col-span-full py-8 pt-16 flex flex-col place-items-center" ref={granularInlineRef}>
               <h3 className={`text-2xl font-bold ${DINish.className} py-4`}>To counter <span className="text-primaryLight">Insider Threats</span></h3>
               <div className="h-64 w-64 mx-auto">
-                <GranularRiveComponent />
+                {GranularRiveComponent ? <GranularRiveComponent /> : null}
               </div>
               <ul className={`${DINish.className} max-w-md`}>
                 <li className="text-lg">
@@ -475,7 +300,7 @@ export default function App() {
             <div className="col-span-full py-8 flex flex-col place-items-center" ref={internalInlineRef}>
               <h3 className={`text-2xl font-bold ${DINish.className} py-4`}>To counter <span className="text-primaryLight">Vendor Threats</span></h3>
               <div className="h-64 w-64 mx-auto relative top-[-36px]">
-                <InternalRiveComponent />
+                {InternalRiveComponent ? <InternalRiveComponent /> : null}
               </div>
               <p className={`${DINish.className} text-lg`}>Your data is not sent to us.</p>
               <div className="flex flex-col gap-4 pt-4">
@@ -501,7 +326,7 @@ export default function App() {
             <div className="col-span-full py-8  flex flex-col place-items-center" ref={encryptionInlineRef}>
               <h3 className={`text-2xl font-bold ${DINish.className} py-4`}>To counter <span className="text-primaryLight">External Threats</span></h3>
               <div className="h-72 w-64 mx-auto relative top-[-16px]">
-                <EncryptionRiveComponent />
+                {EncryptionRiveComponent ? <EncryptionRiveComponent /> : null}
               </div>
               <p className={`${DINish.className} text-lg`}>EdgeSet was designed with hardened security from the ground up.</p>
               <ul className={`${DINish.className} text-base flex flex-col gap-4 pt-4 max-w-lg`}>

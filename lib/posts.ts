@@ -16,10 +16,13 @@ const images = ['better.png', 'lock.png', 'peer2peer.png', 'etl.png']
 // Import 'gray-matter', library for parsing the metadata in each markdown file
 import matter from 'gray-matter'
 
-// Import 'remark', library for rendering markdown
-import { remark } from 'remark'
-import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import { unified } from 'unified'
+import remarkRehype from 'remark-rehype'
+import remarkParse from 'remark-parse'
+import rehypeStringify from 'rehype-stringify'
+
 
 // --------------------------------
 // GET THE PATH OF THE POSTS FOLDER
@@ -126,9 +129,12 @@ export async function getPostData(id: string, dir: string = postsDirectory) {
   const matterResult = matter(fileContents);
 
   // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    .use(html, { sanitize: false })
+  const processedContent = await unified()
+    .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeSlug)  // Add this line'
+    .use(rehypeStringify)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 

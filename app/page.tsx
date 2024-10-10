@@ -1,10 +1,6 @@
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 
-// import Radar from '../components/radar';
-// import SinglePane from './singlePane';
-// import ThreeV from './threeV';
-// import Hero from './hero';
 import Platform from './platform';
 import Summary from './summary';
 import Security from './security';
