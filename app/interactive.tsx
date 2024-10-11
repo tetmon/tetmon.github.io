@@ -10,13 +10,10 @@ export default function Interactive() {
     let containerObserver = new IntersectionObserver((entries) => {
       entries.map((entry) => {
         if (entry.isIntersecting) {
-          console.log('interactive enter')
           if (interactiveRef.current) {
             // @ts-ignore
             interactiveRef.current.querySelector('video').play();
           }
-        } else {
-          console.log('interactive exit')
         }
       });
     }, {

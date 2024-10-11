@@ -38,8 +38,6 @@ const DataFlowDiagram = () => {
             thirdLineRef.current.classList.add('animate-[fade-in_0.5s_forwards_2s]');
           }, 110);
 
-        } else {
-          console.log('realtime exit')
         }
       });
     }, {

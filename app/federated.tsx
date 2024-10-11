@@ -26,9 +26,6 @@ export default function Federated() {
           const eTimer = setTimeout(() => {
             setElasticAnimated(true);
           }, 2000);
-
-        } else {
-          console.log('realtime exit')
         }
       });
     }, {

@@ -58,7 +58,7 @@ export default function App() {
       fit: Fit.FitWidth,
       alignment: Alignment.TopCenter,
     }),
-    autoplay: true,
+    autoplay: true
   });
 
   // Use useMemo to only create the components when isMobile changes
@@ -78,7 +78,7 @@ export default function App() {
               <h2 className={`text-2xl font-bold  ${DINish.className} pl-2`}>Security-focused</h2>
             </div>
             <p className={`${DINish.className} text-lg col-span-full text-center`}>EdgeSet addresses all<span className="font-bold text-primaryLight"> three</span> classes of threat vectors.</p>
-            <div className="col-span-full py-8 pt-16 flex flex-col place-items-center" ref={granularInlineRef}>
+            <div className="col-span-full py-8 pt-16 flex flex-col" ref={granularInlineRef}>
               <h3 className={`text-2xl font-bold ${DINish.className} py-4`}>To counter <span className="text-primaryLight">Insider Threats</span></h3>
               <div className="h-64 w-64 mx-auto">
                 {GranularRiveComponent ? <GranularRiveComponent /> : null}
@@ -93,7 +93,7 @@ export default function App() {
               </ul>
             </div>
 
-            <div className="col-span-full py-8 flex flex-col place-items-center" ref={internalInlineRef}>
+            <div className="col-span-full py-8 flex flex-col" ref={internalInlineRef}>
               <h3 className={`text-2xl font-bold ${DINish.className} py-4`}>To counter <span className="text-primaryLight">Vendor Threats</span></h3>
               <div className="h-64 w-64 mx-auto relative top-[-36px]">
                 {InternalRiveComponent ? <InternalRiveComponent /> : null}
@@ -119,7 +119,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="col-span-full py-8  flex flex-col place-items-center" ref={encryptionInlineRef}>
+            <div className="col-span-full py-8  flex flex-col" ref={encryptionInlineRef}>
               <h3 className={`text-2xl font-bold ${DINish.className} py-4`}>To counter <span className="text-primaryLight">External Threats</span></h3>
               <div className="h-72 w-64 mx-auto relative top-[-16px]">
                 {EncryptionRiveComponent ? <EncryptionRiveComponent /> : null}
@@ -147,9 +147,10 @@ export default function App() {
   }, [isMobile, granularRive, internalRive, encryptionRive]);
 
   useEffect(() => {
-    if (!granularRef.current || !internalRef.current || !encryptionRef.current || !containerRef.current) {
+    if (isMobile || !granularRef.current || !internalRef.current || !encryptionRef.current || !containerRef.current) {
       return;
     }
+
 
     let options = {
       root: null,
@@ -167,7 +168,7 @@ export default function App() {
             try {
               rive.play("Encryption");
             } catch (ex) {
-              console.log('Error playing rive')
+              console.log('Error playing rive');
             }
           }
           else if (entry.target.id === 'internal' && rive) {
@@ -175,7 +176,7 @@ export default function App() {
             try {
               rive.play("Internal");
             } catch (ex) {
-              console.log('Error playing rive')
+              console.log('Error playing rive');
             }
           }
           else if (rive) {
@@ -184,7 +185,7 @@ export default function App() {
             try {
               rive.play("Granular");
             } catch (ex) {
-              console.log('Error playing rive')
+              console.log('Error playing rive');
             }
           }
         } else {
@@ -196,19 +197,19 @@ export default function App() {
     observer.observe(granularRef.current);
     observer.observe(internalRef.current);
     observer.observe(encryptionRef.current);
-  }, [rive, internalRive, encryptionRive]);
+  }, [rive, internalRive, encryptionRive, isMobile]);
 
   useEffect(() => {
+    if (!isMobile) return;
+
     if (granularInlineRef.current && granularRive) {
       let containerObserver = new IntersectionObserver((entries) => {
         entries.map((entry) => {
           if (entry.isIntersecting) {
-            console.log('granularInlineRef', granularInlineRef.current, granularRive);
             if (granularRive) {
               granularRive.reset({ artboard: "Granular_Artboard" });
               try {
                 granularRive.play("Granular");
-                granularRive = null;
               } catch (ex) {
                 console.log('Error playing rive')
               }
@@ -225,12 +226,10 @@ export default function App() {
       let containerObserver = new IntersectionObserver((entries) => {
         entries.map((entry) => {
           if (entry.isIntersecting) {
-            console.log('internalInlineRef', internalInlineRef.current, internalRive);
             if (internalRive) {
               internalRive.reset({ artboard: "Internal_Artboard" });
               try {
                 internalRive.play("Internal");
-                internalRive = null;
               } catch (ex) {
                 console.log('Error playing rive')
               }
@@ -247,12 +246,10 @@ export default function App() {
       let containerObserver = new IntersectionObserver((entries) => {
         entries.map((entry) => {
           if (entry.isIntersecting) {
-            console.log('encryptionInlineRef', encryptionInlineRef.current, encryptionRive);
             if (encryptionRive) {
               encryptionRive.reset({ artboard: "Encryption_Artboard" });
               try {
                 encryptionRive.play("Encryption");
-                encryptionRive = null;
               } catch (ex) {
                 console.log('Error playing rive')
               }
@@ -264,7 +261,7 @@ export default function App() {
       });
       containerObserver.observe(encryptionInlineRef.current);
     }
-  }, [rive, internalRive, encryptionRive]);
+  }, [rive, internalRive, encryptionRive, isMobile]);
 
   return (
     <>
