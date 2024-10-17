@@ -66,8 +66,7 @@ export function getSortedPostsData() {
     }
   }).map((post, i) => {
     return {
-      ...post,
-      image: `${post.id}/hero.png`
+      ...post
     }
   })
 }

@@ -9,6 +9,7 @@ import RealTime from './realtime';
 import Interactive from './interactive';
 import Hero from './hero_v2';
 import riveWASMResource from '@rive-app/canvas/rive.wasm';
+import Resources from './resources';
 export default function Home() {
   return (
     <main>
@@ -21,6 +22,7 @@ export default function Home() {
       <RealTime />
       <Interactive />
       <Security />
+      <Resources />
       <Footer />
     </main >
   )

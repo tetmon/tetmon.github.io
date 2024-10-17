@@ -37,17 +37,15 @@ type AllPostsData = {
 const Meta = ({ date, time, author }: Partial<AllPostsData[0]>) => {
   return (
     <div className='flex flex-col py-4'>
-      <div>
-        <small className='text-sm font-bold'>
-          {author}
-        </small>
-      </div>
-      <div className='flex'>
-        <small className='font-bold text-gray-500'>
+      <small className='text-sm font-bold text-gray-500'>
+        {author}
+      </small>
+      <div className='flex font-medium text-gray-500'>
+        <small className='inline-flex items-center'>
           {time} min. read
         </small>
         <span className='px-1'>|</span>
-        {date ? <small className='font-bold text-gray-500'>
+        {date ? <small className='inline-flex items-center'>
           {formatDate(date)}
         </small> : null}
       </div>

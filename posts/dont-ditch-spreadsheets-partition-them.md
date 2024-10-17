@@ -16,7 +16,7 @@ By partitioning your spreadsheets (such as by starting a new spreadsheet each ye
 
 If your spreadsheet contains personally identifiable information (PII) or other sensitive data, you take a risk every time you share it. It’s not possible to hide certain columns or rows for certain users. However, you can achieve the same effect with partitioning.
 
-The simplest case is row-based partitioning. For example, if you maintain your customer list in a spreadsheet, you can partition the sheet by region so that sales and customer support only have access to data for their region(s). A less commonly used technique is column-based partitioning. An example of this is storing customer national ID numbers in a separate sheet from their contact details. You can achieve this by linking 2 sheets with a data validation rule ([schedule a demo with us](https://www.tetmon.com/get-demo) to learn how).
+The simplest case is row-based partitioning. For example, if you maintain your customer list in a spreadsheet, you can partition the sheet by region so that sales and customer support only have access to data for their region(s). A less commonly used technique is column-based partitioning. An example of this is storing customer national ID numbers in a separate sheet from their contact details. You can achieve this by linking 2 sheets with a data validation rule.
 
 If you want to share a sensitive spreadsheet for viewing only, you can create a restricted view of the spreadsheet using EdgeSet’s fine-grained permission controls and share that instead.
 

@@ -19,7 +19,7 @@
 }
 
 .markdown-content ul {
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   list-style: disc;
   padding-left: 2rem;
 }
