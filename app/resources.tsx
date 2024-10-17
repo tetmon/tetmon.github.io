@@ -13,7 +13,7 @@ interface Post {
 export default function Resources() {
   const posts = getSortedPostsData();
   return (
-    <section className="relative py-8 pt-14">
+    <section className="relative py-20">
       <div className="max-w-[1490px] mx-auto grid grid-cols-12">
         <div className="col-start-2 col-span-10">
           <div className="flex justify-between items-center">
