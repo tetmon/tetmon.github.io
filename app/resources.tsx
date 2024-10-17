@@ -49,6 +49,7 @@ export default function Resources() {
                 <Link href={`/blog/${post.id}`} className="absolute z-10 w-full h-full" aria-label={`Read more about ${post.title}`} />
                 <div className="bg-white rounded-lg border border-gray-200 h-full">
                   <img
+                    loading="lazy"
                     sizes="(max-width: 1080px) 100vw, 1080px"
                     srcSet={`
                       /blog/${post.id}/post_img_sm.png 200w,
