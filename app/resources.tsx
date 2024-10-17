@@ -50,6 +50,7 @@ export default function Resources() {
                 <div className="bg-white rounded-lg border border-gray-200 h-full">
                   <img
                     loading="lazy"
+                    className="aspect-[1.77] w-full"
                     sizes="(max-width: 1080px) 100vw, 1080px"
                     srcSet={`
                       /blog/${post.id}/post_img_sm.png 200w,
