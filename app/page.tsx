@@ -22,9 +22,9 @@ export default function Home() {
       <Summary />
       <Federated />
       <RealTime />
-      <Interactive />
-      <Security />
+      {/* <Interactive /> */}
       <Gallery />
+      <Security />
       <Resources />
       <Footer />
     </main >

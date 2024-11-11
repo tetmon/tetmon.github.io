@@ -23,9 +23,9 @@ export default function Summary() {
           </div>
         </div>
         <div className="flex flex-col border-l-[1px] border-gray-400 pl-4 [grid-area:ia] gap-4">
-          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Interactive analytics</h2>
+          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Dashboard and analytics</h2>
           <p className={`${DINish.className} min-h-[60px] md:min-h-[110px] text-base md:text-lg font-normal text-gray-600`}>
-            <span className="font-semibold text-highlight">Slice and dice data</span> to gather key business insights with built-in visualizations.
+            <span className="font-semibold text-highlight">Build custom dashboards</span> to optimize your business performance with comprehensive data insights.
           </p>
           <div>
             <svg className="max-w-[24px] text-primary" fill="currentColor" viewBox="0 -2 32 28">
