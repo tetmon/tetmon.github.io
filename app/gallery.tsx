@@ -521,11 +521,13 @@ export default function Gallery() {
   const [hoveredItemId, setHoveredItemId] = useState<number | null>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
+  const [imageLoading, setImageLoading] = useState(true);
 
   const debouncedHoveredArea = useDebounce(hoveredArea, 33);
   const debouncedHoveredItemId = useDebounce(hoveredItemId, 33);
 
   const openLightbox = (item: Item) => {
+    setImageLoading(true);
     setSelectedItem(item);
     setIsClosing(false);
   };
@@ -760,13 +762,19 @@ export default function Gallery() {
 
               {activeImageTab === 'Result' && (
                 <div className='px-4 bg-slate-50 py-6 flex items-center justify-center h-auto md:h-[560px]'>
-                  <Image src={selectedItem.imageUrl} alt={`Item ${selectedItem.id}`} width={600} height={400} className={`w-full h-auto object-cover ${DINish.className}`} />
+                  {imageLoading && (
+                    <div className="flex items-center justify-center min-h-[400px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 m-auto rounded-md animate-pulse">
+                      <svg className="w-8 h-8 text-primary animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                    </div>)}
+                  <Image src={selectedItem.imageUrl} alt={`Item ${selectedItem.id}`} width={600} height={400} className={`w-full h-auto object-cover ${DINish.className}`} onLoad={() => setImageLoading(false)} />
                 </div>
               )}
 
               {activeImageTab === 'Query' && (
                 <div className='px-4 bg-slate-50 py-6 h-[560px] overflow-y-auto'>
-                  {/* Content for Query tab will be added here later */}
                   <pre className={`text-xs monospace`}>{selectedItem.query}</pre>
                 </div>
               )}
@@ -778,42 +786,7 @@ export default function Gallery() {
         )
       }
 
-      {/* Add the lightbox */}
-      {isWorkflowImageOpen && (
-        <div
-          className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ${isClosing ? 'animate-fade-out' : 'animate-fade-in'
-            }`}
-          onClick={closeWorkflowLightbox}
-        >
-          <div
-            className={`bg-white p-4 relative rounded-sm max-w-4xl w-full mx-4 ${isClosing ? 'animate-fade-out' : 'animate-slide-up'
-              }`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="mb-4">
-              <div className="flex justify-between items-center py-4">
-                <h2 className={`text-lg font-semibold text-gray-600 ${DINish.className}`}> Dashboard for <span className='text-primary'>{tabs.find(tab => tab.id === activeTab)?.category}</span></h2>
-                <button
-                  onClick={closeWorkflowLightbox}
-                  className="text-gray-500 hover:text-gray-700 absolute right-4 top-4"
-                >
-                  <span className="sr-only">Close</span>
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <Image
-              src={tabs.find(tab => tab.id === activeTab)?.dashboardImage || '/usecases/dash1.png'}
-              alt={`Dashboard for ${tabs.find(tab => tab.id === activeTab)?.category}`}
-              width={1200}
-              height={800}
-              className='w-full h-auto object-contain rounded-md'
-            />
-          </div>
-        </div>
-      )}
+
     </section >
   );
 }
