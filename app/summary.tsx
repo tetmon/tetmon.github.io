@@ -5,7 +5,7 @@ export default function Summary() {
     <section className="bg-neutral-100 py-12">
       <div className="grid px-14 [grid-template-areas:'fq'_'ra'_'ia'_'sf'] gap-12 md:[grid-template-areas:'fq_ra'_'ia_sf'] lg:px-28 xl:[grid-template-areas:'fq_ra_ia_sf'] max-w-[1460px] mx-auto">
         <div className="flex flex-col border-l-[1px] border-gray-400 pl-4 [grid-area:fq] gap-4">
-          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Federated queries</h2>
+          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Federated Queries</h2>
           <p className={`${DINish.className} min-h-[60px] md:min-h-[110px] text-base md:text-lg font-normal text-gray-600`}>
             Query data from multiple sources without moving the data <span className="font-semibold text-highlight">reducing data transfer and storage costs</span>.
           </p>
@@ -14,7 +14,7 @@ export default function Summary() {
           </div>
         </div>
         <div className="flex flex-col border-l-[1px] border-gray-400 pl-4 [grid-area:ra] gap-4">
-          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Real-time access</h2>
+          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Real-time Access</h2>
           <p className={`${DINish.className} min-h-[60px] md:min-h-[110px] text-base md:text-lg font-normal text-gray-600`}>
             Reduce traditional ETL/ELT processes and <span className="font-semibold text-highlight">access up-to-date data</span>.
           </p>
@@ -23,7 +23,7 @@ export default function Summary() {
           </div>
         </div>
         <div className="flex flex-col border-l-[1px] border-gray-400 pl-4 [grid-area:ia] gap-4">
-          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Dashboard and analytics</h2>
+          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Dashboard and Analytics</h2>
           <p className={`${DINish.className} min-h-[60px] md:min-h-[110px] text-base md:text-lg font-normal text-gray-600`}>
             <span className="font-semibold text-highlight">Build custom dashboards</span> to optimize your business performance with comprehensive data insights.
           </p>
@@ -34,7 +34,7 @@ export default function Summary() {
           </div>
         </div>
         <div className="flex flex-col border-l-[1px] border-gray-400 pl-4 [grid-area:sf] gap-4">
-          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Security-focused</h2>
+          <h2 className={`text-xl md:text-2xl font-semibold ${DINish.className}`}>Security-Focused</h2>
           <p className={`${DINish.className} min-h-[60px] md:min-h-[110px] text-base md:text-lg font-normal text-gray-600`}>
             Designed with hardened security from the ground up ensuring <span className="font-semibold text-highlight">data sovereignty is preserved</span>.
           </p>

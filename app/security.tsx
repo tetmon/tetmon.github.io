@@ -74,7 +74,7 @@ export default function App() {
                 <path d="M69 14.7273L37.7919 8L7 14.7273V49.2045C11.1074 68.7112 18.7145 75.157 37.7919 82C56.3936 75.8815 63.3594 68.8663 69 49.2045V14.7273Z" fill="black" stroke="#323637" />
                 <path d="M54.6921 32.0196L32.9111 53.8046C32.6806 54.0351 32.3056 54.0351 32.0713 53.8046L21.1803 42.9096C20.6295 42.3588 21.4654 41.519 22.0201 42.0698L32.4931 52.5428L43.1746 41.8613L53.8561 31.1798C54.4069 30.629 55.2468 31.4688 54.6921 32.0196Z" fill="#2995B9" />
               </svg>
-              <h2 className={`text-2xl font-bold  ${DINish.className} pl-2`}>Security-focused</h2>
+              <h2 className={`text-2xl font-bold  ${DINish.className} pl-2`}>Security-Focused</h2>
             </div>
             <p className={`${DINish.className} text-lg col-span-full text-center`}>EdgeSet addresses all<span className="font-bold text-primaryLight"> three</span> classes of threat vectors.</p>
             <div className="col-span-full py-8 pt-16 flex flex-col" ref={granularInlineRef}>
@@ -274,7 +274,7 @@ export default function App() {
                 <path d="M69 14.7273L37.7919 8L7 14.7273V49.2045C11.1074 68.7112 18.7145 75.157 37.7919 82C56.3936 75.8815 63.3594 68.8663 69 49.2045V14.7273Z" fill="black" stroke="#323637" />
                 <path d="M54.6921 32.0196L32.9111 53.8046C32.6806 54.0351 32.3056 54.0351 32.0713 53.8046L21.1803 42.9096C20.6295 42.3588 21.4654 41.519 22.0201 42.0698L32.4931 52.5428L43.1746 41.8613L53.8561 31.1798C54.4069 30.629 55.2468 31.4688 54.6921 32.0196Z" fill="#2995B9" />
               </svg>
-              <h2 className={`text-3xl font-bold ${DINish.className} pl-2`}>Security-focused</h2>
+              <h2 className={`text-3xl font-bold ${DINish.className} pl-2`}>Security-Focused</h2>
             </div>
             <p className={`${DINish.className} pt-6 text-xl`}>EdgeSet addresses all<span className="font-bold text-primaryLight"> three</span> classes of threat vectors.</p>
           </div>
