@@ -696,7 +696,7 @@ export default function Gallery() {
               {(debouncedHoveredArea || (debouncedHoveredItemId && getArea(debouncedHoveredItemId, activeTab))) && (
                 <div
                   className="absolute pointer-events-none transition-all duration-200 order border-2 border-dashed border-borderLight bg-[#215f74]/10 animate-highlight-pulse"
-                  style={getCoordsObject((debouncedHoveredArea || (debouncedHoveredItemId && getArea(debouncedHoveredItemId, activeTab)))?.coords || '')}
+                  style={getCoordsObject((debouncedHoveredArea || (debouncedHoveredItemId && getArea(debouncedHoveredItemId, activeTab)) as MapArea)?.coords || '')}
                 />
               )}
               <map name="dashboard-map">
