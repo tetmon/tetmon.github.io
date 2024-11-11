@@ -47,7 +47,7 @@ export default function Resources() {
             {posts?.slice(0, 5).map((post) => (
               <div key={post.id} className="flex-shrink-0 w-[268px] sm:w-[320px] lg:w-[364px] relative">
                 <Link href={`/blog/${post.id}`} className="absolute z-10 w-full h-full" aria-label={`Read more about ${post.title}`} />
-                <div className="bg-white rounded-lg border border-gray-200 h-full">
+                <div className="bg-white rounded-lg shadow-sm border border-gray-200 h-full">
                   <img
                     loading="lazy"
                     className="aspect-[1.77] w-full"

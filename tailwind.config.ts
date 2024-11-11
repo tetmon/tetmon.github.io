@@ -115,6 +115,18 @@ const config: Config = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        'fade-out': {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(20%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        'highlight-pulse': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.02)' }
+        }
       },
       animation: {
         'fade-in-down': 'fade-in-down 0.5s ease-out',
@@ -128,9 +140,13 @@ const config: Config = {
         'scroll': 'scroll 54.4s linear infinite',
         'appear': 'appear 1s forwards',
         'extend-line': 'extend-line 1s forwards',
-        'fade-in': 'fade-in 0.5s forwards',
+        // 'fade-in': 'fade-in 0.5s forwards',
         'fade-in-delay': 'fade-in 0.5s forwards 2.5s',
         'extend-line-delay': 'extend-line 1s forwards 1.5s',
+        'fade-in': 'fade-in 0.3s ease-out',
+        'slide-up': 'slide-up 0.3s ease-out',
+        'fade-out': 'fade-out 0.3s ease-out',
+        'highlight-pulse': 'highlight-pulse 1s ease-in-out infinite'
       },
       screens: {
         'xs': '480px',

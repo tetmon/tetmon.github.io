@@ -207,6 +207,7 @@ svg {
     linear-gradient(to left, #ffffff, #52c4e9);
   background-origin: border-box;
   background-clip: padding-box, border-box;
+  color: white;
 }
 
 .shadow-test {

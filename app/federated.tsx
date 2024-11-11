@@ -80,8 +80,8 @@ export default function Federated() {
                 </code></pre>
             </div>
             <div className="xl:max-w-lg">
-              <p className={`${DINish.className} pt-5 text-lg`}> EdgeSet provides a unified view of different data sources without moving the data. This reduces data transfer, operational, and storage costs.</p>
-              <p className={`${DINish.className} pt-5 text-lg`}>Queries are performed using ANSI-compliant SQL, and joins are executed as if all data resides in a single database.</p>
+              <p className={`${DINish.className} pt-5 text-base md:text-lg`}> EdgeSet provides a unified view of different data sources without moving the data. This reduces data transfer, operational, and storage costs.</p>
+              <p className={`${DINish.className} pt-5 text-base md:text-lg`}>Queries are performed using ANSI-compliant SQL, and joins are executed as if all data resides in a single database.</p>
             </div>
           </div>
           <div className="pause-on-hover col-start-1 col-end-[-1] flex w-full overflow-hidden py-10">
