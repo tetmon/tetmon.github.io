@@ -511,6 +511,12 @@ const useDebounce = <T,>(value: T, delay: number): T => {
   return debouncedValue;
 };
 
+const Loader = () => {
+  return <div className="absolute inset-0 flex items-center justify-center">
+    <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+}
+
 export default function Gallery() {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const [isClosing, setIsClosing] = useState(false);
@@ -521,13 +527,14 @@ export default function Gallery() {
   const [hoveredItemId, setHoveredItemId] = useState<number | null>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
-  const [imageLoading, setImageLoading] = useState(true);
+  const [isChartImageLoading, setIsChartImageLoading] = useState(true);
+  const [isDashImageLoading, setIsDashImageLoading] = useState(true);
 
   const debouncedHoveredArea = useDebounce(hoveredArea, 33);
   const debouncedHoveredItemId = useDebounce(hoveredItemId, 33);
 
   const openLightbox = (item: Item) => {
-    setImageLoading(true);
+    setIsChartImageLoading(true);
     setSelectedItem(item);
     setIsClosing(false);
   };
@@ -637,7 +644,10 @@ export default function Gallery() {
                 key={tab.category}
                 className={`px-4 py-2 text-base ${DINish.className} rounded-lg whitespace-nowrap flex-shrink-0 min-[1227px]:whitespace-normal min-[1227px]:flex-shrink ${activeTab === tab.id ? 'bg-primary text-white' : 'bg-white text-primary'
                   }`}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => {
+                  setIsDashImageLoading(true);
+                  setActiveTab(tab.id);
+                }}
               >
                 {tab.text}
               </button>
@@ -683,13 +693,17 @@ export default function Gallery() {
               </div>
             </div>
             <div className='basis-full bg-slate-200 rounded-md relative p-3 min-[1227px]:basis-[800px]'>
+              {isDashImageLoading && (
+                <Loader />
+              )}
               <Image
                 ref={imageRef}
                 src={tabs.find(tab => tab.id === activeTab)?.dashboardImage || '/usecases/dash1.png'}
                 alt={`Dashboard for ${tabs.find(tab => tab.id === activeTab)?.category}`}
                 width={800}
                 height={610}
-                className='w-full h-auto object-contain rounded-md border-slate-300'
+                className={`w-full h-auto object-contain rounded-md border-slate-300 transition-opacity duration-300
+                  ${isDashImageLoading ? 'opacity-0' : 'opacity-100'}`}
                 useMap="#dashboard-map"
                 onLoad={() => {
                   if (imageRef.current) {
@@ -697,8 +711,10 @@ export default function Gallery() {
                       width: imageRef.current.offsetWidth,
                       height: imageRef.current.offsetHeight
                     });
+                    setIsDashImageLoading(false);
                   }
                 }}
+                onLoadStart={() => setIsDashImageLoading(true)}
               />
               {(debouncedHoveredArea || (debouncedHoveredItemId && getArea(debouncedHoveredItemId, activeTab))) && (
                 <div
@@ -762,14 +778,10 @@ export default function Gallery() {
 
               {activeImageTab === 'Result' && (
                 <div className='px-4 bg-slate-50 py-6 flex items-center justify-center h-auto md:h-[560px]'>
-                  {imageLoading && (
-                    <div className="flex items-center justify-center min-h-[400px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 m-auto rounded-md animate-pulse">
-                      <svg className="w-8 h-8 text-primary animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                    </div>)}
-                  <Image src={selectedItem.imageUrl} alt={`Item ${selectedItem.id}`} width={600} height={400} className={`w-full h-auto object-cover ${DINish.className}`} onLoad={() => setImageLoading(false)} />
+                  {isChartImageLoading && (
+                    <Loader />)
+                  }
+                  <Image src={selectedItem.imageUrl} alt={`Item ${selectedItem.id}`} width={600} height={400} className={`w-full h-auto object-cover ${DINish.className}`} onLoad={() => setIsChartImageLoading(false)} />
                 </div>
               )}
 
