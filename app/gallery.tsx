@@ -755,9 +755,19 @@ export default function Gallery() {
             onClick={closeLightbox}
           >
             <div
-              className={`bg-white rounded-sm max-w-4xl w-full max-h-[90vh] overflow-y-auto ${isClosing ? 'animate-fade-out' : 'animate-slide-up'}`}
+              className={`bg-white rounded-sm max-w-4xl w-full max-h-[90vh] overflow-y-auto relative ${isClosing ? 'animate-fade-out' : 'animate-slide-up'}`}
               onClick={(e) => e.stopPropagation()}
             >
+              <button
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
+                aria-label="Close modal"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
               <h2 className={`text-sm font-bold ${DINish.className} text-primary p-4`}>{tabs.find(tab => tab.id === selectedItem.categoryId)?.category}</h2>
               <p className={`text-lg px-4 pb-4 ${DINish.className}`}>{selectedItem.description}</p>
 
