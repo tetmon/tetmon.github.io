@@ -2,7 +2,7 @@
 
 // @ts-ignore
 import riveWASMResource from '@rive-app/canvas/rive.wasm';
-import Rive, { useRive, Layout, Fit, Alignment, RuntimeLoader } from "@rive-app/react-canvas";
+import Rive, { Layout, Fit, Alignment, RuntimeLoader } from "@rive-app/react-canvas";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { DINish } from './fonts';
 import { createPortal } from 'react-dom';
@@ -12,7 +12,6 @@ import { CSSTransition } from 'react-transition-group';
 RuntimeLoader.setWasmUrl(riveWASMResource);
 
 const Hero = () => {
-  const [artboard, setArtboard] = useState('Artboard_sm');
   const [stateMachine, setStateMachine] = useState('hero_sme');
   const containerRef = useRef<HTMLDivElement>(null);
   const [showPortal, togglePortal] = useState(false);
@@ -26,10 +25,8 @@ const Hero = () => {
     const ro = new ResizeObserver((entries) => {
       const { width, height } = entries[0].contentRect;
       if (width >= 1024) {
-        setArtboard('Artboard')
         setStateMachine('hero_sme')
       } else {
-        setArtboard('Artboard_sm')
         setStateMachine('hero_sm_sme')
       }
     })
@@ -49,24 +46,22 @@ const Hero = () => {
       <p className={`leading-6 text-lg xl:text-xl col-start-2 col-span-10 ${DINish.className} xs:col-span-10 xs:col-start-2 md:col-span-8 md:col-start-3 md:text-center max-w-xl mx-auto leading-relaxed`}>
         Introducing EdgeSet, a data virtualization and integration platform that joins up disparate cloud and on-premise data sources to a single access point, within minutes.
       </p>
-      {stateMachine === 'hero_sm_sme' ? <div className="col-start-1 col-span-10 h-64 xs:col-start-2">
-        <Rive
-          src="hero_v1.1.riv"
-          artboard="Artboard_sm"
-          stateMachines={["hero_sm_sme"]}
-          layout={new Layout({ fit: Fit.Contain, alignment: Alignment.TopCenter })}
-          onPlay={() => console.log('play')}
-        />
-      </div> : null}
-      {stateMachine === 'hero_sme' ? <div className="col-start-2 col-span-10 h-96 my-24 mb-36">
-        <Rive
-          src="hero_v1.1.riv"
+      <div className={`col-span-10 min-h-[300px] ${stateMachine === 'hero_sm_sme' ? 'col-start-1' : 'col-start-2 h-96 my-24 mb-36'}`}>
+        {stateMachine === 'hero_sme' ? <Rive
+          src="hero.riv"
           artboard="Artboard"
           stateMachines={["hero_sme"]}
           layout={new Layout({ fit: Fit.Contain, alignment: Alignment.TopCenter })}
           onPlay={() => console.log('play')}
-        />
-      </div> : null}
+        /> : null}
+        {stateMachine === 'hero_sm_sme' ? <Rive
+          src="hero_sm.riv"
+          artboard="Artboard_sm"
+          stateMachines={["hero_sm_sme"]}
+          layout={new Layout({ fit: Fit.Contain, alignment: Alignment.TopCenter })}
+          onPlay={() => console.log('play')}
+        /> : null}
+      </div>
       <div className="col-start-2 col-span-10 flex flex-wrap gap-2 pb-6 mb-10 max-w-md mx-auto lg:hidden">
         <div className="flex gap-1 border border-primary p-1 rounded-lg">
           <svg className='w-6 h-6' viewBox="0 0 293 314" fill="none" xmlns="http://www.w3.org/2000/svg">
