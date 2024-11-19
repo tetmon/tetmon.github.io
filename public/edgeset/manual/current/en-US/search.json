@@ -154,7 +154,7 @@
     "href": "data-sources.html#supported-data-source-versions",
     "title": "4  Connect Data Sources",
     "section": "4.2 Supported Data Source Versions",
-    "text": "4.2 Supported Data Source Versions\n\n\n\nData Source\nVersions\nNotes\n\n\n\n\nAlibaba OSS\nN/A\nrequires an API key\n\n\nAmazon Redshift\nany\n\n\n\nAmazon S3\nN/A\nrequires an API key\n\n\nApache Kafka\n0.10.0 or higher\nunauthenticated only\n\n\nGoogle BigQuery\nN/A\nrequires a Google Cloud service account\n\n\nGoogle Sheets\nN/A\nrequires a Google Cloud service account\n\n\nElasticsearch\n6.0.0 or higher\nunauthenticated only\n\n\nMariaDB\n10.0 or higher\nadd as MySQL\n\n\nMongoDB\n4.0 or higher\n\n\n\nMySQL\n5.7 or higher\n\n\n\nOracle\n11g or higher\n\n\n\nPostgreSQL\n10.0 or higher\n\n\n\nSQL Server\n2012 or higher or Azure SQL\n\n\n\n\n\n\n\n\n\n\nTPC-DS\n\n\n\nThe TPC-DS data source is a built-in data source that can be used for testing. We will use it for illustration throughout the rest of the manual.",
+    "text": "4.2 Supported Data Source Versions\n\n\n\nData Source\nVersions\nNotes\n\n\n\n\nAlibaba OSS\nN/A\nrequires an API key\n\n\nAmazon Redshift\nany\n\n\n\nAmazon S3\nN/A\nrequires an API key\n\n\nApache Kafka\n0.10.0 or higher\nunauthenticated only\n\n\nGoogle BigQuery\nN/A\nrequires a Google Cloud service account\n\n\nGoogle Sheets\nN/A\nrequires a Google Cloud service account\n\n\nElasticsearch\n6.0.0 or higher\nunauthenticated only\n\n\nMariaDB\n10.0 or higher\nadd as MySQL\n\n\nMongoDB\n4.0 or higher\n\n\n\nMySQL\n5.7 or higher\n\n\n\nOpenAPI\n3.0 or higher\n\n\n\nOracle\n11g or higher\n\n\n\nPostgreSQL\n10.0 or higher\n\n\n\nSQL Server\n2012 or higher or Azure SQL\n\n\n\n\n\n\n\n\n\n\nTPC-DS\n\n\n\nThe TPC-DS data source is a built-in data source that can be used for testing. We will use it for illustration throughout the rest of the manual.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Connect Data Sources</span>"
     ]
@@ -184,17 +184,17 @@
     "href": "query-engine.html#query-management",
     "title": "5  Query Engine",
     "section": "5.3 Query Management",
-    "text": "5.3 Query Management\nYou can view and manage currently running or queued queries in the User Queries and System Queries tables.\n\n5.3.1 User Queries\nThe User Queries table will display the list of currently running or queued queries executed by users of Edgeset with the following details:\n\nCreation date: The date and time in which the query was submitted formatted in local timezone.\nUser: The user running the query.\nQuery: The query string.\nStatus: Status of the query.\nAction: Display’s a cancellation link to cancel the associated query.\n\n\n\n\nUser Queries panel displaying a table of queries and Cancel all queries button\n\n\nYou can cancel a query individually associcated with a user or cancel all the queries by clicking the Cancel all queries button present in the header of the query management tables.\n\n\n5.3.2 System Queries\nThe System Queries table displays the list of currently running or queued queries executed by the Edgeset user interface (such as for displaying the data catalog). System queries are special in that they don’t count towards the concurrent query limit and are executed as soon as possible.\nNote: Unless necessary it’s advisable not to cancel the displayed system queries as it could lead to unexpected errors for users.",
+    "text": "5.3 Query Management\nYou can view and manage currently running or queued queries in the User Queries and System Queries tables.\n\n5.3.1 User Queries\nThe User Queries table will display the list of currently running or queued queries executed by users of Edgeset with the following details:\n\nCreation date: The date and time in which the query was submitted formatted in local timezone.\nUser: The user running the query.\nQuery: The query string.\nStatus: Status of the query.\nAction: Display’s a cancellation link to cancel the associated query.\n\nYou can cancel a query individually associcated with a user or cancel all the queries by clicking the Cancel all queries button present in the header of the query management tables.\n\n\n5.3.2 System Queries\nThe System Queries table displays the list of currently running or queued queries executed by the Edgeset user interface (such as for displaying the data catalog). System queries are special in that they don’t count towards the concurrent query limit and are executed as soon as possible.\nNote: Unless necessary it’s advisable not to cancel the displayed system queries as it could lead to unexpected errors for users.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Query Engine</span>"
     ]
   },
   {
-    "objectID": "query-engine.html#console",
-    "href": "query-engine.html#console",
+    "objectID": "query-engine.html#logs",
+    "href": "query-engine.html#logs",
     "title": "5  Query Engine",
-    "section": "5.4 Console",
-    "text": "5.4 Console\nIf adding a data source doesn’t work as expected, you can open the Console to view log messages.\n\n5.4.1 Opening the Console\nOpen the console by clicking on Console in the menu, a panel will pop out from the bottom of the page.\n\n\n\nan empty console\n\n\nNote that the console only displays the last 1000 log entries.",
+    "section": "5.4 Logs",
+    "text": "5.4 Logs\nIf adding a data source doesn’t work as expected, you can open the Logs to view log messages.\n\n5.4.1 Opening the Logs\nOpen the logs by clicking on Logs icon in the menu, a panel will pop out from the bottom of the page.\n\n\n\nan empty logs panel\n\n\nNote that only the last 1000 log entries are displayed.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Query Engine</span>"
     ]
@@ -255,16 +255,6 @@
     "title": "7  Query Notebook",
     "section": "7.3 Large query results",
     "text": "7.3 Large query results\nEdgeSet is capable of handling very large query results. It does so by streaming the results from the query engine to your web browser and rendering only the results you’ve scrolled into view. Once EdgeSet has fetched enough results to display a table, the query engine will put the query into an idle state. If you scroll to the bottom of the results table, EdgeSet will fetch and display more rows.\n\n7.3.1 Query timeouts\nThe query engine will only keep idle queries alive for 5 minutes before they will be terminated. If this happens and you try to load more results, EdgeSet will ask if you want to rerun the query.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Query Notebook</span>"
-    ]
-  },
-  {
-    "objectID": "query-notebook.html#keyboard-shortcuts",
-    "href": "query-notebook.html#keyboard-shortcuts",
-    "title": "7  Query Notebook",
-    "section": "7.4 Keyboard Shortcuts",
-    "text": "7.4 Keyboard Shortcuts\n\n7.4.1 Query cards\nThe notebook interface supports keyboard navigation and shortcuts to manage the queries and its results.\nFor instance, if a query card is focused, you can press Enter to focus on its result table and navigate across the cells using the up and down arrows keys. To restore focus back on the card, press Escape. If the card is focused, you can sequentially access the controls on the card using the tab key.\n\n\n\nA focused control on the query card accessible through pressing Tab\n\n\nTo access the JSON viewer or the Long text viewer for a focused cell, you can press Enter and to close the viewer, press Escape.\nIf the query card is focused (that is, the focus is outside the result table), you can navigate through the list of query cards using the up and down arrows to switch focus on the queries above and below the current focused one.\n\n\n7.4.2 Other shortcuts\nEdgeset also supports the following keyboard shortcuts:\n\nCtrl+B - toggle the sidebar\nCtrl+/ - focus the query editor\nCtrl+Shift+R - refresh the catalog",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Query Notebook</span>"
     ]
@@ -414,7 +404,7 @@
     "href": "backups.html#restoring",
     "title": "12  Backups",
     "section": "",
-    "text": "Select the backup file that you downloaded previously.\n\n\n\n\n\nWhen you select a backup file to restore from, EdgeSet will verify that it can safely restore from it.\n\n\n\n\n\nEdgeSet displays information about the backup file before confirming that you want to restore it.",
+    "text": "Select the backup file that you downloaded previously.\n\n\n\n\n\nEdgeSet displays information about the backup file before confirming that you want to restore it.",
     "crumbs": [
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Backups</span>"
     ]
