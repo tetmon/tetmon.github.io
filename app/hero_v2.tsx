@@ -41,7 +41,7 @@ const Hero = () => {
         className={`text-4xl font-bold col-start-2 col-span-8 ${DINish.className} leading-[40px] xs:col-span-10 xs:col-start-2 md:text-5xl md:leading-[56px] md:text-center`}
         style={{ textRendering: 'optimizeLegibility' }}
       >
-        <span style={{ display: 'inline-block' }}>Finally, business metrics at your fingertips</span>
+        <span style={{ display: 'inline-block' }}>Data plumbing, before AI can happen</span>
       </h1>
       <p className={`leading-6 text-lg xl:text-xl col-start-2 col-span-10 ${DINish.className} xs:col-span-10 xs:col-start-2 md:col-span-8 md:col-start-3 md:text-center max-w-xl mx-auto leading-relaxed`}>
         Introducing EdgeSet, a data virtualization and integration platform that joins up disparate cloud and on-premise data sources to a single access point, within minutes.
