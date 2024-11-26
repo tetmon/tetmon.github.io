@@ -663,7 +663,7 @@ export default function Gallery() {
                 <div className={`text-base ${DINish.className} pb-4 font-semibold text-gray-500 hidden min-[1227px]:block`}>
                   Queries
                 </div>
-                <div className="flex overflow-x-auto gap-2 py-4 items-stretch min-[1227px]:block min-[1227px]:overflow-visible min-[1227px]:gap-0 min-[1227px]:py-0">
+                <div className="flex overflow-x-auto gap-2 py-4 min-h-[200px] items-baseline min-[1227px]:items-stretch min-[1227px]:min-h-auto min-[1227px]:block min-[1227px]:overflow-visible min-[1227px]:gap-0 min-[1227px]:py-0">
                   {items
                     .filter(item => item.categoryId === activeTab)
                     .map((item) => (

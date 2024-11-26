@@ -1,5 +1,5 @@
 import localFont from 'next/font/local'
-import { Inter as GoogleInter } from 'next/font/google'
+import { Inter as GoogleInter, VT323 as GoogleVT323 } from 'next/font/google'
 
 export const DINish = localFont({
   src: [{
@@ -14,5 +14,5 @@ export const DINish = localFont({
   }]
 })
 
-
+export const VT323 = GoogleVT323({ subsets: ['latin'], weight: ['400'] })
 export const Inter = GoogleInter({ subsets: ['latin'], weight: ['400', '500', '600'] })

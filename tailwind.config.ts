@@ -13,7 +13,10 @@ const config: Config = {
         primary: "#215f74",
         highlight: "#3f788b",
         primaryLight: "#2995B9",
-        borderLight: "#bbd1d9"
+        borderLight: "#bbd1d9",
+        whiteLight: "rgba(255, 255, 255, 0.2)",
+        whiteLight2: "rgba(255, 255, 255, 0.5)",
+        whiteLight3: "rgba(255, 255, 255, 0.8)"
       },
       fontSize: {
         '4xl': '2.5rem'
@@ -126,6 +129,34 @@ const config: Config = {
         'highlight-pulse': {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.02)' }
+        },
+        'ripple': {
+          '0%': {
+            r: '10',
+            opacity: '1',
+          },
+          '100%': {
+            r: '150',
+            opacity: '0',
+          },
+        },
+        'cursor-move': {
+          '0%': { top: '0', left: '0', transform: 'translate(0, 0)' },
+          '100%': { top: '10%', left: '60%', transform: 'translate(-50%, -50%)' },
+        },
+        'click-line': {
+          '0%': {
+            'stroke-dashoffset': '40',
+            opacity: '1',
+          },
+          '100%': {
+            'stroke-dashoffset': '0',
+            opacity: '0',
+          },
+        },
+        'cursor-click': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(0.8)' },
         }
       },
       animation: {
@@ -146,7 +177,11 @@ const config: Config = {
         'fade-in': 'fade-in 0.3s ease-out',
         'slide-up': 'slide-up 0.3s ease-out',
         'fade-out': 'fade-out 0.3s ease-out',
-        'highlight-pulse': 'highlight-pulse 1s ease-in-out infinite'
+        'highlight-pulse': 'highlight-pulse 1s ease-in-out infinite',
+        ripple: 'ripple 1s ease-out forwards',
+        'cursor-move': 'cursor-move 1s ease-in-out forwards',
+        'click-line': 'click-line 0.5s ease-out forwards',
+        'cursor-click': 'cursor-click 0.3s ease-in-out',
       },
       screens: {
         'xs': '480px',
