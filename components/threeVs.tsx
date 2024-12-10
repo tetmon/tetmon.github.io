@@ -770,7 +770,6 @@ export default function ThreeVs(props: any) {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log('scroll:');
       if (!rootRef.current || !(rootRef.current instanceof HTMLElement)) return;
 
       const scrollTop = rootRef.current.scrollTop;
@@ -850,7 +849,7 @@ export default function ThreeVs(props: any) {
                         <img src="/about/christopher.jpg" className="w-12 h-12 rounded-full mr-2 border-2 border-whiteLight3" />
                         <div className="flex flex-col">
                           <span className={`text-whiteLight3 font-semibold ${DINish.className}`}>Chris Forno</span>
-                          <span className={`text-whiteLight3 ${DINish.className}`}>2 min. read  |  December 10th, 2024</span>
+                          <span className={`text-whiteLight3 ${DINish.className}`}>2 min. read  |  December 10, 2024</span>
                         </div>
                       </div>
                     </div>

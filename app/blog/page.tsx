@@ -2,7 +2,6 @@ import { getSortedPostsData } from '@/lib/posts'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { DateTime } from 'luxon'
-import Image from 'next/image'
 import { DINish } from '../fonts'
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] })
