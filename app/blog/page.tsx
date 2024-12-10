@@ -1,12 +1,10 @@
 import { getSortedPostsData } from '@/lib/posts'
-import { Source_Serif_4, Inter } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { DateTime } from 'luxon'
 import Image from 'next/image'
 import { DINish } from '../fonts'
 
-
-const sourceSerifPro = Source_Serif_4({ subsets: ['latin'], weight: ['400', '500', '600'] })
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] })
 
 type AllPostsData = {

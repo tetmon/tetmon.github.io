@@ -30,8 +30,10 @@ const PageNavigator: React.FC = () => {
       }
     });
 
-    // on page load, set active heading to the first heading
-    setActiveHeading(headingElements[0].id);
+    if (headingElements.length > 0) {
+      // on page load, set active heading to the first heading
+      setActiveHeading(headingElements[0].id);
+    }
 
     return () => observer.disconnect()
   }, [])

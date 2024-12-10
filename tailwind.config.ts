@@ -7,6 +7,11 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  plugins: [
+    function ({ addVariant }: { addVariant: (variant: string, selector: string) => void }) {
+      addVariant('firefox', ':-moz-any(&)')
+    }
+  ],
   theme: {
     extend: {
       colors: {
@@ -15,6 +20,7 @@ const config: Config = {
         primaryLight: "#2995B9",
         borderLight: "#bbd1d9",
         whiteLight: "rgba(255, 255, 255, 0.2)",
+        whiteLight_0_6: "rgba(255, 255, 255, 0.06)",
         whiteLight2: "rgba(255, 255, 255, 0.5)",
         whiteLight3: "rgba(255, 255, 255, 0.8)"
       },
@@ -56,6 +62,17 @@ const config: Config = {
       gridColumnEnd: {
         '16': '16',
         'none': 'none'
+      },
+      gridRowStart: {
+        '7': '7',
+        '8': '8',
+        '10': '10',
+        '12': '12'
+      },
+      gridTemplateRows: {
+        '7': 'repeat(7, minmax(0, 1fr))',
+        '10': 'repeat(10, minmax(0, 1fr))',
+        '12': 'repeat(12, minmax(0, 1fr))'
       },
       keyframes: {
         'fade-in-down': {
@@ -157,9 +174,48 @@ const config: Config = {
         'cursor-click': {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(0.8)' },
+        },
+        'stream-right': {
+          '0%': { strokeDashoffset: '0' },
+          '100%': { strokeDashoffset: '-30' }
+        },
+        'stream-left': {
+          '0%': { strokeDashoffset: '-30' },
+          '100%': { strokeDashoffset: '0' }
+        },
+        'draw-thunder': {
+          '0%': { strokeDashoffset: '293.0159912109375' },
+          '100%': { strokeDashoffset: '0' },
+        },
+        scaleIn: {
+          '0%': { opacity: '0', transform: 'translateY(5px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        'scale-in-6y': {
+          '0%, 83.33%': {
+            opacity: '0.8'
+          },
+          '100%': {
+            transform: 'translateY(15px)',
+            fontSize: '14px',
+            fill: '#ffffff',
+            opacity: '1'
+          }
+        },
+        'scale-in-6y2': {
+          '0%, 83.33%': {
+            opacity: '0.8'
+          },
+          '100%': {
+            transform: 'translateY(-18px)',
+            fontSize: '14px',
+            fill: '#ffffff',
+            opacity: '1'
+          }
         }
       },
       animation: {
+        'thunder': 'draw-thunder 1s linear forwards',
         'fade-in-down': 'fade-in-down 0.5s ease-out',
         'conveyor': 'conveyor 60s linear infinite',
         moveDot: 'moveDot 0.25s linear forwards',
@@ -182,9 +238,20 @@ const config: Config = {
         'cursor-move': 'cursor-move 1s ease-in-out forwards',
         'click-line': 'click-line 0.5s ease-out forwards',
         'cursor-click': 'cursor-click 0.3s ease-in-out',
+        'stream-right': 'stream-right 1s linear infinite',
+        'stream-left': 'stream-left 1s linear infinite',
+        'scale-in-1': 'scaleIn 0.3s ease-out forwards',
+        'scale-in-2': 'scaleIn 0.3s ease-out 0.1s forwards',
+        'scale-in-3': 'scaleIn 0.3s ease-out 0.2s forwards',
+        'scale-in-4': 'scaleIn 0.3s ease-out 0.3s forwards',
+        'scale-in-5': 'scaleIn 0.3s ease-out 0.4s forwards',
+        'scale-in-6y': 'scale-in-6y 0.3s ease-out forwards',
+        'scale-in-6y2': 'scale-in-6y2 0.3s ease-out forwards'
       },
       screens: {
         'xs': '480px',
+        'x-1440': '1440px',
+        '3xl': '1600px'
       },
     },
   }
