@@ -903,8 +903,8 @@ export default function ThreeVs(props: any) {
                     <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} />
                   </div>
 
-                  <div className={`flex w-full flex-1 top-[-40px] relative md:top-0 md:static md:flex-initial overflow-x-auto gap-4 md:pb-5 xl:overflow-visible xl:grid xl:grid-cols-2 xl:max-w-3xl xl:gap-x-2 xl:gap-y-12 xl:pt-12 ${section.title === 'Data Lakes' ? '3xl:gap-y-8' : ''} 2xl:gap-y-16`}>
-                    <div className={`flex-none w-60 h-64 lg:w-72 lg:h-72 ${section.title === 'Data Lakes' ? 'h-[276px] lg:h-[306px] xl:w-80 xl:h-[315px] 3xl:w-[350px] 3xl:h-[355px]' : 'xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'}`}>
+                  <div className={`flex w-full flex-1 h-sm:top-[-30px] h-md:top-10 relative md:top-0 md:static md:flex-initial overflow-x-auto overflow-y-hidden scrollbar-hide gap-4 md:pb-5 xl:overflow-visible xl:grid xl:grid-cols-2 xl:max-w-3xl xl:gap-x-2 xl:gap-y-12 xl:pt-12 ${section.title === 'Data Lakes' ? '3xl:gap-y-8' : ''} 2xl:gap-y-16`}>
+                    <div className={`flex-none w-60 h-64 h-sm:h-[252px] h-md:h-72 h-md:w-72 lg:w-72 lg:h-72 ${section.title === 'Data Lakes' ? 'h-[276px] lg:h-[306px] xl:w-80 xl:h-[315px] 3xl:w-[350px] 3xl:h-[355px]' : 'xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'}`}>
                       <div className='flex flex-col items-center h-full'>
                         <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
                         <div className={`flex flex-1 border border-whiteLight2 w-full h-full items-start bg-whiteLight_0_6 ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>
@@ -951,7 +951,7 @@ export default function ThreeVs(props: any) {
                     </div>
 
 
-                    <div className={`flex-none w-60 h-64 lg:w-72 lg:h-72 ${section.title === 'Data Lakes' ? 'h-[275px] lg:h-[306px] xl:w-80 xl:h-[315px] 3xl:w-[350px] 3xl:h-[360px]' : 'xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'}`}>
+                    <div className={`flex-none w-60 h-64 h-sm:h-[252px] h-md:h-72 h-md:w-72 lg:w-72 lg:h-72 ${section.title === 'Data Lakes' ? 'h-[275px] lg:h-[306px] xl:w-80 xl:h-[315px] 3xl:w-[350px] 3xl:h-[360px]' : 'xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'}`}>
                       <div className="flex flex-col items-center h-full relative">
                         <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
                         <div className={`flex border border-whiteLight2 flex-1 w-full items-start bg-whiteLight_0_6 ${section.velocityTypes?.length === 1 ? 'justify-center items-center' : 'grid grid-cols-2 items-center justify-items-center'}`}>
@@ -996,7 +996,7 @@ export default function ThreeVs(props: any) {
                       </div>
                     </div>
 
-                    <div className='flex-none w-60 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'>
+                    <div className='flex-none w-60 h-64 h-sm:h-[252px] h-md:h-72 h-md:w-72 lg:w-72 lg:h-72 xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'>
                       <div className="flex flex-col items-center h-full">
                         <div className={`${VT323.className} text-white text-lg font-semibold pb-2`}>{section.volumeText}</div>
                         <div className="w-full flex-1">
@@ -1029,7 +1029,7 @@ export default function ThreeVs(props: any) {
                     </div>
 
 
-                    <div className='flex-none w-60 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'>
+                    <div className='flex-none w-60 h-64 h-sm:h-[252px] h-md:h-72 h-md:w-72 lg:w-72 lg:h-72 xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'>
                       <div className='flex flex-col items-center h-full'>
                         <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
                         <div className={`flex flex-1 border border-dashed border-spacing-5 border-whiteLight2 w-full items-start ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>

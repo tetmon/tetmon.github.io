@@ -250,8 +250,14 @@ const config: Config = {
       },
       screens: {
         'xs': '480px',
+        'x-390': '390px',
         'x-1440': '1440px',
-        '3xl': '1600px'
+        '3xl': '1600px',
+        'h-sm': { 'raw': '(min-height: 640px) and (max-height: 767px) and (max-width: 932px)' },
+        'h-md': { 'raw': '(min-height: 768px) and (max-height: 1023px) and (max-width: 932px)' },
+        'h-lg': { 'raw': '(min-height: 1024px) and (max-height: 1279px) and (max-width: 932px)' },
+        'h-xl': { 'raw': '(min-height: 1280px) and (max-height: 1535px) and (max-width: 932px)' },
+        'h-2xl': { 'raw': '(min-height: 1536px) and (max-width: 800px)' },
       },
     },
   }
