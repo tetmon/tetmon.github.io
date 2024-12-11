@@ -900,7 +900,7 @@ export default function ThreeVs(props: any) {
                     <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} />
                   </div>
 
-                  <div className={`flex w-full overflow-x-auto gap-4 pb-5 xl:overflow-visible xl:grid xl:grid-cols-2 xl:max-w-3xl xl:gap-x-2 xl:gap-y-12 xl:pt-12 ${section.title === 'Data Lakes' ? '3xl:gap-y-8' : ''}`}>
+                  <div className={`flex w-full overflow-x-auto gap-4 pb-5 xl:overflow-visible xl:grid xl:grid-cols-2 xl:max-w-3xl xl:gap-x-2 xl:gap-y-12 xl:pt-12 ${section.title === 'Data Lakes' ? '3xl:gap-y-8' : ''} 2xl:gap-y-16`}>
                     <div className={`flex-none w-60 h-64 lg:w-72 lg:h-72 ${section.title === 'Data Lakes' ? 'h-[276px] lg:h-[306px] xl:w-80 xl:h-[315px] 3xl:w-[350px] 3xl:h-[355px]' : 'xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'}`}>
                       <div className='flex flex-col items-center h-full'>
                         <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
