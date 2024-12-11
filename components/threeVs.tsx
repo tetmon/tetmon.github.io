@@ -829,62 +829,65 @@ export default function ThreeVs(props: any) {
           {sections.map((section, index) => (
             <div
               key={index}
-              className='h-screen snap-start pt-24 md:gap-x-12 grid grid-cols-12 2xl:px-24'
+              className='h-screen snap-start pt-6 md:pt-24 md:gap-x-12 grid grid-cols-12 2xl:px-24 relative'
               style={{ backgroundColor: section.color }}
             >
               {section.isIntro ? (
-                <div className="col-span-10 col-start-2 h-full relative">
-                  <Link href="/blog" className='flex items-center pt-2 col-start-1 col-span-full text-whiteLight3'>
-                    <svg viewBox="0 0 24 24" width={17} height={17} fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 9H16.5C18.9853 9 21 11.0147 21 13.5C21 15.9853 18.9853 18 16.5 18H12M3 9L7 5M3 9L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                    </svg>
-                    <span className='px-2'>Back to posts</span>
-                  </Link>
-                  <div className="flex pt-11">
-                    <div className='flex flex-col'>
-                      <h1 className={`${DINish.className} text-3xl leading-10 md:text-4xl md:!leading-[50px] xl:text-5xl text-left text-white xl:!leading-[64px] font-semibold max-w-3xl 2xl:max-w-4xl`}>
-                        The Three V&apos;s of Big Data - How EdgeSet is redefining Big Data Processing
-                      </h1>
-                      <div className="flex flex-row gap-x-1 pt-10">
-                        <img src="/about/christopher.jpg" className="w-12 h-12 rounded-full mr-2 border-2 border-whiteLight3" />
-                        <div className="flex flex-col">
-                          <span className={`text-whiteLight3 font-semibold ${DINish.className}`}>Chris Forno</span>
-                          <span className={`text-whiteLight3 ${DINish.className}`}>2 min. read  |  December 10, 2024</span>
+                <>
+                  <Navbar showMenu={true} />
+                  <div className="col-span-10 col-start-2 h-full relative">
+                    <Link href="/blog" className='flex items-center pt-12 md:pt-2 col-start-1 col-span-full text-whiteLight3'>
+                      <svg viewBox="0 0 24 24" width={17} height={17} fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 9H16.5C18.9853 9 21 11.0147 21 13.5C21 15.9853 18.9853 18 16.5 18H12M3 9L7 5M3 9L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+                      </svg>
+                      <span className='px-2'>Back to posts</span>
+                    </Link>
+                    <div className="flex pt-11">
+                      <div className='flex flex-col'>
+                        <h1 className={`${DINish.className} text-3xl leading-10 md:text-4xl md:!leading-[50px] xl:text-5xl text-left text-white xl:!leading-[64px] font-semibold max-w-3xl 2xl:max-w-4xl`}>
+                          The Three V&apos;s of Big Data - How EdgeSet is redefining Big Data Processing
+                        </h1>
+                        <div className="flex flex-row gap-x-1 pt-10">
+                          <img src="/about/christopher.jpg" className="w-12 h-12 rounded-full mr-2 border-2 border-whiteLight3" />
+                          <div className="flex flex-col">
+                            <span className={`text-whiteLight3 font-semibold ${DINish.className}`}>Chris Forno</span>
+                            <span className={`text-whiteLight3 ${DINish.className}`}>2 min. read  |  December 10, 2024</span>
+                          </div>
                         </div>
                       </div>
+                      <div className="pl-10 hidden lg:max-xl:block relative top-7 right-4">
+                        <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} viewBox="0 0 220 220" />
+                      </div>
                     </div>
-                    <div className="pl-10 hidden lg:max-xl:block relative top-7 right-4">
-                      <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} viewBox="0 0 220 220" />
-                    </div>
-                  </div>
 
-                  <div className={`pt-20 xs:pt-32 xl:pt-36 text-whiteLight3 text-left text-lg leading-8 xl:text-xl xl:leading-relaxed ${DINish.className} max-w-3xl`}>
-                    This visual guide compares EdgeSet to traditional data processing systems like spreadsheets, databases, data warehouses, and data lakes in the context of the three V&apos;s of Big Data:&nbsp;
-                    <span className="text-whiteLight3 font-semibold">Variety</span> - the variety of data types, <span className="text-whiteLight3 font-semibold">Velocity</span> - the speed at which data is processed, and <span className="text-whiteLight3 font-semibold">Volume</span> - the amount of data stored and analyzed.
-                  </div>
-                  {activeSection === 0 && (
-                    <button
-                      onClick={() => {
-                        rootRef.current?.scrollTo({
-                          top: window.innerHeight,
-                          behavior: 'smooth'
-                        });
-                      }}
-                      className="animate-bounce absolute w-10 bottom-[20px] xs:bottom-[40px] left-[calc(50%-30px)] transform -translate-x-1/2 cursor-pointer z-10"
-                    >
-                      <svg
-                        width="40"
-                        height="40"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="white"
-                        strokeWidth="1"
+                    <div className={`pt-20 xs:pt-32 xl:pt-36 text-whiteLight3 text-left text-lg leading-8 xl:text-xl xl:leading-relaxed ${DINish.className} max-w-3xl`}>
+                      This visual guide compares EdgeSet to traditional data processing systems like spreadsheets, databases, data warehouses, and data lakes in the context of the three V&apos;s of Big Data:&nbsp;
+                      <span className="text-whiteLight3 font-semibold">Variety</span> - the variety of data types, <span className="text-whiteLight3 font-semibold">Velocity</span> - the speed at which data is processed, and <span className="text-whiteLight3 font-semibold">Volume</span> - the amount of data stored and analyzed.
+                    </div>
+                    {activeSection === 0 && (
+                      <button
+                        onClick={() => {
+                          rootRef.current?.scrollTo({
+                            top: window.innerHeight,
+                            behavior: 'smooth'
+                          });
+                        }}
+                        className="animate-bounce absolute w-16 bottom-[90px] xs:bottom-[40px] left-[calc(50%-30px)] transform -translate-x-1/2 cursor-pointer z-10"
                       >
-                        <path d="M10 9l10 6 10-7" />
-                      </svg>
-                    </button>
-                  )}
-                </div>
+                        <svg
+                          width="40"
+                          height="40"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="white"
+                          strokeWidth="1"
+                        >
+                          <path d="M10 9l10 6 10-7" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+                </>
               ) : (
                 <div className=" col-start-2 col-span-10 flex flex-col">
                   <div className="flex flex-col md:col-start-2 md:col-span-6 col-start-1 col-span-full">
@@ -900,7 +903,7 @@ export default function ThreeVs(props: any) {
                     <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} />
                   </div>
 
-                  <div className={`flex w-full overflow-x-auto gap-4 pb-5 xl:overflow-visible xl:grid xl:grid-cols-2 xl:max-w-3xl xl:gap-x-2 xl:gap-y-12 xl:pt-12 ${section.title === 'Data Lakes' ? '3xl:gap-y-8' : ''} 2xl:gap-y-16`}>
+                  <div className={`flex w-full flex-1 top-[-40px] relative md:top-0 md:static md:flex-initial overflow-x-auto gap-4 md:pb-5 xl:overflow-visible xl:grid xl:grid-cols-2 xl:max-w-3xl xl:gap-x-2 xl:gap-y-12 xl:pt-12 ${section.title === 'Data Lakes' ? '3xl:gap-y-8' : ''} 2xl:gap-y-16`}>
                     <div className={`flex-none w-60 h-64 lg:w-72 lg:h-72 ${section.title === 'Data Lakes' ? 'h-[276px] lg:h-[306px] xl:w-80 xl:h-[315px] 3xl:w-[350px] 3xl:h-[355px]' : 'xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'}`}>
                       <div className='flex flex-col items-center h-full'>
                         <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
@@ -990,9 +993,6 @@ export default function ThreeVs(props: any) {
                             <div className={`text-[rgba(255,255,255,0.65)] text-[10px] xl:text-sm pt-1 xl:pt-2 relative ${DINish.className}`}><sup>*</sup>{section.disclaimer}</div>
                           )}
                         </div>
-                        {/* {section.disclaimer && (
-                            <div className={`text-whiteLight3 text-[10px] pt-1 absolute bottom-[-20px] w-full ${DINish.className}`}><sup>*</sup>{section.disclaimer}</div>
-                          )} */}
                       </div>
                     </div>
 
@@ -1045,152 +1045,6 @@ export default function ThreeVs(props: any) {
                       </div>
                     </div>
                   </div>
-
-                  {/* 
-                    {section.disclaimer && (
-                      <div className={`text-[rgba(255,255,255,0.65)] text-xs py-6 w-full ${DINish.className}`}><sup>*</sup>{section.disclaimer}</div>
-                    )} */}
-
-                  {/* VELOCITY */}
-                  {/* <div className="col-start-5 col-span-3 row-start-3 row-span-4 flex flex-col items-center">
-                      <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
-                      <div className={`flex border border-whiteLight2 flex-1 w-full max-h-52 items-start bg-whiteLight_0_6 ${section.velocityTypes?.length === 1 ? 'justify-center items-center' : 'grid grid-cols-2 items-center justify-items-center'}`}>
-                        {section.velocityTypes?.includes('streaming') && (
-                          <div className='flex flex-col w-fit justify-center items-center'>
-                            <Streaming />
-                            <div className={`${VT323.className} text-white text-lg font-semibold`}>STREAMING</div>
-                          </div>
-                        )}
-                        {section.velocityTypes?.includes('on demand') && (
-                          <div className='flex flex-col w-fit justify-center items-center'>
-                            <OnDemand />
-                            <div className={`${VT323.className} text-white text-lg font-semibold`}>ON DEMAND</div>
-                          </div>
-                        )}
-                        {section.velocityTypes?.includes('on demand*') && (
-                          <div className='flex flex-col w-fit justify-center items-center'>
-                            <OnDemand />
-                            <div className={`${VT323.className} text-white text-lg font-semibold`}>ON DEMAND<sup>*</sup></div>
-                          </div>
-                        )}
-                        {section.velocityTypes?.includes('ad hoc') && (
-                          <div className={`flex flex-col w-fit`}>
-                            <Manual showClickLines={showClickLines} onAnimationEnd={() => {
-                              setShowClickLines(true)
-                            }} />
-                            <div className={`${VT323.className} text-white text-lg font-semibold pt-2`}>MANUAL</div>
-                          </div>
-                        )}
-                        {section.velocityTypes?.includes('batch') && (
-                          <div className='flex flex-col w-fit'>
-                            <OnBatch />
-                            <div className={`${VT323.className} text-white text-lg font-semibold`}>BATCH</div>
-                          </div>
-                        )}
-                      </div>
-                      <div className="flex flex-col items-center pt-2">
-                        <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-2`}>VELOCITY</div>
-                        <div className={`text-whiteLight3 text-sm pt-2 relative ${DINish.className}`}>{section.notes?.[1]}</div>
-                        {section.disclaimer && (
-                          <div className={`text-whiteLight3 text-sm pt-1 relative ${DINish.className}`}><sup>*</sup>{section.disclaimer}</div>
-                        )}
-                      </div>
-                    </div> */}
-
-                  {/* VARIETY */}
-                  {/* {section.varietyTypes && (
-                      <div className='col-start-2 col-span-3 row-start-3 row-span-4 flex flex-col items-center'>
-                        <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
-                        <div className={`flex flex-1 border border-whiteLight2 w-full max-h-52 items-start bg-whiteLight_0_6 ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>
-                          {section.varietyTypes?.includes('user') && (
-                            <div className='flex flex-col w-fit items-center justify-center'>
-                              <User />
-                              <div className={`${VT323.className} text-white text-lg font-semibold pt-3`}>SINGLE SOURCE</div>
-                            </div>
-                          )}
-                          {section.varietyTypes?.includes('single source') && (
-                            <div className='flex flex-col w-fit items-center justify-center'>
-                              <SingleSource />
-                              <div className={`${VT323.className} text-white text-lg font-semibold pt-3`}>SINGLE SOURCE</div>
-                            </div>
-                          )}
-                          {section.varietyTypes?.includes('multi source') && (
-                            <div className='flex flex-col w-fit items-center'>
-                              <MultiSource />
-                              <div className={`${VT323.className} text-white text-lg font-semibold pt-1`}>MULTI SOURCE</div>
-                            </div>
-                          )}
-                          {section.varietyTypes?.includes('mixed source') && (
-                            <div className='flex flex-col w-fit items-center'>
-                              <MixedSource />
-                              <div className={`${VT323.className} text-white text-lg font-semibold pt-4`}>MIXED SOURCE</div>
-                            </div>
-                          )}
-                          {section.varietyTypes?.includes('mixed format') && (
-                            <div className='flex flex-row gap-8'>
-                              <div className='flex flex-col w-fit items-center'>
-                                <MixedSource />
-                                <div className={`${VT323.className} text-white text-lg font-semibold pt-4`}>MIXED SOURCE</div>
-                              </div>
-                              <div className='flex flex-col w-fit items-center'>
-                                <MixedFormat />
-                                <div className={`${VT323.className} text-white text-lg font-semibold pt-4`}>MIXED FORMAT</div>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                        <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-4`}>VARIETY</div>
-                        <div className={`text-whiteLight3 text-sm pt-2 relative ${DINish.className}`}>{section.notes?.[2]}</div>
-                      </div>
-                    )} */}
-
-                  {/* VOLUME */}
-                  {/* <div className="col-start-2 col-span-3 row-start-7 row-span-4 flex flex-col items-center relative top-4 md">
-                      <div className={`${VT323.className} text-white text-lg font-semibold pb-2`}>{section.volumeText}</div>
-                      <div className="w-full flex-1 max-h-52">
-                        <div className="relative w-full h-full border border-[rgba(255,255,255,0.5)]">
-                          <div
-                            className="grid grid-cols-20 grid-rows-15 gap-0.5 absolute inset-0.5"
-                            style={{
-                              gridTemplateColumns: 'repeat(20, 1fr)',
-                              gridTemplateRows: 'repeat(15, 1fr)'
-                            }}
-                          >
-                            {Array.from({ length: 15 }).map((_, rowIndex) =>
-                              Array.from({ length: 20 }).map((_, colIndex) => (
-                                <div
-                                  key={`${rowIndex}-${colIndex}`}
-                                  className={`border ${rowIndex <= (section.volumeOffset ?? 0)
-                                    ? 'border-[rgba(255,255,255,0.2)] bg-transparent'
-                                    : 'border-[rgba(255,255,255,0.5)] bg-[rgba(255,255,255,0.2)]'
-                                    }
-                                  `}
-                                />
-                              ))
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-4 relative`}>VOLUME</div>
-                      <div className={`text-whiteLight3 text-sm pt-2 relative ${DINish.className}`}>{section.notes?.[0]}</div>
-                    </div> */}
-
-                  {/* SETUP TIME */}
-                  {/* {section.setUpTime && (
-                      <div className='col-start-5 col-span-3 row-start-7 row-span-4 flex flex-col items-center top-4 relative'>
-                        <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
-                        <div className={`flex flex-1 border border-dashed border-spacing-5 border-whiteLight2 w-full max-h-52 items-start ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>
-                          <div className='flex flex-col w-fit items-center justify-center'>
-                            {section.setUpTime === 'MINUTES' && <Minutes />}
-                            {section.setUpTime === 'HOURS' && <Hours />}
-                            {section.setUpTime === 'MONTHS' && <Months />}
-                            <div className={`${VT323.className} text-white text-xl font-semibold pt-3`}>{section.setUpTime}</div>
-                          </div>
-                        </div>
-                        <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-4`}>SETUP TIME</div>
-                        <div className={`text-whiteLight3 text-sm pt-2 relative ${DINish.className}`}>Time required to set up the system.</div>
-                      </div>
-                    )} */}
                 </div>
               )}
             </div>
