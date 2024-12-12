@@ -840,7 +840,7 @@ export default function ThreeVs(props: any) {
               {section.isIntro ? (
                 <>
                   <Navbar showMenu={true} />
-                  <div className="col-span-10 col-start-2 h-full relative">
+                  <div className="col-span-10 col-start-2 h-full">
                     <Link href="/blog" className='flex items-center pt-12 md:pt-2 col-start-1 col-span-full text-whiteLight3'>
                       <svg viewBox="0 0 24 24" width={17} height={17} fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 9H16.5C18.9853 9 21 11.0147 21 13.5C21 15.9853 18.9853 18 16.5 18H12M3 9L7 5M3 9L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -849,7 +849,7 @@ export default function ThreeVs(props: any) {
                     </Link>
                     <div className="flex pt-11">
                       <div className='flex flex-col'>
-                        <h1 className={`${DINish.className} text-3xl leading-10 md:text-4xl md:!leading-[50px] xl:text-5xl text-left text-white xl:!leading-[64px] font-semibold max-w-3xl 2xl:max-w-4xl`}>
+                        <h1 className={`${DINish.className} text-3xl leading-10 md:text-4xl md:!leading-[50px] xl:text-5xl text-left text-white xl:!leading-[64px] font-semibold max-w-3xl 2xl:max-w-4xl h-sm:text-2xl`}>
                           The Three V&apos;s of Big Data - How EdgeSet is redefining Big Data Processing
                         </h1>
                         <div className="flex flex-row gap-x-1 pt-10">
@@ -865,7 +865,7 @@ export default function ThreeVs(props: any) {
                       </div>
                     </div>
 
-                    <div className={`pt-20 xs:pt-32 xl:pt-36 text-whiteLight3 text-left text-lg leading-8 xl:text-xl xl:leading-relaxed ${DINish.className} max-w-3xl`}>
+                    <div className={`pt-20 xs:pt-32 xl:pt-36 text-whiteLight3 text-left text-lg leading-8 xl:text-xl xl:leading-relaxed ${DINish.className} max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12`}>
                       This visual guide compares EdgeSet to traditional data processing systems like spreadsheets, databases, data warehouses, and data lakes in the context of the three V&apos;s of Big Data:&nbsp;
                       <span className="text-whiteLight3 font-semibold">Variety</span> - the variety of data types, <span className="text-whiteLight3 font-semibold">Velocity</span> - the speed at which data is processed, and <span className="text-whiteLight3 font-semibold">Volume</span> - the amount of data stored and analyzed.
                     </div>
@@ -877,7 +877,7 @@ export default function ThreeVs(props: any) {
                             behavior: 'smooth'
                           });
                         }}
-                        className="animate-bounce absolute w-16 bottom-[90px] xs:bottom-[40px] left-[calc(50%-30px)] transform -translate-x-1/2 cursor-pointer z-10"
+                        className="animate-bounce absolute w-16 bottom-0 xs:bottom-[40px] left-[calc(50%-30px)] transform -translate-x-1/2 cursor-pointer z-10"
                       >
                         <svg
                           width="40"
