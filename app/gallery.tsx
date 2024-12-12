@@ -638,11 +638,11 @@ export default function Gallery() {
               </div>
             </div>
           </div>
-          <div className="mt-6 mb-2 md:my-6 flex space-x-4 col-span-full justify-start overflow-x-auto pb-4 px-0 min-[1227px]:justify-center min-[1227px]:overflow-visible min-[1227px]:pb-0">
+          <div className="mt-6 mb-2 md:my-6 flex space-x-4 col-span-full justify-start overflow-x-auto pb-4 px-0 x-1227:justify-center x-1227:overflow-visible x-1227:pb-0">
             {tabs.map((tab) => (
               <button
                 key={tab.category}
-                className={`px-4 py-2 text-base ${DINish.className} rounded-lg whitespace-nowrap flex-shrink-0 min-[1227px]:whitespace-normal min-[1227px]:flex-shrink ${activeTab === tab.id ? 'bg-primary text-white' : 'bg-white text-primary'
+                className={`px-4 py-2 text-base ${DINish.className} rounded-lg whitespace-nowrap flex-shrink-0 x-1227:whitespace-normal x-1227:flex-shrink ${activeTab === tab.id ? 'bg-primary text-white' : 'bg-white text-primary'
                   }`}
                 onClick={() => {
                   setIsDashImageLoading(true);
@@ -654,22 +654,22 @@ export default function Gallery() {
             ))}
           </div>
         </div>
-        <div className="col-start-2 col-span-10 mt-4 md:mt-2 min-[1227px]:mt-6">
-          <div className='col-span-full flex flex-col-reverse rounded-md justify-center min-[1227px]:flex-row'>
-            <div className='flex flex-col basis-full px-0 min-[1227px]:basis-[360px] min-[1227px]:px-2'>
+        <div className="col-start-2 col-span-10 mt-4 md:mt-2 x-1227:mt-6">
+          <div className='col-span-full flex flex-col-reverse rounded-md justify-center x-1227:flex-row'>
+            <div className='flex flex-col basis-full px-0 x-1227:basis-[360px] x-1227:px-2'>
               <div
-                className="my-5 min-[1227px]:my-0 w-full h-full bg-transparent p-0 rounded-t-md overflow-auto border-none shadow-none min-[1227px]:bg-white min-[1227px]:p-4 min-[1227px]:border min-[1227px]:border-slate-200 min-[1227px]:shadow-sm"
+                className="my-5 x-1227:my-0 w-full h-full bg-transparent p-0 rounded-t-md overflow-auto border-none shadow-none x-1227:bg-white x-1227:p-4 x-1227:border x-1227:border-slate-200 x-1227:shadow-sm"
               >
-                <div className={`text-base ${DINish.className} pb-4 font-semibold text-gray-500 hidden min-[1227px]:block`}>
+                <div className={`text-base ${DINish.className} pb-4 font-semibold text-gray-500 hidden x-1227:block`}>
                   Queries
                 </div>
-                <div className="flex overflow-x-auto gap-2 py-4 min-h-[200px] items-baseline min-[1227px]:items-stretch min-[1227px]:min-h-auto min-[1227px]:block min-[1227px]:overflow-visible min-[1227px]:gap-0 min-[1227px]:py-0">
+                <div className="flex overflow-x-auto gap-2 py-4 min-h-[200px] items-baseline x-1227:items-stretch x-1227:min-h-auto x-1227:block x-1227:overflow-visible x-1227:gap-0 x-1227:py-0">
                   {items
                     .filter(item => item.categoryId === activeTab)
                     .map((item) => (
                       <div
                         key={item.id}
-                        className="w-full bg-white rounded-md overflow-hidden shadow-sm border border-slate-200 mb-0 max-w-[220px] md:max-w-[300px] flex-shrink-0 group hover:shadow-md transition-all duration-300 min-[1227px]:mb-1 min-[1227px]:max-w-none min-[1227px]:flex-shrink"
+                        className="w-full bg-white rounded-md overflow-hidden shadow-sm border border-slate-200 mb-0 max-w-[220px] md:max-w-[300px] flex-shrink-0 group hover:shadow-md transition-all duration-300 x-1227:mb-1 x-1227:max-w-none x-1227:flex-shrink"
                         onMouseEnter={() => setHoveredItemId(item.id)}
                         onMouseLeave={() => setHoveredItemId(null)}
                       >
@@ -692,7 +692,7 @@ export default function Gallery() {
                 </div>
               </div>
             </div>
-            <div className='basis-full bg-slate-200 rounded-md relative p-3 min-[1227px]:basis-[800px]'>
+            <div className='basis-full bg-slate-200 rounded-md relative p-3 x-1227:basis-[800px]'>
               {isDashImageLoading && (
                 <Loader />
               )}
