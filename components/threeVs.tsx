@@ -431,19 +431,20 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 1500) {
-        setViewBox("0 0 190 190");
-      } else if (window.innerWidth > 1280) {
-        setViewBox("0 0 200 200");
-      } else if (window.innerWidth > 1024) {
-        setViewBox("0 0 230 230");
-      } else if (window.innerWidth > 768) {
-        setViewBox("40 10 240 240");
-      } else if (window.innerWidth > 425) {
-        setViewBox("40 0 260 260");
-      } else {
-        setViewBox("0 -30 300 300");
-      }
+      const minSize = 190;
+      const maxSize = 300;
+      const minHeight = 600; // Minimum height threshold
+      const maxHeight = 1000; // Maximum height threshold
+
+      // Calculate size based on window height
+      const maxH = Math.max(window.innerHeight, minHeight);
+      const size = Math.round(
+        maxSize - ((maxH - minHeight) / (maxHeight - minHeight)) * (maxSize - minSize)
+      );
+
+      // Center the viewBox
+      const offset = 150 - (size / 2);
+      setViewBox(`${offset} 0 ${size} ${size}`);
     };
 
     // Initial check
