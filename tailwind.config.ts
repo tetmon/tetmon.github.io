@@ -212,6 +212,14 @@ const config: Config = {
             fill: '#ffffff',
             opacity: '1'
           }
+        },
+        'keyboard-up': {
+          '0%, 100%': { backgroundColor: 'transparent' },
+          '50%': { backgroundColor: 'rgb(255, 255, 255, 0.5)' },
+        },
+        'keyboard-down': {
+          '0%, 100%': { backgroundColor: 'rgb(255, 255, 255, 0.5)' },
+          '50%': { backgroundColor: 'transparent' },
         }
       },
       animation: {
@@ -246,7 +254,9 @@ const config: Config = {
         'scale-in-4': 'scaleIn 0.3s ease-out 0.3s forwards',
         'scale-in-5': 'scaleIn 0.3s ease-out 0.4s forwards',
         'scale-in-6y': 'scale-in-6y 0.3s ease-out forwards',
-        'scale-in-6y2': 'scale-in-6y2 0.3s ease-out forwards'
+        'scale-in-6y2': 'scale-in-6y2 0.3s ease-out forwards',
+        'keyboard-up': 'keyboard-up 0.8s ease-in-out 3',
+        'keyboard-down': 'keyboard-down 0.8s ease-in-out 3',
       },
       screens: {
         'xs': '480px',

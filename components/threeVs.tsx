@@ -4,6 +4,35 @@ import Link from 'next/link'
 import Navbar from "@/components/navbar-tp";
 import { DINish, VT323 } from '../app/fonts';
 
+const Keyboard: FC = () => {
+  return (
+    <div className="flex flex-col items-center gap-1 w-fit" title='Keyboard Navigation Support'>
+      {/* Top button */}
+      <div className="w-8 h-8 bg-none border border-whiteLight2 rounded-sm flex items-center justify-center animate-keyboard-up">
+        <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[6px] border-b-whiteLight2" />
+      </div>
+
+      {/* Middle row */}
+      <div className="flex gap-1">
+        {/* Left button */}
+        <div className="w-8 h-8 border border-whiteLight2 rounded-sm flex items-center justify-center">
+          <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-r-[6px] border-r-whiteLight2" />
+        </div>
+
+        {/* Down button */}
+        <div className="w-8 h-8 border border-whiteLight2 rounded-sm flex items-center justify-center animate-keyboard-down">
+          <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[6px] border-b-whiteLight2 rotate-180" />
+        </div>
+
+        {/* Right button */}
+        <div className="w-8 h-8 border border-whiteLight2 rounded-sm flex items-center justify-center">
+          <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-r-[6px] border-r-whiteLight2 rotate-180" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const Manual: FC = () => {
   const [showClickLines, setShowClickLines] = useState(false);
 
@@ -877,7 +906,7 @@ export default function ThreeVs(props: any) {
                             behavior: 'smooth'
                           });
                         }}
-                        className="animate-bounce absolute w-16 bottom-0 xs:bottom-[40px] left-[calc(50%-30px)] transform -translate-x-1/2 cursor-pointer z-10"
+                        className="animate-bounce absolute w-16 bottom-0 left-[calc(50%-30px)] transform -translate-x-1/2 cursor-pointer z-10"
                       >
                         <svg
                           width="40"
@@ -891,6 +920,9 @@ export default function ThreeVs(props: any) {
                         </svg>
                       </button>
                     )}
+                  </div>
+                  <div className="absolute bottom-3 right-3 hidden lg:block">
+                    <Keyboard />
                   </div>
                 </>
               ) : (
