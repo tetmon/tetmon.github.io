@@ -5,10 +5,27 @@ import Navbar from "@/components/navbar-tp";
 import { DINish, VT323 } from '../app/fonts';
 
 const Keyboard: FC = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(true);
+
+  // Reset hasLoaded after initial animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasLoaded(false);
+    }, 2000); // Adjust timing based on your animation duration
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="flex flex-col items-center gap-1 w-fit" title='Keyboard Navigation Support'>
+    <div
+      className="flex flex-col items-center gap-1 w-fit"
+      title='Keyboard Navigation Support'
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Top button */}
-      <div className="w-8 h-8 bg-none border border-whiteLight2 rounded-sm flex items-center justify-center animate-keyboard-up">
+      <div className={`w-8 h-8 bg-none border border-whiteLight2 rounded-sm flex items-center justify-center ${isHovered || hasLoaded ? 'animate-keyboard-up' : ''}`}>
         <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[6px] border-b-whiteLight2" />
       </div>
 
@@ -20,7 +37,7 @@ const Keyboard: FC = () => {
         </div>
 
         {/* Down button */}
-        <div className="w-8 h-8 border border-whiteLight2 rounded-sm flex items-center justify-center animate-keyboard-down">
+        <div className={`w-8 h-8 border border-whiteLight2 rounded-sm flex items-center justify-center ${isHovered || hasLoaded ? 'animate-keyboard-down' : ''}`}>
           <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[6px] border-b-whiteLight2 rotate-180" />
         </div>
 
