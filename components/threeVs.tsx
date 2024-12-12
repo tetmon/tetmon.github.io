@@ -425,6 +425,10 @@ const generateShapePath = (data: typeof datasets[0]) => {
   )).join(' ') + ' Z';
 };
 
+const clamp = (size: number, minSize: number, maxSize: number) => {
+  return Math.min(Math.max(size, minSize), maxSize);
+};
+
 const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: string, value: number }>>, currentDataset: number, inline?: boolean, viewBox?: string }> = ({ activeSection, datasets, currentDataset, inline, viewBox }) => {
   const [hoveredAxis, setHoveredAxis] = useState<string | null>(null);
   const [vb, setViewBox] = useState("");
@@ -444,7 +448,7 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
 
       // Center the viewBox
       const offset = 150 - (size / 2);
-      setViewBox(`${offset} 0 ${size} ${size}`);
+      setViewBox(`${offset} 0 ${clamp(size, minSize, maxSize)} ${clamp(size, minSize, maxSize)}`);
     };
 
     // Initial check
