@@ -931,7 +931,7 @@ export default function ThreeVs(props: any) {
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="white"
-                          strokeWidth="1"
+                          strokeWidth="0.6"
                         >
                           <path d="M10 9l10 6 10-7" />
                         </svg>
