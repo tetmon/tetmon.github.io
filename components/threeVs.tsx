@@ -911,7 +911,7 @@ export default function ThreeVs(props: any) {
                     <div className="flex pt-11">
                       <div className='flex flex-col'>
                         <h1 className={`${DINish.className} text-3xl leading-10 md:text-4xl md:!leading-[50px] xl:text-5xl text-left text-white xl:!leading-[64px] font-semibold max-w-3xl 2xl:max-w-4xl h-sm:text-2xl`}>
-                          The Three V&apos;s of Big Data - How EdgeSet is transforming Big Data Processing
+                          The Three V&apos;s of Big Data - How EdgeSet is transforming data processing
                         </h1>
                         <div className="flex flex-row gap-x-1 pt-10">
                           <img src="/about/christopher.jpg" className="w-12 h-12 rounded-full mr-2 border-2 border-whiteLight3" />
