@@ -44,7 +44,7 @@ const Hero = () => {
         <span style={{ display: 'inline-block' }}>Data plumbing, before AI can happen</span>
       </h1>
       <p className={`leading-6 text-lg xl:text-xl col-start-2 col-span-10 ${DINish.className} xs:col-span-10 xs:col-start-2 md:col-span-8 md:col-start-3 md:text-center max-w-xl mx-auto leading-relaxed`}>
-        Introducing EdgeSet, a data virtualization and integration platform that joins up disparate cloud and on-premise data sources to a single access point, within minutes.
+        Introducing EdgeSet, a data virtualization and integration platform that joins up disparate cloud and on-premise data sources to a single access point.
       </p>
       <div className={`col-span-10 min-h-[300px] ${stateMachine === 'hero_sm_sme' ? 'col-start-1' : 'col-start-2 h-96 my-24 mb-36'}`}>
         {stateMachine === 'hero_sme' ? <Rive
