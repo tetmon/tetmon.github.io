@@ -65,7 +65,7 @@ export default function App() {
     if (!isMobile) return null;
 
     return (
-      <section id="container" className="relative z-[-1] bg-neutral-900 text-zinc-100  lg:hidden">
+      <section id="container" className="relative z-[-1] bg-[#1a1a1a] text-zinc-100  lg:hidden">
         <div className="grid grid-cols-12 py-8">
           <div className="col-start-2 col-span-10 grid [grid-template-columns:subgrid]">
             <div className="flex w-full justify-center col-span-full py-5">
@@ -263,7 +263,7 @@ export default function App() {
 
   return (
     <>
-      <section id="container" className="hidden lg:block relative z-[-1] bg-neutral-900 text-zinc-100">
+      <section id="container" className="hidden lg:block relative z-[-1] bg-[#1a1a1a] text-zinc-100">
         {/* {showHalo ? <div className="pointer-events-none fixed top-0 h-full w-full bg-halo-gradient">
         </div> : null} */}
         <div className="container mx-auto">
