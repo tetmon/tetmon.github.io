@@ -935,7 +935,7 @@ export default function ThreeVs(props: any) {
 
                       <ul className="list-none pt-6 text-base hidden xl:block 2xl:text-lg">
                         <li className='pb-4'><span className="text-whiteLight3 font-semibold">Variety</span>: This encompasses diverse data types: structured databases, unstructured text and media, semi-structured formats like JSON from multiple sources and platforms.</li>
-                        <li className='pb-4'><span className="text-whiteLight3 font-semibold">Velocity</span>:  The speed at which data is generated, collected, and processed. In today's digital world, data is being created and updated in real-time, requiring systems that can capture, analyze, and respond to information quickly.</li>
+                        <li className='pb-4'><span className="text-whiteLight3 font-semibold">Velocity</span>:  The speed at which data is generated, collected, and processed. In today&apos;s digital world, data is being created and updated in real-time, requiring systems that can capture, analyze, and respond to information quickly.</li>
                         <li><span className="text-whiteLight3 font-semibold">Volume</span>: The massive amount of data generated every second from various sources. To give some context, the volume of global data exploded exponentially, growing from 2 exabytes in 2010 to 149 zettabytes in 2024 due to internet, mobile, social media, IoT, and cloud computing technologies.</li>
                       </ul>
                     </div>
