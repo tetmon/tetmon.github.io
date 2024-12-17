@@ -1092,7 +1092,11 @@ export default function ThreeVs(props: any) {
                     </div>
                     <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[185px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6`}>
                       <div className="flex flex-col items-center h-full relative">
-                        <div className={`${VT323.className} z-10 text-lg font-semibold px-2 absolute top-[10px] text-white ${section.title === 'Data Lakes' ? 'bg-[#94496f54]' : ''}`}>{section.volumeText}</div>
+                        <div className={`${VT323.className} z-10 text-lg font-semibold px-2 absolute top-[10px] text-white border border-[rgba(255,255,255,0.5)]`}
+                          style={{
+                            backgroundColor: section.color
+                          }}
+                        >{section.volumeText}</div>
                         <div className="w-full flex-1 h-full">
                           <div className="relative w-full h-full border border-[rgba(255,255,255,0.5)]">
                             <div
