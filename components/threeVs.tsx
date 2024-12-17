@@ -25,25 +25,25 @@ const Keyboard: FC = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Top button */}
-      <div className={`w-8 h-8 bg-none border border-whiteLight2 rounded-sm flex items-center justify-center ${isHovered || hasLoaded ? 'animate-keyboard-up' : ''}`}>
-        <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[6px] border-b-whiteLight2" />
+      <div className={`w-6 h-6 bg-none border border-whiteLight2 rounded-sm flex items-center justify-center ${isHovered || hasLoaded ? 'animate-keyboard-up' : ''}`}>
+        <div className="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-b-[6px] border-b-whiteLight2" />
       </div>
 
       {/* Middle row */}
       <div className="flex gap-1">
         {/* Left button */}
-        <div className="w-8 h-8 border border-whiteLight2 rounded-sm flex items-center justify-center">
-          <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-r-[6px] border-r-whiteLight2" />
+        <div className="w-6 h-6 border border-whiteLight2 rounded-sm flex items-center justify-center">
+          <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-r-[6px] border-r-whiteLight2" />
         </div>
 
         {/* Down button */}
-        <div className={`w-8 h-8 border border-whiteLight2 rounded-sm flex items-center justify-center ${isHovered || hasLoaded ? 'animate-keyboard-down' : ''}`}>
-          <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[6px] border-b-whiteLight2 rotate-180" />
+        <div className={`w-6 h-6 border border-whiteLight2 rounded-sm flex items-center justify-center ${isHovered || hasLoaded ? 'animate-keyboard-down' : ''}`}>
+          <div className="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-b-[6px] border-b-whiteLight2 rotate-180" />
         </div>
 
         {/* Right button */}
-        <div className="w-8 h-8 border border-whiteLight2 rounded-sm flex items-center justify-center">
-          <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-r-[6px] border-r-whiteLight2 rotate-180" />
+        <div className="w-6 h-6 border border-whiteLight2 rounded-sm flex items-center justify-center">
+          <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-r-[6px] border-r-whiteLight2 rotate-180" />
         </div>
       </div>
     </div>
@@ -431,7 +431,7 @@ const Hours: FC = () => {
 }
 
 const Exclaimation: FC = () => (
-  <svg width="13px" height="13px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className='relative top-[0.8px]'>
+  <svg width="13px" height="13px" viewBox="0 -2 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className=''>
     <path fillRule="evenodd" clipRule="evenodd" d="M13.7525 2.11124C12.9926 0.729683 11.0075 0.729688 10.2476 2.11124L0.938894 19.0362C0.205794 20.3691 1.17012 22 2.69133 22H21.3088C22.83 22 23.7943 20.3691 23.0612 19.0362L13.7525 2.11124ZM12.0001 3.07507L21.3088 20L2.69133 20L12.0001 3.07507ZM12.0001 8.00004C12.5523 8.00004 13.0001 8.44775 13.0001 9.00004V14C13.0001 14.5523 12.5523 15 12.0001 15C11.4478 15 11.0001 14.5523 11.0001 14V9.00004C11.0001 8.44775 11.4478 8.00004 12.0001 8.00004ZM13.2501 17.75C13.2501 18.4404 12.6904 19 12.0001 19C11.3097 19 10.7501 18.4404 10.7501 17.75C10.7501 17.0597 11.3097 16.5 12.0001 16.5C12.6904 16.5 13.2501 17.0597 13.2501 17.75Z" fill="rgba(255, 255, 255, 0.8)" />
   </svg>
 )
@@ -488,7 +488,7 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
   useEffect(() => {
     const handleResize = () => {
       const minSize = 190;
-      const maxSize = 300;
+      const maxSize = window.innerWidth < 1280 ? 350 : 300;
       const minHeight = 600; // Minimum height threshold
       const maxHeight = 1000; // Maximum height threshold
 
@@ -740,7 +740,7 @@ const sections = [
     title: "Spreadsheets",
     text: "Traditional spreadsheets handle small volumes of structured data with basic data types and manual updates.",
     color: "#1a6b26",
-    volumeOffset: 9,
+    volumeOffset: 10,
     volumeText: "MEGABYTES",
     velocityTypes: ["ad hoc"],
     varietyTypes: ["user"],
@@ -895,7 +895,7 @@ export default function ThreeVs(props: any) {
           {sections.map((section, index) => (
             <div
               key={index}
-              className='h-screen snap-start pt-6 md:pt-24 md:gap-x-12 grid grid-cols-12 2xl:px-24 relative'
+              className='h-screen snap-start pt-6 md:pt-24 md:gap-x-12 grid grid-cols-12 2xl:px-24 relative min-h-[667px]'
               style={{ backgroundColor: section.color }}
             >
               {section.isIntro ? (
@@ -926,9 +926,18 @@ export default function ThreeVs(props: any) {
                       </div>
                     </div>
 
-                    <div className={`pt-20 xs:pt-32 xl:pt-36 text-whiteLight3 text-left text-lg leading-8 xl:text-xl xl:leading-relaxed ${DINish.className} max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12`}>
-                      This visual guide compares EdgeSet to traditional data processing systems like spreadsheets, databases, data warehouses, and data lakes in the context of the three V&apos;s of Big Data:&nbsp;
-                      <span className="text-whiteLight3 font-semibold">Variety</span> - the variety of data types, <span className="text-whiteLight3 font-semibold">Velocity</span> - the speed at which data is processed, and <span className="text-whiteLight3 font-semibold">Volume</span> - the amount of data stored and analyzed.
+                    <div className={`pt-16 text-whiteLight3 text-left text-lg leading-8 xl:leading-relaxed ${DINish.className} max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12 xl:text-base 2xl:text-lg`}>
+                      This visual guide compares EdgeSet to traditional data processing systems like spreadsheets, databases, data warehouses, and data lakes in the context of the three V&apos;s of Big Data:
+
+                      <div className='text-lg hm:text-base pt-2 xl:hidden'>
+                        <span className="text-whiteLight3 font-semibold">Variety</span> - the variety of data types, <span className="text-whiteLight3 font-semibold">Velocity</span> - the speed at which data is processed, and <span className="text-whiteLight3 font-semibold">Volume</span> - the amount of data stored and analyzed.
+                      </div>
+
+                      <ul className="list-none pt-6 text-base hidden xl:block 2xl:text-lg">
+                        <li className='pb-4'><span className="text-whiteLight3 font-semibold">Variety</span>: This encompasses diverse data types: structured databases, unstructured text and media, semi-structured formats like JSON from multiple sources and platforms.</li>
+                        <li className='pb-4'><span className="text-whiteLight3 font-semibold">Velocity</span>:  The speed at which data is generated, collected, and processed. In today's digital world, data is being created and updated in real-time, requiring systems that can capture, analyze, and respond to information quickly.</li>
+                        <li><span className="text-whiteLight3 font-semibold">Volume</span>: The massive amount of data generated every second from various sources. To give some context, the volume of global data exploded exponentially, growing from 2 exabytes in 2010 to 149 zettabytes in 2024 due to internet, mobile, social media, IoT, and cloud computing technologies.</li>
+                      </ul>
                     </div>
                     {activeSection === 0 && (
                       <button
@@ -953,7 +962,12 @@ export default function ThreeVs(props: any) {
                       </button>
                     )}
                   </div>
-                  <div className="absolute bottom-3 right-3 hidden lg:block">
+                  <div className="absolute bottom-3 right-3 hidden xl:flex items-center gap-x-4">
+                    <div className={`text-whiteLight3 text-base ${DINish.className} flex items-end gap-x-2`}>
+                      {/* add info icon */}
+                      <svg className='relative left-1' x="0px" y="0px" viewBox="0 0 100 125" width={20} height={20}><g transform="translate(0,-952.36218)"><path d="M 50 5 C 25.07 5 5 25.06998 5 50 C 5 74.93 25.07 95 50 95 C 74.93 95 95 74.93 95 50 C 95 25.06998 74.93 5 50 5 z M 55.267578 20 C 57.020227 20 58.488503 20.608669 59.675781 21.824219 C 60.891328 23.039769 61.5 24.508032 61.5 26.232422 C 61.5 27.956802 60.891328 29.427028 59.675781 30.642578 C 58.460235 31.858128 56.991959 32.466797 55.267578 32.466797 C 53.571467 32.466797 52.113984 31.858128 50.898438 30.642578 C 49.68289 29.427028 49.076172 27.956802 49.076172 26.232422 C 49.076172 24.508032 49.670144 23.039769 50.857422 21.824219 C 52.072969 20.608669 53.543198 20 55.267578 20 z M 57.896484 39.505859 L 57.896484 40 C 57.846992 40.007215 57.797538 40.01238 57.748047 40.019531 L 49.203125 69.654297 C 48.72256 71.378697 48.482422 72.509775 48.482422 73.046875 C 48.482422 73.357775 48.608864 73.652847 48.863281 73.935547 C 49.117698 74.189947 49.387237 74.318359 49.669922 74.318359 C 50.150487 74.318359 51.014191 74.370534 52.599609 73.615234 C 54.070567 72.724034 57.287441 70.7421 59.068359 68 L 62.5 70 C 58.231454 77.4347 50.305649 80 45.5 80 C 43.662546 80 40.213801 79.490356 39.111328 78.472656 C 38.037124 77.426756 37.5 76.112297 37.5 74.529297 C 37.5 73.483397 37.740138 72.156222 38.220703 70.544922 L 44.115234 50.275391 C 44.680604 48.324791 44.962891 47.854674 44.962891 46.865234 C 44.962891 46.243334 44.695305 45.691507 44.158203 45.210938 C 43.621101 44.730368 42.885986 44.490234 41.953125 44.490234 C 41.529097 44.490234 41.01942 44.472 40.425781 44.5 L 41 42 C 46.591367 41.23838 52.164256 40.826421 57.748047 40.019531 L 57.896484 39.505859 z " transform="translate(0,952.36218)" fill="#ffffffb8" fillOpacity="1" strokeWidth="0" /></g></svg>
+                      <div>Supports Keyboard Navigation</div>
+                    </div>
                     <Keyboard />
                   </div>
                 </>
@@ -968,15 +982,14 @@ export default function ThreeVs(props: any) {
                     </p>
                   </div>
 
-                  <div className="col-start-1 col-span-full flex-1 flex items-center justify-center xl:hidden">
+                  <div className="col-start-1 col-span-full flex flex-1 justify-center items-center xl:hidden">
                     <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} />
                   </div>
 
-                  <div className={`flex w-full flex-1 h-sm:top-[-30px] h-md:top-10 relative md:top-0 md:static md:flex-initial overflow-x-auto overflow-y-hidden scrollbar-hide gap-4 md:pb-5 xl:overflow-visible xl:grid xl:grid-cols-2 xl:max-w-3xl xl:gap-x-2 xl:gap-y-12 xl:pt-8 ${section.title === 'Data Lakes' ? '3xl:gap-y-8' : ''} 2xl:gap-y-16`}>
-                    <div className={`flex-none w-60 h-64 h-sm:h-[252px] h-md:h-72 h-md:w-72 lg:w-72 lg:h-72 ${section.title === 'Data Lakes' ? 'h-[276px] lg:h-[306px] xl:w-80 xl:h-[315px] 3xl:w-[350px] 3xl:h-[355px]' : 'xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'}`}>
-                      <div className='flex flex-col items-center h-full'>
-                        <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
-                        <div className={`flex flex-1 border border-whiteLight2 w-full h-full items-start bg-whiteLight_0_6 ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>
+                  <div className="flex w-full overflow-x-auto gap-x-4 basis-64 xl:grid xl:grid-cols-2 xl:gap-y-2 xl:flex-1 xl:pt-16 xl:max-w-3xl 3xl:gap-x-10">
+                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[185px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6`}>
+                      <div className='flex flex-col items-center h-full relative'>
+                        <div className={`flex flex-1 w-full h-full items-start ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>
                           {section.varietyTypes?.includes('user') && (
                             <div className='flex flex-col w-fit items-center justify-center'>
                               <User />
@@ -1014,23 +1027,22 @@ export default function ThreeVs(props: any) {
                             </div>
                           )}
                         </div>
-                        <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-4`}>VARIETY</div>
-                        <div className="flex items-baseline pt-2">
-                          {section.negatives?.[2] === 1 && (
-                            <span className={`${section.title !== 'Data Lakes' ? 'pr-1' : ''}`}>
-                              <Exclaimation />
-                            </span>
-                          )}
-                          <div className={`text-whiteLight3 text-sm xl:text-base relative ${DINish.className} text-center`}>{section.notes?.[2]}</div>
+                        <div className={`flex flex-col items-center pt-2 absolute bottom-[-60px] xl:bottom-[-70px] ${section.title === 'Data Lakes' ? 'bottom-[-80px] xl:bottom-[-94px]' : ''}`}>
+                          <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-2`}>VARIETY</div>
+                          <div className="flex items-baseline pt-2">
+                            {section.negatives?.[2] === 1 && (
+                              <span className={`${section.title !== 'Data Lakes' ? 'pr-1' : ''}`}>
+                                <Exclaimation />
+                              </span>
+                            )}
+                            <div className={`text-whiteLight3 text-sm xl:text-base ${DINish.className} text-center`}>{section.notes?.[2]}</div>
+                          </div>
                         </div>
                       </div>
                     </div>
-
-
-                    <div className={`flex-none w-60 h-64 h-sm:h-[252px] h-md:h-72 h-md:w-72 lg:w-72 lg:h-72 ${section.title === 'Data Lakes' ? 'h-[275px] lg:h-[306px] xl:w-80 xl:h-[315px] 3xl:w-[350px] 3xl:h-[360px]' : 'xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'}`}>
+                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[185px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6`}>
                       <div className="flex flex-col items-center h-full relative">
-                        <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
-                        <div className={`flex border border-whiteLight2 flex-1 w-full items-start bg-whiteLight_0_6 ${section.velocityTypes?.length === 1 ? 'justify-center items-center' : 'grid grid-cols-2 items-center justify-items-center'}`}>
+                        <div className={`flex flex-1 w-full items-start ${section.velocityTypes?.length === 1 ? 'justify-center items-center' : 'grid grid-cols-2 items-center justify-items-center'}`}>
                           {section.velocityTypes?.includes('streaming') && (
                             <div className='flex flex-col w-fit justify-center items-center mt-2'>
                               <Streaming />
@@ -1062,7 +1074,7 @@ export default function ThreeVs(props: any) {
                             </div>
                           )}
                         </div>
-                        <div className="flex flex-col items-center pt-2">
+                        <div className={`flex flex-col items-center pt-2 absolute bottom-[-60px] xl:bottom-[-70px] ${section.title === 'Data Lakes' ? 'bottom-[-80px] xl:bottom-[-98px]' : ''}`}>
                           <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-2`}>VELOCITY</div>
                           <div className="flex items-baseline pt-2">
                             {section.negatives?.[1] === 1 && (
@@ -1078,11 +1090,10 @@ export default function ThreeVs(props: any) {
                         </div>
                       </div>
                     </div>
-
-                    <div className='flex-none w-60 h-64 h-sm:h-[252px] h-md:h-72 h-md:w-72 lg:w-72 lg:h-72 xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'>
-                      <div className="flex flex-col items-center h-full">
-                        <div className={`${VT323.className} text-white text-lg font-semibold pb-2`}>{section.volumeText}</div>
-                        <div className="w-full flex-1">
+                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[185px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6`}>
+                      <div className="flex flex-col items-center h-full relative">
+                        <div className={`${VT323.className} z-10 text-lg font-semibold px-2 absolute top-[10px] text-white ${section.title === 'Data Lakes' ? 'bg-[#94496f54]' : ''}`}>{section.volumeText}</div>
+                        <div className="w-full flex-1 h-full">
                           <div className="relative w-full h-full border border-[rgba(255,255,255,0.5)]">
                             <div
                               className="grid grid-cols-20 grid-rows-15 gap-0.5 absolute inset-0.5"
@@ -1106,23 +1117,23 @@ export default function ThreeVs(props: any) {
                             </div>
                           </div>
                         </div>
-                        <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-4 relative`}>VOLUME</div>
-                        <div className="flex items-baseline pt-2">
-                          {section.negatives?.[0] === 1 && (
+                        <div className="flex flex-col items-center pt-2 absolute bottom-[-60px] xl:bottom-[-70px]">
+                          <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-2`}>VOLUME</div>
+                          <div className="flex items-baseline pt-2">
                             <span className='pr-1'>
-                              <Exclaimation />
+                              {section.negatives?.[0] === 1 && (
+                                <Exclaimation />
+                              )}
                             </span>
-                          )}
-                          <div className={`text-whiteLight3 text-sm xl:text-base relative ${DINish.className}`}>{section.notes?.[0]}</div>
+                            <div className={`text-whiteLight3 text-sm xl:text-base ${DINish.className}`}>{section.notes?.[0]}</div>
+                          </div>
                         </div>
                       </div>
                     </div>
-
-
-                    <div className='flex-none w-60 h-64 h-sm:h-[252px] h-md:h-72 h-md:w-72 lg:w-72 lg:h-72 xl:w-80 xl:h-72 3xl:w-[350px] 3xl:h-[320px]'>
-                      <div className='flex flex-col items-center h-full'>
-                        <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div>
-                        <div className={`flex flex-1 border border-dashed border-spacing-5 border-whiteLight2 w-full items-start ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>
+                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[185px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-dashed border-spacing-5 border-whiteLight2`}>
+                      <div className='flex flex-col items-center h-full relative'>
+                        {/* <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div> */}
+                        <div className={`flex flex-1 w-full items-start ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>
                           <div className='flex flex-col w-fit items-center justify-center'>
                             {section.setUpTime === 'MINUTES' && <Minutes />}
                             {section.setUpTime === 'HOURS' && <Hours />}
@@ -1130,14 +1141,18 @@ export default function ThreeVs(props: any) {
                             <div className={`${VT323.className} text-white text-lg font-semibold pt-2`}>{section.setUpTime}</div>
                           </div>
                         </div>
-                        <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-4`}>SETUP TIME</div>
-                        <div className="flex items-baseline pt-2">
-                          {section.negatives?.[3] === 1 && (
-                            <span className='pr-1'>
-                              <Exclaimation />
-                            </span>
-                          )}
-                          <div className={`text-whiteLight3 text-sm xl:text-base relative ${DINish.className}`}>{section.notes?.[3] ?? 'Time required to set up the system.'}</div>
+                        <div className={`flex flex-col items-center pt-2 absolute bottom-[-60px] xl:bottom-[-70px] ${section.title === 'Data Lakes' ? 'bottom-[-80px] xl:bottom-[-95px]' : ''}`}>
+                          <div className={`${DINish.className} text-whiteLight3 text-sm font-semibold pt-4`}>SETUP TIME</div>
+                          <div className={`flex pt-2 items-baseline text-whiteLight3 text-sm xl:text-base relative ${DINish.className} ${section.title === 'Data Lakes' ? 'max-w-[80%] mx-auto break-all text-center' : ''}`}>
+                            {
+                              section.negatives?.[3] === 1 && (
+                                <span className={`${section.title !== 'Data Lakes' ? 'pr-1' : ''}`}>
+                                  <Exclaimation />
+                                </span>
+                              )
+                            }
+                            <span>{section.notes?.[3] ?? 'Time required to set up the system.'}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1153,7 +1168,7 @@ export default function ThreeVs(props: any) {
             <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} />
           </div>
         </div>
-      </main>
+      </main >
     </>
   );
 }
