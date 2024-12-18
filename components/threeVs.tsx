@@ -947,7 +947,7 @@ export default function ThreeVs(props: any) {
                             behavior: 'smooth'
                           });
                         }}
-                        className="animate-bounce absolute w-16 bottom-0 left-[calc(50%-30px)] transform -translate-x-1/2 cursor-pointer z-10"
+                        className="hidden xl:block animate-bounce absolute w-16 bottom-0 left-[calc(50%-30px)] transform -translate-x-1/2 cursor-pointer z-10"
                       >
                         <svg
                           width="40"
