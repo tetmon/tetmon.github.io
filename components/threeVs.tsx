@@ -891,7 +891,7 @@ export default function ThreeVs(props: any) {
           </div>
         )}
 
-        <div className="h-screen overflow-y-scroll snap-y snap-mandatory outline-none" tabIndex={0} ref={rootRef}>
+        <div className="h-screen overflow-y-scroll xl:snap-y xl:snap-mandatory outline-none" tabIndex={0} ref={rootRef}>
           {sections.map((section, index) => (
             <div
               key={index}
@@ -929,7 +929,7 @@ export default function ThreeVs(props: any) {
                     <div className={`pt-16 text-whiteLight3 text-left text-lg leading-8 xl:leading-relaxed ${DINish.className} max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12 xl:text-base 2xl:text-lg`}>
                       This visual guide compares EdgeSet to traditional data processing systems like spreadsheets, databases, data warehouses, and data lakes in the context of the three V&apos;s of Big Data:
 
-                      <div className='text-lg hm:text-base pt-2 xl:hidden'>
+                      <div className='text-lg h-sm:text-base pt-2 xl:hidden'>
                         <span className="text-whiteLight3 font-semibold">Variety</span> - the variety of data types, <span className="text-whiteLight3 font-semibold">Velocity</span> - the speed at which data is processed, and <span className="text-whiteLight3 font-semibold">Volume</span> - the amount of data stored and analyzed.
                       </div>
 
