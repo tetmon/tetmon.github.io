@@ -34,7 +34,7 @@
     "href": "introduction.html",
     "title": "1  简介",
     "section": "",
-    "text": "图形用户界面\nEdgeSet 中的一切都可以通过一个网页的图形用户界面完成。无需学习任何命令或配置文件的编辑方法。\n但你并非被限制在了图形用户界面当中。 EdgeSet 提供了一个与 Presto 兼容的 API （编程应用接口）。你可以用任何使用 Presto 协议的工具或编程语言来进行连接。 EdgeSet 为所有的非查询功能提供了一个 REST API 。你可以借此来进行自动化，或者将 EdgeSet 整合进任何使用 HTTP 协议的系统。",
+    "text": "图形用户界面\nEdgeSet 是一个访问组织中数据的界面。根据应用行业不同，它可以被看做是一个虚拟数据仓库，一个数据结构系统（fabric），或者是一个数据整合系统。它为分散在组织中的数据库、表格、队列，以及大数据提供了一个统一的视图。\nEdgeSet 中的一切都可以通过一个网页的图形用户界面完成。无需学习任何命令或配置文件的编辑方法。\n但你并非被限制在了图形用户界面当中。 EdgeSet 提供了一个与 Presto 兼容的 API （编程应用接口）。你可以用任何使用 Presto 协议的工具或编程语言来进行连接。 EdgeSet 为所有的非查询功能提供了一个 REST API 。你可以借此来进行自动化，或者将 EdgeSet 整合进任何使用 HTTP 协议的系统。",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>简介</span>"
     ]
@@ -114,7 +114,7 @@
     "href": "setup.html",
     "title": "3  初始设置",
     "section": "",
-    "text": "3.1 DNS （可选）\n你可以使用 IP 地址访问 EdgeSet 服务器（比如 http://10.88.0.188/），但如果可以的话，你应该为它分配一个域名（比如 http://edgeset.your.org/）。这样可以使你注册一个受信任的 TLS 证书。",
+    "text": "3.1 DNS （可选）\n当你首次启动 EdgeSet 服务器时，它将开始（在 80 端口监听）等待网页请求。这时，它没有任何用户账户或身份验证。\n你可以使用 IP 地址访问 EdgeSet 服务器（比如 http://10.88.0.188/），但如果可以的话，你应该为它分配一个域名（比如 http://edgeset.your.org/）。这样可以使你注册一个受信任的 TLS 证书。",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>初始设置</span>"
     ]
@@ -154,7 +154,7 @@
     "href": "query-engine.html",
     "title": "5  查询引擎",
     "section": "",
-    "text": "5.1 重启引擎\n当你向 EdgeSet 添加一个新的数据源时，你需要重启查询引擎，以便 EdgeSet 连接到数据源上，并将数据映射到目录中。\n你也可以在“引擎”（Engine）菜单项随时重启查询引擎。",
+    "text": "5.1 重启引擎\n查询引擎将分析 SQL 查询并执行它。\n当你向 EdgeSet 添加一个新的数据源时，你需要重启查询引擎，以便 EdgeSet 连接到数据源上，并将数据映射到目录中。\n你也可以在“引擎”（Engine）菜单项随时重启查询引擎。",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>查询引擎</span>"
     ]
@@ -184,7 +184,7 @@
     "href": "query-notebook.html",
     "title": "7  查询笔记本",
     "section": "",
-    "text": "7.1 查询框\n当载入 EdgeSet 时，你将首先看到查询框。\n将 SQL 查询输入框中，再点击“运行”（Run）以运行查询。或者也可以使用 Ctrl+Enter 组合键。",
+    "text": "7.1 查询框\nEdgeSet 提供了一个笔记本式的界面来运行 SQL 查询。你也可以使用自己偏好的 Presto 兼容客户端运行查询（参见 客户端）。\n当载入 EdgeSet 时，你将首先看到查询框。\n将 SQL 查询输入框中，再点击“运行”（Run）以运行查询。或者也可以使用 Ctrl+Enter 组合键。",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>查询笔记本</span>"
     ]
@@ -214,7 +214,7 @@
     "href": "users-and-groups.html",
     "title": "8  用户和组",
     "section": "",
-    "text": "8.1 添加用户\n添加用户时，必须同时设置一个密码（而不是用现有的单一登录系统）。这样可以使用户能够使用其他的非网页 [客户端] 连接。",
+    "text": "8.1 添加用户\nEdgeSet 被设计用于在组织中供多人（以及许多程序）使用。你应当不止为使用 EdgeSet 的每个人创建一个用户，而是为访问 EdgeSet 的程序也创建一个用户，比如 cron 任务、共享仪表盘应用等。这样做可以更方便地设置合适地访问权限并在未来跟踪使用情况。\n添加用户时，必须同时设置一个密码（而不是用现有的单一登录系统）。这样可以使用户能够使用其他的非网页 [客户端] 连接。",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>用户和组</span>"
     ]
@@ -244,7 +244,7 @@
     "href": "permissions.html",
     "title": "9  权限",
     "section": "",
-    "text": "9.1 默认受限\nEdgeSet 的设计是用来保护你的敏感数据的。 EdgeSet 不会将新数据源的访问权限给予除管理员外的任何人，除非你给出了明确指示。在将访问权限给予非管理员前，你可以检查数据，并添加想要的模式（schema）、表格，或列级别的限定等。\n为了便于理解，我们将先展示如何给予访问权限，但你应当在给予数据源的访问之前应用限定。",
+    "text": "9.1 默认受限\nEdgeSet 允许你控制每一个数据源细至每一列的权限。这一权限系统的设计是为了简化数据访问的“民主化”：为组织中的所有人提供广泛的数据访问权限，但将敏感数据的访问限定在小范围的受信用户之中。然而，你也可以用 EdgeSet 的权限系统进行更保守和严格的权限管理。\n为了演示权限系统的运作方式，首先，我们将 EdgeSet 的内部 PostgreSQL 数据库作为一个数据源添加进来。\n在添加 edgeset 数据源，并重启查询引擎后，你可以在权限页面中看到 edgeset 数据源。因为 edgeset 是一个新数据源，它还没有被设置任何权限。但所有的数据源都总是可以被管理员访问。\nEdgeSet 的设计是用来保护你的敏感数据的。 EdgeSet 不会将新数据源的访问权限给予除管理员外的任何人，除非你给出了明确指示。在将访问权限给予非管理员前，你可以检查数据，并添加想要的模式（schema）、表格，或列级别的限定等。\n为了便于理解，我们将先展示如何给予访问权限，但你应当在给予数据源的访问之前应用限定。",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>权限</span>"
     ]
@@ -274,7 +274,7 @@
     "href": "clients.html",
     "title": "10  客户端",
     "section": "",
-    "text": "10.1 身份验证\n客户端使用和网页界面相同的用户名与密码进行连接。所有的连接都是通过 HTTPS 进行的，因此无论是密码还是数据都不会被未加密传输。",
+    "text": "10.1 身份验证\nEdgeSet 提供了一个 Presto 兼容的界面，可以通过任何兼容的第三方工具或编程语言连接。导航到 连接 （Connect）界面来查看经过 EdgeSet 工程师测试的客户端列表。\n这一列表并未穷尽所有的可能。也常常有新工具加入对 Presto 协议的支持。\n客户端使用和网页界面相同的用户名与密码进行连接。所有的连接都是通过 HTTPS 进行的，因此无论是密码还是数据都不会被未加密传输。",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>客户端</span>"
     ]
@@ -314,7 +314,7 @@
     "href": "backups.html",
     "title": "12  备份",
     "section": "",
-    "text": "12.1 恢复\n你可以在同一 管理员 页面通过点击 恢复 标签以恢复备份。点击 从备份恢复……，并选择一个你之前下载的备份文件。",
+    "text": "12.1 恢复\n如果你是管理员，你便可以随时导航至 管理员（Admin）页面下载备份文件。\n你可以在同一 管理员 页面通过点击 恢复 标签以恢复备份。点击 从备份恢复……，并选择一个你之前下载的备份文件。",
     "crumbs": [
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>备份</span>"
     ]
@@ -344,7 +344,7 @@
     "href": "scaling.html",
     "title": "13  规模缩放",
     "section": "",
-    "text": "13.1 只读副本\n对于大多数数据源来说， EdgeSet 的主要规模缩放方法是通过只读副本（read replica）实现的。如果可能的话， EdgeSet 将把查询的负载转交给数据源，因此面向 EdgeSet 的数据库的性能将决定查询的性能。\n一个实现高可缩放性，并对其他应用造成最小影响的简单架构，就是为所有支持的数据源都创建一个专用的 EdgeSet 只读副本。",
+    "text": "13.1 只读副本\nEdgeSet 的规模缩放（scaling）不同于传统的数据仓库。 EdgeSet 服务器的大小需要与它能支持的并发查询数量同步缩放，而并非它能访问的数据数量。\n对于大多数数据源来说， EdgeSet 的主要规模缩放方法是通过只读副本（read replica）实现的。如果可能的话， EdgeSet 将把查询的负载转交给数据源，因此面向 EdgeSet 的数据库的性能将决定查询的性能。\n一个实现高可缩放性，并对其他应用造成最小影响的简单架构，就是为所有支持的数据源都创建一个专用的 EdgeSet 只读副本。",
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>规模缩放</span>"
     ]
