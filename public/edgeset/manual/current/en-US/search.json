@@ -34,7 +34,7 @@
     "href": "introduction.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "GUI\nEverything in EdgeSet can be done through a graphical web interface. You don’t need to learn any commands or edit any configuration files.\nYou’re not limited to the GUI though. EdgeSet exposes a PostgreSQL-compatible interface and Presto-compatible API allowing you to connect from almost any tool or programming language.",
+    "text": "GUI\nEdgeSet is an interface to your organization’s data. Depending on your needs, you may use it as a virtual data warehouse, a data integration system, or a business intelligence tool. It presents a unified view of the databases, spreadsheets, and various other data sources spread across your organization.\nEverything in EdgeSet can be done through a graphical web interface. You don’t need to learn any commands or edit any configuration files.\nYou’re not limited to the GUI though. EdgeSet exposes a PostgreSQL-compatible interface and Presto-compatible API allowing you to connect from almost any tool or programming language.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -64,7 +64,7 @@
     "href": "installation.html",
     "title": "2  Installation",
     "section": "",
-    "text": "2.1 Desktop Application\nNote that the desktop application is a standalone EdgeSet installation: it does not require or support connecting to the web application. It is intended for use when the web application cannot be installed.",
+    "text": "2.1 Desktop Application\nEdgeSet can run either as a single-user desktop application or as a multi-user web application.\nNote that the desktop application is a standalone EdgeSet installation: it does not require or support connecting to the web application. It is intended for use when the web application cannot be installed.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Installation</span>"
     ]
@@ -94,7 +94,7 @@
     "href": "setup.html",
     "title": "3  Setup",
     "section": "",
-    "text": "3.1 DNS (optional)\nYou can navigate to your EdgeSet server using its IP address (e.g. http://10.88.0.188/), but you should assign it a domain name if possible (e.g. http://edgeset.your.org/). Doing so will allow you to register a trusted TLS certificate.",
+    "text": "3.1 DNS (optional)\nWhen your EdgeSet server boots for the first time, it begins listening for web requests (on TCP port 80). At this point, it does not have any user accounts or authentication.\nYou can navigate to your EdgeSet server using its IP address (e.g. http://10.88.0.188/), but you should assign it a domain name if possible (e.g. http://edgeset.your.org/). Doing so will allow you to register a trusted TLS certificate.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
     ]
@@ -134,7 +134,7 @@
     "href": "data-sources.html",
     "title": "4  Connect Data Sources",
     "section": "",
-    "text": "4.1 Google Sheets\nTo access Google Sheets, you need to:",
+    "text": "4.1 Google Sheets\nTo connect to a data source in EdgeSet, first navigate to “Connect” in the navigation bar. Available data sources are listed on the “Add new data source” card.\nYou can add any number of each data source type. For example, you can add multiple PostgreSQL databases.\nTo access Google Sheets, you need to:",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Connect Data Sources</span>"
     ]
@@ -164,7 +164,7 @@
     "href": "query-engine.html",
     "title": "5  Query Engine",
     "section": "",
-    "text": "5.1 Restarting the engine\nWhen you add a new data source to EdgeSet, you must restart the query engine in order for EdgeSet to connect to the data source and map the data into the catalog.\nYou can also restart the query engine any time from the Engine menu.",
+    "text": "5.1 Restarting the engine\nThe query engine does the work of breaking down a SQL query and executing it.\nWhen you add a new data source to EdgeSet, you must restart the query engine in order for EdgeSet to connect to the data source and map the data into the catalog.\nYou can also restart the query engine any time from the Engine menu.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Query Engine</span>"
     ]
@@ -204,7 +204,7 @@
     "href": "catalog.html",
     "title": "6  Catalog",
     "section": "",
-    "text": "6.1 Exploring tables\nClick the “play” icon next to a table to explore it in the query notebook.",
+    "text": "6.1 Exploring tables\nAt any time, you can click the Catalog tab to open and close the catalog sidebar.\nThe catalog is a tree view of all data sources. Tables in each data source are arranged in schemas.\nFor SQL data sources, these schemas and tables will correspond to those in the data source. For other non-SQL data sources, the schemas and table names will vary, based on how the data has been mapped by EdgeSet.\nClick the “play” icon next to a table to explore it in the query notebook.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Catalog</span>"
     ]
@@ -224,7 +224,7 @@
     "href": "query-notebook.html",
     "title": "7  Query Notebook",
     "section": "",
-    "text": "7.1 The query box\nThe query box is the first thing you see when navigating to the “Notebook” menu in EdgeSet.\nEnter your SQL query into the box and run the query by clicking Run or pressing Ctrl+Enter.",
+    "text": "7.1 The query box\nEdgeSet provides a notebook interface for running SQL queries. You can also run queries using your favorite Presto-compatible client (see Clients).\nThe query box is the first thing you see when navigating to the “Notebook” menu in EdgeSet.\nEnter your SQL query into the box and run the query by clicking Run or pressing Ctrl+Enter.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Query Notebook</span>"
     ]
@@ -264,7 +264,7 @@
     "href": "users-and-groups.html",
     "title": "8  Users and Groups",
     "section": "",
-    "text": "8.1 Adding users\nWhen creating users, you must assign a password (instead of using an existing single sign-on system). This is so that users can connect from other non-web [Clients].",
+    "text": "8.1 Adding users\nEdgeSet is designed to be used by many people (and programs) in your organization. You should create a user not just for each person who will be using EdgeSet but also for any programs that will be accessing EdgeSet, such as cron jobs or other applications. Doing so will make it easier to assign appropriate permissions and track usage later.\nWhen creating users, you must assign a password (instead of using an existing single sign-on system). This is so that users can connect from other non-web [Clients].",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Users and Groups</span>"
     ]
@@ -294,7 +294,7 @@
     "href": "permissions.html",
     "title": "9  Permissions",
     "section": "",
-    "text": "9.1 Restricted by default\nEdgeSet is designed to protect your sensitive data. EdgeSet doesn’t grant access to new data sources to anyone except admins until you’ve told it to. You can review the data and add all desired schema, table, and/or column-level restrictions before granting access to non-admins.\nWe will show how to grant access first to make the permissions system easier to understand, but you should apply restrictions before granting access to data sources.",
+    "text": "9.1 Restricted by default\nEdgeSet allows you to control access for each data source down to the column level. The permissions system is designed to make it simple to “democratize” access to data: to grant broad access to everyone in the organization but restrict access to sensitive data to a small set of trusted users. However, you can still use EdgeSet’s permission systems to manage more conservative and restrictive permissions.\nTo show how the permissions system works, we’ll start by adding Edgeset’s internal PostgreSQL database as a data source.\nAfter adding the edgeset data source and restarting the query engine, you can see the edgeset data source in the permissions panel. As edgeset is a new data source, it does not have any permissions assigned yet. All data sources can always be accessed by admins though.\nEdgeSet is designed to protect your sensitive data. EdgeSet doesn’t grant access to new data sources to anyone except admins until you’ve told it to. You can review the data and add all desired schema, table, and/or column-level restrictions before granting access to non-admins.\nWe will show how to grant access first to make the permissions system easier to understand, but you should apply restrictions before granting access to data sources.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Permissions</span>"
     ]
@@ -324,7 +324,7 @@
     "href": "clients.html",
     "title": "10  Clients",
     "section": "",
-    "text": "10.1 Authentication\nClients connect with the same username and password used for the EdgeSet web interface. All connections are encrypted, so neither passwords nor data are transmitted unencrypted.",
+    "text": "10.1 Authentication\nYou can connect to EdgeSet from any tool or programming language that supports either the PostgreSQL protocol or the Presto API. Navigate to the Connect menu to view a list of clients tested by EdgeSet engineers.\nThis list is not exhaustive.\nClients connect with the same username and password used for the EdgeSet web interface. All connections are encrypted, so neither passwords nor data are transmitted unencrypted.",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Clients</span>"
     ]
@@ -394,7 +394,7 @@
     "href": "backups.html",
     "title": "12  Backups",
     "section": "",
-    "text": "12.1 Restoring\nYou can restore from backup by clicking the Restore tab on the same Admin screen, clicking the Restore from backup…, and selecting a backup file you previously downloaded.",
+    "text": "12.1 Restoring\nYou can download a backup file at any time by navigating to the Admin link if you are an admin.\nYou can restore from backup by clicking the Restore tab on the same Admin screen, clicking the Restore from backup…, and selecting a backup file you previously downloaded.",
     "crumbs": [
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Backups</span>"
     ]
@@ -424,7 +424,7 @@
     "href": "scaling.html",
     "title": "13  Scaling",
     "section": "",
-    "text": "13.1 Read replicas\nThe primary method of scaling EdgeSet for most data sources is through read replicas. Since EdgeSet offloads queries whenever possible to the data source, the performance of the EdgeSet-facing database will determine query performance.\nA simple architecture for high scalability and minimal disruption to other applications is to create a dedicated EdgeSet read replica for all data sources that support them.",
+    "text": "13.1 Read replicas\nScaling EdgeSet is different than scaling a traditional data warehouse. The size of the EdgeSet server must scale with the number of concurrent queries it can run, rather than the amount of data it has access to.\nThe primary method of scaling EdgeSet for most data sources is through read replicas. Since EdgeSet offloads queries whenever possible to the data source, the performance of the EdgeSet-facing database will determine query performance.\nA simple architecture for high scalability and minimal disruption to other applications is to create a dedicated EdgeSet read replica for all data sources that support them.",
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Scaling</span>"
     ]
@@ -434,7 +434,7 @@
     "href": "tabular-files.html",
     "title": "14  Tabular Files",
     "section": "",
-    "text": "14.1 Column inference\nEach column of a tabular file can be of a certain type, such as integers or dates. EdgeSet will automatically infer the type of a column if all sampled cells in that column match a given type. (Note: We will use the term “cell” to refer to an individual row and column of any tabular file, whether it’s a spreadsheet or not).\nWhitespace1 is stripped from the beginning and end of each cell when inferring its type and converting it to a value.",
+    "text": "14.1 Column inference\nOne of EdgeSet’s distinctive features is its ability to query data in tabular (CSV, Google Sheets) files stored in various object storage systems. The data does not have to be prepared especially for EdgeSet; EdgeSet can infer appropriate tables from the files automatically.\nWhenever the query engine is restarted, EdgeSet retrieves a file listing from each connected cloud storage system. It then samples data from each file to determine if it’s a supported file. If so, it infers the names and types of each column. Finally, it collects matching (partitioned) files and creates tables from them.\nEach column of a tabular file can be of a certain type, such as integers or dates. EdgeSet will automatically infer the type of a column if all sampled cells in that column match a given type. (Note: We will use the term “cell” to refer to an individual row and column of any tabular file, whether it’s a spreadsheet or not).\nWhitespace1 is stripped from the beginning and end of each cell when inferring its type and converting it to a value.",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tabular Files</span>"
     ]
