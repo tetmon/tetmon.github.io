@@ -4,6 +4,29 @@ import Link from 'next/link'
 import Navbar from "@/components/navbar-tp";
 import { DINish, VT323 } from '../app/fonts';
 
+// Add debounce utility at the top level
+const debounce = (func: Function, wait: number) => {
+  let timeout: NodeJS.Timeout;
+
+  const debounced = (...args: any[]) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+
+  // Add cancel method to the debounced function
+  debounced.cancel = () => {
+    clearTimeout(timeout);
+  };
+
+  return debounced;
+};
+
+const hasCardParent = (element: HTMLElement | null): boolean => {
+  if (!element) return false;
+  if (element.dataset.card) return true;
+  return hasCardParent(element.parentElement);
+};
+
 const Keyboard: FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(true);
@@ -455,7 +478,7 @@ const colors = [
   { fill: "rgba(30, 106, 165, 0.4)", stroke: "rgb(144, 206, 255)" },
   { fill: "rgba(123, 159, 230, 0.2)", stroke: "rgb(202, 187, 255)" },
   { fill: "rgba(237, 109, 133, 0.2)", stroke: "rgb(255, 146, 167)" },
-  { fill: "rgba(75, 192, 192, 0.2)", stroke: "rgb(75, 192, 192)" },
+  { fill: "rgba(75, 192, 192, 0.3)", stroke: "rgb(75, 192, 192)" },
 ];
 
 const centerX = 150;
@@ -481,8 +504,10 @@ const clamp = (size: number, minSize: number, maxSize: number) => {
   return Math.min(Math.max(size, minSize), maxSize);
 };
 
-const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: string, value: number }>>, currentDataset: number, inline?: boolean, viewBox?: string }> = ({ activeSection, datasets, currentDataset, inline, viewBox }) => {
+const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: string, value: number }>>, currentDataset: number, inline?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null }> = ({ activeSection, datasets, currentDataset, inline, viewBox, hoveredCard }) => {
   const [hoveredAxis, setHoveredAxis] = useState<string | null>(null);
+  // Add new state to track hovered legend item
+  const [hoveredLegend, setHoveredLegend] = useState<number | null>(null);
   const [vb, setViewBox] = useState("");
 
   useEffect(() => {
@@ -514,160 +539,196 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
   }, []);
 
   return (
-    (viewBox || vb) ? <svg
-      width="300"
-      height="300"
-      viewBox={viewBox || vb}
-      className="pointer-events-none w-[200px] h-[170px] animate-fade-in"
-      focusable="false"
-      aria-hidden="true"
-    >
-      {/* Background circles only */}
-      {[0.25, 0.5, 0.75, 1].map((level) => (
-        <circle
-          key={level}
-          cx={centerX}
-          cy={centerY}
-          r={radius * level}
-          fill="none"
-          stroke="rgba(255, 255, 255, 0.4)"
-          strokeWidth="1"
-        />
-      ))}
-
-      {/* Add this inside the main SVG, before the paths */}
-      <defs>
-        <pattern
-          id={`diagonalHatch-${activeSection}-${inline ? 'inline' : ''}`}
-          patternUnits="userSpaceOnUse"
-          width="4"
-          height="4"
-          patternTransform="rotate(45 2 2)"
+    (viewBox || vb) ?
+      <>
+        <svg
+          width="300"
+          height="300"
+          viewBox={viewBox || vb}
+          className="pointer-events-none w-[200px] h-[170px] animate-fade-in"
+          focusable="false"
+          aria-hidden="true"
         >
-          <line
-            x1="0"
-            y1="0"
-            x2="0"
-            y2="4"
-            stroke="rgba(75, 192, 192, 0.5)"
-            strokeWidth="1"
-          />
-        </pattern>
-      </defs>
-
-      {/* Dataset path */}
-
-      {activeSection !== 0 && (
-        <path
-          key={currentDataset}
-          d={generateShapePath(datasets[currentDataset])}
-          fill={`url(#diagonalHatch-${activeSection}-${inline ? 'inline' : ''})`}
-          stroke={colors[currentDataset].stroke}
-          strokeWidth="2"
-          className="transition-all duration-500 pointer-events-none z-0"
-        />
-      )}
-      {activeSection === 0 && (
-        <path
-          d={generateShapePath(datasets[datasets.length - 1])}
-          fill={`url(#diagonalHatch-${activeSection}-${inline ? 'inline' : ''})`}
-          stroke={colors[datasets.length - 1].stroke}
-          strokeWidth={datasets.length - 1 !== 4 ? "1" : "2"}
-          strokeOpacity={datasets.length - 1 !== 4 ? "0" : "1"}
-          className="pointer-events-none"
-        />
-      )}
-
-      {/* Axis lines */}
-      {datasets[0].map((d, i) => {
-        const angle = (Math.PI * 2 * i) / datasets[0].length;
-        const x2 = centerX + radius * Math.cos(angle - Math.PI / 2);
-        const y2 = centerY + radius * Math.sin(angle - Math.PI / 2);
-
-        // Calculate label position with dynamic offset
-        let labelOffset = 23;
-        if (d.axis === 'VARIETY') labelOffset = 45;
-        if (d.axis === 'VELOCITY') labelOffset = 45;
-
-        const labelX = centerX + (radius + labelOffset) * Math.cos(angle - Math.PI / 2);
-        const labelY = centerY + (radius + labelOffset) * Math.sin(angle - Math.PI / 2);
-
-        return (
-          <g key={i} focusable="false" aria-hidden="true">
-            <line
-              x1={centerX}
-              y1={centerY}
-              x2={x2}
-              y2={y2}
-              stroke="rgba(255, 255, 255, 0.6)"
+          {/* Background circles only */}
+          {[0.25, 0.5, 0.75, 1].map((level) => (
+            <circle
+              key={level}
+              cx={centerX}
+              cy={centerY}
+              r={radius * level}
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.4)"
               strokeWidth="1"
             />
+          ))}
 
-            <text
-              x={labelX}
-              y={labelY}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fontFamily={DINish.style.fontFamily}
-              fontWeight="bold"
-              fontSize={"14"}
-              fill="rgb(255, 255, 255, 0.8)"
-              className={`${hoveredAxis === d.axis
-                ? i === 0 ? 'animate-scale-in-6y2' : 'animate-scale-in-6y' // New animation class that starts after scale-in-5
-                : ''
-                }`}
+          {/* Add this inside the main SVG, before the paths */}
+          <defs>
+            <pattern
+              id={`diagonalHatch-${activeSection}-${inline ? 'inline' : ''}`}
+              patternUnits="userSpaceOnUse"
+              width="4"
+              height="4"
+              patternTransform="rotate(45 2 2)"
             >
-              {d.axis}
-            </text>
+              <line
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="4"
+                stroke="rgba(75, 192, 192, 0.5)"
+                strokeWidth="1"
+              />
+            </pattern>
+          </defs>
 
-            {/* Scale labels */}
-            {hoveredAxis === d.axis && [0.25, 0.5, 0.75, 1].map((level, idx) => {
-              // Calculate offset based on axis position
-              const labelOffset = 10; // Add a 15px offset
-              const labelAngle = angle - Math.PI / 2;
-              const labelX = centerX + ((radius * level) + labelOffset) * Math.cos(labelAngle);
-              const labelY = centerY + ((radius * level) + labelOffset) * Math.sin(labelAngle);
+          {/* Dataset path */}
 
-              return (
-                <g key={`label-${level}`} focusable="false" aria-hidden="true">
-                  <text
-                    x={labelX}
-                    y={labelY}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="rgba(255, 255, 255, 1)"
-                    fontSize="10"
-                    fontWeight="bold"
-                    fontFamily={DINish.style.fontFamily}
-                    className={`opacity-0 ${idx === 0 ? 'animate-scale-in-1' :
-                      idx === 1 ? 'animate-scale-in-2' :
-                        idx === 2 ? 'animate-scale-in-3' :
-                          idx === 3 ? 'animate-scale-in-4' :
-                            'animate-scale-in-5'
-                      }`}
-                  >
-                    {getLabelsForAxis(d.axis)[idx]}
-                  </text>
-                </g>
-              );
-            })}
-
-            {/* Make only the interactive line have pointer events */}
-            <line
-              x1={centerX}
-              y1={centerY}
-              x2={x2}
-              y2={y2}
-              stroke="transparent"
-              strokeWidth="40"
-              className="cursor-pointer pointer-events-auto"
-              onMouseEnter={() => setHoveredAxis(d.axis)}
-              onMouseLeave={() => setHoveredAxis(null)}
+          {activeSection !== 0 && (
+            <path
+              key={currentDataset}
+              d={generateShapePath(datasets[currentDataset])}
+              fill={`url(#diagonalHatch-${activeSection}-${inline ? 'inline' : ''})`}
+              stroke={colors[currentDataset].stroke}
+              strokeWidth="2"
+              className="transition-all duration-500 pointer-events-none z-0"
             />
-          </g>
-        );
-      })}
-    </svg> : <></>
+          )}
+          {activeSection === 0 && (
+            // Show all paths in intro section
+            datasets.map((dataset, index) => (
+              <path
+                key={index}
+                d={generateShapePath(dataset)}
+                fill={index === datasets.length - 1 ? colors[index].fill : colors[index].fill}
+                stroke={colors[index].stroke}
+                strokeWidth={hoveredLegend === index ? 1 : index === datasets.length - 1 ? 1 : 0.5}
+                opacity={hoveredLegend === index ? 1 : hoveredLegend !== null ? 0 : (index === datasets.length - 1 ? 1 : 0.8)}
+                strokeDasharray={index === datasets.length - 1 ? "none" : "3 3"}
+                className="transition-all duration-300"
+              />
+            ))
+          )}
+
+          {/* Axis lines */}
+          {datasets[0].map((d, i) => {
+            const angle = (Math.PI * 2 * i) / datasets[0].length;
+            const x2 = centerX + radius * Math.cos(angle - Math.PI / 2);
+            const y2 = centerY + radius * Math.sin(angle - Math.PI / 2);
+
+            // Calculate label position with dynamic offset
+            let labelOffset = 23;
+            if (d.axis === 'VARIETY') labelOffset = 45;
+            if (d.axis === 'VELOCITY') labelOffset = 45;
+
+            const labelX = centerX + (radius + labelOffset) * Math.cos(angle - Math.PI / 2);
+            const labelY = centerY + (radius + labelOffset) * Math.sin(angle - Math.PI / 2);
+
+            return (
+              <g key={i} focusable="false" aria-hidden="true">
+                <line
+                  x1={centerX}
+                  y1={centerY}
+                  x2={x2}
+                  y2={y2}
+                  stroke="rgba(255, 255, 255, 0.3)"
+                  strokeWidth="1"
+                />
+
+                <text
+                  x={labelX}
+                  y={labelY}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontFamily={DINish.style.fontFamily}
+                  fontWeight="bold"
+                  fontSize={"14"}
+                  fill="rgb(255, 255, 255, 0.8)"
+                  className={`${hoveredAxis === d.axis || hoveredCard === d.axis || activeSection === 0
+                    ? i === 0 ? 'animate-scale-in-6y2' : 'animate-scale-in-6y'
+                    : i === 0 ? 'animate-scale-out-6y2' : 'animate-scale-out-6y'
+                    }`}
+                >
+                  {d.axis}
+                </text>
+
+                {/* Scale labels */}
+                {(hoveredAxis === d.axis || hoveredCard === d.axis || activeSection === 0) && [0.25, 0.5, 0.75, 1].map((level, idx) => {
+                  // Calculate offset based on axis position
+                  const labelOffset = 10; // Add a 15px offset
+                  const labelAngle = angle - Math.PI / 2;
+                  const labelX = centerX + ((radius * level) + labelOffset) * Math.cos(labelAngle);
+                  const labelY = centerY + ((radius * level) + labelOffset) * Math.sin(labelAngle);
+
+                  return (
+                    <g key={`label-${level}`} focusable="false" aria-hidden="true">
+                      <text
+                        x={labelX}
+                        y={labelY}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="rgba(255, 255, 255, 0.7)"
+                        fontSize="10"
+                        fontWeight="bold"
+                        fontFamily={DINish.style.fontFamily}
+                        className={`opacity-0 ${idx === 0 ? 'animate-scale-in-1' :
+                          idx === 1 ? 'animate-scale-in-2' :
+                            idx === 2 ? 'animate-scale-in-3' :
+                              idx === 3 ? 'animate-scale-in-4' :
+                                'animate-scale-in-5'
+                          }`}
+                      >
+                        {getLabelsForAxis(d.axis)[idx]}
+                      </text>
+                    </g>
+                  );
+                })}
+
+                {/* Make only the interactive line have pointer events */}
+                <line
+                  x1={centerX}
+                  y1={centerY}
+                  x2={x2}
+                  y2={y2}
+                  stroke="transparent"
+                  strokeWidth="40"
+                  className="cursor-pointer pointer-events-auto"
+                  onMouseEnter={() => setHoveredAxis(d.axis)}
+                  onMouseLeave={() => setHoveredAxis(null)}
+                />
+              </g>
+            );
+          })}
+        </svg>
+
+        {/* Legends */}
+        {activeSection === 0 && (
+          <div className="absolute bottom-[-180px] left-1/2 transform -translate-x-1/2 flex gap-4 items-center text-xs whitespace-nowrap w-96 justify-center flex-wrap pointer-events-auto">
+            {menuItems.map((item, index) => (
+              <div
+                key={item}
+                className="flex items-center gap-2 cursor-pointer"
+                onMouseEnter={() => setHoveredLegend(index)}
+                onMouseLeave={() => setHoveredLegend(null)}
+              >
+                <div
+                  className="w-3 h-[10px] transition-all duration-300 rounded-sm"
+                  style={{
+                    backgroundColor: colors[index].stroke,
+                    opacity: hoveredLegend === null || hoveredLegend === index ? 1 : 0.4
+                  }}
+                />
+                <span className={` ${hoveredLegend === index ? 'text-white' : 'text-white/80'} ${DINish.className} transition-all duration-300`}
+
+                >
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </>
+      : <></>
   )
 }
 
@@ -832,17 +893,30 @@ export default function ThreeVs(props: any) {
   const [currentDataset, setCurrentDataset] = useState(0);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const [activeSection, setActiveSection] = useState(0);
+  // Add new state at the component level
+  const [hoveredCard, setHoveredCard] = useState<'VARIETY' | 'VELOCITY' | 'VOLUME' | null>(null);
+
   // Add this near your other state declarations at the top of the component
 
+  // Add new state for tracking scroll
+  const scrollingRef = useRef(false);
+  let scrollTimeout: NodeJS.Timeout;
+  // Modify the scroll handler in useEffect
   useEffect(() => {
     const handleScroll = () => {
-      if (!rootRef.current || !(rootRef.current instanceof HTMLElement)) return;
+      scrollingRef.current = true;
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      scrollTimeout = setTimeout(() => {
+        scrollingRef.current = false;
+      }, 100);
 
+      if (!rootRef.current || !(rootRef.current instanceof HTMLElement)) return;
       const scrollTop = rootRef.current.scrollTop;
       const sectionHeight = rootRef.current.clientHeight;
       const currentSection = Math.round(scrollTop / sectionHeight);
 
-      // Subtract 1 from currentSection to account for intro section
       setCurrentDataset(Math.max(0, Math.min(currentSection - 1, sections.length - 1)));
       setActiveSection(Math.min(currentSection, sections.length - 1));
     };
@@ -860,6 +934,28 @@ export default function ThreeVs(props: any) {
       }
     };
   }, []);
+
+  const documentMove = (e: any) => {
+    if (!hasCardParent(e.target)) {
+      console.log('setting hovered card to null', e.target, e.relatedTarget, e.currentTarget)
+      setHoveredCard(null);
+      document.body.removeEventListener('mousemove', documentMove);
+    }
+  }
+
+  useEffect(() => {
+    document.body.removeEventListener('mousemove', documentMove);
+    if (hoveredCard) {
+      document.body.addEventListener('mousemove', documentMove)
+    }
+  }, [hoveredCard])
+
+
+  // Create debounced handlers
+  const debouncedSetHoveredCard = debounce((value: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null) => {
+    setHoveredCard(value);
+  }, 300);
+
 
   return (
     <>
@@ -922,7 +1018,7 @@ export default function ThreeVs(props: any) {
                         </div>
                       </div>
                       <div className="pl-10 hidden lg:max-xl:block relative top-7 right-4">
-                        <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} viewBox="0 0 220 220" />
+                        <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} viewBox="0 0 220 220" hoveredCard={hoveredCard} />
                       </div>
                     </div>
 
@@ -972,7 +1068,7 @@ export default function ThreeVs(props: any) {
                   </div>
                 </>
               ) : (
-                <div className=" col-start-2 col-span-10 flex flex-col">
+                <div className={`col-start-2 col-span-10 flex flex-col`}>
                   <div className="flex flex-col md:col-start-2 md:col-span-6 col-start-1 col-span-full">
                     <h2 className={`${DINish.className} text-2xl font-bold mb-4 text-white col-start-2`}>
                       {section.title}
@@ -983,11 +1079,21 @@ export default function ThreeVs(props: any) {
                   </div>
 
                   <div className="col-start-1 col-span-full flex flex-1 justify-center items-center xl:hidden">
-                    <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} />
+                    <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} hoveredCard={hoveredCard} />
                   </div>
 
-                  <div className="flex w-full overflow-x-auto gap-x-4 basis-64 xl:grid xl:grid-cols-2 xl:gap-y-2 xl:flex-1 xl:pt-16 xl:max-w-3xl 3xl:gap-x-10">
-                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[185px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6`}>
+                  <div className={`flex w-full overflow-x-auto gap-x-4 basis-64 xl:grid xl:grid-cols-2 xl:gap-y-2 xl:flex-1 xl:pt-16 xl:max-w-3xl 3xl:gap-x-10 `} data-card='root'>
+                    <div
+                      className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[205px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6 hover:bg-whiteLight_1_5 transition-all duration-300`}
+                      onMouseEnter={() => {
+                        debouncedSetHoveredCard.cancel()
+                        setHoveredCard('VARIETY')
+                      }}
+                      onMouseLeave={() => {
+                        !scrollingRef.current && debouncedSetHoveredCard(null)
+                      }}
+                      data-card='variety'
+                    >
                       <div className='flex flex-col items-center h-full relative'>
                         <div className={`flex flex-1 w-full h-full items-start ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>
                           {section.varietyTypes?.includes('user') && (
@@ -1040,8 +1146,13 @@ export default function ThreeVs(props: any) {
                         </div>
                       </div>
                     </div>
-                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[185px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6`}>
-                      <div className="flex flex-col items-center h-full relative">
+                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[205px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6 hover:bg-whiteLight_1_5 transition-all duration-300`} data-card='velocity'>
+                      <div className="flex flex-col items-center h-full relative" onMouseEnter={() => {
+                        debouncedSetHoveredCard.cancel()
+                        setHoveredCard('VELOCITY')
+                      }} onMouseLeave={() => {
+                        !scrollingRef.current && debouncedSetHoveredCard(null)
+                      }}>
                         <div className={`flex flex-1 w-full items-start ${section.velocityTypes?.length === 1 ? 'justify-center items-center' : 'grid grid-cols-2 items-center justify-items-center'}`}>
                           {section.velocityTypes?.includes('streaming') && (
                             <div className='flex flex-col w-fit justify-center items-center mt-2'>
@@ -1090,8 +1201,13 @@ export default function ThreeVs(props: any) {
                         </div>
                       </div>
                     </div>
-                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[185px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6`}>
-                      <div className="flex flex-col items-center h-full relative">
+                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[205px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-whiteLight2 bg-whiteLight_0_6 hover:bg-whiteLight_1_5 transition-all duration-300`} data-card='volume'>
+                      <div className="flex flex-col items-center h-full relative" onMouseEnter={() => {
+                        debouncedSetHoveredCard.cancel()
+                        setHoveredCard('VOLUME')
+                      }} onMouseLeave={() => {
+                        !scrollingRef.current && debouncedSetHoveredCard(null)
+                      }}>
                         <div className={`${VT323.className} z-10 text-lg font-semibold px-2 absolute top-[10px] text-white border border-[rgba(255,255,255,0.5)]`}
                           style={{
                             backgroundColor: section.color
@@ -1134,7 +1250,7 @@ export default function ThreeVs(props: any) {
                         </div>
                       </div>
                     </div>
-                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[185px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-dashed border-spacing-5 border-whiteLight2`}>
+                    <div className={`flex-none w-[70%] min-w-[260px] max-w-[280px] h-[65%] max-h-[240px] xl:max-w-[320px] xl:max-h-[205px] xl:min-w-[320px] 3xl:max-w-[350px] 3xl:w-[95%] 3xl:max-h-[215px] border border-dashed border-spacing-5 border-whiteLight2`} data-card='setup'>
                       <div className='flex flex-col items-center h-full relative'>
                         {/* <div className={`${VT323.className} text-white text-lg font-semibold pb-2 invisible`}>{section.volumeText}</div> */}
                         <div className={`flex flex-1 w-full items-start ${section.varietyTypes?.length === 1 ? 'justify-center items-center' : 'gap-4'}`}>
@@ -1167,9 +1283,9 @@ export default function ThreeVs(props: any) {
           ))}
         </div>
 
-        <div className='hidden xl:block col-span-6 fixed top-52 right-[10%] x-1440:right-[17%] w-fit px-8 pointer-events-none'>
+        <div className='hidden xl:block col-span-6 fixed top-60 right-[10%] x-1440:right-[17%] w-fit px-8 pointer-events-none'>
           <div className='flex justify-end items-start'>
-            <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} />
+            <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} hoveredCard={hoveredCard} />
           </div>
         </div>
       </main >

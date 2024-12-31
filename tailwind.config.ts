@@ -21,6 +21,7 @@ const config: Config = {
         borderLight: "#bbd1d9",
         whiteLight: "rgba(255, 255, 255, 0.2)",
         whiteLight_0_6: "rgba(255, 255, 255, 0.06)",
+        whiteLight_1_5: "rgba(255, 255, 255, 0.15)",
         whiteLight2: "rgba(255, 255, 255, 0.5)",
         whiteLight3: "rgba(255, 255, 255, 0.8)"
       },
@@ -213,6 +214,34 @@ const config: Config = {
             opacity: '1'
           }
         },
+        'scale-out-6y': {
+          '0%': {
+            transform: 'translateY(15px)',
+            fontSize: '14px',
+            fill: '#ffffff',
+            opacity: '1'
+          },
+          '16.67%, 100%': {
+            opacity: '0.8',
+            transform: 'translateY(0)',
+            fontSize: '13px',
+            fill: '#ffffff'
+          }
+        },
+        'scale-out-6y2': {
+          '0%': {
+            transform: 'translateY(-18px)',
+            fontSize: '14px',
+            fill: '#ffffff',
+            opacity: '1'
+          },
+          '16.67%, 100%': {
+            opacity: '0.8',
+            transform: 'translateY(0)',
+            fontSize: '13px',
+            fill: '#ffffff'
+          }
+        },
         'keyboard-up': {
           '0%, 100%': { backgroundColor: 'transparent' },
           '50%': { backgroundColor: 'rgb(255, 255, 255, 0.5)' },
@@ -255,6 +284,8 @@ const config: Config = {
         'scale-in-5': 'scaleIn 0.3s ease-out 0.4s forwards',
         'scale-in-6y': 'scale-in-6y 0.3s ease-out forwards',
         'scale-in-6y2': 'scale-in-6y2 0.3s ease-out forwards',
+        'scale-out-6y': 'scale-out-6y 0.5s ease-out forwards',
+        'scale-out-6y2': 'scale-out-6y2 0.5s ease-out forwards',
         'keyboard-up': 'keyboard-up 0.8s ease-in-out 3',
         'keyboard-down': 'keyboard-down 0.8s ease-in-out 3',
       },
