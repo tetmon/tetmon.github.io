@@ -504,7 +504,7 @@ const clamp = (size: number, minSize: number, maxSize: number) => {
   return Math.min(Math.max(size, minSize), maxSize);
 };
 
-const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: string, value: number }>>, currentDataset: number, inline?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null }> = ({ activeSection, datasets, currentDataset, inline, viewBox, hoveredCard }) => {
+const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null }> = ({ id, overlay, viewBox, hoveredCard }) => {
   const [hoveredAxis, setHoveredAxis] = useState<string | null>(null);
   // Add new state to track hovered legend item
   const [hoveredLegend, setHoveredLegend] = useState<number | null>(null);
@@ -565,7 +565,7 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
           {/* Add this inside the main SVG, before the paths */}
           <defs>
             <pattern
-              id={`diagonalHatch-${activeSection}-${inline ? 'inline' : ''}`}
+              id={`diagonalHatch-${id}`}
               patternUnits="userSpaceOnUse"
               width="4"
               height="4"
@@ -584,17 +584,17 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
 
           {/* Dataset path */}
 
-          {activeSection !== 0 && (
+          {!overlay && id !== undefined && (
             <path
-              key={currentDataset}
-              d={generateShapePath(datasets[currentDataset])}
-              fill={`url(#diagonalHatch-${activeSection}-${inline ? 'inline' : ''})`}
-              stroke={colors[currentDataset].stroke}
+              key={id}
+              d={generateShapePath(datasets[id])}
+              fill={`url(#diagonalHatch-${id})`}
+              stroke={colors[id].stroke}
               strokeWidth="2"
               className="transition-all duration-500 pointer-events-none z-0"
             />
           )}
-          {activeSection === 0 && (
+          {overlay && (
             // Show all paths in intro section
             datasets.map((dataset, index) => (
               <path
@@ -644,7 +644,7 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
                   fontWeight="bold"
                   fontSize={"14"}
                   fill="rgb(255, 255, 255, 0.8)"
-                  className={`${hoveredAxis === d.axis || hoveredCard === d.axis || activeSection === 0
+                  className={`${hoveredAxis === d.axis || hoveredCard === d.axis || overlay
                     ? i === 0 ? 'animate-scale-in-6y2' : 'animate-scale-in-6y'
                     : i === 0 ? 'animate-scale-out-6y2' : 'animate-scale-out-6y'
                     }`}
@@ -653,7 +653,7 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
                 </text>
 
                 {/* Scale labels */}
-                {(hoveredAxis === d.axis || hoveredCard === d.axis || activeSection === 0) && [0.25, 0.5, 0.75, 1].map((level, idx) => {
+                {(hoveredAxis === d.axis || hoveredCard === d.axis || overlay) && [0.25, 0.5, 0.75, 1].map((level, idx) => {
                   // Calculate offset based on axis position
                   const labelOffset = 10; // Add a 15px offset
                   const labelAngle = angle - Math.PI / 2;
@@ -702,7 +702,7 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
         </svg>
 
         {/* Legends */}
-        {activeSection === 0 && (
+        {overlay && (
           <div className="absolute bottom-[-140px] xl:bottom-[-160px] left-1/2 transform -translate-x-1/2 flex gap-4 items-center text-xs whitespace-nowrap w-96 justify-center flex-wrap pointer-events-auto">
             {menuItems.map((item, index) => (
               <div
@@ -798,6 +798,7 @@ const sections = [
     isIntro: true // Special flag for intro section
   },
   {
+    id: 0,
     title: "Spreadsheets",
     text: "Traditional spreadsheets handle small volumes of structured data with basic data types and manual updates.",
     color: "#1a6b26",
@@ -816,6 +817,7 @@ const sections = [
     setUpTime: "MINUTES"
   },
   {
+    id: 1,
     title: "Databases",
     text: "Databases introduce better data management with increased velocity through real-time transactions.",
     color: "#1e6aa5",
@@ -834,6 +836,7 @@ const sections = [
     setUpTime: "HOURS"
   },
   {
+    id: 2,
     title: "Data Warehouses",
     text: "Data warehouse is a centralized repository for structured data. It uses an ETL process to clean and organize data, supporting business intelligence and reporting tasks.",
     color: "#7160ae",
@@ -852,6 +855,7 @@ const sections = [
     setUpTime: "MONTHS"
   },
   {
+    id: 3,
     title: "Data Lakes",
     text: "Data lake is a storage system that holds massive amounts of raw data in its native format, supporting flexible analytics and querying without pre-defined schemas.",
     color: "#94496f",
@@ -871,6 +875,7 @@ const sections = [
     setUpTime: "MONTHS"
   },
   {
+    id: 4,
     title: "EdgeSet",
     text: "EdgeSet is a data integration platform that reduces ETL/ELT processes and enables real-time analytics across diverse, large-scale data sources without moving the data.",
     color: "#215f74", // Or use the actual hex color if you prefer,
@@ -890,11 +895,12 @@ const sections = [
 ];
 
 export default function ThreeVs(props: any) {
-  const [currentDataset, setCurrentDataset] = useState(0);
+  // const [currentDataset, setCurrentDataset] = useState(0);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const [activeSection, setActiveSection] = useState(0);
   // Add new state at the component level
   const [hoveredCard, setHoveredCard] = useState<'VARIETY' | 'VELOCITY' | 'VOLUME' | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Add this near your other state declarations at the top of the component
 
@@ -917,7 +923,6 @@ export default function ThreeVs(props: any) {
       const sectionHeight = rootRef.current.clientHeight;
       const currentSection = Math.round(scrollTop / sectionHeight);
 
-      setCurrentDataset(Math.max(0, Math.min(currentSection - 1, sections.length - 1)));
       setActiveSection(Math.min(currentSection, sections.length - 1));
     };
 
@@ -928,10 +933,17 @@ export default function ThreeVs(props: any) {
 
     rootRef.current?.focus();
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1280);
+    }
+    setIsMobile(window.innerWidth < 1280);
+    window.addEventListener('resize', handleResize);
+
     return () => {
       if (container) {
         container.removeEventListener('scroll', handleScroll);
       }
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -1018,13 +1030,13 @@ export default function ThreeVs(props: any) {
                         </div>
                       </div>
                       <div className="pl-10 hidden lg:max-xl:block relative top-7 right-4">
-                        <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} viewBox="0 0 220 220" hoveredCard={hoveredCard} />
+                        {!isMobile && <RadarChart overlay={true} viewBox="0 0 220 220" hoveredCard={hoveredCard} />}
                       </div>
                     </div>
 
                     <div className='flex justify-center h-[500px] xl:hidden'>
                       <div className='relative top-28 w-[265px] h-[200px]'>
-                        <RadarChart activeSection={0} datasets={datasets} currentDataset={currentDataset} inline={true} viewBox="0 0 220 220" hoveredCard={hoveredCard} />
+                        {isMobile && <RadarChart overlay={true} viewBox="0 0 220 220" hoveredCard={hoveredCard} />}
                       </div>
                     </div>
 
@@ -1085,7 +1097,7 @@ export default function ThreeVs(props: any) {
                   </div>
 
                   <div className="col-start-1 col-span-full flex flex-1 justify-center items-center xl:hidden">
-                    <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} inline={true} hoveredCard={hoveredCard} />
+                    {isMobile && <RadarChart id={section.id} hoveredCard={hoveredCard} />}
                   </div>
 
                   <div className={`flex w-full overflow-x-auto gap-x-4 basis-64 xl:grid xl:grid-cols-2 xl:gap-y-2 xl:flex-1 xl:pt-16 xl:max-w-3xl 3xl:gap-x-10 `} data-card='root'>
@@ -1289,11 +1301,11 @@ export default function ThreeVs(props: any) {
           ))}
         </div>
 
-        <div className='hidden xl:block col-span-6 fixed top-60 right-[10%] x-1440:right-[17%] w-fit px-8 pointer-events-none'>
+        {!isMobile && <div className='hidden xl:block col-span-6 fixed top-60 right-[10%] x-1440:right-[17%] w-fit px-8 pointer-events-none'>
           <div className='flex justify-end items-start'>
-            <RadarChart activeSection={activeSection} datasets={datasets} currentDataset={currentDataset} hoveredCard={hoveredCard} />
+            <RadarChart id={activeSection === 0 ? undefined : activeSection - 1} overlay={activeSection === 0} hoveredCard={hoveredCard} />
           </div>
-        </div>
+        </div>}
       </main >
     </>
   );
