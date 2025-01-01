@@ -703,7 +703,7 @@ const RadarChart: FC<{ activeSection: number, datasets: Array<Array<{ axis: stri
 
         {/* Legends */}
         {activeSection === 0 && (
-          <div className="absolute bottom-[-180px] left-1/2 transform -translate-x-1/2 flex gap-4 items-center text-xs whitespace-nowrap w-96 justify-center flex-wrap pointer-events-auto">
+          <div className="absolute bottom-[-140px] xl:bottom-[-160px] left-1/2 transform -translate-x-1/2 flex gap-4 items-center text-xs whitespace-nowrap w-96 justify-center flex-wrap pointer-events-auto">
             {menuItems.map((item, index) => (
               <div
                 key={item}
@@ -991,13 +991,13 @@ export default function ThreeVs(props: any) {
           {sections.map((section, index) => (
             <div
               key={index}
-              className='h-screen snap-start pt-6 md:pt-24 md:gap-x-12 grid grid-cols-12 2xl:px-24 relative min-h-[667px]'
+              className={`${section.isIntro ? 'pb-10 xl:h-screen xl:pb-0' : 'h-screen'} ${section.title === 'Data Lakes' ? 'pb-6 xl:pb-0' : ''}  snap-start pt-6 md:pt-24 md:gap-x-12 grid grid-cols-12 2xl:px-24 relative min-h-[667px]`}
               style={{ backgroundColor: section.color }}
             >
               {section.isIntro ? (
                 <>
                   <Navbar showMenu={true} />
-                  <div className="col-span-10 col-start-2 h-full">
+                  <div className="col-span-10 col-start-2 h-full flex flex-col">
                     <Link href="/blog" className='flex items-center pt-12 md:pt-2 col-start-1 col-span-full text-whiteLight3'>
                       <svg viewBox="0 0 24 24" width={17} height={17} fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 9H16.5C18.9853 9 21 11.0147 21 13.5C21 15.9853 18.9853 18 16.5 18H12M3 9L7 5M3 9L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -1022,10 +1022,16 @@ export default function ThreeVs(props: any) {
                       </div>
                     </div>
 
-                    <div className={`pt-16 text-whiteLight3 text-left text-lg leading-8 xl:leading-relaxed ${DINish.className} max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12 xl:text-base 2xl:text-lg`}>
+                    <div className='flex justify-center h-[500px] xl:hidden'>
+                      <div className='relative top-28 w-[300px] h-[200px]'>
+                        <RadarChart activeSection={0} datasets={datasets} currentDataset={currentDataset} inline={true} viewBox="0 0 220 220" hoveredCard={hoveredCard} />
+                      </div>
+                    </div>
+
+                    <div className={`pt-6 xl:pt-16 basis-64 text-whiteLight3 text-left text-base leading-7 xl:leading-relaxed ${DINish.className} max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12 xl:text-base 2xl:text-lg`}>
                       This visual guide compares EdgeSet to traditional data processing systems like spreadsheets, databases, data warehouses, and data lakes in the context of the three V&apos;s of Big Data:
 
-                      <div className='text-lg h-sm:text-base pt-2 xl:hidden'>
+                      <div className='text-base leading-7 pt-2 xl:hidden'>
                         <span className="text-whiteLight3 font-semibold">Variety</span> - the variety of data types, <span className="text-whiteLight3 font-semibold">Velocity</span> - the speed at which data is processed, and <span className="text-whiteLight3 font-semibold">Volume</span> - the amount of data stored and analyzed.
                       </div>
 
