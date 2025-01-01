@@ -1023,7 +1023,7 @@ export default function ThreeVs(props: any) {
                     </div>
 
                     <div className='flex justify-center h-[500px] xl:hidden'>
-                      <div className='relative top-28 w-[300px] h-[200px]'>
+                      <div className='relative top-28 w-[265px] h-[200px]'>
                         <RadarChart activeSection={0} datasets={datasets} currentDataset={currentDataset} inline={true} viewBox="0 0 220 220" hoveredCard={hoveredCard} />
                       </div>
                     </div>
