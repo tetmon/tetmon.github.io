@@ -597,18 +597,21 @@ const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hovered
             )}
             {overlay && (
               // Show all paths in intro section
-              datasets.map((dataset, index) => (
-                <path
-                  key={index}
-                  d={generateShapePath(dataset)}
-                  fill={index === datasets.length - 1 ? colors[index].fill : colors[index].fill}
-                  stroke={colors[index].stroke}
-                  strokeWidth={hoveredLegend === index ? 1 : index === datasets.length - 1 ? 1 : 0.5}
-                  opacity={hoveredLegend === index ? 1 : hoveredLegend !== null ? 0 : (index === datasets.length - 1 ? 1 : 0.8)}
-                  strokeDasharray={index === datasets.length - 1 ? "none" : "3 3"}
-                  className="transition-all duration-300"
-                />
-              ))
+              Array.from(datasets).reverse().map((dataset, index) => {
+                let reverseIndex = datasets.length - 1 - index;
+                return (
+                  <path
+                    key={index}
+                    d={generateShapePath(dataset)}
+                    fill={reverseIndex === datasets.length - 1 ? colors[reverseIndex].fill : colors[reverseIndex].fill}
+                    stroke={colors[reverseIndex].stroke}
+                    strokeWidth={hoveredLegend === reverseIndex ? 1 : reverseIndex === datasets.length - 1 ? 1 : 1}
+                    opacity={hoveredLegend === reverseIndex ? 1 : hoveredLegend !== null ? 0 : (reverseIndex === datasets.length - 1 ? 1 : 1)}
+                    strokeDasharray={reverseIndex === datasets.length - 1 ? "none" : "none"}
+                    className="transition-all duration-300"
+                  />
+                )
+              })
             )}
 
             {/* Axis lines */}
