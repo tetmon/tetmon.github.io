@@ -991,7 +991,7 @@ export default function ThreeVs(props: any) {
           {sections.map((section, index) => (
             <div
               key={index}
-              className={`${section.isIntro ? 'pb-10 xl:h-screen xl:pb-0' : 'h-screen'} ${section.title === 'Data Lakes' ? 'pb-6 xl:pb-0' : ''}  snap-start pt-6 md:pt-24 md:gap-x-12 grid grid-cols-12 2xl:px-24 relative min-h-[667px]`}
+              className={`${section.isIntro ? 'pb-6 xl:h-screen xl:pb-0' : 'h-screen'} ${section.title === 'Data Lakes' ? 'pb-6 xl:pb-0' : ''}  snap-start pt-6 md:pt-24 md:gap-x-12 grid grid-cols-12 2xl:px-24 relative min-h-[667px]`}
               style={{ backgroundColor: section.color }}
             >
               {section.isIntro ? (
@@ -1028,7 +1028,7 @@ export default function ThreeVs(props: any) {
                       </div>
                     </div>
 
-                    <div className={`pt-6 xl:pt-16 basis-64 text-whiteLight3 text-left text-base leading-7 xl:leading-relaxed ${DINish.className} max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12 xl:text-base 2xl:text-lg`}>
+                    <div className={`xl:pt-16 basis-64 text-whiteLight3 text-left text-base leading-7 xl:leading-relaxed ${DINish.className} max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12 xl:text-base 2xl:text-lg`}>
                       This visual guide compares EdgeSet to traditional data processing systems like spreadsheets, databases, data warehouses, and data lakes in the context of the three V&apos;s of Big Data:
 
                       <div className='text-base leading-7 pt-2 xl:hidden'>
