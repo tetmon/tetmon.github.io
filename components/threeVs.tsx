@@ -606,7 +606,7 @@ const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hovered
                     fill={reverseIndex === datasets.length - 1 ? colors[reverseIndex].fill : colors[reverseIndex].fill}
                     stroke={colors[reverseIndex].stroke}
                     strokeWidth={hoveredLegend === reverseIndex ? 1 : reverseIndex === datasets.length - 1 ? 1 : 1}
-                    opacity={hoveredLegend === reverseIndex ? 1 : hoveredLegend !== null ? 0 : (reverseIndex === datasets.length - 1 ? 1 : 1)}
+                    opacity={hoveredLegend === reverseIndex ? 1 : hoveredLegend !== null ? 0 : (reverseIndex === datasets.length - 1 ? 1 : 0.6)}
                     strokeDasharray={reverseIndex === datasets.length - 1 ? "none" : "none"}
                     className="transition-all duration-300"
                   />
