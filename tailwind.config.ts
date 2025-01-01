@@ -292,6 +292,7 @@ const config: Config = {
       screens: {
         'xs': '480px',
         'x-390': '390px',
+        'x-1400': '1400px',
         'x-1440': '1440px',
         '3xl': '1600px',
         'x-1227': '1227px',
