@@ -24,7 +24,7 @@ const Footer = () => (
     <ul className='col-start-5 col-end-[-1] grid [grid-template-columns:subgrid] grid-rows-2 place-items-center max-h-32 pt-5'>
       <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-[-3] md:col-start-[-4] col-span-1 row-start-1`}><a href="/faq" className='hover:underline'>FAQ</a></li>
       <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-4 col-span-1 row-start-2`}><a href="/about" className='hover:underline'>About</a></li>
-      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-4 col-span-1 row-start-1`}><a href="/edgeset/manual/current/en-US/" className='hover:underline'>Documentation</a></li>
+      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-4 col-span-1 row-start-1`}><a href="/edgeset/manual/current/en-US/_book/" className='hover:underline'>Documentation</a></li>
       <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-[-3] col-span-1 row-start-2 md:col-start-[-4]`}><a href="/blog" className='hover:underline'>Blog</a></li>
     </ul>
 
