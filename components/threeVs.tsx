@@ -541,7 +541,7 @@ const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hovered
   return (
     (viewBox || vb) ?
       <div className='flex flex-col items-center'>
-        <div className='flex items-center justify-center h-[300px] pt-20'>
+        <div className='flex items-center justify-center h-[300px]'>
           <svg
             width="300"
             height="300"
