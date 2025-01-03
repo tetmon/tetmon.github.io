@@ -504,7 +504,7 @@ const clamp = (size: number, minSize: number, maxSize: number) => {
   return Math.min(Math.max(size, minSize), maxSize);
 };
 
-const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null, left?: number }> = ({ id, overlay, viewBox, hoveredCard, left }) => {
+const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null, left?: number, top?: number }> = ({ id, overlay, viewBox, hoveredCard, left, top }) => {
   const [hoveredAxis, setHoveredAxis] = useState<string | null>(null);
   // Add new state to track hovered legend item
   const [hoveredLegend, setHoveredLegend] = useState<number | null>(null);
@@ -525,7 +525,7 @@ const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hovered
 
       // Center the viewBox
       const offset = left || 150 - (size / 2);
-      setViewBox(`${offset} 0 ${clamp(size, minSize, maxSize)} ${clamp(size, minSize, maxSize)}`);
+      setViewBox(`${offset} ${top || 0} ${clamp(size, minSize, maxSize)} ${clamp(size, minSize, maxSize)}`);
     };
 
     // Initial check
@@ -1043,7 +1043,7 @@ export default function ThreeVs(props: any) {
                     </div>
 
                     <div className='flex justify-center xl:hidden pt-5'>
-                      {isMobile && <RadarChart overlay={true} left={50} hoveredCard={hoveredCard} />}
+                      {isMobile && <RadarChart overlay={true} left={10} top={-80} hoveredCard={hoveredCard} />}
                     </div>
 
                     <div className={`pt-16 pb-10 basis-64 text-whiteLight3 text-left text-base leading-7 xl:leading-relaxed ${DINish.className} xl:max-w-2xl 2xl:max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12 xl:text-base 2xl:text-lg 4xl:text-2xl 4xl:leading-9 4xl:max-w-3xl`}>
@@ -1309,7 +1309,7 @@ export default function ThreeVs(props: any) {
           ))}
         </div>
 
-        {!isMobile && <div className='hidden xl:block col-span-6 fixed top-32 xl:right-0 xl-1368:right-[calc(35vw-448px)] xl-1440:right-[calc(40vw-448px)] 4xl:scale-y-115 4xl:scale-x-115 w-fit px-8 pointer-events-none'>
+        {!isMobile && <div className='hidden xl:block col-span-6 fixed top-44 xl:right-0 xl-1368:right-[calc(35vw-448px)] xl-1440:right-[calc(40vw-448px)] 4xl:scale-y-115 4xl:scale-x-115 w-fit px-8 pointer-events-none'>
           <div className='flex justify-end items-start'>
             <RadarChart id={activeSection === 0 ? undefined : activeSection - 1} overlay={activeSection === 0} left={60} hoveredCard={hoveredCard} />
           </div>
