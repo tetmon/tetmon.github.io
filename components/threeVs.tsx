@@ -538,6 +538,8 @@ const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hovered
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const paddingTop = 60 * (200 / parseInt((viewBox || vb).split(' ')[3]));
+
   return (
     (viewBox || vb) ?
       <div className='flex flex-col items-center'>
@@ -708,7 +710,9 @@ const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hovered
 
         {/* Legends */}
         {overlay ? (
-          <div className="flex gap-4 pt-4 xl:pt-24 items-center text-xs whitespace-nowrap w-96 justify-center flex-wrap pointer-events-auto">
+          <div className="flex gap-4 pt-4 xl:pt-24 items-center text-xs whitespace-nowrap w-96 justify-center flex-wrap pointer-events-auto" style={{
+            paddingTop: `${paddingTop}px`
+          }}>
             {menuItems.map((item, index) => (
               <div
                 key={item}
@@ -1039,7 +1043,7 @@ export default function ThreeVs(props: any) {
                     </div>
 
                     <div className='flex justify-center xl:hidden pt-5'>
-                      {isMobile && <RadarChart overlay={true} left={40} hoveredCard={hoveredCard} />}
+                      {isMobile && <RadarChart overlay={true} left={50} hoveredCard={hoveredCard} />}
                     </div>
 
                     <div className={`pt-16 pb-10 basis-64 text-whiteLight3 text-left text-base leading-7 xl:leading-relaxed ${DINish.className} xl:max-w-2xl 2xl:max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12 xl:text-base 2xl:text-lg 4xl:text-2xl 4xl:leading-9 4xl:max-w-3xl`}>
