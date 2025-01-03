@@ -1100,7 +1100,7 @@ export default function ThreeVs(props: any) {
                     </div>
 
                     <div className="col-start-1 col-span-full flex flex-1 justify-center items-center xl:hidden">
-                      {isMobile && <RadarChart id={section.id} viewBox="40 0 220 220" hoveredCard={hoveredCard} />}
+                      {isMobile && <RadarChart id={section.id} left={40} hoveredCard={hoveredCard} />}
                     </div>
 
                     <div className={`flex w-full overflow-x-auto gap-x-4 basis-64 xl:grid xl:grid-cols-2 xl:flex-1 xl:pt-16 xl:max-w-3xl 3xl:gap-x-10 max-h-[800px]`} data-card='root'>
