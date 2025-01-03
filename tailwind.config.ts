@@ -14,6 +14,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      scale: {
+        '115': '1.15',
+      },
       colors: {
         primary: "#215f74",
         highlight: "#3f788b",
@@ -291,10 +294,10 @@ const config: Config = {
       },
       screens: {
         'xs': '480px',
-        'x-390': '390px',
-        'x-1400': '1400px',
-        'x-1440': '1440px',
+        'xl-1368': '1368px',
+        'xl-1440': '1440px',
         '3xl': '1600px',
+        '4xl': '1700px',
         'x-1227': '1227px',
         'h-sm': { 'raw': '(min-height: 640px) and (max-height: 767px) and (max-width: 932px)' },
         'h-md': { 'raw': '(min-height: 768px) and (max-height: 1023px) and (max-width: 932px)' },

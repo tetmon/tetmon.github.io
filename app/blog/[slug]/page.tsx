@@ -79,7 +79,7 @@ export default async function Post({ params }: Props) {
   const { date, time, author } = postData;
 
   return (
-    params.slug === 'the-3vs-of-bigdata' ? <ThreeVs /> : (
+    params.slug === 'the-threeVs-of-data' ? <ThreeVs /> : (
       <>
         <section className='m-auto max-w-lg px-5 py-14 lg:max-w-6xl'>
           {/* Post Title */}

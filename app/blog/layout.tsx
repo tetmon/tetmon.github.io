@@ -7,13 +7,13 @@ import { usePathname } from "next/navigation";
 
 export default function Layout({ children }: PropsWithChildren) {
   const pathname = usePathname();
-  const isMainBlogPage = pathname !== '/blog/the-3vs-of-bigdata';
+  const isMainBlogPage = pathname !== '/blog/the-threeVs-of-data';
 
   return (
     <main>
-      {pathname !== '/blog/the-3vs-of-bigdata' && <Navbar />}
+      {pathname !== '/blog/the-threeVs-of-data' && <Navbar />}
       {children}
-      {pathname !== '/blog/the-3vs-of-bigdata' && <Footer />}
+      {pathname !== '/blog/the-threeVs-of-data' && <Footer />}
     </main>
   );
 }
