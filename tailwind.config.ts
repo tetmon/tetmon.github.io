@@ -297,7 +297,7 @@ const config: Config = {
         'xl-1368': '1368px',
         'xl-1440': '1440px',
         '3xl': '1600px',
-        '4xl': '1700px',
+        '4xl': '1920px',
         'x-1227': '1227px',
         'h-sm': { 'raw': '(min-height: 640px) and (max-height: 767px) and (max-width: 932px)' },
         'h-md': { 'raw': '(min-height: 768px) and (max-height: 1023px) and (max-width: 932px)' },
