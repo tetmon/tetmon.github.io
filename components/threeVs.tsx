@@ -504,7 +504,7 @@ const clamp = (size: number, minSize: number, maxSize: number) => {
   return Math.min(Math.max(size, minSize), maxSize);
 };
 
-const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null, width: string, height: string }> = ({ id, overlay, hoveredCard, width, height }) => {
+const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null, width?: string, height?: string }> = ({ id, overlay, hoveredCard, width, height }) => {
   const [hoveredAxis, setHoveredAxis] = useState<string | null>(null);
   // Add new state to track hovered legend item
   const [hoveredLegend, setHoveredLegend] = useState<number | null>(null);
