@@ -508,236 +508,203 @@ const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hovered
   const [hoveredAxis, setHoveredAxis] = useState<string | null>(null);
   // Add new state to track hovered legend item
   const [hoveredLegend, setHoveredLegend] = useState<number | null>(null);
-  const [vb, setViewBox] = useState("");
-
-  useEffect(() => {
-    const handleResize = () => {
-      const minSize = 190;
-      const maxSize = window.innerWidth < 1280 ? 350 : 300;
-      const minHeight = 600; // Minimum height threshold
-      const maxHeight = 1000; // Maximum height threshold
-
-      // Calculate size based on window height
-      const maxH = Math.max(window.innerHeight, minHeight);
-      const size = Math.round(
-        maxSize - ((maxH - minHeight) / (maxHeight - minHeight)) * (maxSize - minSize)
-      );
-
-      // Center the viewBox
-      const offset = left || 150 - (size / 2);
-      setViewBox(`${offset} ${top || 0} ${clamp(size, minSize, maxSize)} ${clamp(size, minSize, maxSize)}`);
-    };
-
-    // Initial check
-    handleResize();
-
-    // Add event listener
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const paddingTop = 60 * (200 / parseInt((viewBox || vb).split(' ')[3]));
 
   return (
-    (viewBox || vb) ?
-      <div className='flex flex-col items-center'>
-        <div className='flex items-center justify-center h-[300px]'>
-          <svg
-            width="300"
-            height="300"
-            viewBox={viewBox || vb}
-            className="pointer-events-none w-[200px] h-[170px] animate-fade-in"
-            focusable="false"
-            aria-hidden="true"
-          >
-            {/* Background circles only */}
-            {[0.25, 0.5, 0.75, 1].map((level) => (
-              <circle
-                key={level}
-                cx={centerX}
-                cy={centerY}
-                r={radius * level}
-                fill="none"
-                stroke="rgba(255, 255, 255, 0.4)"
+    <div className='flex flex-col items-center'>
+      <div className='flex items-center justify-center w-[250px] h-[250px] xl:w-[280px] xl:h-[280px] 4xl:w-[320px] 4xl:h-[320px]'>
+        <svg
+          width="100%"
+          height="100%"
+          viewBox={"0 0 300 300"}
+          className="pointer-events-none animate-fade-in max-w-full"
+          focusable="false"
+          aria-hidden="true"
+        >
+          {/* Background circles only */}
+          {[0.25, 0.5, 0.75, 1].map((level) => (
+            <circle
+              key={level}
+              cx={centerX}
+              cy={centerY}
+              r={radius * level}
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.4)"
+              strokeWidth="1"
+            />
+          ))}
+
+          {/* Add this inside the main SVG, before the paths */}
+          <defs>
+            <pattern
+              id={`diagonalHatch-${id}`}
+              patternUnits="userSpaceOnUse"
+              width="4"
+              height="4"
+              patternTransform="rotate(45 2 2)"
+            >
+              <line
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="4"
+                stroke="rgba(75, 192, 192, 0.5)"
                 strokeWidth="1"
               />
-            ))}
+            </pattern>
+          </defs>
 
-            {/* Add this inside the main SVG, before the paths */}
-            <defs>
-              <pattern
-                id={`diagonalHatch-${id}`}
-                patternUnits="userSpaceOnUse"
-                width="4"
-                height="4"
-                patternTransform="rotate(45 2 2)"
-              >
+          {/* Dataset path */}
+
+          {!overlay && id !== undefined && (
+            <path
+              key={id}
+              d={generateShapePath(datasets[id])}
+              fill={`url(#diagonalHatch-${id})`}
+              stroke={colors[id].stroke}
+              strokeWidth="2"
+              className="transition-all duration-500 pointer-events-none z-0"
+            />
+          )}
+          {overlay && (
+            // Show all paths in intro section
+            Array.from(datasets).reverse().map((dataset, index) => {
+              let reverseIndex = datasets.length - 1 - index;
+              return (
+                <path
+                  key={index}
+                  d={generateShapePath(dataset)}
+                  fill={reverseIndex === datasets.length - 1 ? colors[reverseIndex].fill : colors[reverseIndex].fill}
+                  stroke={colors[reverseIndex].stroke}
+                  strokeWidth={hoveredLegend === reverseIndex ? 1 : reverseIndex === datasets.length - 1 ? 1 : 1}
+                  opacity={hoveredLegend === reverseIndex ? 1 : hoveredLegend !== null ? 0 : (reverseIndex === datasets.length - 1 ? 1 : 0.6)}
+                  strokeDasharray={reverseIndex === datasets.length - 1 ? "none" : "none"}
+                  className="transition-all duration-300"
+                />
+              )
+            })
+          )}
+
+          {/* Axis lines */}
+          {datasets[0].map((d, i) => {
+            const angle = (Math.PI * 2 * i) / datasets[0].length;
+            const x2 = centerX + radius * Math.cos(angle - Math.PI / 2);
+            const y2 = centerY + radius * Math.sin(angle - Math.PI / 2);
+
+            // Calculate label position with dynamic offset
+            let labelOffset = 23;
+            if (d.axis === 'VARIETY') labelOffset = 45;
+            if (d.axis === 'VELOCITY') labelOffset = 45;
+
+            const labelX = centerX + (radius + labelOffset) * Math.cos(angle - Math.PI / 2);
+            const labelY = centerY + (radius + labelOffset) * Math.sin(angle - Math.PI / 2);
+
+            return (
+              <g key={i} focusable="false" aria-hidden="true">
                 <line
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="4"
-                  stroke="rgba(75, 192, 192, 0.5)"
+                  x1={centerX}
+                  y1={centerY}
+                  x2={x2}
+                  y2={y2}
+                  stroke="rgba(255, 255, 255, 0.3)"
                   strokeWidth="1"
                 />
-              </pattern>
-            </defs>
 
-            {/* Dataset path */}
-
-            {!overlay && id !== undefined && (
-              <path
-                key={id}
-                d={generateShapePath(datasets[id])}
-                fill={`url(#diagonalHatch-${id})`}
-                stroke={colors[id].stroke}
-                strokeWidth="2"
-                className="transition-all duration-500 pointer-events-none z-0"
-              />
-            )}
-            {overlay && (
-              // Show all paths in intro section
-              Array.from(datasets).reverse().map((dataset, index) => {
-                let reverseIndex = datasets.length - 1 - index;
-                return (
-                  <path
-                    key={index}
-                    d={generateShapePath(dataset)}
-                    fill={reverseIndex === datasets.length - 1 ? colors[reverseIndex].fill : colors[reverseIndex].fill}
-                    stroke={colors[reverseIndex].stroke}
-                    strokeWidth={hoveredLegend === reverseIndex ? 1 : reverseIndex === datasets.length - 1 ? 1 : 1}
-                    opacity={hoveredLegend === reverseIndex ? 1 : hoveredLegend !== null ? 0 : (reverseIndex === datasets.length - 1 ? 1 : 0.6)}
-                    strokeDasharray={reverseIndex === datasets.length - 1 ? "none" : "none"}
-                    className="transition-all duration-300"
-                  />
-                )
-              })
-            )}
-
-            {/* Axis lines */}
-            {datasets[0].map((d, i) => {
-              const angle = (Math.PI * 2 * i) / datasets[0].length;
-              const x2 = centerX + radius * Math.cos(angle - Math.PI / 2);
-              const y2 = centerY + radius * Math.sin(angle - Math.PI / 2);
-
-              // Calculate label position with dynamic offset
-              let labelOffset = 23;
-              if (d.axis === 'VARIETY') labelOffset = 45;
-              if (d.axis === 'VELOCITY') labelOffset = 45;
-
-              const labelX = centerX + (radius + labelOffset) * Math.cos(angle - Math.PI / 2);
-              const labelY = centerY + (radius + labelOffset) * Math.sin(angle - Math.PI / 2);
-
-              return (
-                <g key={i} focusable="false" aria-hidden="true">
-                  <line
-                    x1={centerX}
-                    y1={centerY}
-                    x2={x2}
-                    y2={y2}
-                    stroke="rgba(255, 255, 255, 0.3)"
-                    strokeWidth="1"
-                  />
-
-                  <text
-                    x={labelX}
-                    y={labelY}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fontFamily={DINish.style.fontFamily}
-                    fontWeight="bold"
-                    fontSize={"14"}
-                    fill="rgb(255, 255, 255, 0.8)"
-                    className={`${hoveredAxis === d.axis || hoveredCard === d.axis || overlay
-                      ? i === 0 ? 'animate-scale-in-6y2' : 'animate-scale-in-6y'
-                      : i === 0 ? 'animate-scale-out-6y2' : 'animate-scale-out-6y'
-                      }`}
-                  >
-                    {d.axis}
-                  </text>
-
-                  {/* Scale labels */}
-                  {(hoveredAxis === d.axis || hoveredCard === d.axis || overlay) && [0.25, 0.5, 0.75, 1].map((level, idx) => {
-                    // Calculate offset based on axis position
-                    const labelOffset = 10; // Add a 15px offset
-                    const labelAngle = angle - Math.PI / 2;
-                    const labelX = centerX + ((radius * level) + labelOffset) * Math.cos(labelAngle);
-                    const labelY = centerY + ((radius * level) + labelOffset) * Math.sin(labelAngle);
-
-                    return (
-                      <g key={`label-${level}`} focusable="false" aria-hidden="true">
-                        <text
-                          x={labelX}
-                          y={labelY}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          fill="rgba(255, 255, 255, 0.7)"
-                          fontSize="10"
-                          fontWeight="bold"
-                          fontFamily={DINish.style.fontFamily}
-                          className={`opacity-0 ${idx === 0 ? 'animate-scale-in-1' :
-                            idx === 1 ? 'animate-scale-in-2' :
-                              idx === 2 ? 'animate-scale-in-3' :
-                                idx === 3 ? 'animate-scale-in-4' :
-                                  'animate-scale-in-5'
-                            }`}
-                        >
-                          {getLabelsForAxis(d.axis)[idx]}
-                        </text>
-                      </g>
-                    );
-                  })}
-
-                  {/* Make only the interactive line have pointer events */}
-                  <line
-                    x1={centerX}
-                    y1={centerY}
-                    x2={x2}
-                    y2={y2}
-                    stroke="transparent"
-                    strokeWidth="40"
-                    className="cursor-pointer pointer-events-auto"
-                    onMouseEnter={() => setHoveredAxis(d.axis)}
-                    onMouseLeave={() => setHoveredAxis(null)}
-                  />
-                </g>
-              );
-            })}
-          </svg>
-        </div>
-
-        {/* Legends */}
-        {overlay ? (
-          <div className="flex gap-4 pt-4 xl:pt-24 items-center text-xs whitespace-nowrap w-96 justify-center flex-wrap pointer-events-auto" style={{
-            paddingTop: `${paddingTop}px`
-          }}>
-            {menuItems.map((item, index) => (
-              <div
-                key={item}
-                className="flex items-center gap-2 cursor-pointer"
-                onMouseEnter={() => setHoveredLegend(index)}
-                onMouseLeave={() => setHoveredLegend(null)}
-              >
-                <div
-                  className="w-3 h-[10px] transition-all duration-300 rounded-sm"
-                  style={{
-                    backgroundColor: colors[index].stroke,
-                    opacity: hoveredLegend === null || hoveredLegend === index ? 1 : 0.4
-                  }}
-                />
-                <span className={` ${hoveredLegend === index ? 'text-white' : 'text-white/80'} ${DINish.className} transition-all duration-300`}
-
+                <text
+                  x={labelX}
+                  y={labelY}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontFamily={DINish.style.fontFamily}
+                  fontWeight="bold"
+                  fontSize={"14"}
+                  fill="rgb(255, 255, 255, 0.8)"
+                  className={`${hoveredAxis === d.axis || hoveredCard === d.axis || overlay
+                    ? i === 0 ? 'animate-scale-in-6y2' : 'animate-scale-in-6y'
+                    : i === 0 ? 'animate-scale-out-6y2' : 'animate-scale-out-6y'
+                    }`}
                 >
-                  {item}
-                </span>
-              </div>
-            ))}
-          </div>
-        ) : <div className='invisible w-96' />}
+                  {d.axis}
+                </text>
+
+                {/* Scale labels */}
+                {(hoveredAxis === d.axis || hoveredCard === d.axis || overlay) && [0.25, 0.5, 0.75, 1].map((level, idx) => {
+                  // Calculate offset based on axis position
+                  const labelOffset = 10; // Add a 15px offset
+                  const labelAngle = angle - Math.PI / 2;
+                  const labelX = centerX + ((radius * level) + labelOffset) * Math.cos(labelAngle);
+                  const labelY = centerY + ((radius * level) + labelOffset) * Math.sin(labelAngle);
+
+                  return (
+                    <g key={`label-${level}`} focusable="false" aria-hidden="true">
+                      <text
+                        x={labelX}
+                        y={labelY}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="rgba(255, 255, 255, 0.7)"
+                        fontSize="10"
+                        fontWeight="bold"
+                        fontFamily={DINish.style.fontFamily}
+                        className={`opacity-0 ${idx === 0 ? 'animate-scale-in-1' :
+                          idx === 1 ? 'animate-scale-in-2' :
+                            idx === 2 ? 'animate-scale-in-3' :
+                              idx === 3 ? 'animate-scale-in-4' :
+                                'animate-scale-in-5'
+                          }`}
+                      >
+                        {getLabelsForAxis(d.axis)[idx]}
+                      </text>
+                    </g>
+                  );
+                })}
+
+                {/* Make only the interactive line have pointer events */}
+                <line
+                  x1={centerX}
+                  y1={centerY}
+                  x2={x2}
+                  y2={y2}
+                  stroke="transparent"
+                  strokeWidth="40"
+                  className="cursor-pointer pointer-events-auto"
+                  onMouseEnter={() => setHoveredAxis(d.axis)}
+                  onMouseLeave={() => setHoveredAxis(null)}
+                />
+              </g>
+            );
+          })}
+        </svg>
       </div>
-      : <></>
+
+      {/* Legends */}
+      {overlay ? (
+        <div className="flex gap-4 pt-4 xl:pt-24 items-center text-xs whitespace-nowrap w-96 justify-center flex-wrap pointer-events-auto" style={{
+          paddingTop: `30px`
+        }}>
+          {menuItems.map((item, index) => (
+            <div
+              key={item}
+              className="flex items-center gap-2 cursor-pointer"
+              onMouseEnter={() => setHoveredLegend(index)}
+              onMouseLeave={() => setHoveredLegend(null)}
+            >
+              <div
+                className="w-3 h-[10px] transition-all duration-300 rounded-sm"
+                style={{
+                  backgroundColor: colors[index].stroke,
+                  opacity: hoveredLegend === null || hoveredLegend === index ? 1 : 0.4
+                }}
+              />
+              <span className={` ${hoveredLegend === index ? 'text-white' : 'text-white/80'} ${DINish.className} transition-all duration-300`}
+
+              >
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      ) : <div className='invisible w-96' />}
+    </div>
   )
 }
 
@@ -1026,7 +993,7 @@ export default function ThreeVs(props: any) {
                     </Link>
                     <div className="flex pt-11">
                       <div className='flex flex-col'>
-                        <h1 className={`${DINish.className} text-3xl leading-10 md:text-4xl md:!leading-[50px] xl:text-5xl text-left text-white xl:!leading-[64px] font-semibold max-w-3xl 2xl:max-w-4xl h-sm:text-2xl`}>
+                        <h1 className={`${DINish.className} text-3xl leading-10 md:text-4xl md:!leading-[50px] xl:text-5xl text-left text-white xl:!leading-[64px] font-semibold xl:max-w-4xl h-sm:text-2xl`}>
                           The Three V&apos;s of Data - How EdgeSet is transforming data processing
                         </h1>
                         <div className="flex flex-row gap-x-1 pt-10">
@@ -1042,8 +1009,8 @@ export default function ThreeVs(props: any) {
                       </div> */}
                     </div>
 
-                    <div className='flex justify-center xl:hidden pt-5'>
-                      {isMobile && <RadarChart overlay={true} left={10} top={-80} hoveredCard={hoveredCard} />}
+                    <div className='flex justify-center xl:hidden pt-28'>
+                      {isMobile && <RadarChart overlay={true} hoveredCard={hoveredCard} />}
                     </div>
 
                     <div className={`pt-16 pb-10 basis-64 text-whiteLight3 text-left text-base leading-7 xl:leading-relaxed ${DINish.className} xl:max-w-2xl 2xl:max-w-3xl h-sm:text-base h-sm:leading-7 h-sm:pt-12 xl:text-base 2xl:text-lg 4xl:text-2xl 4xl:leading-9 4xl:max-w-3xl`}>
@@ -1104,7 +1071,7 @@ export default function ThreeVs(props: any) {
                     </div>
 
                     <div className="col-start-1 col-span-full flex flex-1 justify-center items-center xl:hidden">
-                      {isMobile && <RadarChart id={section.id} left={40} hoveredCard={hoveredCard} />}
+                      {isMobile && <RadarChart id={section.id} hoveredCard={hoveredCard} />}
                     </div>
 
                     <div className={`flex w-full overflow-x-auto gap-x-4 basis-64 xl:grid xl:grid-cols-2 xl:flex-1 xl:pt-16 xl:max-w-3xl 3xl:gap-x-10 max-h-[800px]`} data-card='root'>
@@ -1309,7 +1276,7 @@ export default function ThreeVs(props: any) {
           ))}
         </div>
 
-        {!isMobile && <div className='hidden xl:block col-span-6 fixed top-44 xl:right-0 xl-1368:right-[calc(35vw-448px)] xl-1440:right-[calc(40vw-448px)] 4xl:scale-y-115 4xl:scale-x-115 w-fit px-8 pointer-events-none'>
+        {!isMobile && <div className='hidden xl:block col-span-6 fixed top-60 xl:right-0 xl-1368:right-[calc(35vw-448px)] xl-1440:right-[calc(40vw-448px)] 4xl:scale-y-115 4xl:scale-x-115 4xl:top-72 w-fit px-8 pointer-events-none'>
           <div className='flex justify-end items-start'>
             <RadarChart id={activeSection === 0 ? undefined : activeSection - 1} overlay={activeSection === 0} left={60} hoveredCard={hoveredCard} />
           </div>
