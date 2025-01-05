@@ -1004,9 +1004,6 @@ export default function ThreeVs(props: any) {
                           </div>
                         </div>
                       </div>
-                      {/* <div className="pl-10 hidden lg:max-xl:block relative top-7 right-4">
-                        {!isMobile && <RadarChart overlay={true} viewBox="0 0 220 220" hoveredCard={hoveredCard} />}
-                      </div> */}
                     </div>
 
                     <div className='flex justify-center xl:hidden pt-28'>
@@ -1276,9 +1273,9 @@ export default function ThreeVs(props: any) {
           ))}
         </div>
 
-        {!isMobile && <div className='hidden xl:block col-span-6 fixed top-60 xl:right-0 xl-1368:right-[calc(35vw-448px)] xl-1440:right-[calc(40vw-448px)] 4xl:scale-y-115 4xl:scale-x-115 4xl:top-72 w-fit px-8 pointer-events-none'>
+        {!isMobile && <div className='hidden xl:block col-span-6 fixed top-60 xl:right-0 xl-1368:right-[calc(35vw-448px)] xl-1440:right-[calc(40vw-448px)] w-fit px-8 pointer-events-none'>
           <div className='flex justify-end items-start'>
-            <RadarChart id={activeSection === 0 ? undefined : activeSection - 1} overlay={activeSection === 0} left={60} hoveredCard={hoveredCard} />
+            <RadarChart id={activeSection === 0 ? undefined : activeSection - 1} overlay={activeSection === 0} hoveredCard={hoveredCard} />
           </div>
         </div>}
       </main >
