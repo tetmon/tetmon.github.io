@@ -504,14 +504,14 @@ const clamp = (size: number, minSize: number, maxSize: number) => {
   return Math.min(Math.max(size, minSize), maxSize);
 };
 
-const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null, left?: number, top?: number }> = ({ id, overlay, viewBox, hoveredCard, left, top }) => {
+const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null, width: string, height: string }> = ({ id, overlay, hoveredCard, width, height }) => {
   const [hoveredAxis, setHoveredAxis] = useState<string | null>(null);
   // Add new state to track hovered legend item
   const [hoveredLegend, setHoveredLegend] = useState<number | null>(null);
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='flex items-center justify-center w-[220px] h-[220px] xl:w-[280px] xl:h-[280px] 4xl:w-[320px] 4xl:h-[320px]'>
+      <div className='flex items-center justify-center w-[220px] h-[220px] xl:w-[280px] xl:h-[280px] 4xl:w-[320px] 4xl:h-[320px]' style={{ width: width, height: height }}>
         <svg
           width="100%"
           height="100%"
@@ -1071,7 +1071,7 @@ export default function ThreeVs(props: any) {
                     </div>
 
                     <div className="col-start-1 col-span-full flex flex-1 justify-center items-center xl:hidden">
-                      {isMobile && <RadarChart id={section.id} hoveredCard={hoveredCard} />}
+                      {isMobile && <RadarChart id={section.id} width="190px" height="190px" hoveredCard={hoveredCard} />}
                     </div>
 
                     <div className={`flex w-full overflow-x-auto gap-x-4 basis-64 xl:grid xl:grid-cols-2 xl:flex-1 xl:pt-16 xl:max-w-3xl 3xl:gap-x-10 max-h-[800px]`} data-card='root'>
