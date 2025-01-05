@@ -511,7 +511,7 @@ const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hovered
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='flex items-center justify-center w-[250px] h-[250px] xl:w-[280px] xl:h-[280px] 4xl:w-[320px] 4xl:h-[320px]'>
+      <div className='flex items-center justify-center w-[220px] h-[220px] xl:w-[280px] xl:h-[280px] 4xl:w-[320px] 4xl:h-[320px]'>
         <svg
           width="100%"
           height="100%"
