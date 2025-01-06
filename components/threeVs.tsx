@@ -978,7 +978,7 @@ export default function ThreeVs(props: any) {
           {sections.map((section, index) => (
             <div
               key={index}
-              className={`${section.isIntro ? 'pb-6 xl:h-screen xl:pb-0' : 'h-screen'} ${section.title === 'Data Lakes' ? 'pb-6 xl:pb-0' : ''}  snap-start pt-6 md:pt-24 2xl:px-24 relative min-h-[667px]`}
+              className={`${section.isIntro ? 'pb-6 xl:h-screen xl:pb-0' : 'h-[800px] min-h-screen xl:h-screen'} ${section.title === 'Data Lakes' ? 'pb-6 xl:pb-0' : ''}  snap-start pt-6 md:pt-24 2xl:px-24 relative min-h-[667px]`}
               style={{ backgroundColor: section.color }}
             >
               {section.isIntro ? (
