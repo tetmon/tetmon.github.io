@@ -43,6 +43,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-security': 'linear-gradient(90deg, black, #09313d)',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'node-pattern': 'url(/assets/node-pattern.svg)',

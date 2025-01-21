@@ -78,26 +78,21 @@ export default function App() {
             </div>
             <p className={`${DINish.className} text-lg col-span-full text-center`}>EdgeSet addresses all<span className="font-bold text-primaryLight"> three</span> classes of threat vectors.</p>
             <div className="col-span-full py-8 pt-16 flex flex-col" ref={granularInlineRef}>
-              <h3 className={`text-2xl font-bold ${DINish.className} py-4`}>To counter <span className="text-primaryLight">Insider Threats</span></h3>
               <div className="h-64 w-64 mx-auto">
                 {GranularRiveComponent ? <GranularRiveComponent /> : null}
               </div>
-              <ul className={`${DINish.className} max-w-md`}>
-                <li className="text-lg">
-                  EdgeSet has fine-grained access controls.
-                </li>
-                <li className="text-lg pt-2">
-                  Grant and restrict access at the data source, table, and column level.
+              <ul className={`${DINish.className} max-w-md mx-auto`}>
+                <li className="text-lg text-center">
+                  To counter <span className="text-primaryLight font-bold">Insider Threats</span>, EdgeSet has fine-grained access controls.  Grant and restrict access at the data source, table, and column level
                 </li>
               </ul>
             </div>
 
             <div className="col-span-full py-8 flex flex-col" ref={internalInlineRef}>
-              <h3 className={`text-2xl font-bold ${DINish.className} py-4`}>To counter <span className="text-primaryLight">Vendor Threats</span></h3>
               <div className="h-64 w-64 mx-auto relative top-[-36px]">
                 {InternalRiveComponent ? <InternalRiveComponent /> : null}
               </div>
-              <p className={`${DINish.className} text-lg`}>Your data is not sent to us.</p>
+              <p className={`${DINish.className} text-lg text-center`}>To counter <span className="text-primaryLight font-bold">Vendor Threats</span>, your data is not sent to us.</p>
               <div className="flex flex-col gap-4 pt-4">
                 <div className="relative opacity-80 hover:opacity-100">
                   <div className={`${DINish.className} absolute right-0 bg-red-500 p-1 text-xs`}>Vendor</div>
@@ -119,12 +114,11 @@ export default function App() {
             </div>
 
             <div className="col-span-full py-8  flex flex-col" ref={encryptionInlineRef}>
-              <h3 className={`text-2xl font-bold ${DINish.className} py-4`}>To counter <span className="text-primaryLight">External Threats</span></h3>
               <div className="h-72 w-64 mx-auto relative top-[-16px]">
                 {EncryptionRiveComponent ? <EncryptionRiveComponent /> : null}
               </div>
-              <p className={`${DINish.className} text-lg`}>EdgeSet was designed with hardened security from the ground up.</p>
-              <ul className={`${DINish.className} text-base flex flex-col gap-4 pt-4 max-w-lg`}>
+              <p className={`${DINish.className} text-lg text-center max-w-md mx-auto`}>To counter <span className="text-primaryLight font-bold">External Threats</span>, EdgeSet was designed with hardened security from the ground up.</p>
+              <ul className={`${DINish.className} text-base flex flex-col gap-4 mt-6 max-w-lg mx-auto rounded-md border border-primaryLight p-3`}>
                 <li className="before:pr-2 before:content-['_•']">
                   All database credentials are stored encrypted with 256-bit security.
                 </li>
@@ -263,9 +257,7 @@ export default function App() {
 
   return (
     <>
-      <section id="container" className="hidden lg:block relative z-[-1] bg-[#1a1a1a] text-zinc-100">
-        {/* {showHalo ? <div className="pointer-events-none fixed top-0 h-full w-full bg-halo-gradient">
-        </div> : null} */}
+      <section id="container" className="hidden lg:block relative z-[-1] bg-gradient-security text-zinc-100">
         <div className="container mx-auto">
           <div className="flex flex-col items-center justify-center p-10">
             <div className="flex items-center">
