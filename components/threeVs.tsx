@@ -500,10 +500,6 @@ const generateShapePath = (data: typeof datasets[0]) => {
   )).join(' ') + ' Z';
 };
 
-const clamp = (size: number, minSize: number, maxSize: number) => {
-  return Math.min(Math.max(size, minSize), maxSize);
-};
-
 const RadarChart: FC<{ id?: number, overlay?: boolean, viewBox?: string, hoveredCard?: 'VARIETY' | 'VELOCITY' | 'VOLUME' | null, width?: string, height?: string }> = ({ id, overlay, hoveredCard, width, height }) => {
   const [hoveredAxis, setHoveredAxis] = useState<string | null>(null);
   // Add new state to track hovered legend item
@@ -978,7 +974,7 @@ export default function ThreeVs(props: any) {
           {sections.map((section, index) => (
             <div
               key={index}
-              className={`${section.isIntro ? 'pb-6 xl:h-screen xl:pb-0' : 'h-[800px] min-h-screen xl:h-screen'} ${section.title === 'Data Lakes' ? 'pb-6 xl:pb-0' : ''}  snap-start pt-6 md:pt-24 2xl:px-24 relative min-h-[667px]`}
+              className={`${section.isIntro ? 'pb-6 xl:h-screen xl:pb-0' : 'h-[800px] min-h-[1000px] xl:h-screen'} ${section.title === 'Data Lakes' ? 'pb-6 xl:pb-0' : ''}  snap-start pt-6 md:pt-8 xl:pt-24 2xl:px-24 relative min-h-[667px]`}
               style={{ backgroundColor: section.color }}
             >
               {section.isIntro ? (
