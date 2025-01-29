@@ -45,7 +45,7 @@ export default function Resources() {
         <div className="col-start-2 col-span-10 mt-8">
           <div className="flex overflow-x-auto space-x-6 pb-4">
             {posts?.slice(0, 5).map((post) => (
-              <div key={post.id} className="flex-shrink-0 w-[268px] sm:w-[320px] lg:w-[364px] relative">
+              <div key={post.id} className="shrink-0 w-[268px] sm:w-[320px] lg:w-[364px] relative">
                 <Link href={`/blog/${post.id}`} className="absolute z-10 w-full h-full" aria-label={`Read more about ${post.title}`} />
                 <div className="bg-white rounded-lg shadow-sm border border-gray-200 h-full">
                   <img

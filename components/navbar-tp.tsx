@@ -42,7 +42,7 @@ const MenuButton = () => {
 
 const Navbar = ({ showMenu }: { showMenu?: boolean }) => {
   return (
-    <header className={`z-30 ${showMenu ? 'grid md:hidden' : 'hidden md:grid'} grid-cols-12 h-18 ${showMenu ? 'absolute' : 'fixed'} top-0 left-0 right-0`}>
+    <header className={`z-30 ${showMenu ? 'grid md:hidden' : 'hidden md:grid'} grid-cols-12 h-18 ${showMenu ? 'absolute' : 'fixed'} top-0 inset-x-0`}>
       {!showMenu ? <div className='header-mask pointer-events-none absolute inset-0'></div> : null}
       <div className='z-[1] col-end-[-2] col-start-2 flex items-center justify-between mx-auto w-full 2xl:max-w-[1345px]'>
         <a href="/" className='grow text-white'>

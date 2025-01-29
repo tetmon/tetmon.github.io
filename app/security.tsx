@@ -137,7 +137,7 @@ export default function App() {
         </div>
       </section>
     );
-  }, [isMobile, granularRive, internalRive, encryptionRive]);
+  }, [isMobile, EncryptionRiveComponent, InternalRiveComponent, GranularRiveComponent]);
 
   useEffect(() => {
     if (isMobile || !granularRef.current || !internalRef.current || !encryptionRef.current) {
@@ -253,7 +253,7 @@ export default function App() {
       });
       containerObserver.observe(encryptionInlineRef.current);
     }
-  }, [rive, internalRive, encryptionRive, isMobile]);
+  }, [rive, internalRive, encryptionRive, granularRive, isMobile]);
 
   return (
     <>

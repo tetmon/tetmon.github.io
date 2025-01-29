@@ -49,24 +49,24 @@ const Keyboard: FC = () => {
     >
       {/* Top button */}
       <div className={`w-6 h-6 bg-none border border-whiteLight2 rounded-sm flex items-center justify-center ${isHovered || hasLoaded ? 'animate-keyboard-up' : ''}`}>
-        <div className="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-b-[6px] border-b-whiteLight2" />
+        <div className="w-0 h-0 border-x-[3px] border-x-transparent border-b-[6px] border-b-whiteLight2" />
       </div>
 
       {/* Middle row */}
       <div className="flex gap-1">
         {/* Left button */}
         <div className="w-6 h-6 border border-whiteLight2 rounded-sm flex items-center justify-center">
-          <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-r-[6px] border-r-whiteLight2" />
+          <div className="w-0 h-0 border-y-[3px] border-y-transparent border-r-[6px] border-r-whiteLight2" />
         </div>
 
         {/* Down button */}
         <div className={`w-6 h-6 border border-whiteLight2 rounded-sm flex items-center justify-center ${isHovered || hasLoaded ? 'animate-keyboard-down' : ''}`}>
-          <div className="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-b-[6px] border-b-whiteLight2 rotate-180" />
+          <div className="w-0 h-0 border-x-[3px] border-x-transparent border-b-[6px] border-b-whiteLight2 rotate-180" />
         </div>
 
         {/* Right button */}
         <div className="w-6 h-6 border border-whiteLight2 rounded-sm flex items-center justify-center">
-          <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-r-[6px] border-r-whiteLight2 rotate-180" />
+          <div className="w-0 h-0 border-y-[3px] border-y-transparent border-r-[6px] border-r-whiteLight2 rotate-180" />
         </div>
       </div>
     </div>
@@ -877,15 +877,15 @@ export default function ThreeVs(props: any) {
 
   // Add new state for tracking scroll
   const scrollingRef = useRef(false);
-  let scrollTimeout: NodeJS.Timeout;
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
   // Modify the scroll handler in useEffect
   useEffect(() => {
     const handleScroll = () => {
       scrollingRef.current = true;
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
       }
-      scrollTimeout = setTimeout(() => {
+      scrollTimeout.current = setTimeout(() => {
         scrollingRef.current = false;
       }, 100);
 
@@ -918,15 +918,15 @@ export default function ThreeVs(props: any) {
     };
   }, []);
 
-  const documentMove = (e: any) => {
-    if (!hasCardParent(e.target)) {
-      console.log('setting hovered card to null', e.target, e.relatedTarget, e.currentTarget)
-      setHoveredCard(null);
-      document.body.removeEventListener('mousemove', documentMove);
-    }
-  }
 
   useEffect(() => {
+    const documentMove = (e: any) => {
+      if (!hasCardParent(e.target)) {
+        console.log('setting hovered card to null', e.target, e.relatedTarget, e.currentTarget)
+        setHoveredCard(null);
+        document.body.removeEventListener('mousemove', documentMove);
+      }
+    }
     document.body.removeEventListener('mousemove', documentMove);
     if (hoveredCard) {
       document.body.addEventListener('mousemove', documentMove)
@@ -993,7 +993,7 @@ export default function ThreeVs(props: any) {
                           The Three V&apos;s of Data - How EdgeSet is transforming data processing
                         </h1>
                         <div className="flex flex-row gap-x-1 pt-10">
-                          <img src="/about/christopher.jpg" className="w-12 h-12 rounded-full mr-2 border-2 border-whiteLight3" />
+                          <img alt="Christopher Forno" src="/about/christopher.jpg" className="w-12 h-12 rounded-full mr-2 border-2 border-whiteLight3" />
                           <div className="flex flex-col">
                             <span className={`text-whiteLight3 font-semibold ${DINish.className}`}>Chris Forno</span>
                             <span className={`text-whiteLight3 ${DINish.className}`}>5 min. read  |  December 10, 2024</span>
@@ -1027,7 +1027,7 @@ export default function ThreeVs(props: any) {
                             behavior: 'smooth'
                           });
                         }}
-                        className="hidden xl:block animate-bounce absolute w-16 bottom-0 left-[calc(50%-30px)] transform -translate-x-1/2 cursor-pointer z-10"
+                        className="hidden xl:block animate-bounce absolute w-16 bottom-0 left-[calc(50%-30px)] -translate-x-1/2 cursor-pointer z-10"
                       >
                         <svg
                           width="40"

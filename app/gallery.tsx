@@ -642,7 +642,7 @@ export default function Gallery() {
             {tabs.map((tab) => (
               <button
                 key={tab.category}
-                className={`px-4 py-2 text-base ${DINish.className} rounded-lg whitespace-nowrap flex-shrink-0 x-1227:whitespace-normal x-1227:flex-shrink ${activeTab === tab.id ? 'bg-primary text-white' : 'bg-white text-primary'
+                className={`px-4 py-2 text-base ${DINish.className} rounded-lg whitespace-nowrap shrink-0 x-1227:whitespace-normal x-1227:shrink ${activeTab === tab.id ? 'bg-primary text-white' : 'bg-white text-primary'
                   }`}
                 onClick={() => {
                   setIsDashImageLoading(true);
@@ -669,7 +669,7 @@ export default function Gallery() {
                     .map((item) => (
                       <div
                         key={item.id}
-                        className="w-full bg-white rounded-md overflow-hidden shadow-sm border border-slate-200 mb-0 max-w-[220px] md:max-w-[300px] flex-shrink-0 group hover:shadow-md transition-all duration-300 x-1227:mb-1 x-1227:max-w-none x-1227:flex-shrink"
+                        className="w-full bg-white rounded-md overflow-hidden shadow-sm border border-slate-200 mb-0 max-w-[220px] md:max-w-[300px] shrink-0 group hover:shadow-md transition-all duration-300 x-1227:mb-1 x-1227:max-w-none x-1227:shrink"
                         onMouseEnter={() => setHoveredItemId(item.id)}
                         onMouseLeave={() => setHoveredItemId(null)}
                       >
@@ -751,7 +751,7 @@ export default function Gallery() {
       {
         selectedItem && (
           <div
-            className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ${isClosing ? 'animate-fade-out' : 'animate-fade-in'}`}
+            className={`fixed inset-0 bg-black bg-opacity/50 flex items-center justify-center z-50 ${isClosing ? 'animate-fade-out' : 'animate-fade-in'}`}
             onClick={closeLightbox}
           >
             <div
@@ -807,8 +807,6 @@ export default function Gallery() {
           </div>
         )
       }
-
-
     </section >
   );
 }

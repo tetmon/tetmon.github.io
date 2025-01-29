@@ -49,7 +49,7 @@ const PageNavigator: React.FC = () => {
                  block py-1 px-4 text-sm
                 relative
                 before:content-['']
-                before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1
+                before:absolute before:left-0 before:inset-y-0 before:w-1
                 before:transition-colors before:duration-100 before:ease-in-out
                 ${activeHeading === heading.id
                   ? 'font-bold text-primary before:bg-primary'
