@@ -6,7 +6,7 @@ import Summary from './summary';
 import Security from './security';
 import Federated from './federated';
 import RealTime from './realtime';
-import Hero from './hero_v2';
+import Hero from './hero';
 import riveWASMResource from '@rive-app/canvas/rive.wasm';
 import Resources from './resources';
 import Gallery from './gallery';
