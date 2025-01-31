@@ -7,22 +7,8 @@ import { CSSTransition } from "react-transition-group";
 
 
 const Menu = ({ showMenu }: { showMenu: boolean }) => {
-  const [isWhite, setIsWhite] = useState(false);
-
   useEffect(() => {
     document.documentElement.dataset.showMenu = `${showMenu}`;
-    document.addEventListener('security-enter', () => {
-      setIsWhite(true);
-    });
-    document.addEventListener('security-exit', () => {
-      setIsWhite(false);
-    });
-    document.addEventListener('platform-enter', () => {
-      setIsWhite(true);
-    });
-    document.addEventListener('platform-exit', () => {
-      setIsWhite(false);
-    });
   }, [showMenu]);
 
   return (typeof window !== 'undefined' ?

@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 
 export default function Layout({ children }: PropsWithChildren) {
   const pathname = usePathname();
-  const isMainBlogPage = pathname !== '/blog/the-threeVs-of-data';
 
   return (
     <main>

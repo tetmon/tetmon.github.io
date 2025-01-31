@@ -1,12 +1,8 @@
 'use client';
 
 import { DINish } from "./fonts";
-// Using ES6 import syntax
 import { useEffect, useRef, useState } from "react";
-// import hljs from 'highlight.js';
 import 'highlight.js/styles/base16/materia.css';
-// import javascript from 'highlight.js/lib/languages/javascript';
-// hljs.registerLanguage('javascript', javascript);
 
 export default function Federated() {
   const federatedRef = useRef(null);

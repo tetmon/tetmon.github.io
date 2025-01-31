@@ -3,8 +3,8 @@
 import useIsMobile from "@/hooks/useIsMobile";
 import { DINish } from "./fonts";
 
-import Rive, { useRive, Layout, Fit, Alignment, Rive as RType, RuntimeLoader } from "@rive-app/react-canvas";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useRive, Layout, Fit, Alignment } from "@rive-app/react-canvas";
+import { useEffect, useMemo, useRef } from "react";
 
 export default function App() {
   const granularRef = useRef(null);
@@ -13,7 +13,6 @@ export default function App() {
   const granularInlineRef = useRef(null);
   const internalInlineRef = useRef(null);
   const encryptionInlineRef = useRef(null);
-  const [showHalo, toggleHalo] = useState(false);
   const isMobile = useIsMobile();
 
   let { RiveComponent, rive } = useRive({
@@ -153,8 +152,6 @@ export default function App() {
     let observer = new IntersectionObserver((entries) => {
       entries.map((entry) => {
         if (entry.isIntersecting) {
-          console.log('entry', entry.target.id);
-          toggleHalo(true);
           if (entry.target.id === 'encryption' && rive) {
             rive.reset({ artboard: "Encryption_Artboard" });
             try {
@@ -172,7 +169,6 @@ export default function App() {
             }
           }
           else if (rive) {
-            toggleHalo(true)
             rive.reset({ artboard: "Granular_Artboard" });
             try {
               rive.play("Granular");

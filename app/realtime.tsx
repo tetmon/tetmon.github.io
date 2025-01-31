@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactElement, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { DINish } from "./fonts";
 
 const DataFlowDiagram = () => {

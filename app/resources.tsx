@@ -1,6 +1,5 @@
 import { DINish, Inter } from "./fonts";
 import { getSortedPostsData } from "../lib/posts";
-import Image from 'next/image'
 import Link from "next/link";
 // Define the Post type
 interface Post {
