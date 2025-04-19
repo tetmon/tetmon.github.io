@@ -15,6 +15,14 @@ export default function Home() {
   return (
     <main>
       <link rel="preload" href={riveWASMResource} as="fetch" crossOrigin="anonymous" />
+      <script type="application/ld+json">
+        {`{
+          "@context" : "https://schema.org",
+          "@type" : "WebSite",
+          "name" : "Tetmon",
+          "url" : "https://www.tetmon.com/"
+        }`}
+      </script>
       <Navbar />
       <Hero />
       <Platform />
