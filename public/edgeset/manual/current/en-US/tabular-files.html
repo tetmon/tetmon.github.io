@@ -42,8 +42,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8b864f0777c60eecff11d75b6b2e1175.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1249752d4ce3d97f2a0312d11f4abc03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-1f43f35741d08f6b518512d369c9b662.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-cdc23f4e4b50e2f9c7a17c568ecdf09f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-98b4ebb918438fe427fd570c317eac42.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -226,6 +226,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#partition-inference" id="toc-partition-inference" class="nav-link" data-scroll-target="#partition-inference">Partition inference</a></li>
   </ul></li>
+  <li><a href="#supported-storage" id="toc-supported-storage" class="nav-link" data-scroll-target="#supported-storage">Supported storage</a></li>
   </ul>
 </nav>
     </div>
@@ -251,8 +252,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>One of EdgeSet’s distinctive features is its ability to query data in tabular (CSV, Google Sheets) files stored in various object storage systems. The data does not have to be prepared especially for EdgeSet; EdgeSet can infer appropriate tables from the files automatically.</p>
-<p>Whenever the query engine is restarted, EdgeSet retrieves a file listing from each connected cloud storage system. It then samples data from each file to determine if it’s a supported file. If so, it infers the names and types of each column. Finally, it collects matching (partitioned) files and creates tables from them.</p>
+<p>One of EdgeSet’s distinctive features is its ability to query data in tabular (CSV, Google Sheets) files stored in various object and file storage systems. The data does not have to be prepared especially for EdgeSet; EdgeSet can infer appropriate tables from the files automatically.</p>
+<p>Whenever a data source is scanned, EdgeSet retrieves a file listing from it. It then samples data from each file to determine if it’s a supported file. If so, it infers the names and types of each column. Finally, it collects matching (partitioned) files and creates tables from them.</p>
 <section id="column-inference" class="level2">
 <h2 class="anchored" data-anchor-id="column-inference">Column inference</h2>
 <p>Each column of a tabular file can be of a certain type, such as integers or dates. EdgeSet will automatically infer the type of a column <em>if all sampled cells in that column match a given type</em>. (Note: We will use the term “cell” to refer to an individual row and column of any tabular file, whether it’s a spreadsheet or not).</p>
@@ -422,9 +423,38 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p>If EdgeSet detects enough files following the partitioning format and that have compatible schemas, it will group them into a single table and optimize queries when they contain partition values in the <code>WHERE</code> clause. EdgeSet will create individual tables for any files that does not fit the pattern or that have incompatible schemas.</p>
-
-
 </section>
+</section>
+<section id="supported-storage" class="level2">
+<h2 class="anchored" data-anchor-id="supported-storage">Supported storage</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Storage</th>
+<th>Format</th>
+<th>Partitioned</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AWS S3</td>
+<td>CSV</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>Google Drive</td>
+<td>CSV</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>Google Drive</td>
+<td>Google Sheets</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
