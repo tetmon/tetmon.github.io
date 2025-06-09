@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -231,7 +231,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -254,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 
 <p>One of EdgeSet’s distinctive features is its ability to query data in tabular (CSV, Google Sheets) files stored in various object and file storage systems. The data does not have to be prepared especially for EdgeSet; EdgeSet can infer appropriate tables from the files automatically.</p>
 <p>Whenever a data source is scanned, EdgeSet retrieves a file listing from it. It then samples data from each file to determine if it’s a supported file. If so, it infers the names and types of each column. Finally, it collects matching (partitioned) files and creates tables from them.</p>
-<section id="column-inference" class="level2">
+<section id="column-inference" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="column-inference">Column inference</h2>
 <p>Each column of a tabular file can be of a certain type, such as integers or dates. EdgeSet will automatically infer the type of a column <em>if all sampled cells in that column match a given type</em>. (Note: We will use the term “cell” to refer to an individual row and column of any tabular file, whether it’s a spreadsheet or not).</p>
 <table class="caption-top table">
@@ -303,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;"><code>0xff</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>decimal</strong></td>
+<td style="text-align: left;"><strong>double</strong></td>
 <td style="text-align: left;"><code>99.99</code></td>
 </tr>
 <tr class="odd">
@@ -315,50 +315,46 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;"><code>765,686.81</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>0.14734E2</code></td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"><strong>date</strong></td>
 <td style="text-align: left;"><code>2021-11-27</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><code>27/11/2021</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><code>11/27/2021</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong>time</strong></td>
 <td style="text-align: left;"><code>14:49:00</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><code>3:15 PM</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><code>00:00:00.000</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>timestamp</strong></td>
 <td style="text-align: left;"><code>2021-11-27 15:15:27.032</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><code>11/27/2021 3:15PM</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>timestamp w/ zone</strong></td>
 <td style="text-align: left;"><code>2021-11-27T15:15:27.032Z</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><code>11/27/2021 15:15 +08</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>varchar</strong></td>
 <td style="text-align: left;">anything else</td>
 </tr>
@@ -367,8 +363,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Whitespace<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is stripped from the beginning and end of each cell when inferring its type and converting it to a value.</p>
 <!-- type widening -->
 <!-- Once it knows the data types of each column, it checks if the first row in the file fits those data types. If not, it assumes that this first row is a header row and uses it as the column names. -->
-<!-- EdgeSet then creates two tables in two separate schemas: inferred and raw. -->
-<section id="null-values" class="level3">
+<!-- EdgeSet then creates two tables in two separate folders: inferred and raw. -->
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Whitespace is any Unicode space character and the following control characters: horizontal tab (<code>\t</code>), vertical tab (<code>\v</code>), line feed (<code>\n</code>), carriage return (<code>\r</code>), and form feed (<code>\f</code>).</p></div></div><section id="null-values" class="level3">
 <h3 class="anchored" data-anchor-id="null-values">Null values</h3>
 <p>EdgeSet considers empty values to be <code>null</code> values, <em>not</em> <code>varchar</code>.</p>
 <!-- Row -->
@@ -382,8 +378,8 @@ ul.task-list li input[type="checkbox"] {
 <li>there are at least two rows AND</li>
 <li>at least one column is not <code>varchar</code></li>
 </ul>
-<p>When just one row is present, the inferred schema will be an empty table with column names while the raw schema will be a 1-row table with no column names.</p>
-<p>What about the ambiguous case when <em>all</em> columns are <code>varchar</code>s? EdgeSet will use the first row as a header for the inferred schema because the raw schema will already have the same schema but without a header row.</p>
+<p>When just one row is present, the inferred folder will be an empty table with column names while the raw folder will be a 1-row table with no column names.</p>
+<p>What about the ambiguous case when <em>all</em> columns are <code>varchar</code>s? EdgeSet will use the first row as a header for the inferred folder because the raw folder will already have the same schema but without a header row.</p>
 </section>
 </section>
 <section id="table-inference" class="level2">
@@ -456,12 +452,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 </section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Whitespace is any Unicode space character and the following control characters: horizontal tab (<code>\t</code>), vertical tab (<code>\v</code>), line feed (<code>\n</code>), carriage return (<code>\r</code>), and form feed (<code>\f</code>).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

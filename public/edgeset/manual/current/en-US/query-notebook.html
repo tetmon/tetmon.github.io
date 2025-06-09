@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -220,10 +220,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-query-box" id="toc-the-query-box" class="nav-link active" data-scroll-target="#the-query-box">The query box</a>
-  <ul class="collapse">
-  <li><a href="#notifications" id="toc-notifications" class="nav-link" data-scroll-target="#notifications">Notifications</a></li>
-  </ul></li>
+  <li><a href="#the-query-box" id="toc-the-query-box" class="nav-link active" data-scroll-target="#the-query-box">The query box</a></li>
   <li><a href="#query-cards" id="toc-query-cards" class="nav-link" data-scroll-target="#query-cards">Query cards</a></li>
   <li><a href="#large-query-results" id="toc-large-query-results" class="nav-link" data-scroll-target="#large-query-results">Large query results</a>
   <ul class="collapse">
@@ -233,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -254,7 +251,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>EdgeSet provides a notebook interface for running SQL queries. You can also run queries using your favorite Presto-compatible client (see <a href="./clients.html">Clients</a>).</p>
+<p>EdgeSet provides a notebook interface for running SQL queries. You can also run queries using your favorite Presto-compatible client (see <a href="clients.html" class="quarto-xref"><span> Clients</span></a>).</p>
 <section id="the-query-box" class="level2">
 <h2 class="anchored" data-anchor-id="the-query-box">The query box</h2>
 <p>The query box is the first thing you see when navigating to the “Notebook” menu in EdgeSet.</p>
@@ -265,11 +262,11 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>Enter your SQL query into the box and run the query by clicking <code>Run</code> or pressing <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.</p>
-<section id="notifications" class="level3">
-<h3 class="anchored" data-anchor-id="notifications">Notifications</h3>
-<p>Below the query box is a <code>Notify</code> checkbox. If selected, EdgeSet will send you a notification once data is available. How the notification is displayed depends on your web browser and operating system.</p>
-<p>Note that the first time you click the <code>Notify</code> checkbox your web browser may prompt you to allow notifications from EdgeSet.</p>
-</section>
+<!-- ### Notifications
+
+Below the query box is a `Notify` checkbox. If selected, EdgeSet will send you a notification once data is available. How the notification is displayed depends on your web browser and operating system.
+
+Note that the first time you click the `Notify` checkbox your web browser may prompt you to allow notifications from EdgeSet. -->
 </section>
 <section id="query-cards" class="level2">
 <h2 class="anchored" data-anchor-id="query-cards">Query cards</h2>
@@ -280,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>This query card is displaying the query result table</figcaption>
 </figure>
 </div>
-<p>In case of a result table, you can resize the columns of the table by dragging the top right part of a column in the header. Each column can be automatically resized to fit the column’s content by double clicking the same part top right part of the column header. The result table also supports toggleable viewers for JSON and Long text on the cell for ease of viewing those values.</p>
+<p>In case of a result table, you can resize the columns of the table by dragging the top right part of a column in the header. Each column can be automatically resized to fit the column’s content by double clicking the same top right part of the column header.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="screenshots/column-resizer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="A column resizer displayed on hover over the table header column"><img src="screenshots/column-resizer.png" class="img-fluid figure-img" alt="A column resizer displayed on hover over the table header column"></a></p>
@@ -288,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>You can also reload the results of a previously completed query or revise the query. Clicking the “edit” icon on a query card will load that query’s SQL into the query box (overwriting anything already in the box).</p>
-<p>The controls on the query card allow you to move the card up and down or minimize or close them in the notebook. A drag handle is also provided at the top of the card to allow dragging the card to a desired location.</p>
+<p>The controls on the query card allow you to move the card up and down or minimize or close it in the notebook. A drag handle is also provided at the top of the card to allow dragging the card to a desired location.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="screenshots/query-result-bar.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="A query result bar showing the “move query up”, “move query down”, “edit”, “reload”, “minimize” and “close” icons"><img src="screenshots/query-result-bar.png" class="img-fluid figure-img" alt="A query result bar showing the “move query up”, “move query down”, “edit”, “reload”, “minimize” and “close” icons"></a></p>
@@ -304,16 +301,17 @@ ul.task-list li input[type="checkbox"] {
 <p>Edgeset supports exporting query results to CSV. At any point during the query’s lifetime you can click the <code>Download CSV</code> button at the bottom of the query card. If the query has not started yet, an export and file download will be triggered automatically once the result becomes available.</p>
 <p>Clicking the “close” (<code>x</code>) icon on a running query will cancel the query.</p>
 </section>
-<section id="large-query-results" class="level2">
+<section id="large-query-results" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="large-query-results">Large query results</h2>
 <p>EdgeSet is capable of handling very large query results. It does so by streaming the results from the query engine to your web browser and rendering only the results you’ve scrolled into view. Once EdgeSet has fetched enough results to display a table, the query engine will put the query into an idle state. If you scroll to the bottom of the results table, EdgeSet will fetch and display more rows.</p>
-<section id="query-timeouts" class="level3">
+<section id="query-timeouts" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="query-timeouts">Query timeouts</h3>
-<p>The query engine will only keep idle queries alive for 5 minutes before they will be terminated. If this happens and you try to load more results, EdgeSet will ask if you want to rerun the query.</p>
+<p>The query engine will only keep idle queries alive for 1 minute<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> before they will be terminated. If this happens and you try to load more results, EdgeSet will ask if you want to rerun the query.</p>
 
 
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The 1 minute timeout can be configured by admins on the Settings page.</p></div></div></section>
 </section>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

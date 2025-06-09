@@ -44,9 +44,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-cdc23f4e4b50e2f9c7a17c568ecdf09f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-98b4ebb918438fe427fd570c317eac42.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -220,20 +217,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#desktop-application" id="toc-desktop-application" class="nav-link active" data-scroll-target="#desktop-application">Desktop Application</a>
-  <ul class="collapse">
-  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#uninstallation" id="toc-uninstallation" class="nav-link" data-scroll-target="#uninstallation">Uninstallation</a></li>
-  </ul></li>
-  <li><a href="#web-application" id="toc-web-application" class="nav-link" data-scroll-target="#web-application">Web Application</a>
-  <ul class="collapse">
-  <li><a href="#requirements-1" id="toc-requirements-1" class="nav-link" data-scroll-target="#requirements-1">Requirements</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link active" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#amazon-web-services-aws" id="toc-amazon-web-services-aws" class="nav-link" data-scroll-target="#amazon-web-services-aws">Amazon Web Services (AWS)</a></li>
   <li><a href="#google-cloud-platform-gcp" id="toc-google-cloud-platform-gcp" class="nav-link" data-scroll-target="#google-cloud-platform-gcp">Google Cloud Platform (GCP)</a></li>
   <li><a href="#digital-ocean" id="toc-digital-ocean" class="nav-link" data-scroll-target="#digital-ocean">Digital Ocean</a></li>
   <li><a href="#hetzner-cloud" id="toc-hetzner-cloud" class="nav-link" data-scroll-target="#hetzner-cloud">Hetzner Cloud</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -259,139 +247,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>EdgeSet can run either as a single-user desktop application or as a multi-user web application.</p>
-<section id="desktop-application" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="desktop-application">Desktop Application</h2>
-<p>Note that the desktop application is a standalone EdgeSet installation: it does not require or support connecting to the web application. It is intended for use when the web application cannot be installed.</p>
-<section id="requirements" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
-<ul>
-<li>macOS 13+<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
-<li>12GB of free disk space</li>
-<li>EdgeSet license key</li>
-<li>internet connection</li>
-</ul>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The desktop application is tested on Apple Silicon Macs only, not Intel Macs.</p></div></div></section>
-<section id="installation" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="installation">Installation</h3>
-<ol type="1">
-<li><p>Download EdgeSet from <a href="https://www.tetmon.com/EdgeSet.dmg">https://www.tetmon.com/EdgeSet.dmg</a>.</p></li>
-<li><p>Open your Downloads folder and double-click the <code>EdgeSet.dmg</code> file.</p></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/dmg.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="the EdgeSet.dmg file in the Downloads folder"><img src="macOS/dmg.png" class="img-fluid figure-img" alt="the EdgeSet.dmg file in the Downloads folder"></a></p>
-<figcaption>the EdgeSet.dmg file in the Downloads folder</figcaption>
-</figure>
-</div>
-<ol start="3" type="1">
-<li>Drag the EdgeSet icon to the Applications folder.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/installer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="the EdgeSet installation folder"><img src="macOS/installer.png" class="img-fluid figure-img" style="width:50.0%" alt="the EdgeSet installation folder"></a></p>
-<figcaption>the EdgeSet installation folder</figcaption>
-</figure>
-</div>
-<ol start="4" type="1">
-<li>Open the EdgeSet application from the Applications folder.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/applications.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="EdgeSet in the Applications folder"><img src="macOS/applications.png" class="img-fluid figure-img" style="width:80.0%" alt="EdgeSet in the Applications folder"></a></p>
-<figcaption>EdgeSet in the Applications folder</figcaption>
-</figure>
-</div>
-<ol start="5" type="1">
-<li>When you first start EdgeSet, you might see the following prompt. Click <code>Open</code> to proceed.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/open-prompt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="macOS prompt that EdgeSet has been downloaded from the internet"><img src="macOS/open-prompt.png" class="img-fluid figure-img" style="width:50.0%" alt="macOS prompt that EdgeSet has been downloaded from the internet"></a></p>
-<figcaption>macOS prompt that EdgeSet has been downloaded from the internet</figcaption>
-</figure>
-</div>
-<ol start="6" type="1">
-<li>During installation and whenever you launch EdgeSet, you might be prompted to allow EdgeSet access to the keychain. EdgeSet will only access data that it stores on the keychain itself. Select <code>Always Allow</code>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
-</ol>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;EdgeSet uses the macOS keychain to store credentials in order to protect your data from other applications on the system.</p></div></div><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/keychain.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="macOS keychain prompt"><img src="macOS/keychain.png" class="img-fluid figure-img" style="width:60.0%" alt="macOS keychain prompt"></a></p>
-<figcaption>macOS keychain prompt</figcaption>
-</figure>
-</div>
-<ol start="7" type="1">
-<li>EdgeSet will begin downloading the query engine. This is a one-time setup.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/download-query-engine.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="EdgeSet query engine download progress"><img src="macOS/download-query-engine.png" class="img-fluid figure-img" alt="EdgeSet query engine download progress"></a></p>
-<figcaption>EdgeSet query engine download progress</figcaption>
-</figure>
-</div>
-<ol start="8" type="1">
-<li>Once the query engine download is complete, EdgeSet will start up.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/starting-up.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="EdgeSet startup message"><img src="macOS/starting-up.png" class="img-fluid figure-img" alt="EdgeSet startup message"></a></p>
-<figcaption>EdgeSet startup message</figcaption>
-</figure>
-</div>
-<ol start="9" type="1">
-<li>The first time EdgeSet starts, it will prompt you for your license key.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/license-key.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="EdgeSet upload license key dialog"><img src="macOS/license-key.png" class="img-fluid figure-img" alt="EdgeSet upload license key dialog"></a></p>
-<figcaption>EdgeSet upload license key dialog</figcaption>
-</figure>
-</div>
-<ol start="10" type="1">
-<li>Click <code>Upload license file…</code> and <code>Open</code> the license.key file you were provided.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/open-license-key.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="browse to EdgeSet license key"><img src="macOS/open-license-key.png" class="img-fluid figure-img" alt="browse to EdgeSet license key"></a></p>
-<figcaption>browse to EdgeSet license key</figcaption>
-</figure>
-</div>
-<ol start="11" type="1">
-<li>EdgeSet will show a brief loading screen with progress indicator while it generates an encryption key. Then the EdgeSet interface will appear and you are ready to begin adding data sources.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/EdgeSet-interface.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="the EdgeSet interface"><img src="macOS/EdgeSet-interface.png" class="img-fluid figure-img" alt="the EdgeSet interface"></a></p>
-<figcaption>the EdgeSet interface</figcaption>
-</figure>
-</div>
-</section>
-<section id="uninstallation" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="uninstallation">Uninstallation</h3>
-<ol type="1">
-<li>To uninstall EdgeSet, move the EdgeSet Application to the Trash.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/application-to-trash.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="move the EdgeSet Application to the Trash"><img src="macOS/application-to-trash.png" class="img-fluid figure-img" alt="move the EdgeSet Application to the Trash"></a></p>
-<figcaption>move the EdgeSet Application to the Trash</figcaption>
-</figure>
-</div>
-<ol start="2" type="1">
-<li>Open the ~/Library/Application Support folder and move the EdgeSet folder there into the Trash (this is the folder that holds the query engine).<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
-</ol>
-<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;To easily navigate to the Application Support folder from the Finder, you can press ⌘Command + Shift + G and type in ~/Library/Application Support.</p></div></div><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="macOS/folder-to-trash.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="move the EdgeSet Application Support folder to the Trash"><img src="macOS/folder-to-trash.png" class="img-fluid figure-img" alt="move the EdgeSet Application Support folder to the Trash"></a></p>
-<figcaption>move the EdgeSet Application Support folder to the Trash</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="web-application" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="web-application">Web Application</h2>
-<section id="requirements-1" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="requirements-1">Requirements</h3>
+<p>EdgeSet can run as a multi-user web application.</p>
+<section id="requirements" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <p>EdgeSet is designed to run on-premise or in a private cloud. You can install it on a physical server (“bare metal”) or a VM (such as from AWS, Azure, Digital Ocean, etc.).</p>
 <p>EdgeSet requires a 64-bit Intel-compatible (x86-64) or ARM64 (aarch64) CPU.</p>
 <table class="caption-top table">
@@ -431,26 +289,25 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>EdgeSet also requires UEFI support.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Most computers since 2006 have UEFI support.</p></div></div></section>
-<section id="amazon-web-services-aws" class="level3">
-<h3 class="anchored" data-anchor-id="amazon-web-services-aws">Amazon Web Services (AWS)</h3>
+<p>EdgeSet also requires UEFI support.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Most computers since 2006 have UEFI support.</p></div></div></section>
+<section id="amazon-web-services-aws" class="level2">
+<h2 class="anchored" data-anchor-id="amazon-web-services-aws">Amazon Web Services (AWS)</h2>
 <p>Launch an EC2 instance using the EdgeSet AMI ID provided to you.</p>
 </section>
-<section id="google-cloud-platform-gcp" class="level3">
-<h3 class="anchored" data-anchor-id="google-cloud-platform-gcp">Google Cloud Platform (GCP)</h3>
+<section id="google-cloud-platform-gcp" class="level2">
+<h2 class="anchored" data-anchor-id="google-cloud-platform-gcp">Google Cloud Platform (GCP)</h2>
 <p>Launch a GCE instance using the qcow2 disk image (<a href="https://release.tetmon.com/edgeset-x86_64.qcow2">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.qcow2">arm64</a>).</p>
 </section>
-<section id="digital-ocean" class="level3">
-<h3 class="anchored" data-anchor-id="digital-ocean">Digital Ocean</h3>
+<section id="digital-ocean" class="level2">
+<h2 class="anchored" data-anchor-id="digital-ocean">Digital Ocean</h2>
 <p>Import the qcow2 disk image (<a href="https://release.tetmon.com/edgeset-x86_64.qcow2">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.qcow2">arm64</a>) to your DigitalOcean account as a “Custom Image” (see <a href="https://www.digitalocean.com/blog/custom-images/" class="uri">https://www.digitalocean.com/blog/custom-images/</a>). Launch a droplet with the custom image.</p>
 </section>
-<section id="hetzner-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="hetzner-cloud">Hetzner Cloud</h3>
+<section id="hetzner-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="hetzner-cloud">Hetzner Cloud</h2>
 <p>Import the raw disk image (<a href="https://release.tetmon.com/edgeset-x86_64.img">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.img">arm64</a>) as a snapshot (i.e.&nbsp;using <a href="https://github.com/apricote/hcloud-upload-image">hcloud-upload-image</a>). Launch a new VM with the snapshot.</p>
 
 
-</section>
 </section>
 
 
@@ -1032,38 +889,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

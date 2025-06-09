@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -235,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -260,17 +260,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="restarting-the-engine" class="level2">
 <h2 class="anchored" data-anchor-id="restarting-the-engine">Restarting the engine</h2>
 <p>When you add a new data source to EdgeSet, you must restart the query engine in order for EdgeSet to connect to the data source and map the data into the catalog.</p>
-<p>You can also restart the query engine any time from the <code>Engine</code> menu.</p>
 </section>
-<section id="engine-stats" class="level2">
+<section id="engine-stats" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="engine-stats">Engine stats</h2>
-<p>Navigating to the <code>Engine</code> menu will show you statistics about the query engine, such as the number of running and queued queries.</p>
-<div class="quarto-figure quarto-figure-center">
+<p>Clicking on the ratio<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> next to the user menu will show you statistics about the query engine, such as the number of running and queued queries.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;A ratio like <code>0/2</code> shows the number of currently active queries (i.e.&nbsp;<code>0</code>) and the total number of query slots (i.e.&nbsp;<code>2</code>).</p></div></div><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="screenshots/query-engine-stats.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="No user queries have run on this EdgeSet server yet"><img src="screenshots/query-engine-stats.png" class="img-fluid figure-img" alt="No user queries have run on this EdgeSet server yet"></a></p>
 <figcaption>No user queries have run on this EdgeSet server yet</figcaption>
 </figure>
 </div>
+<p>You can restart the query engine any time from this page.</p>
 </section>
 <section id="query-management" class="level2">
 <h2 class="anchored" data-anchor-id="query-management">Query Management</h2>
@@ -279,13 +279,12 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="user-queries">User Queries</h3>
 <p>The <code>User Queries</code> table will display the list of currently running or queued queries executed by users of Edgeset with the following details:</p>
 <ul>
-<li>Creation date: The date and time in which the query was submitted formatted in local timezone.</li>
-<li>User: The user running the query.</li>
-<li>Query: The query string.</li>
-<li>Status: Status of the query.</li>
-<li>Action: Display’s a cancellation link to cancel the associated query.</li>
+<li>Submitted: The date and time in which the query was submitted (displayed in your local timezone)</li>
+<li>User: The user running the query</li>
+<li>Query: The query string</li>
+<li>Status: Status of the query</li>
+<li>Action: Display’s a cancellation link to cancel the associated query</li>
 </ul>
-<p>You can cancel a query individually associcated with a user or cancel all the queries by clicking the <code>Cancel all queries</code> button present in the header of the query management tables.</p>
 </section>
 <section id="system-queries" class="level3">
 <h3 class="anchored" data-anchor-id="system-queries">System Queries</h3>
@@ -310,6 +309,7 @@ ul.task-list li input[type="checkbox"] {
 
 </section>
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

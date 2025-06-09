@@ -44,6 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-cdc23f4e4b50e2f9c7a17c568ecdf09f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-98b4ebb918438fe427fd570c317eac42.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -244,8 +247,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To connect to a data source in EdgeSet, first navigate to “Connect” in the navigation bar. Available data sources are listed on the “Add new data source” card.</p>
-<p>You can add any number of each data source type. For example, you can add multiple PostgreSQL databases.</p>
+<p>To connect to a data source in EdgeSet, first navigate to “Connect” in the navigation bar. You can add any number of each data source type. For example, you can add multiple PostgreSQL databases.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="screenshots/new-data-sources.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Available data sources are listed on the “Add new data source” card"><img src="screenshots/new-data-sources.png" class="img-fluid figure-img" alt="Available data sources are listed on the “Add new data source” card"></a></p>
+<figcaption>Available data sources are listed on the “Add new data source” card</figcaption>
+</figure>
+</div>
 <section id="google-sheets" class="level2">
 <h2 class="anchored" data-anchor-id="google-sheets">Google Sheets</h2>
 <p>To access Google Sheets, you need to:</p>
@@ -268,44 +276,34 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Alibaba OSS</td>
+<td style="text-align: left;">BigQuery</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">requires an API key</td>
+<td style="text-align: left;">requires a Google Cloud service account</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Amazon Redshift</td>
-<td style="text-align: left;">any</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Amazon S3</td>
-<td style="text-align: left;">N/A</td>
-<td style="text-align: left;">requires an API key</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Apache Kafka</td>
-<td style="text-align: left;">0.10.0 or higher</td>
+<td style="text-align: left;">Elasticsearch</td>
+<td style="text-align: left;">6.0.0 or higher</td>
 <td style="text-align: left;">unauthenticated only</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Google BigQuery</td>
+<td style="text-align: left;">Google Drive</td>
 <td style="text-align: left;">N/A</td>
 <td style="text-align: left;">requires a Google Cloud service account</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Google Sheets</td>
+<td style="text-align: left;">Internal Storage</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: left;">requires a Google Cloud service account</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Elasticsearch</td>
-<td style="text-align: left;">6.0.0 or higher</td>
+<td style="text-align: left;">Kafka</td>
+<td style="text-align: left;">0.10.0 or higher</td>
 <td style="text-align: left;">unauthenticated only</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">MariaDB</td>
 <td style="text-align: left;">10.0 or higher</td>
-<td style="text-align: left;">add as MySQL</td>
+<td style="text-align: left;">add as a MySQL data source</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">MongoDB</td>
@@ -320,7 +318,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: left;">OpenAPI</td>
 <td style="text-align: left;">3.0 or higher</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">requires the URL of the specification file</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Oracle</td>
@@ -328,14 +326,34 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">OSS</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">requires an Alibaba Cloud API key</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">PostgreSQL</td>
 <td style="text-align: left;">10.0 or higher</td>
 <td style="text-align: left;"></td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">Redshift</td>
+<td style="text-align: left;">any</td>
+<td style="text-align: left;"></td>
+</tr>
 <tr class="even">
+<td style="text-align: left;">S3</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">requires an API key</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">SQL Server</td>
 <td style="text-align: left;">2012 or higher or Azure SQL</td>
 <td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TPC-DS</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">for testing queries</td>
 </tr>
 </tbody>
 </table>
@@ -934,6 +952,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
