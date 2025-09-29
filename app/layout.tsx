@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import {ChatwootWidget} from './chat'
 
 export const metadata: Metadata = {
   title: 'Data plumbing, before AI can happen | EdgeSet',
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body>
         {children}
         <script defer data-api="https://analytics.tetmon.com/api/event" src="/assets/plausible.js"></script>
+        <ChatwootWidget/>
       </body>
     </html>
   )

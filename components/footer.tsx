@@ -21,15 +21,16 @@ const Footer = () => (
       </div>
 
     </div>
-    <ul className='col-start-5 col-end-[-1] grid [grid-template-columns:subgrid] grid-rows-2 place-items-center max-h-32 pt-5'>
-      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-[-3] md:col-start-[-4] col-span-1 row-start-1`}><a href="/faq" className='hover:underline'>FAQ</a></li>
-      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-4 col-span-1 row-start-2`}><a href="/about" className='hover:underline'>About</a></li>
-      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-4 col-span-1 row-start-1`}><a href="/edgeset/manual/current/en-US/" className='hover:underline'>Documentation</a></li>
-      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-[-3] col-span-1 row-start-2 md:col-start-[-4]`}><a href="/blog" className='hover:underline'>Blog</a></li>
+    <ul className='col-start-5 col-end-[-1] grid [grid-template-columns:subgrid] grid-rows-2 max-h-24 pt-5'>
+      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-4 col-span-1 row-start-1`}><a href="/about" className='hover:underline'>About</a></li>
+      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-4 col-span-1 row-start-2`}><a href="/blog" className='hover:underline'>Blog</a></li>
+      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-[-3] md:col-start-[-4] col-span-1 row-start-1`}><a href="/edgeset/manual/current/en-US/" className='hover:underline'>Documentation</a></li>
+      <li className={`text-base font-semibold text-gray-600 ${DINish.className} col-start-[-3] md:col-start-[-4] col-span-1 row-start-2`}><a href="/faq" className='hover:underline'>FAQ</a></li>
     </ul>
 
-    <div className={`text-xs text-gray-600 ${DINish.className} col-start-2 col-span-full py-2`}>
-      ©2024 Tetmon Pte Ltd - All Rights Reserved
+    <div className={`text-s text-gray-600 ${DINish.className} col-start-2 col-span-full py-2`}>
+      ©2025 Tetmon Pte Ltd - All Rights Reserved
+      <span className={`text-base font-semibold text-gray-600 ${DINish.className}`} style={{marginLeft: '1em'}}><a href="/privacy-policy" className='hover:underline'>Privacy Policy</a></span>
     </div>
   </footer>
 )
