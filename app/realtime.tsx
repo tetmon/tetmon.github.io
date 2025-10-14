@@ -127,7 +127,7 @@ export default function RealTime() {
       <div className="grid grid-cols-12 py-8 max-w-[1490px] mx-auto">
         <div className="col-start-2 col-span-10 grid [grid-template-columns:subgrid]">
           <div className="flex w-full justify-start col-span-full py-5">
-            <svg className="w-8 h-8 text-primary" aria-labelledby="svg-inline--fa-title-Gauge Max Icon" data-prefix="fasl" data-icon="gauge-max" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title id="svg-inline--fa-title-Gauge Max Icon">Gauge Max Icon</title><path fill="currentColor" d="M256 480a224 224 0 1 0 0-448 224 224 0 1 0 0 448zM256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zm24 96a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM224 352a32 32 0 1 0 64 0 32 32 0 1 0 -64 0zm-32 0c0-35.3 28.7-64 64-64c17.5 0 33.4 7 44.9 18.4l106.9-64.1 13.7-8.2L438 261.5l-13.7 8.2L317.4 333.8c1.7 5.8 2.6 11.9 2.6 18.2c0 35.3-28.7 64-64 64s-64-28.7-64-64zM392 144a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM96 232a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm72-88a24 24 0 1 1 -48 0 24 24 0 1 1 48 0z"></path></svg>
+            <svg className="w-8 h-8 xl:w-10 xl:h-10 mx-1 text-primary" role="presentation" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
             <h2 className={`text-2xl font-bold text-primary ${DINish.className} pl-2 xl:text-3xl`}>Real-time Access</h2>
           </div>
           <div className="col-span-full xl:flex xl:flex-row-reverse xl:justify-between">

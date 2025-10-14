@@ -626,10 +626,8 @@ export default function Gallery() {
           <div className='grid [grid-template-columns:subgrid] col-span-full'>
             <div className='col-span-full col-start-1 text-center'>
               <div className='flex items-center gap-2 w-full justify-center'>
-                <svg className="max-w-[24px] xl:max-w-[32px] text-primary mx-1" fill="currentColor" viewBox="0 0 32 28">
-                  <path d="M10 14v8h-4v-8h4zM16 6v16h-4v-16h4zM32 24v2h-32v-24h2v22h30zM22 10v12h-4v-12h4zM28 4v18h-4v-18h4z"></path>
-                </svg>
-                <h2 className={`text-2xl text-primary font-bold ${DINish.className} xl:text-3xl text-gray-600 col-start-1 col-span-full`}>Dashboard and Analytics</h2>
+                <svg className="max-w-[32px] xl:max-w-[32px] text-primary mx-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                <h2 className={`text-2xl text-primary font-bold ${DINish.className} xl:text-3xl text-gray-600 col-start-1 col-span-full`}>Shareable Dashboards</h2>
               </div>
               <div className='py-10 col-span-full'>
                 <p className={`text-lg md:text-xl ${DINish.className} w-full pr-8 text-center max-w-3xl m-auto`}>

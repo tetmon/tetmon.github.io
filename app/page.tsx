@@ -5,6 +5,7 @@ import Platform from './platform';
 import Summary from './summary';
 import Security from './security';
 import Federated from './federated';
+import EntityMatching from './entityMatching';
 import RealTime from './realtime';
 import Hero from './hero';
 import riveWASMResource from '@rive-app/canvas/rive.wasm';
@@ -28,6 +29,7 @@ export default function Home() {
       <Platform />
       <Summary />
       <Federated />
+      <EntityMatching />
       <RealTime />
       <Gallery />
       <Security />
