@@ -1,8 +1,8 @@
 ---
-title: 'The Benefits of SaaS without the Downsides'
-description: 'Learn how EdgeSet differs from conventional SaaS applications.'
-date: '2024-01-10'
-author: 'Chris Forno'
+title: The Benefits of SaaS without the Downsides
+description: Learn how EdgeSet differs from conventional SaaS applications.
+date: 2024-01-10
+author: Chris Forno
 ---
 
 EdgeSet is not a SaaS. You can self-host it or run it on your desktop. We also offer managed hosting if you don’t want to deal with self-hosting, but it’s optional.

@@ -3,21 +3,11 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { DateTime } from 'luxon'
 import { DINish } from '../fonts'
+import {AllPostsData} from '@/lib/posts'
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] })
 
-type AllPostsData = {
-  date: string
-  title: string
-  id: string
-  time: number
-  description: string
-  author: string
-}[]
-
-function formatDate(date: string) {
-  return DateTime.fromFormat(date, 'yyyy-MM-dd').toFormat('MMMM dd, yyyy');
-}
+const dateFormatter = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric' })
 
 const Meta = ({ date, time, author }: Partial<AllPostsData[0]>) => {
   return (
@@ -28,7 +18,7 @@ const Meta = ({ date, time, author }: Partial<AllPostsData[0]>) => {
       <span className='inline'>|</span>
       <div className='flex gap-2'>
         {date ? <small className='inline-flex items-center'>
-          {formatDate(date)}
+          {dateFormatter.format(date)}
         </small> : null}|
         <small className='inline-flex items-center'>
           {time} min. read
@@ -61,10 +51,8 @@ export default function Blog() {
                     srcSet={`
                       /blog/${id}/post_img_sm.png 200w,
                       /blog/${id}/post_img_md.png 640w,
-                      /blog/${id}/post_img_lg.png 889w,
-                      /blog/${id}/post_img_xl.png 1071w,
-                      /blog/${id}/post_img.png 1080w`}
-                    src={`/blog/${id}/post_img.png`}
+                      /blog/${id}/post_img_lg.png 1080w`}
+                    src={`/blog/${id}/post_img_lg.png`}
                     alt={title}></img>
                 </div>
               </Link> :
@@ -75,10 +63,8 @@ export default function Blog() {
                     srcSet={`
                       /blog/${id}/post_img_sm.png 200w,
                       /blog/${id}/post_img_md.png 640w,
-                      /blog/${id}/post_img_lg.png 889w,
-                      /blog/${id}/post_img_xl.png 1071w,
-                      /blog/${id}/post_img.png 1080w`}
-                    src={`/blog/${id}/post_img.png`}
+                      /blog/${id}/post_img_lg.png 1080w`}
+                    src={`/blog/${id}/post_img_lg.png`}
                     alt={title}></img>
                 </div>
                 <div className='col-span-12 flex flex-col justify-center lg:col-span-6'>

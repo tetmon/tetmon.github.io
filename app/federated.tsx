@@ -38,7 +38,7 @@ export default function Federated() {
       <div className="grid grid-cols-12 py-8 pt-14 max-w-[1490px] mx-auto">
         <div className="col-start-2 col-span-10 grid [grid-template-columns:subgrid]">
           <div className="flex w-full justify-start col-span-full py-5">
-            <svg className="w-8 h-8 xl:w-10 xl:h-10 mx-1 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+            <svg className="w-8 h-8 xl:w-10 xl:h-10 mx-1 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
             <h2 className={`text-2xl font-bold text-primary ${DINish.className} pl-2 xl:text-3xl`}>Federated Queries</h2>
           </div>
           <div className="col-span-full xl:flex xl:flex-row-reverse xl:justify-between">

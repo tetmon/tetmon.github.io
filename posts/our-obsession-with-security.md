@@ -1,7 +1,7 @@
 ---
-title: 'Our Obsession with Security'
-date: '2024-01-10'
-author: 'Chris Forno'
+title: Our Obsession with Security
+date: 2024-01-10
+author: Chris Forno
 ---
 
 We already talked about our biggest security advantage in [The Benefits of SaaS without the Downsides](the-benefits-of-sass-without-the-downsides). But we didn’t stop there.

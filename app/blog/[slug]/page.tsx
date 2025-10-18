@@ -1,7 +1,6 @@
 import fs from 'fs'
 import { Inter } from 'next/font/google'
-import { getPostData } from '@/lib/posts'
-import formatDate from '@/lib/format'
+import {getPostData, PostData, AllPostsData} from '@/lib/posts'
 import Link from 'next/link'
 import path from 'path'
 import { DINish } from '@/app/fonts'
@@ -17,23 +16,7 @@ type Props = {
   params: Params
 }
 
-type PostData = {
-  title: string
-  date: string
-  contentHtml: string
-  time: number
-  author: string
-}
-
-type AllPostsData = {
-  date: string
-  title: string
-  id: string
-  time: number
-  description: string
-  author: string
-}[]
-
+const dateFormatter = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric' })
 
 const Meta = ({ date, time, author }: Partial<AllPostsData[0]>) => {
   return (
@@ -47,7 +30,7 @@ const Meta = ({ date, time, author }: Partial<AllPostsData[0]>) => {
         </small>
         <span className='px-1'>|</span>
         {date ? <small className='inline-flex items-center'>
-          {formatDate(date)}
+          {dateFormatter.format(date)}
         </small> : null}
       </div>
     </div>
@@ -90,7 +73,10 @@ export default async function Post({ params }: Props) {
               </svg>
               <span className='px-2'>Back to posts</span>
             </Link>
-            <h1 className={`${DINish.className} text-3xl font-semibold text-zinc-700 md:text-5xl md:leading-11`}>{postData.title}</h1>
+            <header>
+              <h1 className={`${DINish.className} text-3xl font-semibold text-zinc-700 md:text-5xl md:leading-11`}>{postData.title}</h1>
+              {postData.subtitle ? <p className="subtitle">{postData.subtitle}</p> : null}
+            </header>
             <Meta date={date} time={time} author={author} />
 
             {/* Post Content */}

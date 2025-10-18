@@ -1,8 +1,8 @@
 ---
-title: 'Democratizing Data Access with Peer-to-Peer'
-date: '2024-01-10'
-description: "Find out how Edgeset circumvents networking limitations of self-hosted solutions."
-author: 'Chris Forno'
+title: Democratizing Data Access with Peer-to-Peer
+date: 2024-01-10
+description: Find out how Edgeset circumvents networking limitations of self-hosted solutions.
+author: Chris Forno
 ---
 
 A big hurdle for self-hosted software is setting up networking. Firewalls, DNS, TLS… It's a confusing hassle, even for computer network professionals. In EdgeSet, we’ve removed the hassle with our peer-to-peer functionality.

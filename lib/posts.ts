@@ -1,28 +1,34 @@
 // Reference:
 // https://github.com/emanuelefavero/nextjs-app-router-blog/blob/8a1b7c158f0b9d6217ee73a757696def2b2f5363/lib/posts.ts#L7
 
+import {execSync} from 'child_process'
 import fs from 'fs'
 import path from 'path'
-
-type PostData = {
-  title: string
-  date: string
-  description: string
-  author: string
-}
 
 const images = ['better.png', 'lock.png', 'peer2peer.png', 'etl.png']
 
 // Import 'gray-matter', library for parsing the metadata in each markdown file
 import matter from 'gray-matter'
 
-import remarkGfm from 'remark-gfm'
-import rehypeSlug from 'rehype-slug'
-import { unified } from 'unified'
-import remarkRehype from 'remark-rehype'
-import remarkParse from 'remark-parse'
-import rehypeStringify from 'rehype-stringify'
+export type PostData = {
+  title: string
+  subtitle?: string
+  date: Date
+  contentHtml: string
+  time: number
+  description: string
+  author: string
+}
 
+export type AllPostsData = {
+  date: Date
+  title: string
+  subtitle?: string
+  id: string
+  time: number
+  description: string
+  author: string
+}[]
 
 // --------------------------------
 // GET THE PATH OF THE POSTS FOLDER
@@ -30,15 +36,15 @@ const postsDirectory = path.join(process.cwd(), 'posts') // process.cwd() return
 
 export function getSortedPostsData() {
   // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory) // [ 'pre-rendering.md', 'ssg-ssr.md' ]
+  const files = fs.readdirSync(postsDirectory, {withFileTypes: true}) // [ 'pre-rendering.md', 'ssg-ssr.md' ]
 
   // Get the data from each file
-  const allPostsData = fileNames.map((filename) => {
+  const allPostsData = (files.filter((f) => f.isFile())).map((f) => {
     // Remove ".md" from file name to get id
-    const id = filename.replace(/\.md$/, '') // id = 'pre-rendering', 'ssg-ssr'
+    const id = f.name.replace(/\.md$/, '') // id = 'pre-rendering', 'ssg-ssr'
 
     // Read markdown file as string
-    const fullPath = path.join(postsDirectory, filename)
+    const fullPath = path.join(postsDirectory, f.name)
     // /Users/ef/Desktop/nextjs-blog/posts/pre-rendering.md
     const fileContents = fs.readFileSync(fullPath, 'utf8') // .md string content
 
@@ -47,7 +53,7 @@ export function getSortedPostsData() {
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
 
-    const data = matterResult.data as PostData;
+    const data = matterResult.data as Omit<PostData, "time">;
 
     // Combine the data with the id
     return {
@@ -72,12 +78,12 @@ export function getSortedPostsData() {
 }
 
 export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory)
+  const files = fs.readdirSync(postsDirectory, {withFileTypes: true})
 
-  return fileNames.map((fileName) => {
+  return (files.filter((f) => f.isFile())).map((f) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, ''),
+        id: f.name.replace(/\.md$/, ''),
       },
     }
   })
@@ -127,17 +133,9 @@ export async function getPostData(id: string, dir: string = postsDirectory) {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string
-  const processedContent = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeSlug)  // Add this line'
-    .use(rehypeStringify)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = execSync("pandoc -f markdown -t html", {input: matterResult.content}).toString()
 
-  const data = matterResult.data as PostData;
+  const data = matterResult.data as Omit<Omit<PostData, "time">, "contentHtml">;
 
   // Combine the data with the id
   return {

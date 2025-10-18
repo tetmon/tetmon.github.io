@@ -127,7 +127,7 @@ export default function RealTime() {
       <div className="grid grid-cols-12 py-8 max-w-[1490px] mx-auto">
         <div className="col-start-2 col-span-10 grid [grid-template-columns:subgrid]">
           <div className="flex w-full justify-start col-span-full py-5">
-            <svg className="w-8 h-8 xl:w-10 xl:h-10 mx-1 text-primary" role="presentation" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+            <svg className="w-8 h-8 xl:w-10 xl:h-10 mx-1 text-primary" role="presentation" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
             <h2 className={`text-2xl font-bold text-primary ${DINish.className} pl-2 xl:text-3xl`}>Real-time Access</h2>
           </div>
           <div className="col-span-full xl:flex xl:flex-row-reverse xl:justify-between">

@@ -1,13 +1,8 @@
 import { DINish, Inter } from "./fonts";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
-// Define the Post type
-interface Post {
-  id: string;
-  title: string;
-  date: string;
-  // Add other relevant fields
-}
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric' })
 
 export default function Resources() {
   const posts = getSortedPostsData();
@@ -54,14 +49,12 @@ export default function Resources() {
                     srcSet={`
                       /blog/${post.id}/post_img_sm.png 200w,
                       /blog/${post.id}/post_img_md.png 640w,
-                      /blog/${post.id}/post_img_lg.png 889w,
-                      /blog/${post.id}/post_img_xl.png 1071w,
-                      /blog/${post.id}/post_img.png 1080w`}
-                    src={`/blog/${post.id}/post_img.png`}
+                      /blog/${post.id}/post_img_lg.png 1080w`}
+                    src={`/blog/${post.id}/post_img_lg.png`}
                     alt={post.title}></img>
                   <div className="p-4">
                     <h3 className={`${DINish.className} text-lg font-semibold mb-2`}>{post.title}</h3>
-                    <p className={`text-sm ${DINish.className} text-gray-600`}>{post.date}</p>
+                    <p className={`text-sm ${DINish.className} text-gray-600`}>{dateFormatter.format(post.date)}</p>
                   </div>
                 </div>
               </div>

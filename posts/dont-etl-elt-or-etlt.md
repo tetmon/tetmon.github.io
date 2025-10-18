@@ -1,7 +1,7 @@
 ---
-title: 'Don’t ETL, ELT, or EtLT'
-date: '2023-12-01'
-author: 'Chris Forno'
+title: Don’t ETL, ELT, or EtLT
+date: 2023-12-01
+author: Chris Forno
 ---
 <h2 style="margin-top:0;"> “ETL is dead, long live ELT!”</h2>
 
