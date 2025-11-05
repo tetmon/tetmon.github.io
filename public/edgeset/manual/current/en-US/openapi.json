@@ -1,0 +1,4140 @@
+{
+    "components": {
+        "schemas": {
+            "ASEInfo": {
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "user",
+                    "database"
+                ],
+                "type": "object"
+            },
+            "BigQueryInfo": {
+                "properties": {
+                    "credentialsKey": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "projectId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "projectId",
+                    "credentialsKey"
+                ],
+                "type": "object"
+            },
+            "BuildInfo": {
+                "properties": {
+                    "date": {
+                        "$ref": "#/components/schemas/Day"
+                    },
+                    "hash": {},
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "hash",
+                    "id",
+                    "date"
+                ],
+                "type": "object"
+            },
+            "CalendarTimeInterval": {
+                "properties": {
+                    "months": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "time": {
+                        "format": "double",
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "months",
+                    "time"
+                ],
+                "type": "object"
+            },
+            "ClientParameterKind": {
+                "enum": [
+                    "TYPE",
+                    "NAMED_TYPE",
+                    "LONG",
+                    "VARIABLE"
+                ],
+                "type": "string"
+            },
+            "ClientTypeSignature": {
+                "properties": {
+                    "arguments": {
+                        "items": {
+                            "$ref": "#/components/schemas/ClientTypeSignatureParameter"
+                        },
+                        "type": "array"
+                    },
+                    "rawType": {
+                        "$ref": "#/components/schemas/RawType"
+                    }
+                },
+                "required": [
+                    "rawType",
+                    "arguments"
+                ],
+                "type": "object"
+            },
+            "ClientTypeSignatureParameter": {
+                "properties": {
+                    "kind": {
+                        "$ref": "#/components/schemas/ClientParameterKind"
+                    },
+                    "value": {}
+                },
+                "required": [
+                    "kind",
+                    "value"
+                ],
+                "type": "object"
+            },
+            "Column": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "typeSignature": {
+                        "$ref": "#/components/schemas/ClientTypeSignature"
+                    }
+                },
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "type": "object"
+            },
+            "ColumnDefinition": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ],
+                        "title": "Name",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "formula": {
+                                "items": {
+                                    "$ref": "#/components/schemas/FormulaPart"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "formula"
+                        ],
+                        "title": "Formula",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "equijoin": {
+                                "items": [
+                                    {
+                                        "items": {
+                                            "items": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "maxItems": 2,
+                                            "minItems": 2,
+                                            "type": "array"
+                                        },
+                                        "type": "array"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/Query"
+                                    }
+                                ],
+                                "maxItems": 2,
+                                "minItems": 2,
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "equijoin"
+                        ],
+                        "title": "Equijoin",
+                        "type": "object"
+                    }
+                ]
+            },
+            "ColumnRef": {
+                "oneOf": [
+                    {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "title": "RefSibling",
+                        "type": "integer"
+                    },
+                    {
+                        "items": {
+                            "maximum": 9223372036854775807,
+                            "minimum": -9223372036854775808,
+                            "type": "integer"
+                        },
+                        "title": "RefAbsolute",
+                        "type": "array"
+                    }
+                ]
+            },
+            "Day": {
+                "example": "2016-07-22",
+                "format": "date",
+                "type": "string"
+            },
+            "DiskInfo": {
+                "properties": {
+                    "availableBytes": {
+                        "type": "integer"
+                    },
+                    "totalBytes": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "totalBytes",
+                    "availableBytes"
+                ],
+                "type": "object"
+            },
+            "ElasticsearchInfo": {
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port"
+                ],
+                "type": "object"
+            },
+            "EngineStats": {
+                "properties": {
+                    "cancelled": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "completed": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "failed": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "completed",
+                    "failed",
+                    "cancelled"
+                ],
+                "type": "object"
+            },
+            "ErrorLocation": {
+                "properties": {
+                    "columnNumber": {
+                        "type": "integer"
+                    },
+                    "lineNumber": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "lineNumber",
+                    "columnNumber"
+                ],
+                "type": "object"
+            },
+            "Event": {
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/EventData"
+                    },
+                    "id": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "timeStamp": {
+                        "$ref": "#/components/schemas/UTCTime"
+                    }
+                },
+                "required": [
+                    "id",
+                    "timeStamp",
+                    "data"
+                ],
+                "type": "object"
+            },
+            "EventData": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "Init": {
+                                "properties": {
+                                    "licenseExpiry": {
+                                        "$ref": "#/components/schemas/Day"
+                                    },
+                                    "queries": {
+                                        "items": {
+                                            "$ref": "#/components/schemas/QueryInfo"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "querySlots": {
+                                        "maximum": 255,
+                                        "minimum": 0,
+                                        "type": "integer"
+                                    },
+                                    "stats": {
+                                        "$ref": "#/components/schemas/EngineStats"
+                                    }
+                                },
+                                "required": [
+                                    "stats",
+                                    "queries",
+                                    "querySlots"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "Init"
+                        ],
+                        "title": "Init",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "EngineRestarting": {
+                                "example": [],
+                                "items": {},
+                                "maxItems": 0,
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "EngineRestarting"
+                        ],
+                        "title": "EngineRestarting",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "EngineRestarted": {
+                                "example": [],
+                                "items": {},
+                                "maxItems": 0,
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "EngineRestarted"
+                        ],
+                        "title": "EngineRestarted",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "Log": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Log"
+                        ],
+                        "title": "Log",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "QueryCreated": {
+                                "$ref": "#/components/schemas/QueryInfo"
+                            }
+                        },
+                        "required": [
+                            "QueryCreated"
+                        ],
+                        "title": "QueryCreated",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "QueryStatusChange": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "$ref": "#/components/schemas/QueryStatus"
+                                    }
+                                },
+                                "required": [
+                                    "state",
+                                    "id"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "QueryStatusChange"
+                        ],
+                        "title": "QueryStatusChange",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "SourceUpdate": {
+                                "$ref": "#/components/schemas/Source"
+                            }
+                        },
+                        "required": [
+                            "SourceUpdate"
+                        ],
+                        "title": "SourceUpdate",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "ScanComplete": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "ScanComplete"
+                        ],
+                        "title": "ScanComplete",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "ScanFailed": {
+                                "properties": {
+                                    "error": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "source",
+                                    "error"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "ScanFailed"
+                        ],
+                        "title": "ScanFailed",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "ScanStarted": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "ScanStarted"
+                        ],
+                        "title": "ScanStarted",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "TableAdded": {
+                                "properties": {
+                                    "columns": {
+                                        "items": {
+                                            "$ref": "#/components/schemas/ViewColumn"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "folder": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    },
+                                    "view": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "source",
+                                    "folder",
+                                    "view",
+                                    "columns"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "TableAdded"
+                        ],
+                        "title": "TableAdded",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "TableDeleted": {
+                                "properties": {
+                                    "folder": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "source",
+                                    "folder"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "TableDeleted"
+                        ],
+                        "title": "TableDeleted",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "TableRefreshed": {
+                                "properties": {
+                                    "completed": {
+                                        "$ref": "#/components/schemas/UTCTime"
+                                    },
+                                    "folder": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "source",
+                                    "folder",
+                                    "completed"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "TableRefreshed"
+                        ],
+                        "title": "TableRefreshed",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "TableRefreshFailed": {
+                                "properties": {
+                                    "error": {
+                                        "type": "string"
+                                    },
+                                    "failed": {
+                                        "$ref": "#/components/schemas/UTCTime"
+                                    },
+                                    "folder": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "source",
+                                    "folder",
+                                    "failed",
+                                    "error"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "TableRefreshFailed"
+                        ],
+                        "title": "TableRefreshFailed",
+                        "type": "object"
+                    }
+                ]
+            },
+            "FailureInfo": {
+                "properties": {
+                    "cause": {
+                        "$ref": "#/components/schemas/FailureInfo"
+                    },
+                    "errorLocation": {
+                        "$ref": "#/components/schemas/ErrorLocation"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "stack": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "suppressed": {
+                        "items": {
+                            "$ref": "#/components/schemas/FailureInfo"
+                        },
+                        "type": "array"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "message",
+                    "stack"
+                ],
+                "type": "object"
+            },
+            "FormulaPart": {
+                "oneOf": [
+                    {
+                        "title": "FText",
+                        "type": "string"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ColumnRef"
+                    }
+                ]
+            },
+            "GoogleDriveInfo": {
+                "properties": {
+                    "client_email": {
+                        "type": "string"
+                    },
+                    "client_id": {
+                        "type": "string"
+                    },
+                    "private_key": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "private_key_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_id",
+                    "client_email",
+                    "private_key_id",
+                    "private_key"
+                ],
+                "type": "object"
+            },
+            "Group": {
+                "properties": {
+                    "desc": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "GroupSummary": {
+                "properties": {
+                    "desc": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "users": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "name",
+                    "users"
+                ],
+                "type": "object"
+            },
+            "IdentifierConversion": {
+                "properties": {
+                    "chineseToPinyin": {
+                        "type": "boolean"
+                    },
+                    "convertToLowercase": {
+                        "type": "boolean"
+                    },
+                    "spaceToUnderscore": {
+                        "type": "boolean"
+                    },
+                    "stripAccents": {
+                        "type": "boolean"
+                    },
+                    "stripUnsupported": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "spaceToUnderscore",
+                    "stripAccents",
+                    "convertToLowercase",
+                    "stripUnsupported",
+                    "chineseToPinyin"
+                ],
+                "type": "object"
+            },
+            "KafkaInfo": {
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "topics": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port"
+                ],
+                "type": "object"
+            },
+            "Layer": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "children": {
+                                "items": {
+                                    "$ref": "#/components/schemas/Layer"
+                                },
+                                "type": "array"
+                            },
+                            "orientation": {
+                                "$ref": "#/components/schemas/Orientation"
+                            },
+                            "tag": {
+                                "enum": [
+                                    "Box"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "orientation",
+                            "children",
+                            "tag"
+                        ],
+                        "title": "Box",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "children": {
+                                "items": {
+                                    "$ref": "#/components/schemas/Layer"
+                                },
+                                "type": "array"
+                            },
+                            "tag": {
+                                "enum": [
+                                    "Grid"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "children",
+                            "tag"
+                        ],
+                        "title": "Grid",
+                        "type": "object"
+                    }
+                ]
+            },
+            "LicenseInfo": {
+                "properties": {
+                    "license": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "version",
+                    "name",
+                    "license",
+                    "url"
+                ],
+                "type": "object"
+            },
+            "MongoDBInfo": {
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port"
+                ],
+                "type": "object"
+            },
+            "MySQLInfo": {
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "user"
+                ],
+                "type": "object"
+            },
+            "OSSInfo": {
+                "properties": {
+                    "accessKeyId": {
+                        "type": "string"
+                    },
+                    "accessKeySecret": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "bucket": {
+                        "type": "string"
+                    },
+                    "prefix": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "region",
+                    "bucket",
+                    "prefix",
+                    "accessKeyId",
+                    "accessKeySecret"
+                ],
+                "type": "object"
+            },
+            "Object": {
+                "additionalProperties": true,
+                "description": "Arbitrary JSON object.",
+                "type": "object"
+            },
+            "OpenAPIInfo": {
+                "properties": {
+                    "basicAuth": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "bearer": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "server": {
+                        "type": "string"
+                    },
+                    "specUrl": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "specUrl"
+                ],
+                "type": "object"
+            },
+            "OracleInfo": {
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "database",
+                    "user",
+                    "password"
+                ],
+                "type": "object"
+            },
+            "Orientation": {
+                "enum": [
+                    "Column",
+                    "Row"
+                ],
+                "type": "string"
+            },
+            "PasswordChange": {
+                "properties": {
+                    "new": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "old": {
+                        "format": "password",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "old",
+                    "new"
+                ],
+                "type": "object"
+            },
+            "PostgresInfo": {
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "user",
+                    "database"
+                ],
+                "type": "object"
+            },
+            "Query": {
+                "properties": {
+                    "columns": {
+                        "items": {
+                            "$ref": "#/components/schemas/ColumnDefinition"
+                        },
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "sort": {
+                        "items": {
+                            "maximum": 9223372036854775807,
+                            "minimum": -9223372036854775808,
+                            "type": "integer"
+                        },
+                        "type": "array"
+                    },
+                    "table": {
+                        "$ref": "#/components/schemas/Table"
+                    }
+                },
+                "required": [
+                    "table",
+                    "columns",
+                    "sort"
+                ],
+                "type": "object"
+            },
+            "QueryError": {
+                "properties": {
+                    "errorCode": {
+                        "type": "integer"
+                    },
+                    "errorLocation": {
+                        "$ref": "#/components/schemas/ErrorLocation"
+                    },
+                    "errorName": {
+                        "type": "string"
+                    },
+                    "errorType": {
+                        "type": "string"
+                    },
+                    "failureInfo": {
+                        "$ref": "#/components/schemas/FailureInfo"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "sqlState": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "QueryInfo": {
+                "properties": {
+                    "created": {
+                        "$ref": "#/components/schemas/ZonedTime"
+                    },
+                    "finished": {
+                        "$ref": "#/components/schemas/ZonedTime"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "query": {
+                        "type": "string"
+                    },
+                    "running": {
+                        "$ref": "#/components/schemas/ZonedTime"
+                    },
+                    "state": {
+                        "$ref": "#/components/schemas/QueryStatus"
+                    },
+                    "submitted": {
+                        "$ref": "#/components/schemas/ZonedTime"
+                    },
+                    "system": {
+                        "type": "boolean"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "query",
+                    "user",
+                    "system",
+                    "state",
+                    "created"
+                ],
+                "type": "object"
+            },
+            "QueryResult": {
+                "properties": {
+                    "clientTimeoutSeconds": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "columns": {
+                        "items": {
+                            "$ref": "#/components/schemas/Column"
+                        },
+                        "type": "array"
+                    },
+                    "data": {
+                        "items": {
+                            "items": {},
+                            "type": "array"
+                        },
+                        "type": "array"
+                    },
+                    "error": {
+                        "$ref": "#/components/schemas/QueryError"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "infoUri": {
+                        "type": "string"
+                    },
+                    "nextUri": {
+                        "type": "string"
+                    },
+                    "partialCancelUri": {
+                        "type": "string"
+                    },
+                    "stats": {
+                        "$ref": "#/components/schemas/StatementStats"
+                    },
+                    "updateCount": {
+                        "type": "integer"
+                    },
+                    "updateType": {
+                        "type": "string"
+                    },
+                    "warnings": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "stats",
+                    "warnings"
+                ],
+                "type": "object"
+            },
+            "QueryState": {
+                "enum": [
+                    "QUEUED",
+                    "WAITING_FOR_RESOURCES",
+                    "DISPATCHING",
+                    "PLANNING",
+                    "STARTING",
+                    "RUNNING",
+                    "FINISHING",
+                    "FINISHED",
+                    "FAILED"
+                ],
+                "type": "string"
+            },
+            "QueryStatus": {
+                "enum": [
+                    "waiting",
+                    "active",
+                    "aborted",
+                    "finished",
+                    "failed",
+                    "cancelled"
+                ],
+                "type": "string"
+            },
+            "RawType": {
+                "enum": [
+                    "bigint",
+                    "integer",
+                    "smallint",
+                    "tinyint",
+                    "boolean",
+                    "date",
+                    "decimal",
+                    "real",
+                    "double",
+                    "HyperLogLog",
+                    "qdigest",
+                    "P4HyperLogLog",
+                    "interval day to second",
+                    "interval year to month",
+                    "timestamp",
+                    "timestamp with time zone",
+                    "time",
+                    "time with time zone",
+                    "varbinary",
+                    "varchar",
+                    "char",
+                    "row",
+                    "array",
+                    "map",
+                    "json",
+                    "ipaddress",
+                    "uuid",
+                    "geometry",
+                    "spherical_geometry",
+                    "BingTile"
+                ],
+                "type": "string"
+            },
+            "RedshiftInfo": {
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "user",
+                    "database"
+                ],
+                "type": "object"
+            },
+            "RefreshInfo": {
+                "properties": {
+                    "completed": {
+                        "$ref": "#/components/schemas/UTCTime"
+                    },
+                    "error": {
+                        "items": [
+                            {
+                                "$ref": "#/components/schemas/UTCTime"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "maxItems": 2,
+                        "minItems": 2,
+                        "type": "array"
+                    },
+                    "started": {
+                        "$ref": "#/components/schemas/UTCTime"
+                    }
+                },
+                "type": "object"
+            },
+            "RefreshInterval": {
+                "properties": {
+                    "refreshInterval": {
+                        "$ref": "#/components/schemas/CalendarTimeInterval"
+                    }
+                },
+                "type": "object"
+            },
+            "S3Info": {
+                "properties": {
+                    "accessKeyId": {
+                        "type": "string"
+                    },
+                    "bucket": {
+                        "type": "string"
+                    },
+                    "prefix": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "secretAccessKey": {
+                        "format": "password",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "region",
+                    "bucket",
+                    "prefix",
+                    "accessKeyId",
+                    "secretAccessKey"
+                ],
+                "type": "object"
+            },
+            "SQLServerInfo": {
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "user",
+                    "database"
+                ],
+                "type": "object"
+            },
+            "SavedQuery": {
+                "properties": {
+                    "charts": {
+                        "additionalProperties": {},
+                        "type": "object"
+                    },
+                    "columns": {
+                        "items": {
+                            "$ref": "#/components/schemas/ViewColumn"
+                        },
+                        "type": "array"
+                    },
+                    "owner": {
+                        "type": "string"
+                    },
+                    "saveResult": {
+                        "$ref": "#/components/schemas/RefreshInterval"
+                    },
+                    "sql": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sql",
+                    "columns",
+                    "charts"
+                ],
+                "type": "object"
+            },
+            "SnowflakeInfo": {
+                "properties": {
+                    "account": {
+                        "type": "string"
+                    },
+                    "database": {
+                        "type": "string"
+                    },
+                    "passphrase": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "private_key": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    },
+                    "user": {
+                        "type": "string"
+                    },
+                    "warehouse": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "account",
+                    "database",
+                    "warehouse",
+                    "user",
+                    "private_key"
+                ],
+                "type": "object"
+            },
+            "Source": {
+                "properties": {
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "info": {
+                        "$ref": "#/components/schemas/SourceInfo"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "scanned": {
+                        "$ref": "#/components/schemas/UTCTime"
+                    },
+                    "warnings": {
+                        "items": {
+                            "$ref": "#/components/schemas/SourceWarning"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "name",
+                    "enabled",
+                    "warnings",
+                    "info"
+                ],
+                "type": "object"
+            },
+            "SourceInfo": {
+                "oneOf": [
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/ASEInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "ASE"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "ASE",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/BigQueryInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "BigQuery"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "BigQuery",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/ElasticsearchInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "Elasticsearch"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "Elasticsearch",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "kind": {
+                                "enum": [
+                                    "InternalStorage"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind"
+                        ],
+                        "title": "InternalStorage",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/KafkaInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "Kafka"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "Kafka",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/MongoDBInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "MongoDB"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "MongoDB",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/MySQLInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "MySQL"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "MySQL",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/OpenAPIInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "OpenAPI"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "OpenAPI",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/OracleInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "Oracle"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "Oracle",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/OSSInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "OSS"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "OSS",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/PostgresInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "PostgreSQL"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "PostgreSQL",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/RedshiftInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "Redshift"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "Redshift",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/S3Info"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "S3"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "S3",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/SnowflakeInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "Snowflake"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "Snowflake",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/GoogleDriveInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "GoogleDrive"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "GoogleDrive",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/SQLServerInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "SQLServer"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "SQLServer",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "kind": {
+                                "enum": [
+                                    "TPCDS"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind"
+                        ],
+                        "title": "TPCDS",
+                        "type": "object"
+                    }
+                ]
+            },
+            "SourceWarning": {
+                "properties": {
+                    "location": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location",
+                    "message"
+                ],
+                "type": "object"
+            },
+            "StageStats": {
+                "properties": {
+                    "completedSplits": {
+                        "type": "integer"
+                    },
+                    "coordinatorOnly": {
+                        "type": "boolean"
+                    },
+                    "cpuTimeMillis": {
+                        "type": "integer"
+                    },
+                    "done": {
+                        "type": "boolean"
+                    },
+                    "failedTasks": {
+                        "type": "integer"
+                    },
+                    "nodes": {
+                        "type": "integer"
+                    },
+                    "physicalInputBytes": {
+                        "type": "integer"
+                    },
+                    "processedBytes": {
+                        "type": "integer"
+                    },
+                    "processedRows": {
+                        "type": "integer"
+                    },
+                    "queuedSplits": {
+                        "type": "integer"
+                    },
+                    "runningSplits": {
+                        "type": "integer"
+                    },
+                    "stageId": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "subStages": {
+                        "items": {
+                            "$ref": "#/components/schemas/StageStats"
+                        },
+                        "type": "array"
+                    },
+                    "totalSplits": {
+                        "type": "integer"
+                    },
+                    "wallTimeMillis": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "state",
+                    "subStages"
+                ],
+                "type": "object"
+            },
+            "StatementStats": {
+                "properties": {
+                    "completedSplits": {
+                        "type": "integer"
+                    },
+                    "cpuTimeMillis": {
+                        "type": "integer"
+                    },
+                    "elapsedTimeMillis": {
+                        "type": "integer"
+                    },
+                    "nodes": {
+                        "type": "integer"
+                    },
+                    "peakMemoryBytes": {
+                        "type": "integer"
+                    },
+                    "physicalInputBytes": {
+                        "type": "integer"
+                    },
+                    "processedBytes": {
+                        "type": "integer"
+                    },
+                    "processedRows": {
+                        "type": "integer"
+                    },
+                    "progressPercentage": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "queued": {
+                        "type": "boolean"
+                    },
+                    "queuedSplits": {
+                        "type": "integer"
+                    },
+                    "queuedTimeMillis": {
+                        "type": "integer"
+                    },
+                    "rootStage": {
+                        "$ref": "#/components/schemas/StageStats"
+                    },
+                    "runningPercentage": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "runningSplits": {
+                        "type": "integer"
+                    },
+                    "scheduled": {
+                        "type": "boolean"
+                    },
+                    "spilledBytes": {
+                        "type": "integer"
+                    },
+                    "state": {
+                        "$ref": "#/components/schemas/QueryState"
+                    },
+                    "totalSplits": {
+                        "type": "integer"
+                    },
+                    "wallTimeMillis": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "state",
+                    "queued"
+                ],
+                "type": "object"
+            },
+            "SystemInfo": {
+                "properties": {
+                    "disk": {
+                        "$ref": "#/components/schemas/DiskInfo"
+                    }
+                },
+                "required": [
+                    "disk"
+                ],
+                "type": "object"
+            },
+            "SystemSettings": {
+                "properties": {
+                    "identifierConversion": {
+                        "$ref": "#/components/schemas/IdentifierConversion"
+                    },
+                    "inactiveLoginTimeout": {
+                        "$ref": "#/components/schemas/CalendarTimeInterval"
+                    },
+                    "queryClientTimeout": {
+                        "$ref": "#/components/schemas/CalendarTimeInterval"
+                    },
+                    "weekStartDay": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "inactiveLoginTimeout",
+                    "queryClientTimeout",
+                    "weekStartDay",
+                    "identifierConversion"
+                ],
+                "type": "object"
+            },
+            "Table": {
+                "properties": {
+                    "catalog": {
+                        "type": "string"
+                    },
+                    "schema": {
+                        "type": "string"
+                    },
+                    "table": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "catalog",
+                    "schema",
+                    "table"
+                ],
+                "type": "object"
+            },
+            "TableInfo": {
+                "properties": {
+                    "query": {
+                        "$ref": "#/components/schemas/SavedQuery"
+                    },
+                    "refresh": {
+                        "$ref": "#/components/schemas/RefreshInfo"
+                    }
+                },
+                "type": "object"
+            },
+            "UTCTime": {
+                "example": "2016-07-22T00:00:00Z",
+                "format": "yyyy-mm-ddThh:MM:ssZ",
+                "type": "string"
+            },
+            "UpdateInfo": {
+                "properties": {
+                    "availBytes": {
+                        "type": "integer"
+                    },
+                    "built": {
+                        "type": "integer"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "sizeBytes": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "built",
+                    "path",
+                    "sizeBytes",
+                    "availBytes"
+                ],
+                "type": "object"
+            },
+            "ViewColumn": {
+                "properties": {
+                    "comment": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "type": "object"
+            },
+            "ZonedTime": {
+                "example": "2016-07-22T07:40:00+03:00",
+                "format": "date-time",
+                "type": "string"
+            }
+        }
+    },
+    "info": {
+        "title": "EdgeSet API",
+        "version": ""
+    },
+    "openapi": "3.0.0",
+    "paths": {
+        "/api/backup": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/octet-stream": {
+                                "schema": {
+                                    "format": "binary",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "headers": {
+                            "Content-Disposition": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "download backup"
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/octet-stream": {
+                            "schema": {
+                                "format": "binary",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "restore from backup"
+            }
+        },
+        "/api/charts": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "additionalProperties": {
+                                        "additionalProperties": {
+                                            "additionalProperties": {
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "list charts"
+            }
+        },
+        "/api/charts/{source}/{folder}/{table}/{chart}": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "chart",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": [
+                                        {},
+                                        {
+                                            "items": {
+                                                "$ref": "#/components/schemas/ViewColumn"
+                                            },
+                                            "type": "array"
+                                        }
+                                    ],
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` or `chart` not found"
+                    }
+                },
+                "summary": "get chart"
+            },
+            "patch": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "chart",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {}
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` or `chart` not found"
+                    }
+                },
+                "summary": "update chart"
+            }
+        },
+        "/api/edgeset/build": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BuildInfo"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "EdgeSet build information"
+            }
+        },
+        "/api/edgeset/license": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "text/plain;charset=utf-8": {
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "update license key"
+            }
+        },
+        "/api/edgeset/licenses": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/LicenseInfo"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "EdgeSet open source licenses"
+            }
+        },
+        "/api/edgeset/sysinfo": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SystemInfo"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "get system information"
+            }
+        },
+        "/api/edgeset/update": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateInfo"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "EdgeSet update information"
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "text/plain;charset=utf-8": {
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "update EdgeSet"
+            }
+        },
+        "/api/events": {
+            "get": {
+                "description": "EdgeSet sends push events over a Server-Sent Events (SSE) stream. While designed for the browser, these events can also be read programmatically.",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Last-Event-ID",
+                        "required": false,
+                        "schema": {
+                            "maximum": 9223372036854775807,
+                            "minimum": -9223372036854775808,
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/event-stream": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/Event"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `Last-Event-ID`"
+                    }
+                },
+                "summary": "events stream"
+            }
+        },
+        "/api/groups": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/GroupSummary"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "all groups"
+            },
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Group"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/GroupSummary"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "create group"
+            }
+        },
+        "/api/groups/{groupname}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "groupname",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/GroupSummary"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`groupname` not found"
+                    }
+                },
+                "summary": "delete group"
+            },
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "groupname",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`groupname` not found"
+                    }
+                },
+                "summary": "group's users"
+            }
+        },
+        "/api/groups/{groupname}/{username}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "groupname",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "username",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/GroupSummary"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`groupname` or `username` not found"
+                    }
+                },
+                "summary": "remove user from group"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "groupname",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "username",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/GroupSummary"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`groupname` or `username` not found"
+                    }
+                },
+                "summary": "add user to group"
+            }
+        },
+        "/api/nested": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Query"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QueryResult"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "headers": {
+                            "X-Presto-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Presto-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid `Forwarded` or `Host` or `body`"
+                    }
+                },
+                "summary": "submit a nested query"
+            }
+        },
+        "/api/otp/qr/{secret}": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "secret",
+                        "required": true,
+                        "schema": {
+                            "format": "password",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "counter",
+                        "required": false,
+                        "schema": {
+                            "format": "int64",
+                            "maximum": 1.8446744073709551615e19,
+                            "minimum": 0,
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "image/png": {
+                                "schema": {
+                                    "format": "binary",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `Host` or `counter`"
+                    },
+                    "404": {
+                        "description": "`secret` not found"
+                    }
+                },
+                "summary": "one-time password (2FA) QR code"
+            }
+        },
+        "/api/otp/{otp}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "otp",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`otp` not found"
+                    }
+                },
+                "summary": "disable one-time password (2FA)"
+            }
+        },
+        "/api/otp/{secret}/{new OTP}": {
+            "put": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "secret",
+                        "required": true,
+                        "schema": {
+                            "format": "password",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "new OTP",
+                        "required": true,
+                        "schema": {
+                            "format": "int32",
+                            "maximum": 4294967295,
+                            "minimum": 0,
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "counter",
+                        "required": false,
+                        "schema": {
+                            "format": "int64",
+                            "maximum": 1.8446744073709551615e19,
+                            "minimum": 0,
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "otp",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `otp` or `counter`"
+                    },
+                    "404": {
+                        "description": "`secret` or `new OTP` not found"
+                    }
+                },
+                "summary": "setup one-time password (2FA)"
+            }
+        },
+        "/api/pages": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "list pages"
+            }
+        },
+        "/api/pages/{page}": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Layer"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`page` not found"
+                    }
+                },
+                "summary": "get page"
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Layer"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    },
+                    "404": {
+                        "description": "`page` not found"
+                    }
+                },
+                "summary": "create or update page"
+            }
+        },
+        "/api/password": {
+            "put": {
+                "description": "This changes the currently logged in user's (your) password.",
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PasswordChange"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "change password"
+            }
+        },
+        "/api/permissions": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Object"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "user/group permissions"
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Object"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "set user/group permissions"
+            }
+        },
+        "/api/queries": {
+            "delete": {
+                "parameters": [
+                    {
+                        "allowEmptyValue": true,
+                        "in": "query",
+                        "name": "system",
+                        "schema": {
+                            "default": false,
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": true,
+                        "in": "query",
+                        "name": "active",
+                        "schema": {
+                            "default": false,
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `active` or `system`"
+                    }
+                },
+                "summary": "cancel (all) queries"
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/QueryInfo"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "all waiting and active queries"
+            }
+        },
+        "/api/query/{queryid}": {
+            "delete": {
+                "description": "This is an EdgeSet extension to the Trino/Presto API.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "queryid",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`queryid` not found"
+                    }
+                },
+                "summary": "cancel query (simplified)"
+            }
+        },
+        "/api/restart": {
+            "post": {
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                },
+                "summary": "restart the query engine"
+            }
+        },
+        "/api/settings/system": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SystemSettings"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "system settings"
+            }
+        },
+        "/api/settings/system/identifierConversion": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/IdentifierConversion"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SystemSettings"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "set identifier conversion flags"
+            }
+        },
+        "/api/settings/system/inactiveLoginTimeout": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CalendarTimeInterval"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SystemSettings"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "set inactive login timeout"
+            }
+        },
+        "/api/settings/system/queryClientTimeout": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CalendarTimeInterval"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SystemSettings"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "set query client timeout"
+            }
+        },
+        "/api/settings/system/weekStartDay": {
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "maximum": 9223372036854775807,
+                                "minimum": -9223372036854775808,
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SystemSettings"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "set week start day (1 = Monday, 7 = Sunday)"
+            }
+        },
+        "/api/sources": {
+            "get": {
+                "description": "Note that secrets (passwords, credentials, etc.) will not be included for security reasons.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/Source"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "get all data source details"
+            }
+        },
+        "/api/sources/{name}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`name` not found"
+                    }
+                },
+                "summary": "delete data source"
+            },
+            "patch": {
+                "description": "Data sources can be enabled/disabled by setting the `enabled` key.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Object"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    },
+                    "404": {
+                        "description": "`name` not found"
+                    }
+                },
+                "summary": "edit data source"
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SourceInfo"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    },
+                    "404": {
+                        "description": "`name` not found"
+                    }
+                },
+                "summary": "create a new data source"
+            }
+        },
+        "/api/sources/{name}/catalog": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QueryResult"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "headers": {
+                            "X-Presto-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Presto-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid `Forwarded` or `Host`"
+                    },
+                    "404": {
+                        "description": "`name` not found"
+                    }
+                },
+                "summary": "data source catalog"
+            }
+        },
+        "/api/sources/{name}/scan": {
+            "post": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`name` not found"
+                    }
+                },
+                "summary": "(re)scan data source"
+            }
+        },
+        "/api/tables/{source}/{folder}/{table}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` not found"
+                    }
+                },
+                "summary": "delete saved query"
+            },
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TableInfo"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` not found"
+                    }
+                },
+                "summary": "get table information"
+            },
+            "patch": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "text/plain;charset=utf-8": {
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` not found"
+                    }
+                },
+                "summary": "modify saved query"
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SavedQuery"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` not found"
+                    }
+                },
+                "summary": "save query"
+            }
+        },
+        "/api/tables/{source}/{folder}/{table}/owner": {
+            "put": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` not found"
+                    }
+                },
+                "summary": "take ownership of saved query"
+            }
+        },
+        "/api/tables/{source}/{folder}/{table}/refresh": {
+            "patch": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` not found"
+                    }
+                },
+                "summary": "refresh saved query"
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json;charset=utf-8": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CalendarTimeInterval"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` not found"
+                    }
+                },
+                "summary": "set saved query refresh period"
+            }
+        },
+        "/api/tables/{source}/{folder}/{table}/result": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "folder",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "table",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QueryResult"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "headers": {
+                            "X-Presto-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Presto-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid `Forwarded` or `Host`"
+                    },
+                    "404": {
+                        "description": "`source` or `folder` or `table` not found"
+                    }
+                },
+                "summary": "get saved query result"
+            }
+        },
+        "/api/users": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "text/plain;charset=utf-8": {
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "items": {
+                                                "$ref": "#/components/schemas/GroupSummary"
+                                            },
+                                            "type": "array"
+                                        }
+                                    ],
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Invalid `body`"
+                    }
+                },
+                "summary": "create user"
+            }
+        },
+        "/api/users/{username}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "username",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/GroupSummary"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`username` not found"
+                    }
+                },
+                "summary": "delete user"
+            }
+        },
+        "/api/users/{username}/groups": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "username",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`username` not found"
+                    }
+                },
+                "summary": "get user's groups"
+            }
+        },
+        "/api/users/{username}/password": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "username",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`username` not found"
+                    }
+                },
+                "summary": "reset user's password"
+            }
+        },
+        "/v1/statement": {
+            "post": {
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "X-Trino-Catalog",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "X-Presto-Catalog",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "X-Trino-Schema",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "X-Presto-Schema",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "X-Trino-Prepared-Statement",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "X-Presto-Prepared-Statement",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/octet-stream": {
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        "text/plain;charset=utf-8": {
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "description": "the SQL query",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QueryResult"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "headers": {
+                            "X-Presto-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Presto-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid `X-Presto-Prepared-Statement` or `X-Trino-Prepared-Statement` or `X-Presto-Schema` or `X-Trino-Schema` or `X-Presto-Catalog` or `X-Trino-Catalog` or `Forwarded` or `body`"
+                    }
+                },
+                "summary": "submit query",
+                "tags": [
+                    "Presto/Trino"
+                ]
+            }
+        },
+        "/v1/statement/{state}/{queryid}/{slug}/{token}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "state",
+                        "required": true,
+                        "schema": {
+                            "enum": [
+                                "queued",
+                                "executing"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "queryid",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "slug",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "token",
+                        "required": true,
+                        "schema": {
+                            "maximum": 9223372036854775807,
+                            "minimum": -9223372036854775808,
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`state` or `queryid` or `slug` or `token` not found"
+                    }
+                },
+                "summary": "cancel query",
+                "tags": [
+                    "Presto/Trino"
+                ]
+            },
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "state",
+                        "required": true,
+                        "schema": {
+                            "enum": [
+                                "queued",
+                                "executing"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "queryid",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "slug",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "token",
+                        "required": true,
+                        "schema": {
+                            "maximum": 9223372036854775807,
+                            "minimum": -9223372036854775808,
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "targetResultSize",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/QueryResult"
+                                }
+                            }
+                        },
+                        "description": "",
+                        "headers": {
+                            "X-Presto-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Presto-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Added-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "X-Trino-Deallocated-Prepare": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid `Forwarded` or `targetResultSize`"
+                    },
+                    "404": {
+                        "description": "`state` or `queryid` or `slug` or `token` not found"
+                    }
+                },
+                "summary": "get query status/results",
+                "tags": [
+                    "Presto/Trino"
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "description": "Presto/Trino-compatible endpoints",
+            "name": "Presto/Trino"
+        }
+    ]
+}

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix B —  FAQ – EdgeSet Manual</title>
+<title>Appendix A —  API – EdgeSet Manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./API.html" rel="prev">
+<link href="./FAQ.html" rel="next">
+<link href="./tabular-files.html" rel="prev">
 <link href="./favicon-48.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./API.html">Appendices</a></li><li class="breadcrumb-item"><a href="./FAQ.html"><span class="chapter-title"> FAQ</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./API.html">Appendices</a></li><li class="breadcrumb-item"><a href="./API.html"><span class="chapter-title"> API</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -101,7 +102,9 @@ ul.task-list li input[type="checkbox"] {
       <img src="./logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">EdgeSet Manual</a> 
+      <a href="./">
+      EdgeSet Manual
+      </a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -201,12 +204,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./API.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"> API</span></a>
+  <a href="./API.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title"> API</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./FAQ.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title"> FAQ</span></a>
+  <a href="./FAQ.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"> FAQ</span></a>
   </div>
 </li>
       </ul>
@@ -222,9 +225,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./API.html">Appendices</a></li><li class="breadcrumb-item"><a href="./FAQ.html"><span class="chapter-title"> FAQ</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./API.html">Appendices</a></li><li class="breadcrumb-item"><a href="./API.html"><span class="chapter-title"> API</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix B —  FAQ</h1>
+<h1 class="title">Appendix A —  API</h1>
 </div>
 
 
@@ -241,25 +244,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<dl>
-<dt>Does EdgeSet support window functions?</dt>
-<dd>
-<p>Yes.</p>
-</dd>
-<dt>Does EdgeSet support CTEs (Common Table Expressions)?</dt>
-<dd>
-<p>Yes.</p>
-</dd>
-<dt>How does EdgeSet handle tables with different collations?</dt>
-<dd>
-<p>EdgeSet does not support setting or using collation(s). All string comparison and sorting is done by comparing unicode code points literally. For case-insensitive comparison, you can use LOWER(), UPPER(), or case-insensitive regular expressions. Note that these functions don’t support languages that have ambiguous case conversion (i.e.&nbsp;where one lowercase character could be represented various uppercase versions), but that should only be an issue if dealing with Eastern European languages.</p>
-</dd>
-</dl>
-
-
+<style>
+#quarto-document-content {
+  grid-column: body-content-start / page-end;
+}
+</style>
+<iframe id="api-container" style="width: 100%; height: 90%" src="apidoc.html">
+<!-- TODO: Why does the page navigation not display here? -->
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">EdgeSet Manual</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">EdgeSet Manual</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uZXh0"><span class="chapter-number">B</span>  <span class="chapter-title"> FAQ</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1wcmV2"><span class="chapter-number">14</span>  <span class="chapter-title"> Tabular Files</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9pbmRleC5odG1sUHJlZmFjZQ==">Preface</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9pbnRyb2R1Y3Rpb24uaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+MTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7ug7gtSW50cm9kdWN0aW9uPC9zcGFuPg=="><span class="chapter-number">1</span>  <span class="chapter-title"> Introduction</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9pbnN0YWxsYXRpb24uaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mjwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7ugrYtSW5zdGFsbGF0aW9uPC9zcGFuPg=="><span class="chapter-number">2</span>  <span class="chapter-title"> Installation</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9zZXR1cC5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4zPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPu6KhS1TZXR1cDwvc3Bhbj4="><span class="chapter-number">3</span>  <span class="chapter-title"> Setup</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kYXRhLXNvdXJjZXMuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+NDwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7ukaEtQ29ubmVjdC1EYXRhLVNvdXJjZXM8L3NwYW4+"><span class="chapter-number">4</span>  <span class="chapter-title"> Connect Data Sources</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9xdWVyeS1lbmdpbmUuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+NTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7ujYQtUXVlcnktRW5naW5lPC9zcGFuPg=="><span class="chapter-number">5</span>  <span class="chapter-title"> Query Engine</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jYXRhbG9nLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjY8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+7oy/LUNhdGFsb2c8L3NwYW4+"><span class="chapter-number">6</span>  <span class="chapter-title"> Catalog</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9xdWVyeS1ub3RlYm9vay5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz43PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPu6WmS1RdWVyeS1Ob3RlYm9vazwvc3Bhbj4="><span class="chapter-number">7</span>  <span class="chapter-title"> Query Notebook</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi91c2Vycy1hbmQtZ3JvdXBzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjg8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+7oajLVVzZXJzLWFuZC1Hcm91cHM8L3NwYW4+"><span class="chapter-number">8</span>  <span class="chapter-title"> Users and Groups</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9wZXJtaXNzaW9ucy5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz45PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPu6Spy1QZXJtaXNzaW9uczwvc3Bhbj4="><span class="chapter-number">9</span>  <span class="chapter-title"> Permissions</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9jbGllbnRzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjEwPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPu6Xli1DbGllbnRzPC9zcGFuPg=="><span class="chapter-number">10</span>  <span class="chapter-title"> Clients</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9zZWN1cml0eS5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4xMTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7uh74tU2VjdXJpdHk8L3NwYW4+"><span class="chapter-number">11</span>  <span class="chapter-title"> Security</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9iYWNrdXBzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjEyPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPu6BhS1CYWNrdXBzPC9zcGFuPg=="><span class="chapter-number">12</span>  <span class="chapter-title"> Backups</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9zY2FsaW5nLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjEzPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPu6Lqy1TY2FsaW5nPC9zcGFuPg=="><span class="chapter-number">13</span>  <span class="chapter-title"> Scaling</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi90YWJ1bGFyLWZpbGVzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjE0PC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPu6Mpi1UYWJ1bGFyLUZpbGVzPC9zcGFuPg=="><span class="chapter-number">14</span>  <span class="chapter-title"> Tabular Files</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tMQ==">Appendices</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9BUEkuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+QTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7ugpctQVBJPC9zcGFuPg=="><span class="chapter-number">A</span>  <span class="chapter-title"> API</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9GQVEuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Qjwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7ulawtRkFRPC9zcGFuPg=="><span class="chapter-number">B</span>  <span class="chapter-title"> FAQ</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLUFwcGVuZGljZXM=">Appendices</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLTxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+QTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7ugpctQVBJPC9zcGFuPg=="><span class="chapter-number">A</span>  <span class="chapter-title"> API</span></span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Appendix A —  API – EdgeSet Manual</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Appendix A —  API – EdgeSet Manual</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Appendix A —  API – EdgeSet Manual</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">EdgeSet Manual</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw=="></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj"></span></p>
+</div>
 
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -825,16 +825,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./API.html" class="pagination-link" aria-label=" API">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title"> API</span></span>
+      <a  href="/tabular-files.html" class="pagination-link" aria-label=" Tabular Files">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a  href="/FAQ.html" class="pagination-link" aria-label=" FAQ">
+        <span class="nav-page-text"><span class='chapter-number'>B</span>  <span class='chapter-title'> FAQ</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
 
+</body>
 
-
-
-</body></html>
+</html>
+</iframe></main></div></body></html>
