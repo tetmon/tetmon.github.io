@@ -1344,6 +1344,35 @@
                 ],
                 "type": "object"
             },
+            "SMBInfo": {
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "service": {
+                        "type": "string"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "service",
+                    "user",
+                    "port"
+                ],
+                "type": "object"
+            },
             "SQLServerInfo": {
                 "properties": {
                     "database": {
@@ -1709,6 +1738,25 @@
                             "fields"
                         ],
                         "title": "S3",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/SMBInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "SMB"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "SMB",
                         "type": "object"
                     },
                     {
