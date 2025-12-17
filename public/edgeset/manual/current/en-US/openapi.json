@@ -80,15 +80,6 @@
                 ],
                 "type": "object"
             },
-            "ClientParameterKind": {
-                "enum": [
-                    "TYPE",
-                    "NAMED_TYPE",
-                    "LONG",
-                    "VARIABLE"
-                ],
-                "type": "string"
-            },
             "ClientTypeSignature": {
                 "properties": {
                     "arguments": {
@@ -108,17 +99,65 @@
                 "type": "object"
             },
             "ClientTypeSignatureParameter": {
-                "properties": {
-                    "kind": {
-                        "$ref": "#/components/schemas/ClientParameterKind"
+                "oneOf": [
+                    {
+                        "properties": {
+                            "kind": {
+                                "enum": [
+                                    "LONG"
+                                ],
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "value"
+                        ],
+                        "title": "LONG",
+                        "type": "object"
                     },
-                    "value": {}
-                },
-                "required": [
-                    "kind",
-                    "value"
-                ],
-                "type": "object"
+                    {
+                        "properties": {
+                            "kind": {
+                                "enum": [
+                                    "TYPE"
+                                ],
+                                "type": "string"
+                            },
+                            "value": {
+                                "$ref": "#/components/schemas/ClientTypeSignature"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "value"
+                        ],
+                        "title": "TYPE",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "kind": {
+                                "enum": [
+                                    "NAMED_TYPE"
+                                ],
+                                "type": "string"
+                            },
+                            "value": {
+                                "$ref": "#/components/schemas/NamedClientTypeSignature"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "value"
+                        ],
+                        "title": "NAMED_TYPE",
+                        "type": "object"
+                    }
+                ]
             },
             "Column": {
                 "properties": {
@@ -134,7 +173,8 @@
                 },
                 "required": [
                     "name",
-                    "type"
+                    "type",
+                    "typeSignature"
                 ],
                 "type": "object"
             },
@@ -155,10 +195,7 @@
                     {
                         "properties": {
                             "formula": {
-                                "items": {
-                                    "$ref": "#/components/schemas/FormulaPart"
-                                },
-                                "type": "array"
+                                "$ref": "#/components/schemas/Formula"
                             }
                         },
                         "required": [
@@ -668,14 +705,86 @@
                 ],
                 "type": "object"
             },
-            "FormulaPart": {
+            "Formula": {
                 "oneOf": [
                     {
-                        "title": "FText",
-                        "type": "string"
+                        "$ref": "#/components/schemas/ColumnRef"
                     },
                     {
-                        "$ref": "#/components/schemas/ColumnRef"
+                        "$ref": "#/components/schemas/Literal"
+                    },
+                    {
+                        "$ref": "#/components/schemas/Formula"
+                    },
+                    {
+                        "items": [
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            }
+                        ],
+                        "maxItems": 2,
+                        "minItems": 2,
+                        "title": "FEqual",
+                        "type": "array"
+                    },
+                    {
+                        "items": [
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            }
+                        ],
+                        "maxItems": 2,
+                        "minItems": 2,
+                        "title": "FGreaterThan",
+                        "type": "array"
+                    },
+                    {
+                        "items": [
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            }
+                        ],
+                        "maxItems": 2,
+                        "minItems": 2,
+                        "title": "FLessThan",
+                        "type": "array"
+                    },
+                    {
+                        "items": [
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            }
+                        ],
+                        "maxItems": 2,
+                        "minItems": 2,
+                        "title": "FLike",
+                        "type": "array"
+                    },
+                    {
+                        "items": [
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            },
+                            {
+                                "$ref": "#/components/schemas/Formula"
+                            }
+                        ],
+                        "maxItems": 2,
+                        "minItems": 2,
+                        "title": "FILike",
+                        "type": "array"
                     }
                 ]
             },
@@ -863,6 +972,85 @@
                 ],
                 "type": "object"
             },
+            "Literal": {
+                "oneOf": [
+                    {
+                        "title": "Boolean",
+                        "type": "boolean"
+                    },
+                    {
+                        "maximum": 127,
+                        "minimum": -128,
+                        "title": "TinyInt",
+                        "type": "integer"
+                    },
+                    {
+                        "maximum": 32767,
+                        "minimum": -32768,
+                        "title": "SmallInt",
+                        "type": "integer"
+                    },
+                    {
+                        "format": "int32",
+                        "maximum": 2147483647,
+                        "minimum": -2147483648,
+                        "title": "Int",
+                        "type": "integer"
+                    },
+                    {
+                        "format": "int64",
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "title": "BigInt",
+                        "type": "integer"
+                    },
+                    {
+                        "format": "float",
+                        "title": "Real",
+                        "type": "number"
+                    },
+                    {
+                        "format": "double",
+                        "title": "Double",
+                        "type": "number"
+                    },
+                    {
+                        "title": "Decimal",
+                        "type": "string"
+                    },
+                    {
+                        "example": "?",
+                        "maxLength": 1,
+                        "minLength": 1,
+                        "title": "Char",
+                        "type": "string"
+                    },
+                    {
+                        "title": "Varchar",
+                        "type": "string"
+                    },
+                    {
+                        "title": "Date",
+                        "type": "string"
+                    },
+                    {
+                        "title": "Time",
+                        "type": "string"
+                    },
+                    {
+                        "title": "TimeWithTimeZone",
+                        "type": "string"
+                    },
+                    {
+                        "title": "Timestamp",
+                        "type": "string"
+                    },
+                    {
+                        "title": "TimestampWithTimeZone",
+                        "type": "string"
+                    }
+                ]
+            },
             "MongoDBInfo": {
                 "properties": {
                     "host": {
@@ -902,6 +1090,20 @@
                     "host",
                     "port",
                     "user"
+                ],
+                "type": "object"
+            },
+            "NamedClientTypeSignature": {
+                "properties": {
+                    "fieldName": {
+                        "$ref": "#/components/schemas/RowFieldName"
+                    },
+                    "typeSignature": {
+                        "$ref": "#/components/schemas/ClientTypeSignature"
+                    }
+                },
+                "required": [
+                    "typeSignature"
                 ],
                 "type": "object"
             },
@@ -1314,6 +1516,17 @@
                         "$ref": "#/components/schemas/CalendarTimeInterval"
                     }
                 },
+                "type": "object"
+            },
+            "RowFieldName": {
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name"
+                ],
                 "type": "object"
             },
             "S3Info": {
