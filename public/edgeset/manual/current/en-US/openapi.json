@@ -847,33 +847,6 @@
                 ],
                 "type": "object"
             },
-            "IdentifierConversion": {
-                "properties": {
-                    "chineseToPinyin": {
-                        "type": "boolean"
-                    },
-                    "convertToLowercase": {
-                        "type": "boolean"
-                    },
-                    "spaceToUnderscore": {
-                        "type": "boolean"
-                    },
-                    "stripAccents": {
-                        "type": "boolean"
-                    },
-                    "stripUnsupported": {
-                        "type": "boolean"
-                    }
-                },
-                "required": [
-                    "spaceToUnderscore",
-                    "stripAccents",
-                    "convertToLowercase",
-                    "stripUnsupported",
-                    "chineseToPinyin"
-                ],
-                "type": "object"
-            },
             "KafkaInfo": {
                 "properties": {
                     "host": {
@@ -2205,9 +2178,6 @@
             },
             "SystemSettings": {
                 "properties": {
-                    "identifierConversion": {
-                        "$ref": "#/components/schemas/IdentifierConversion"
-                    },
                     "inactiveLoginTimeout": {
                         "$ref": "#/components/schemas/CalendarTimeInterval"
                     },
@@ -2223,8 +2193,7 @@
                 "required": [
                     "inactiveLoginTimeout",
                     "queryClientTimeout",
-                    "weekStartDay",
-                    "identifierConversion"
+                    "weekStartDay"
                 ],
                 "type": "object"
             },
@@ -3294,36 +3263,6 @@
                     }
                 },
                 "summary": "system settings"
-            }
-        },
-        "/api/settings/system/identifierConversion": {
-            "put": {
-                "requestBody": {
-                    "content": {
-                        "application/json;charset=utf-8": {
-                            "schema": {
-                                "$ref": "#/components/schemas/IdentifierConversion"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "content": {
-                            "application/json;charset=utf-8": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SystemSettings"
-                                }
-                            }
-                        },
-                        "description": ""
-                    },
-                    "400": {
-                        "description": "Invalid `body`"
-                    }
-                },
-                "summary": "set identifier conversion flags"
             }
         },
         "/api/settings/system/inactiveLoginTimeout": {
