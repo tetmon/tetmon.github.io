@@ -1532,6 +1532,9 @@
             },
             "SMBInfo": {
                 "properties": {
+                    "folder": {
+                        "type": "string"
+                    },
                     "host": {
                         "type": "string"
                     },
