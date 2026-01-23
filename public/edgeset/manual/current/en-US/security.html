@@ -222,9 +222,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#firewall" id="toc-firewall" class="nav-link active" data-scroll-target="#firewall">Firewall</a></li>
-  <li><a href="#data-source-credentials" id="toc-data-source-credentials" class="nav-link" data-scroll-target="#data-source-credentials">Data source credentials</a></li>
-  <li><a href="#user-passwords" id="toc-user-passwords" class="nav-link" data-scroll-target="#user-passwords">User passwords</a></li>
+  <li><a href="#administrator-responsibilities" id="toc-administrator-responsibilities" class="nav-link active" data-scroll-target="#administrator-responsibilities">Administrator responsibilities</a>
+  <ul class="collapse">
+  <li><a href="#treat-your-license-key-as-a-secret" id="toc-treat-your-license-key-as-a-secret" class="nav-link" data-scroll-target="#treat-your-license-key-as-a-secret">Treat your license key as a secret</a></li>
+  <li><a href="#review-saved-queries-before-taking-ownership-of-them" id="toc-review-saved-queries-before-taking-ownership-of-them" class="nav-link" data-scroll-target="#review-saved-queries-before-taking-ownership-of-them">Review saved queries before taking ownership of them</a></li>
+  </ul></li>
+  <li><a href="#security-features" id="toc-security-features" class="nav-link" data-scroll-target="#security-features">Security features</a>
+  <ul class="collapse">
+  <li><a href="#data-sovereignty" id="toc-data-sovereignty" class="nav-link" data-scroll-target="#data-sovereignty">Data sovereignty</a></li>
+  <li><a href="#credentials-passwords-and-keys" id="toc-credentials-passwords-and-keys" class="nav-link" data-scroll-target="#credentials-passwords-and-keys">Credentials, passwords, and keys</a></li>
+  <li><a href="#access-controls" id="toc-access-controls" class="nav-link" data-scroll-target="#access-controls">Access controls</a></li>
+  <li><a href="#encryption" id="toc-encryption" class="nav-link" data-scroll-target="#encryption">Encryption</a></li>
+  <li><a href="#firewall" id="toc-firewall" class="nav-link" data-scroll-target="#firewall">Firewall</a></li>
+  <li><a href="#hardening" id="toc-hardening" class="nav-link" data-scroll-target="#hardening">Hardening</a></li>
+  <li><a href="#web-interface" id="toc-web-interface" class="nav-link" data-scroll-target="#web-interface">Web interface</a></li>
+  <li><a href="#ai-models" id="toc-ai-models" class="nav-link" data-scroll-target="#ai-models">AI models</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
+  <li><a href="#supply-chain" id="toc-supply-chain" class="nav-link" data-scroll-target="#supply-chain">Supply chain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -250,53 +265,258 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="firewall" class="level2">
-<h2 class="anchored" data-anchor-id="firewall">Firewall</h2>
-<p>EdgeSet requires only port 443 (HTTPS) for normal operation. During setup, port 80 (for web setup) or port 22 (for terminal setup) can be used. After setup, ports 22 and 80 can be blocked. Port 5432 is optional.</p>
+<section id="administrator-responsibilities" class="level2">
+<h2 class="anchored" data-anchor-id="administrator-responsibilities">Administrator responsibilities</h2>
+<p>As an EdgeSet administrator, you must do the following to maintain the security of your instance:</p>
+<section id="treat-your-license-key-as-a-secret" class="level3">
+<h3 class="anchored" data-anchor-id="treat-your-license-key-as-a-secret">Treat your license key as a secret</h3>
+<p>EdgeSet backups are always encrypted. However, they can be decrypted by anyone who can use your license key to create their own EdgeSet instance.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Never store your license key in the same place you store your backups.</p>
+</div>
+</div>
+</section>
+<section id="review-saved-queries-before-taking-ownership-of-them" class="level3">
+<h3 class="anchored" data-anchor-id="review-saved-queries-before-taking-ownership-of-them">Review saved queries before taking ownership of them</h3>
+<p>Saved queries execute with the permissions of the query’s owner. If you take ownership of a saved query, everyone who has access to that query will be able to view any data retrieved by the query, regardless of their permissions.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why do saved queries run as the query owner?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why not run saved queries with the permissions of the person running them? There are 2 reasons:</p>
+<ol type="1">
+<li>It prevents users from running untrusted queries that might have unintended side effects (leading to privilege escalation for the query owner).</li>
+<li>It allows users with access to sensitive data to share safe aggregated or masked views of the data with others.</li>
+</ol>
+</div>
+</div>
+</section>
+</section>
+<section id="security-features" class="level2">
+<h2 class="anchored" data-anchor-id="security-features">Security features</h2>
+<p>EdgeSet is designed for security and privacy. It is “local-first” software that does not require an internet connection and can run in air-gapped environments.</p>
+<section id="data-sovereignty" class="level3">
+<h3 class="anchored" data-anchor-id="data-sovereignty">Data sovereignty</h3>
+<ul>
+<li>Only you have access to your data. EdgeSet does not send your data to Tetmon or any third-party servers or services.</li>
+<li>Neither Tetmon nor Tetmon’s partners have access to your EdgeSet instance (unless you deliberately create a user account for them).</li>
+<li>EdgeSet is hypervisor-agnostic. It can be run on-prem or in the cloud provider of your choice in any geographic region.</li>
+<li>There are no backdoors, spyware, or data exfiltration channels in EdgeSet, nor has Tetmon Pte. Ltd.&nbsp;been ordered to install any backdoors, spyware, or data exfiltration channels.</li>
+</ul>
+</section>
+<section id="credentials-passwords-and-keys" class="level3">
+<h3 class="anchored" data-anchor-id="credentials-passwords-and-keys">Credentials, passwords, and keys</h3>
+<ul>
+<li>Data source credentials (passwords, keys, etc.) are encrypted using the ChaCha20 cipher (256-bit security, stronger than AES-256, selected by Google for use in HTTP3) when they are saved to disk.</li>
+<li>When data source credentials are held in memory, they are marked so that they cannot be accidentally saved to disk or printed in logs and so that the memory location that they occupied is scrubbed when freed.</li>
+<li>Data source credentials are never transmitted to users, not even to administrators, not even when editing the data source.</li>
+<li>Any account passwords are stored as cryptographic one-way hashes, with individual salts, and using a modern memory-hard hashing function (Argon2id) with GPU resistance and protection from side-channel attacks.</li>
+<li>2FA is available for user accounts.</li>
+</ul>
+</section>
+<section id="access-controls" class="level3">
+<h3 class="anchored" data-anchor-id="access-controls">Access controls</h3>
+<ul>
+<li>All access to the system (web, API, or otherwise) requires authentication.</li>
+<li>EdgeSet’s permission system is secure by default: users are not automatically granted access, even to new data sources.</li>
+<li>Permissions are granular: restrictions can be applied at the data source, folder, table, and column level.</li>
+<li>Every EdgeSet update has undergone automated permissions system correctness testing.</li>
+<li>All queries are logged.</li>
+</ul>
+</section>
+<section id="encryption" class="level3">
+<h3 class="anchored" data-anchor-id="encryption">Encryption</h3>
+<ul>
+<li>EdgeSet requires encryption for all inbound connections.</li>
+<li>Insecure ciphers and key exchange algorithms are disabled.</li>
+<li>All files containing query results (saved query results, temporary files) are encrypted with individual (derived) encryption keys to protect against known-plaintext attacks.</li>
+<li>Backup files are encrypted (ChaCha20).</li>
+<li>Each EdgeSet installation uses a unique encryption key.</li>
+<li>Symmetric keys are held in memory only or stored encrypted (by envelope encryption).</li>
+<li>EdgeSet can register its own TLS certificate via Let’s Encrypt (HTTP challenge), create a self-signed certificate, or be proxied by an HTTPS-terminating load balancer.</li>
+</ul>
+</section>
+<section id="firewall" class="level3">
+<h3 class="anchored" data-anchor-id="firewall">Firewall</h3>
 <table class="caption-top table">
-<caption>EdgeSet listening ports</caption>
+<caption>EdgeSet inbound (ingress) firewall rules</caption>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Port</th>
-<th style="text-align: center;">Protocol</th>
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Protocol</th>
+<th style="text-align: left;">Purpose</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">SSH-compatible interface</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">Setup web interface</td>
+<td>only during setup, for Let’s Encrypt HTTP challenges, or when proxied by an HTTPS-terminating load balancer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">Web interface + Presto-compatible API</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5432</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">PostgreSQL-compatible interface</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">type 8</td>
+<td style="text-align: left;">ICMP</td>
+<td style="text-align: left;">ping</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>EdgeSet runs its own firewall and can additionally be placed behind other firewalls.</li>
+<li>EdgeSet can without internet access (“air-gapped”).</li>
+</ul>
+<p>While EdgeSet does not require access to the internet, some optional functionality does depend on outbound access.</p>
+<table class="caption-top table">
+<caption>Optional outbound (egress) firewall rules</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Port</th>
+<th style="text-align: left;">Protocol</th>
+<th style="text-align: left;">Host</th>
 <th style="text-align: left;">Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">22</td>
-<td style="text-align: center;">TCP</td>
-<td style="text-align: left;">SSH: SSH interface (for setup)</td>
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">build.tetmon.com</td>
+<td style="text-align: left;">software updates</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">80</td>
-<td style="text-align: center;">TCP</td>
-<td style="text-align: left;">HTTP: Setup web interface (required only during setup)</td>
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">www.googleapis.com</td>
+<td style="text-align: left;">Google Drive data sources</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">443</td>
-<td style="text-align: center;">TCP</td>
-<td style="text-align: left;">HTTPS: Web interface + Presto-compatible clients (required)</td>
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;"><a href="https://docs.aws.amazon.com/general/latest/gr/s3.html#auto-endpoints-s3">Amazon S3 regular endpoints</a></td>
+<td style="text-align: left;">S3 data sources</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5432</td>
-<td style="text-align: center;">TCP</td>
-<td style="text-align: left;">PostgreSQL: PostgreSQL-compatible interface</td>
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;"><a href="https://www.alibabacloud.com/help/en/oss/user-guide/regions-and-endpoints">Alibaba OSS endpoints</a></td>
+<td style="text-align: left;">OSS data sources</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;"><a href="https://docs.cloud.google.com/bigquery/docs/regional-endpoints">BigQuery regional endpoints</a></td>
+<td style="text-align: left;">BigQuery data sources</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;"><a href="https://docs.aws.amazon.com/general/latest/gr/redshift-service.html">Amazon Redshift endpoints</a></td>
+<td style="text-align: left;">Redshift data sources</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">443</td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;"><em>account_identifier</em>.snowflakecomputing.com</td>
+<td style="text-align: left;">Snowflake data sources</td>
 </tr>
 </tbody>
 </table>
-<p>EdgeSet does not listen on any other TCP ports.</p>
 </section>
-<section id="data-source-credentials" class="level2">
-<h2 class="anchored" data-anchor-id="data-source-credentials">Data source credentials</h2>
-<p>EdgeSet stores all data source credentials (passwords, keys, etc.) encrypted on disk (in EdgeSet’s internal database). It uses the ChaCha20 cipher (the same cipher selected by Google for use in HTTP3). The credentials are also encrypted in EdgeSet backups. Once a data source is created, there is no way for a user or application to retrieve the data source credentials. When editing a data source, the credentials are not sent to the web interface.</p>
-<p>EdgeSet decrypts the credentials when connecting to a data source. It also passes the credentials (in memory) to the query engine for executing queries.</p>
+<section id="hardening" class="level3">
+<h3 class="anchored" data-anchor-id="hardening">Hardening</h3>
+<ul>
+<li>No shell access: the SSH-compatible interface on port 22 does not allow shell access (it is a menu-driven text UI that cannot be escaped from into a shell).</li>
+<li>No user accounts: there are no system-level (Linux) user accounts on the EdgeSet server and the root user is not allowed to log in.</li>
+<li>Signed software: all system software (including EdgeSet) are cryptographically signed by Tetmon.</li>
+<li>Only whitelisted services: only services essential for the operation of EdgeSet run on the server.</li>
+<li>Read-only applications: all system software (including EdgeSet) is mounted read-only and cannot be modified except by applying software updates cryptographically signed by Tetmon.</li>
+<li>Read-only system logs: system log entries are timestamped are viewable (but not writable) by administrators.</li>
+</ul>
 </section>
-<section id="user-passwords" class="level2">
-<h2 class="anchored" data-anchor-id="user-passwords">User passwords</h2>
-<p>All user passwords are salted with a random salt and hashed with a memory-hard function (Argon2id). This protects user passwords from GPU cracking, rainbow tables, and side channel attacks.</p>
+<section id="web-interface" class="level3">
+<h3 class="anchored" data-anchor-id="web-interface">Web interface</h3>
+<ul>
+<li>All web assets are self-hosted by the EdgeSet installation (no JavaScript libraries or other web assets are fetched from any third-party webserver).</li>
+<li>Cross-site scripting (XSS) measures are embedded in EdgeSet.</li>
+<li>Strict Content Security Policy headers are enforced.</li>
+<li>Authentication cookies are tamper-proof, inaccessible to JavaScript, and sent over HTTPS only.</li>
+<li>No passwords or credentials are stored on the web browser.</li>
+</ul>
+</section>
+<section id="ai-models" class="level3">
+<h3 class="anchored" data-anchor-id="ai-models">AI models</h3>
+<ul>
+<li>All AI models (including LLMs) run within EdgeSet’s VM (no model providers are used and no data is sent outside of EdgeSet for inference).</li>
+<li>No AI model training is performed in EdgeSet and no data is transmitted from EdgeSet to Tetmon or any third-party server/service for model training.</li>
+<li>EdgeSet’s LLMs are not vulnerable to prompt injection because they have constrained, pre-defined output domains (they cannot produce free-form responses or use tools).</li>
+</ul>
+</section>
+<section id="application" class="level3">
+<h3 class="anchored" data-anchor-id="application">Application</h3>
+<ul>
+<li>All application queries (queries that EdgeSet uses internally) are protected against SQL injection attacks by compile-time query preparation and type-checking.</li>
+<li>All API endpoints are rate limited (with stricter rate limits for authentication endpoints).</li>
+<li>Static source code security checks are performed for each EdgeSet update.</li>
+<li>End-to-end security tests are performed for each EdgeSet update, including (but not limited to):
+<ul>
+<li>penetration tests</li>
+<li>port scanning</li>
+<li>header forging</li>
+<li>API fuzzing (including OWASP rules)</li>
+</ul></li>
+</ul>
+</section>
+<section id="supply-chain" class="level3">
+<h3 class="anchored" data-anchor-id="supply-chain">Supply chain</h3>
+<ul>
+<li>A software dependency list, aka Software Bill of Materials, is viewable in the EdgeSet web interface.</li>
+<li>All software dependencies are pinned by cryptographic hash.</li>
+<li>Build scripts are not granted internet access (all software artifacts must be specified and pinned).</li>
+<li>Tetmon’s Git and CI/CD servers are self-hosted. No cloud services (e.g.&nbsp;GitHub, GitLab) are used for any part of the EdgeSet build or update process.</li>
+<li>All EdgeSet source code must pass a Git pull request approval process.</li>
+<li>EdgeSet software engineers do not have master branch push access.</li>
+<li>EdgeSet software engineers do not have SSH access to any build servers (software engineers can only ship code through the Git review and approval process).</li>
+<li>All automated tests must pass before an update is made available (new releases are automatically gated by all automated tests).</li>
+<li>EdgeSet software updates are cryptographically signed and verified (EdgeSet will not accept an update that has not been cryptographically signed by Tetmon).</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
