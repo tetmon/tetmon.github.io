@@ -454,7 +454,7 @@
     "href": "tabular-files.html#column-inference",
     "title": " Tabular Files",
     "section": "",
-    "text": "Supported column data types and example values\n\n\nType\nExamples\n\n\n\n\nboolean\nTrue\n\n\n\nf\n\n\n\ny\n\n\n\nNO\n\n\ninteger\n16\n\n\n\n-200\n\n\n\n+47,693\n\n\n\n3338.\n\n\n\n0xff\n\n\ndouble\n99.99\n\n\n\n-0.0000000001\n\n\n\n765,686.81\n\n\ndate\n2021-11-27\n\n\n\n27/11/2021\n\n\n\n11/27/2021\n\n\ntime\n14:49:00\n\n\n\n3:15 PM\n\n\n\n00:00:00.000\n\n\ntimestamp\n2021-11-27 15:15:27.032\n\n\n\n11/27/2021 3:15PM\n\n\ntimestamp w/ zone\n2021-11-27T15:15:27.032Z\n\n\n\n11/27/2021 15:15 +08\n\n\nvarchar\nanything else\n\n\n\n\n\n\n\n1 Whitespace is any Unicode space character and the following control characters: horizontal tab (\\t), vertical tab (\\v), line feed (\\n), carriage return (\\r), and form feed (\\f).\nNull values\nEdgeSet considers empty values to be null values, not varchar.\n\n\n\n\n\nHeaders\nEdgeSet determines that a header is not present if:\n\nthere are at least two rows AND\nat least one column is not varchar\n\nWhen just one row is present, the inferred folder will be an empty table with column names while the raw folder will be a 1-row table with no column names.\nWhat about the ambiguous case when all columns are varchars? EdgeSet will use the first row as a header for the inferred folder because the raw folder will already have the same schema but without a header row.",
+    "text": "Supported column data types and example values\n\n\nType\nExamples\n\n\n\n\nboolean\nTrue\n\n\n\nf\n\n\n\ny\n\n\n\nNO\n\n\ninteger\n16\n\n\n\n-200\n\n\n\n+47,693\n\n\n\n3338.\n\n\n\n0xff\n\n\ndouble\n99.99\n\n\n\n-0.0000000001\n\n\n\n765,686.81\n\n\ndate\n2021-11-27\n\n\n\n27/11/2021\n\n\n\n11/27/2021\n\n\ntime\n14:49:00\n\n\n\n3:15 PM\n\n\n\n00:00:00.000\n\n\ntimestamp\n2021-11-27 15:15:27.032\n\n\n\n11/27/2021 3:15PM\n\n\ntimestamp w/ zone\n2021-11-27T15:15:27.032Z\n\n\n\n11/27/2021 15:15 +08\n\n\nvarchar\nanything else\n\n\n\n\n\n\n\n1 Whitespace is any Unicode space character and the following control characters: horizontal tab (\\t), vertical tab (\\v), line feed (\\n), carriage return (\\r), and form feed (\\f).\nNull values\nEdgeSet considers empty cells to be null values, not varchar.\n\n\n\n\n\nHeaders\nEdgeSet determines that a header is not present if:\n\nthere are at least two rows AND\nat least one column is not varchar\n\nWhen just one row is present, the inferred folder will be an empty table with column names while the raw folder will be a 1-row table with no column names.\nWhat about the ambiguous case when all columns are varchars? EdgeSet will use the first row as a header for the inferred folder because the raw folder will already have the same schema but without a header row.",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span>"
     ]
@@ -474,7 +474,17 @@
     "href": "tabular-files.html#supported-storage",
     "title": " Tabular Files",
     "section": "Supported storage",
-    "text": "Supported storage\n\n\n\nStorage\nFormat\nPartitioned\n\n\n\n\nAWS S3\nCSV\nyes\n\n\nGoogle Drive\nCSV\nno\n\n\nGoogle Drive\nGoogle Sheets\nno",
+    "text": "Supported storage\n\n\n\nStorage\nFormat\nPartitioned\n\n\n\n\nAWS S3\nCSV\nyes\n\n\nGoogle Drive\nCSV\nno\n\n\nGoogle Drive\nGoogle Sheets\nno\n\n\nGoogle Drive\nMicrosoft Excel\nno\n\n\nGoogle Drive\nOpenDocument Spreadsheet\nno\n\n\nGoogle Drive\nApple Numbers\nno\n\n\nSMB\nMicrosoft Excel\nno\n\n\nSMB\nOpenDocument Spreadsheet\nno\n\n\nSMB\nApple Numbers\nno",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span>"
+    ]
+  },
+  {
+    "objectID": "tabular-files.html#table-layout-inference",
+    "href": "tabular-files.html#table-layout-inference",
+    "title": " Tabular Files",
+    "section": "Table layout inference",
+    "text": "Table layout inference\nFor spreadsheets, EdgeSet supports additional inference of the table location.\n  | | | | | |\n  | | | | | |\n  | | | | | |\n  | | | | | |\n  | | | | | |\n  | | | | | |",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span>"
     ]

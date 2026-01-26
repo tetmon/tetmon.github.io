@@ -232,6 +232,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#partition-inference" id="toc-partition-inference" class="nav-link" data-scroll-target="#partition-inference">Partition inference</a></li>
   </ul></li>
   <li><a href="#supported-storage" id="toc-supported-storage" class="nav-link" data-scroll-target="#supported-storage">Supported storage</a></li>
+  <li><a href="#table-layout-inference" id="toc-table-layout-inference" class="nav-link" data-scroll-target="#table-layout-inference">Table layout inference</a></li>
   </ul>
 </nav>
     </div>
@@ -371,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- EdgeSet then creates two tables in two separate folders: inferred and raw. -->
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Whitespace is any Unicode space character and the following control characters: horizontal tab (<code>\t</code>), vertical tab (<code>\v</code>), line feed (<code>\n</code>), carriage return (<code>\r</code>), and form feed (<code>\f</code>).</p></div></div><section id="null-values" class="level3">
 <h3 class="anchored" data-anchor-id="null-values">Null values</h3>
-<p>EdgeSet considers empty values to be <code>null</code> values, <em>not</em> <code>varchar</code>.</p>
+<p>EdgeSet considers empty cells to be <code>null</code> values, <em>not</em> <code>varchar</code>.</p>
 <!-- Row -->
 <!-- --- -->
 <!-- 1,,test -->
@@ -452,8 +453,48 @@ ul.task-list li input[type="checkbox"] {
 <td>Google Sheets</td>
 <td>no</td>
 </tr>
+<tr class="even">
+<td>Google Drive</td>
+<td>Microsoft Excel</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>Google Drive</td>
+<td>OpenDocument Spreadsheet</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>Google Drive</td>
+<td>Apple Numbers</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>SMB</td>
+<td>Microsoft Excel</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>SMB</td>
+<td>OpenDocument Spreadsheet</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>SMB</td>
+<td>Apple Numbers</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
+</section>
+<section id="table-layout-inference" class="level2">
+<h2 class="anchored" data-anchor-id="table-layout-inference">Table layout inference</h2>
+<p>For spreadsheets, EdgeSet supports additional inference of the table location.</p>
+<div class="line-block">&nbsp;&nbsp;| | | | | |<br>
+&nbsp;&nbsp;| | | | | |<br>
+&nbsp;&nbsp;| | | | | |<br>
+&nbsp;&nbsp;| | | | | |<br>
+&nbsp;&nbsp;| | | | | |<br>
+&nbsp;&nbsp;| | | | | |</div>
 
 
 </section>
