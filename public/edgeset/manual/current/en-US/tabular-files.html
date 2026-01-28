@@ -42,8 +42,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8b864f0777c60eecff11d75b6b2e1175.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dee929b7ec6311661455fd37f89ac6be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-985592d3488bc3948e73701c6ae9c52a.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-182d56d3c17470b777fcbc83ce897343.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7ef90996d34ff20e599b0344f07d0f80.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -222,7 +222,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#column-inference" id="toc-column-inference" class="nav-link active" data-scroll-target="#column-inference">Column inference</a>
+  <li><a href="#supported-storage" id="toc-supported-storage" class="nav-link active" data-scroll-target="#supported-storage">Supported storage</a></li>
+  <li><a href="#column-inference" id="toc-column-inference" class="nav-link" data-scroll-target="#column-inference">Column inference</a>
   <ul class="collapse">
   <li><a href="#null-values" id="toc-null-values" class="nav-link" data-scroll-target="#null-values">Null values</a></li>
   <li><a href="#headers" id="toc-headers" class="nav-link" data-scroll-target="#headers">Headers</a></li>
@@ -231,7 +232,6 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#partition-inference" id="toc-partition-inference" class="nav-link" data-scroll-target="#partition-inference">Partition inference</a></li>
   </ul></li>
-  <li><a href="#supported-storage" id="toc-supported-storage" class="nav-link" data-scroll-target="#supported-storage">Supported storage</a></li>
   <li><a href="#table-layout-inference" id="toc-table-layout-inference" class="nav-link" data-scroll-target="#table-layout-inference">Table layout inference</a></li>
   </ul>
 </nav>
@@ -258,119 +258,164 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>One of EdgeSet’s distinctive features is its ability to query data in tabular (CSV, Google Sheets) files stored in various object and file storage systems. The data does not have to be prepared especially for EdgeSet; EdgeSet can infer appropriate tables from the files automatically.</p>
+<p>One of EdgeSet’s distinctive features is its ability to query data in tabular (CSV, spreadsheet, etc.) files stored in various object and file storage systems. The data does not need to be mapped manually in EdgeSet; EdgeSet can infer appropriate tables from the files automatically.</p>
 <p>Whenever a data source is scanned, EdgeSet retrieves a file listing from it. It then samples data from each file to determine if it’s a supported file. If so, it infers the names and types of each column. Finally, it collects matching (partitioned) files and creates tables from them.</p>
-<section id="column-inference" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="column-inference">Column inference</h2>
-<p>Each column of a tabular file can be of a certain type, such as integers or dates. EdgeSet will automatically infer the type of a column <em>if all sampled cells in that column match a given type</em>. (Note: We will use the term “cell” to refer to an individual row and column of any tabular file, whether it’s a spreadsheet or not).</p>
+<section id="supported-storage" class="level2">
+<h2 class="anchored" data-anchor-id="supported-storage">Supported storage</h2>
 <table class="caption-top table">
-<caption>Supported column data types and example values</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Examples</th>
+<th>Storage</th>
+<th>Format</th>
+<th>Partitioned</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>boolean</strong></td>
-<td style="text-align: left;"><code>True</code></td>
+<td>AWS S3</td>
+<td>CSV</td>
+<td>yes</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>f</code></td>
+<td>OSS</td>
+<td>CSV</td>
+<td>yes</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>y</code></td>
+<td>Google Drive</td>
+<td>CSV</td>
+<td>no</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>NO</code></td>
+<td>Google Drive</td>
+<td>Google Sheets</td>
+<td>no</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>integer</strong></td>
-<td style="text-align: left;"><code>16</code></td>
+<td>Google Drive</td>
+<td>Microsoft Excel</td>
+<td>no</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>-200</code></td>
+<td>Google Drive</td>
+<td>OpenDocument Spreadsheet</td>
+<td>no</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>+47,693</code></td>
+<td>Google Drive</td>
+<td>Apple Numbers</td>
+<td>no</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>3338.</code></td>
+<td>SMB</td>
+<td>Microsoft Excel</td>
+<td>no</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>0xff</code></td>
+<td>SMB</td>
+<td>OpenDocument Spreadsheet</td>
+<td>no</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>double</strong></td>
-<td style="text-align: left;"><code>99.99</code></td>
+<td>SMB</td>
+<td>Apple Numbers</td>
+<td>no</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>-0.0000000001</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>765,686.81</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>date</strong></td>
-<td style="text-align: left;"><code>2021-11-27</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>27/11/2021</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>11/27/2021</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>time</strong></td>
-<td style="text-align: left;"><code>14:49:00</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>3:15 PM</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>00:00:00.000</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>timestamp</strong></td>
-<td style="text-align: left;"><code>2021-11-27 15:15:27.032</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>11/27/2021 3:15PM</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>timestamp w/ zone</strong></td>
-<td style="text-align: left;"><code>2021-11-27T15:15:27.032Z</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><code>11/27/2021 15:15 +08</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>varchar</strong></td>
-<td style="text-align: left;">anything else</td>
+<td>SMB</td>
+<td>Microsoft Access</td>
+<td>no</td>
 </tr>
 </tbody>
 </table>
-<p>Whitespace<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is stripped from the beginning and end of each cell when inferring its type and converting it to a value.</p>
+</section>
+<section id="column-inference" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="column-inference">Column inference</h2>
+<p>Each column of a tabular file can be of a certain type, such as integers or dates. EdgeSet will automatically infer the type of a column <em>if all sampled cells<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> in that column match a given type</em>.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;We use the term “cell” to refer to an individual row and column of any tabular file, whether it’s a spreadsheet or not.</p></div></div><table class="caption-top table">
+<caption>Supported column data types and example values</caption>
+<colgroup>
+<col style="width: 19%">
+<col style="width: 37%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Examples</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>boolean</strong></td>
+<td><p><code>True</code> <code>false</code></p>
+<p><code>y</code> <code>NO</code></p>
+<p><code>✓</code> <code>✗</code></p></td>
+<td>Both true and false values must be present or the column will be inferred as varchar.</td>
+</tr>
+<tr class="even">
+<td><strong>integer</strong></td>
+<td><p><code>16</code></p>
+<p><code>-200000</code></p>
+<p><code>(47,693)</code></p>
+<p><code>0xff</code></p></td>
+<td><p>Grouping characters supported: <code>,</code>, <code>.</code>, <code>'</code>, <code>_</code>, space, and thin space.</p>
+<p>The same grouping character must be used for all cells.</p>
+<p>Integers are always inferred as bigints (64-bit).</p></td>
+</tr>
+<tr class="odd">
+<td><strong>decimal</strong></td>
+<td><p><code>1.25</code></p>
+<p><code>0,001</code></p>
+<p><code>100,000.00</code></p>
+<p><code>1e10</code></p></td>
+<td>The same grouping characters are supported, and either <code>.</code> or <code>,</code> must separate the integer and fractional parts of the number.</td>
+</tr>
+<tr class="even">
+<td><strong>double</strong></td>
+<td><code>1e300</code></td>
+<td>The double-precision floating point type is only inferred when at least one number in a column is outside the range representable by <code>decimal</code>.</td>
+</tr>
+<tr class="odd">
+<td><strong>date</strong></td>
+<td><p><code>2021-11-27</code></p>
+<p><code>27/11/2021</code></p>
+<p><code>11/27/2021</code></p>
+<p><code>November 27th, 2021</code></p></td>
+<td>Day-month-year or month-day-year order are inferred automatically when possible. If all dates are ambiguous, the column will be inferred as varchar.</td>
+</tr>
+<tr class="even">
+<td><strong>time</strong></td>
+<td><p><code>14:49:00</code></p>
+<p><code>3:15 PM</code></p>
+<p><code>00:00:00.000</code></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>timestamp</strong></td>
+<td><p><code>2021-11-27 15:15:27.032</code></p>
+<p><code>11/27/2021 3:15PM</code></p></td>
+<td>Any supported date format separated by whitespace or a <code>T</code> is supported.</td>
+</tr>
+<tr class="even">
+<td><strong>timestamp with time zone</strong></td>
+<td><p><code>2021-11-27T15:15:27.032Z</code></p>
+<p><code>11/27/2021 15:15 +08</code></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>varchar</strong></td>
+<td>anything</td>
+<td>Any column that fails inference for any reason is treated as varchar.</td>
+</tr>
+</tbody>
+</table>
+<p>Whitespace<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> is stripped from the beginning and end of each cell when inferring its type and converting it to a value.</p>
 <!-- type widening -->
 <!-- Once it knows the data types of each column, it checks if the first row in the file fits those data types. If not, it assumes that this first row is a header row and uses it as the column names. -->
 <!-- EdgeSet then creates two tables in two separate folders: inferred and raw. -->
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Whitespace is any Unicode space character and the following control characters: horizontal tab (<code>\t</code>), vertical tab (<code>\v</code>), line feed (<code>\n</code>), carriage return (<code>\r</code>), and form feed (<code>\f</code>).</p></div></div><section id="null-values" class="level3">
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Whitespace is any Unicode space character and the following control characters: horizontal tab (<code>\t</code>), vertical tab (<code>\v</code>), line feed (<code>\n</code>), carriage return (<code>\r</code>), and form feed (<code>\f</code>).</p></div></div><section id="null-values" class="level3">
 <h3 class="anchored" data-anchor-id="null-values">Null values</h3>
 <p>EdgeSet considers empty cells to be <code>null</code> values, <em>not</em> <code>varchar</code>.</p>
 <!-- Row -->
@@ -379,18 +424,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="headers" class="level3">
 <h3 class="anchored" data-anchor-id="headers">Headers</h3>
-<p>EdgeSet determines that a header is <em>not</em> present if:</p>
+<p>EdgeSet determines that a header is present in a table if and only if:</p>
 <ul>
-<li>there are at least two rows AND</li>
-<li>at least one column is not <code>varchar</code></li>
+<li>the table has at least two rows AND</li>
+<li>at least one column is inferred to be some type other than <code>varchar</code></li>
+<li>all cells of the first row are not null</li>
+<li>at least one of the cells of the first row is not a valid value of the inferred type of its column</li>
 </ul>
-<p>When just one row is present, the inferred folder will be an empty table with column names while the raw folder will be a 1-row table with no column names.</p>
-<p>What about the ambiguous case when <em>all</em> columns are <code>varchar</code>s? EdgeSet will use the first row as a header for the inferred folder because the raw folder will already have the same schema but without a header row.</p>
 </section>
 </section>
-<section id="table-inference" class="level2">
+<section id="table-inference" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="table-inference">Table inference</h2>
-<p>If all tabular files in a folder are compatible, they are merged to form a single table.</p>
+<p>S3-compatible data sources support merging multiple files in a folder into a single table. This is to support large-volumn, typically append-only data storage like that used in data lakes.</p>
+<p>When all tabular files in a folder are compatible, they are merged to form a single table.</p>
 <p>Files are compatible if:</p>
 <ul>
 <li>they have the same number of columns AND</li>
@@ -398,9 +444,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Types will be merged between columns of every compatible file.</p>
 <p>If at least one file is unambiguous, all ambiguous files will be resolved by merging them into the unambiguous one.</p>
-<section id="partition-inference" class="level3">
+<section id="partition-inference" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="partition-inference">Partition inference</h3>
-<p>Partitioning is the most important optimization for querying within files. By separating the data into partitions, the query engine can scan only the data it needs to answer a particular query.</p>
+<p>Partitioning is the most important optimization for querying a large amount of data spread across separate files (such as in data lakes). By separating the data into partitions, the query engine can scan only the data it needs to answer a particular query.</p>
 <p>EdgeSet supports the following partition formats, listed in order of priority:</p>
 <table class="caption-top table">
 <thead>
@@ -424,77 +470,104 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>If EdgeSet detects enough files following the partitioning format and that have compatible schemas, it will group them into a single table and optimize queries when they contain partition values in the <code>WHERE</code> clause. EdgeSet will create individual tables for any files that does not fit the pattern or that have incompatible schemas.</p>
-</section>
-</section>
-<section id="supported-storage" class="level2">
-<h2 class="anchored" data-anchor-id="supported-storage">Supported storage</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Storage</th>
-<th>Format</th>
-<th>Partitioned</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>AWS S3</td>
-<td>CSV</td>
-<td>yes</td>
-</tr>
-<tr class="even">
-<td>Google Drive</td>
-<td>CSV</td>
-<td>no</td>
-</tr>
-<tr class="odd">
-<td>Google Drive</td>
-<td>Google Sheets</td>
-<td>no</td>
-</tr>
-<tr class="even">
-<td>Google Drive</td>
-<td>Microsoft Excel</td>
-<td>no</td>
-</tr>
-<tr class="odd">
-<td>Google Drive</td>
-<td>OpenDocument Spreadsheet</td>
-<td>no</td>
-</tr>
-<tr class="even">
-<td>Google Drive</td>
-<td>Apple Numbers</td>
-<td>no</td>
-</tr>
-<tr class="odd">
-<td>SMB</td>
-<td>Microsoft Excel</td>
-<td>no</td>
-</tr>
-<tr class="even">
-<td>SMB</td>
-<td>OpenDocument Spreadsheet</td>
-<td>no</td>
-</tr>
-<tr class="odd">
-<td>SMB</td>
-<td>Apple Numbers</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
+<p>The partition “keys” become columns on the virtual table that EdgeSet creates. Then, if the key columns are used in the <code>WHERE</code> clause of a query, EdgeSet will scan just the relevant tables.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;You can think of the partition key as similar to an index in a relational database.</p></div></div></section>
 </section>
 <section id="table-layout-inference" class="level2">
 <h2 class="anchored" data-anchor-id="table-layout-inference">Table layout inference</h2>
-<p>For spreadsheets, EdgeSet supports additional inference of the table location.</p>
-<div class="line-block">&nbsp;&nbsp;| | | | | |<br>
-&nbsp;&nbsp;| | | | | |<br>
-&nbsp;&nbsp;| | | | | |<br>
-&nbsp;&nbsp;| | | | | |<br>
-&nbsp;&nbsp;| | | | | |<br>
-&nbsp;&nbsp;| | | | | |</div>
+<p>For spreadsheets, EdgeSet supports additional inference of the table location. For example, given the following spreadsheet:</p>
+<div class="spreadsheet">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 15%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>⠀</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>title</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>col1</td>
+<td>col2</td>
+<td></td>
+<td>note</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>first</td>
+<td>1</td>
+<td>3</td>
+<td></td>
+<td>marginalia</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>second</td>
+<td>2</td>
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>EdgeSet would infer the table to be:</p>
+<div class="spreadsheet">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>title</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>col1</td>
+<td>col2</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>first</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>second</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Table inference follows deterministic rules:</p>
+<ul>
+<li>empty leading columns and rows are skipped</li>
+<li>rows are considered to extend to the last non-empty cell</li>
+<li>the table extends to the widest row</li>
+</ul>
 
 
 </section>

@@ -444,7 +444,17 @@
     "href": "tabular-files.html",
     "title": " Tabular Files",
     "section": "",
-    "text": "Column inference\nOne of EdgeSet’s distinctive features is its ability to query data in tabular (CSV, Google Sheets) files stored in various object and file storage systems. The data does not have to be prepared especially for EdgeSet; EdgeSet can infer appropriate tables from the files automatically.\nWhenever a data source is scanned, EdgeSet retrieves a file listing from it. It then samples data from each file to determine if it’s a supported file. If so, it infers the names and types of each column. Finally, it collects matching (partitioned) files and creates tables from them.\nEach column of a tabular file can be of a certain type, such as integers or dates. EdgeSet will automatically infer the type of a column if all sampled cells in that column match a given type. (Note: We will use the term “cell” to refer to an individual row and column of any tabular file, whether it’s a spreadsheet or not).\nWhitespace1 is stripped from the beginning and end of each cell when inferring its type and converting it to a value.",
+    "text": "Supported storage\nOne of EdgeSet’s distinctive features is its ability to query data in tabular (CSV, spreadsheet, etc.) files stored in various object and file storage systems. The data does not need to be mapped manually in EdgeSet; EdgeSet can infer appropriate tables from the files automatically.\nWhenever a data source is scanned, EdgeSet retrieves a file listing from it. It then samples data from each file to determine if it’s a supported file. If so, it infers the names and types of each column. Finally, it collects matching (partitioned) files and creates tables from them.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span>"
+    ]
+  },
+  {
+    "objectID": "tabular-files.html#supported-storage",
+    "href": "tabular-files.html#supported-storage",
+    "title": " Tabular Files",
+    "section": "",
+    "text": "Storage\nFormat\nPartitioned\n\n\n\n\nAWS S3\nCSV\nyes\n\n\nOSS\nCSV\nyes\n\n\nGoogle Drive\nCSV\nno\n\n\nGoogle Drive\nGoogle Sheets\nno\n\n\nGoogle Drive\nMicrosoft Excel\nno\n\n\nGoogle Drive\nOpenDocument Spreadsheet\nno\n\n\nGoogle Drive\nApple Numbers\nno\n\n\nSMB\nMicrosoft Excel\nno\n\n\nSMB\nOpenDocument Spreadsheet\nno\n\n\nSMB\nApple Numbers\nno\n\n\nSMB\nMicrosoft Access\nno",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span>"
     ]
@@ -453,8 +463,8 @@
     "objectID": "tabular-files.html#column-inference",
     "href": "tabular-files.html#column-inference",
     "title": " Tabular Files",
-    "section": "",
-    "text": "Supported column data types and example values\n\n\nType\nExamples\n\n\n\n\nboolean\nTrue\n\n\n\nf\n\n\n\ny\n\n\n\nNO\n\n\ninteger\n16\n\n\n\n-200\n\n\n\n+47,693\n\n\n\n3338.\n\n\n\n0xff\n\n\ndouble\n99.99\n\n\n\n-0.0000000001\n\n\n\n765,686.81\n\n\ndate\n2021-11-27\n\n\n\n27/11/2021\n\n\n\n11/27/2021\n\n\ntime\n14:49:00\n\n\n\n3:15 PM\n\n\n\n00:00:00.000\n\n\ntimestamp\n2021-11-27 15:15:27.032\n\n\n\n11/27/2021 3:15PM\n\n\ntimestamp w/ zone\n2021-11-27T15:15:27.032Z\n\n\n\n11/27/2021 15:15 +08\n\n\nvarchar\nanything else\n\n\n\n\n\n\n\n1 Whitespace is any Unicode space character and the following control characters: horizontal tab (\\t), vertical tab (\\v), line feed (\\n), carriage return (\\r), and form feed (\\f).\nNull values\nEdgeSet considers empty cells to be null values, not varchar.\n\n\n\n\n\nHeaders\nEdgeSet determines that a header is not present if:\n\nthere are at least two rows AND\nat least one column is not varchar\n\nWhen just one row is present, the inferred folder will be an empty table with column names while the raw folder will be a 1-row table with no column names.\nWhat about the ambiguous case when all columns are varchars? EdgeSet will use the first row as a header for the inferred folder because the raw folder will already have the same schema but without a header row.",
+    "section": "Column inference",
+    "text": "Column inference\nEach column of a tabular file can be of a certain type, such as integers or dates. EdgeSet will automatically infer the type of a column if all sampled cells1 in that column match a given type.\n1 We use the term “cell” to refer to an individual row and column of any tabular file, whether it’s a spreadsheet or not.\nSupported column data types and example values\n\n\n\n\n\n\n\nType\nExamples\nNotes\n\n\n\n\nboolean\nTrue false\ny NO\n✓ ✗\nBoth true and false values must be present or the column will be inferred as varchar.\n\n\ninteger\n16\n-200000\n(47,693)\n0xff\nGrouping characters supported: ,, ., ', _, space, and thin space.\nThe same grouping character must be used for all cells.\nIntegers are always inferred as bigints (64-bit).\n\n\ndecimal\n1.25\n0,001\n100,000.00\n1e10\nThe same grouping characters are supported, and either . or , must separate the integer and fractional parts of the number.\n\n\ndouble\n1e300\nThe double-precision floating point type is only inferred when at least one number in a column is outside the range representable by decimal.\n\n\ndate\n2021-11-27\n27/11/2021\n11/27/2021\nNovember 27th, 2021\nDay-month-year or month-day-year order are inferred automatically when possible. If all dates are ambiguous, the column will be inferred as varchar.\n\n\ntime\n14:49:00\n3:15 PM\n00:00:00.000\n\n\n\ntimestamp\n2021-11-27 15:15:27.032\n11/27/2021 3:15PM\nAny supported date format separated by whitespace or a T is supported.\n\n\ntimestamp with time zone\n2021-11-27T15:15:27.032Z\n11/27/2021 15:15 +08\n\n\n\nvarchar\nanything\nAny column that fails inference for any reason is treated as varchar.\n\n\n\nWhitespace2 is stripped from the beginning and end of each cell when inferring its type and converting it to a value.\n\n\n\n2 Whitespace is any Unicode space character and the following control characters: horizontal tab (\\t), vertical tab (\\v), line feed (\\n), carriage return (\\r), and form feed (\\f).\nNull values\nEdgeSet considers empty cells to be null values, not varchar.\n\n\n\n\n\nHeaders\nEdgeSet determines that a header is present in a table if and only if:\n\nthe table has at least two rows AND\nat least one column is inferred to be some type other than varchar\nall cells of the first row are not null\nat least one of the cells of the first row is not a valid value of the inferred type of its column",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span>"
     ]
@@ -464,17 +474,7 @@
     "href": "tabular-files.html#table-inference",
     "title": " Tabular Files",
     "section": "Table inference",
-    "text": "Table inference\nIf all tabular files in a folder are compatible, they are merged to form a single table.\nFiles are compatible if:\n\nthey have the same number of columns AND\nthey have the same headers (or no headers)\n\nTypes will be merged between columns of every compatible file.\nIf at least one file is unambiguous, all ambiguous files will be resolved by merging them into the unambiguous one.\n\nPartition inference\nPartitioning is the most important optimization for querying within files. By separating the data into partitions, the query engine can scan only the data it needs to answer a particular query.\nEdgeSet supports the following partition formats, listed in order of priority:\n\n\n\nFormat\nExample\n\n\n\n\nKey=Value\nfrom=USD/to=EUR/data.csv\n\n\nYear/Month/Day\n2021/11/17/data.csv\n\n\nYear/Month\n2021/11/data.csv\n\n\n\nIf EdgeSet detects enough files following the partitioning format and that have compatible schemas, it will group them into a single table and optimize queries when they contain partition values in the WHERE clause. EdgeSet will create individual tables for any files that does not fit the pattern or that have incompatible schemas.",
-    "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span>"
-    ]
-  },
-  {
-    "objectID": "tabular-files.html#supported-storage",
-    "href": "tabular-files.html#supported-storage",
-    "title": " Tabular Files",
-    "section": "Supported storage",
-    "text": "Supported storage\n\n\n\nStorage\nFormat\nPartitioned\n\n\n\n\nAWS S3\nCSV\nyes\n\n\nGoogle Drive\nCSV\nno\n\n\nGoogle Drive\nGoogle Sheets\nno\n\n\nGoogle Drive\nMicrosoft Excel\nno\n\n\nGoogle Drive\nOpenDocument Spreadsheet\nno\n\n\nGoogle Drive\nApple Numbers\nno\n\n\nSMB\nMicrosoft Excel\nno\n\n\nSMB\nOpenDocument Spreadsheet\nno\n\n\nSMB\nApple Numbers\nno",
+    "text": "Table inference\nS3-compatible data sources support merging multiple files in a folder into a single table. This is to support large-volumn, typically append-only data storage like that used in data lakes.\nWhen all tabular files in a folder are compatible, they are merged to form a single table.\nFiles are compatible if:\n\nthey have the same number of columns AND\nthey have the same headers (or no headers)\n\nTypes will be merged between columns of every compatible file.\nIf at least one file is unambiguous, all ambiguous files will be resolved by merging them into the unambiguous one.\n\nPartition inference\nPartitioning is the most important optimization for querying a large amount of data spread across separate files (such as in data lakes). By separating the data into partitions, the query engine can scan only the data it needs to answer a particular query.\nEdgeSet supports the following partition formats, listed in order of priority:\n\n\n\nFormat\nExample\n\n\n\n\nKey=Value\nfrom=USD/to=EUR/data.csv\n\n\nYear/Month/Day\n2021/11/17/data.csv\n\n\nYear/Month\n2021/11/data.csv\n\n\n\nThe partition “keys” become columns on the virtual table that EdgeSet creates. Then, if the key columns are used in the WHERE clause of a query, EdgeSet will scan just the relevant tables.3\n3 You can think of the partition key as similar to an index in a relational database.",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span>"
     ]
@@ -484,7 +484,7 @@
     "href": "tabular-files.html#table-layout-inference",
     "title": " Tabular Files",
     "section": "Table layout inference",
-    "text": "Table layout inference\nFor spreadsheets, EdgeSet supports additional inference of the table location.\n  | | | | | |\n  | | | | | |\n  | | | | | |\n  | | | | | |\n  | | | | | |\n  | | | | | |",
+    "text": "Table layout inference\nFor spreadsheets, EdgeSet supports additional inference of the table location. For example, given the following spreadsheet:\n\n\n\n\n\n\n\n\n\n\n\n\n⠀\n\n\n\n\n\n\n\n\ntitle\n\n\n\n\n\n\n\ncol1\ncol2\n\nnote\n\n\n\n\nfirst\n1\n3\n\nmarginalia\n\n\n\nsecond\n2\n4\n\n\n\n\n\n\nEdgeSet would infer the table to be:\n\n\n\n\n\n\n\n\n\ntitle\n\n\n\n\ncol1\ncol2\n\n\n\nfirst\n1\n3\n\n\nsecond\n2\n4\n\n\n\n\nTable inference follows deterministic rules:\n\nempty leading columns and rows are skipped\nrows are considered to extend to the last non-empty cell\nthe table extends to the widest row",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'> Tabular Files</span>"
     ]
