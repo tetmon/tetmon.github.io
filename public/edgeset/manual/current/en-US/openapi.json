@@ -364,6 +364,9 @@
                         "properties": {
                             "Init": {
                                 "properties": {
+                                    "diskFull": {
+                                        "type": "boolean"
+                                    },
                                     "licenseExpiry": {
                                         "$ref": "#/components/schemas/Day"
                                     },
@@ -667,6 +670,26 @@
                             "TableRefreshFailed"
                         ],
                         "title": "TableRefreshFailed",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "Disk": {
+                                "properties": {
+                                    "full": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "full"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "Disk"
+                        ],
+                        "title": "Disk",
                         "type": "object"
                     }
                 ]
