@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title> Installation – EdgeSet Manual</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,14 +42,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6b55043c1bebe1f9fce06c33a3be89d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-265dc4d13cc4af2c0520460d8037556b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-6b55043c1bebe1f9fce06c33a3be89d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-82cf54b617eff65218f669f6517fb87e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-bf2d1cbb4bcacf715b00dbe02c299d3c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-82cf54b617eff65218f669f6517fb87e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -264,7 +267,8 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="./logo.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./logo.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">EdgeSet Manual</a> 
@@ -387,11 +391,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link active" data-scroll-target="#requirements">Requirements</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link active" data-scroll-target="#requirements">Requirements</a>
+  <ul class="collapse">
+  <li><a href="#scaling-up" id="toc-scaling-up" class="nav-link" data-scroll-target="#scaling-up">Scaling up</a></li>
+  <li><a href="#ai-acceleration" id="toc-ai-acceleration" class="nav-link" data-scroll-target="#ai-acceleration">AI Acceleration</a></li>
+  </ul></li>
+  <li><a href="#hyperscalers" id="toc-hyperscalers" class="nav-link" data-scroll-target="#hyperscalers">Hyperscalers</a>
+  <ul class="collapse">
   <li><a href="#amazon-web-services-aws" id="toc-amazon-web-services-aws" class="nav-link" data-scroll-target="#amazon-web-services-aws">Amazon Web Services (AWS)</a></li>
   <li><a href="#google-cloud-platform-gcp" id="toc-google-cloud-platform-gcp" class="nav-link" data-scroll-target="#google-cloud-platform-gcp">Google Cloud Platform (GCP)</a></li>
+  <li><a href="#microsoft-azure" id="toc-microsoft-azure" class="nav-link" data-scroll-target="#microsoft-azure">Microsoft Azure</a></li>
+  </ul></li>
+  <li><a href="#vps-providers" id="toc-vps-providers" class="nav-link" data-scroll-target="#vps-providers">VPS Providers</a>
+  <ul class="collapse">
   <li><a href="#digital-ocean" id="toc-digital-ocean" class="nav-link" data-scroll-target="#digital-ocean">Digital Ocean</a></li>
   <li><a href="#hetzner-cloud" id="toc-hetzner-cloud" class="nav-link" data-scroll-target="#hetzner-cloud">Hetzner Cloud</a></li>
+  </ul></li>
+  <li><a href="#physical-servers" id="toc-physical-servers" class="nav-link" data-scroll-target="#physical-servers">Physical Servers</a></li>
+  <li><a href="#hypervisors" id="toc-hypervisors" class="nav-link" data-scroll-target="#hypervisors">Hypervisors</a>
+  <ul class="collapse">
+  <li><a href="#hyper-v" id="toc-hyper-v" class="nav-link" data-scroll-target="#hyper-v">Hyper-V</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -418,13 +438,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>EdgeSet can run as a multi-user web application.</p>
+<p>EdgeSet is a multi-user web application. It’s designed to run on-premise or in a private cloud. You can install it on a physical server (“bare metal”) or a VM (such as from AWS, Azure, GCP, Digital Ocean, etc.).</p>
 <section id="requirements" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
-<p>EdgeSet is designed to run on-premise or in a private cloud. You can install it on a physical server (“bare metal”) or a VM (such as from AWS, Azure, Digital Ocean, etc.).</p>
-<p>EdgeSet requires a 64-bit Intel-compatible (x86-64) or ARM64 (aarch64) CPU.</p>
-<table class="caption-top table">
-<caption>Minimum system requirements</caption>
+<p>EdgeSet requires an 64-bit Intel-compatible (x86-64) or ARM (AArch64) CPU.</p>
+<div id="tbl-minimum-system-requirements" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-minimum-system-requirements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: Minimum system requirements
+</figcaption>
+<div aria-describedby="tbl-minimum-system-requirements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-minimum-system-requirements" class="caption-top table">
 <thead>
 <tr class="header">
 <th>Concurrent query slots</th>
@@ -443,42 +467,169 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>5</td>
 <td>12GB</td>
-<td>4</td>
+<td>6</td>
 <td>20GB</td>
 </tr>
 <tr class="odd">
 <td>15</td>
 <td>24GB</td>
-<td>12</td>
+<td>16</td>
 <td>30GB</td>
 </tr>
 <tr class="even">
 <td>50</td>
 <td>64GB</td>
-<td>32</td>
+<td>64</td>
 <td>60GB</td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>EdgeSet also requires UEFI support.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Most computers since 2006 have UEFI support.</p></div></div></section>
-<section id="amazon-web-services-aws" class="level2">
-<h2 class="anchored" data-anchor-id="amazon-web-services-aws">Amazon Web Services (AWS)</h2>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Most computers since 2006 have UEFI support.</p></div></div><section id="scaling-up" class="level3">
+<h3 class="anchored" data-anchor-id="scaling-up">Scaling up</h3>
+<p>If you save query results to “Internal Storage”, you will likely need more disk space. The amount of disk space depends on the size of the saved query results.</p>
+<ul>
+<li>For VM deployments, you can increase the size of the virtual disk and EdgeSet will detect and use the additional space after a reboot. <!-- Change after https://git.tetmon.com/edgeset/edgeset/issues/1488 --></li>
+<li>For physical deployments, you can image the EdgeSet disk to a larger disk and EdgeSet will detect and use the additional space after a reboot.</li>
+</ul>
+<p>RAM is allocated evenly between query slots. If you find that your queries are failing due to a lack of memory, you should increase the amount of system RAM.</p>
+<!-- include a comment about increasing CPU cores once the user can see the system metrics -->
+</section>
+<section id="ai-acceleration" class="level3">
+<h3 class="anchored" data-anchor-id="ai-acceleration">AI Acceleration</h3>
+<p>EdgeSet’s embedded AI models are designed to run without any special hardware. However, you will notice increased performance on CPUs with vector instruction sets:</p>
+<div id="tbl-cpus-for-ai-acceleration" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cpus-for-ai-acceleration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.2: CPUs supported by EdgeSet for accelerated AI inference
+</figcaption>
+<div aria-describedby="tbl-cpus-for-ai-acceleration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="tbl-cpus-for-ai-acceleration" class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Make</th>
+<th style="text-align: left;">Series</th>
+<th style="text-align: left;">Example Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="2" style="text-align: left;"> AMD</td>
+<td style="text-align: left;">Piledriver</td>
+<td style="text-align: left;">FX-8350 (2012)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zen 4</td>
+<td style="text-align: left;">Ryzen 7 7800X3D (2023)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Amazon</td>
+<td style="text-align: left;">Graviton</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td rowspan="3" style="text-align: left;"> Ampere</td>
+<td style="text-align: left;">Altra</td>
+<td style="text-align: left;">Q80-30 (2020)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Altra Max</td>
+<td style="text-align: left;">M128-30 (2021)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AmpereOne</td>
+<td style="text-align: left;">A192-32X (2025)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Google</td>
+<td style="text-align: left;">Axion</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td rowspan="9" style="text-align: left;"> Intel</td>
+<td style="text-align: left;">Alder Lake</td>
+<td style="text-align: left;">Core i5-12400 (2022)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cascade Lake</td>
+<td style="text-align: left;">Xeon Gold 6258R (2020)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cooper Lake</td>
+<td style="text-align: left;">Xeon Gold 5300H (2020)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Haswell</td>
+<td style="text-align: left;">Intel Core i7-4790K (2014)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ice Lake</td>
+<td style="text-align: left;">Xeon Gold 6330 (2021)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ivy Bridge</td>
+<td style="text-align: left;">Core i5-3570K (2012)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sandy Bridge</td>
+<td style="text-align: left;">Intel Core i5-2500K (2011)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sapphire Rapids</td>
+<td style="text-align: left;">Xeon Gold 6430 (2023)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Skylake</td>
+<td style="text-align: left;">Core i5-6600K (2015) Microsoft Cobalt 200</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="hyperscalers" class="level2">
+<h2 class="anchored" data-anchor-id="hyperscalers">Hyperscalers</h2>
+<section id="amazon-web-services-aws" class="level3">
+<h3 class="anchored" data-anchor-id="amazon-web-services-aws">Amazon Web Services (AWS)</h3>
 <p>Launch an EC2 instance using the EdgeSet AMI ID provided to you.</p>
 </section>
-<section id="google-cloud-platform-gcp" class="level2">
-<h2 class="anchored" data-anchor-id="google-cloud-platform-gcp">Google Cloud Platform (GCP)</h2>
-<p>Launch a GCE instance using the qcow2 disk image (<a href="https://release.tetmon.com/edgeset-x86_64.qcow2">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.qcow2">arm64</a>).</p>
+<section id="google-cloud-platform-gcp" class="level3">
+<h3 class="anchored" data-anchor-id="google-cloud-platform-gcp">Google Cloud Platform (GCP)</h3>
+<p>Launch a GCE instance using the QCOW2 disk image (<a href="https://release.tetmon.com/edgeset-x86_64.qcow2">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.qcow2">arm64</a>).</p>
 </section>
-<section id="digital-ocean" class="level2">
-<h2 class="anchored" data-anchor-id="digital-ocean">Digital Ocean</h2>
-<p>Import the qcow2 disk image (<a href="https://release.tetmon.com/edgeset-x86_64.qcow2">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.qcow2">arm64</a>) to your DigitalOcean account as a “Custom Image” (see <a href="https://www.digitalocean.com/blog/custom-images/" class="uri">https://www.digitalocean.com/blog/custom-images/</a>). Launch a droplet with the custom image.</p>
+<section id="microsoft-azure" class="level3">
+<h3 class="anchored" data-anchor-id="microsoft-azure">Microsoft Azure</h3>
+<p>Launch an Azure Virtual Machine using the VHDX disk image (<a href="https://release.tetmon.com/edgeset-x86_64.vhdx">x86_64</a>).</p>
 </section>
-<section id="hetzner-cloud" class="level2">
-<h2 class="anchored" data-anchor-id="hetzner-cloud">Hetzner Cloud</h2>
+</section>
+<section id="vps-providers" class="level2">
+<h2 class="anchored" data-anchor-id="vps-providers">VPS Providers</h2>
+<section id="digital-ocean" class="level3">
+<h3 class="anchored" data-anchor-id="digital-ocean">Digital Ocean</h3>
+<p>Import the QCOW2 disk image (<a href="https://release.tetmon.com/edgeset-x86_64.qcow2">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.qcow2">arm64</a>) to your DigitalOcean account as a “Custom Image” (see <a href="https://www.digitalocean.com/blog/custom-images/" class="uri">https://www.digitalocean.com/blog/custom-images/</a>). Launch a droplet with the custom image.</p>
+</section>
+<section id="hetzner-cloud" class="level3">
+<h3 class="anchored" data-anchor-id="hetzner-cloud">Hetzner Cloud</h3>
 <p>Import the raw disk image (<a href="https://release.tetmon.com/edgeset-x86_64.img">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.img">arm64</a>) as a snapshot (i.e.&nbsp;using <a href="https://github.com/apricote/hcloud-upload-image">hcloud-upload-image</a>). Launch a new VM with the snapshot.</p>
+</section>
+</section>
+<section id="physical-servers" class="level2">
+<h2 class="anchored" data-anchor-id="physical-servers">Physical Servers</h2>
+<p>Copy the raw disk image (<a href="https://release.tetmon.com/edgeset-x86_64.img">x86_64</a> or <a href="https://release.tetmon.com/edgeset-arm64.img">arm64</a>) to the target hard drive (e.g.&nbsp;using <code>dd</code>). The target drive should be bootable after imaging.</p>
+</section>
+<section id="hypervisors" class="level2">
+<h2 class="anchored" data-anchor-id="hypervisors">Hypervisors</h2>
+<section id="hyper-v" class="level3">
+<h3 class="anchored" data-anchor-id="hyper-v">Hyper-V</h3>
+<p>Create a virtual machine using the VHDX disk image (<a href="https://release.tetmon.com/edgeset-x86_64.vhdx">x86_64</a>).</p>
 
 
+</section>
 </section>
 
 
@@ -547,13 +698,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

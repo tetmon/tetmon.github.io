@@ -870,6 +870,36 @@
                 ],
                 "type": "object"
             },
+            "IBMiInfo": {
+                "properties": {
+                    "database": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "format": "password",
+                        "type": "string"
+                    },
+                    "port": {
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "type": "integer"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "database",
+                    "user",
+                    "password"
+                ],
+                "type": "object"
+            },
             "KafkaInfo": {
                 "properties": {
                     "host": {
@@ -1764,6 +1794,25 @@
                             "fields"
                         ],
                         "title": "Elasticsearch",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "fields": {
+                                "$ref": "#/components/schemas/IBMiInfo"
+                            },
+                            "kind": {
+                                "enum": [
+                                    "IBMi"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "kind",
+                            "fields"
+                        ],
+                        "title": "IBMi",
                         "type": "object"
                     },
                     {
