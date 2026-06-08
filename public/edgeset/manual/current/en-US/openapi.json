@@ -2293,6 +2293,9 @@
             },
             "TableInfo": {
                 "properties": {
+                    "bytesOnDisk": {
+                        "type": "integer"
+                    },
                     "query": {
                         "$ref": "#/components/schemas/SavedQuery"
                     },
@@ -3621,6 +3624,52 @@
                     }
                 },
                 "summary": "(re)scan data source"
+            }
+        },
+        "/api/tables/{source}/results": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "source",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json;charset=utf-8": {
+                                "schema": {
+                                    "items": {
+                                        "items": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "integer"
+                                            }
+                                        ],
+                                        "maxItems": 3,
+                                        "minItems": 3,
+                                        "type": "array"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "`source` not found"
+                    }
+                },
+                "summary": "get saved results info"
             }
         },
         "/api/tables/{source}/{folder}/{table}": {
