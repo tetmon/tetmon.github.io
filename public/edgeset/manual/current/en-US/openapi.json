@@ -991,10 +991,7 @@
                     }
                 },
                 "required": [
-                    "version",
-                    "name",
-                    "license",
-                    "url"
+                    "name"
                 ],
                 "type": "object"
             },
