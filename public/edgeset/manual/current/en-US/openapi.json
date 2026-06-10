@@ -1617,6 +1617,9 @@
                     "database": {
                         "type": "string"
                     },
+                    "encrypt": {
+                        "type": "boolean"
+                    },
                     "host": {
                         "type": "string"
                     },
@@ -1631,6 +1634,9 @@
                     },
                     "user": {
                         "type": "string"
+                    },
+                    "verifyCertificate": {
+                        "type": "boolean"
                     }
                 },
                 "required": [
