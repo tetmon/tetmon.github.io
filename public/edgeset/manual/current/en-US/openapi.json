@@ -54,9 +54,6 @@
                     "hash": {},
                     "id": {
                         "type": "string"
-                    },
-                    "lic": {
-                        "type": "string"
                     }
                 },
                 "required": [
