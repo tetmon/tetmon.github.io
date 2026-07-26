@@ -479,6 +479,30 @@
                     },
                     {
                         "properties": {
+                            "QueryFailed": {
+                                "properties": {
+                                    "error": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "id",
+                                    "error"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "QueryFailed"
+                        ],
+                        "title": "QueryFailed",
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
                             "SourceUpdate": {
                                 "$ref": "#/components/schemas/Source"
                             }
