@@ -401,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#self-signed" id="toc-self-signed" class="nav-link" data-scroll-target="#self-signed">Self-signed</a></li>
   </ul></li>
   <li><a href="#admin-user" id="toc-admin-user" class="nav-link" data-scroll-target="#admin-user">Admin user</a></li>
-  <li><a href="#ssh-optional" id="toc-ssh-optional" class="nav-link" data-scroll-target="#ssh-optional">SSH (optional)</a></li>
+  <li><a href="#terminal-user-interface-optional" id="toc-terminal-user-interface-optional" class="nav-link" data-scroll-target="#terminal-user-interface-optional">Terminal User Interface (optional)</a></li>
   </ul>
 </nav>
     </div>
@@ -477,18 +477,16 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Note that this first admin user is not special. You can add additional users to the <code>admin</code> group later and they will also receive full admin privileges.</p>
 </section>
-<section id="ssh-optional" class="level2">
-<h2 class="anchored" data-anchor-id="ssh-optional">SSH (optional)</h2>
-<p>If for any reason you are unable to access EdgeSet’s web interface, you can perform some operations via its terminal interface over SSH.</p>
-<p>EdgeSet listens for SSH connections on TCP port 22. You can connect with any SSH client.</p>
-<p>If you have not setup an admin user yet, you can connect with any username and no password. This is to allow you to perform initial setup (including creating an admin user) without using the web interface.</p>
+<section id="terminal-user-interface-optional" class="level2">
+<h2 class="anchored" data-anchor-id="terminal-user-interface-optional">Terminal User Interface (optional)</h2>
+<p>If for any reason you are unable to access EdgeSet’s web interface, you can perform some operations (such as registering a TLS certificate or configuring a static IP address) via its terminal interface on the console or over SSH (port 22).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="screenshots/ssh-login.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="interface available over SSH"><img src="screenshots/ssh-login.png" class="img-fluid figure-img" alt="interface available over SSH"></a></p>
-<figcaption>interface available over SSH</figcaption>
+<p><a href="screenshots/tui.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="A TUI is available for when you can’t access the web interface"><img src="screenshots/tui.png" class="img-fluid figure-img" alt="A TUI is available for when you can’t access the web interface"></a></p>
+<figcaption>A TUI is available for when you can’t access the web interface</figcaption>
 </figure>
 </div>
-<p>If you have already setup an admin user, you can connect with an admin username and password (just like connecting via the web interface).</p>
+<p>If you have already setup an admin user, you can connect with an admin username and password (just like connecting via the web interface). If you have not setup an admin user yet, you can connect with a valid EdgeSet license.</p>
 
 
 </section>

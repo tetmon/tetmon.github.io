@@ -297,7 +297,6 @@
           }
         },
         "required": [
-          "expires",
           "querySlots",
           "version"
         ],
@@ -2846,10 +2845,8 @@
       "put": {
         "requestBody": {
           "content": {
-            "text/plain;charset=utf-8": {
-              "schema": {
-                "type": "string"
-              }
+            "application/octet-stream": {
+              "schema": {}
             }
           },
           "required": true
@@ -2862,7 +2859,7 @@
             "description": "Invalid `body`"
           }
         },
-        "summary": "update EdgeSet"
+        "summary": "update EdgeSet from archive"
       }
     },
     "/api/events": {

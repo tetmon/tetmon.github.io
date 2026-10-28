@@ -150,11 +150,11 @@
     ]
   },
   {
-    "objectID": "setup.html#ssh-optional",
-    "href": "setup.html#ssh-optional",
+    "objectID": "setup.html#terminal-user-interface-optional",
+    "href": "setup.html#terminal-user-interface-optional",
     "title": " Setup",
-    "section": "SSH (optional)",
-    "text": "SSH (optional)\nIf for any reason you are unable to access EdgeSet’s web interface, you can perform some operations via its terminal interface over SSH.\nEdgeSet listens for SSH connections on TCP port 22. You can connect with any SSH client.\nIf you have not setup an admin user yet, you can connect with any username and no password. This is to allow you to perform initial setup (including creating an admin user) without using the web interface.\n\n\n\ninterface available over SSH\n\n\nIf you have already setup an admin user, you can connect with an admin username and password (just like connecting via the web interface).",
+    "section": "Terminal User Interface (optional)",
+    "text": "Terminal User Interface (optional)\nIf for any reason you are unable to access EdgeSet’s web interface, you can perform some operations (such as registering a TLS certificate or configuring a static IP address) via its terminal interface on the console or over SSH (port 22).\n\n\n\nA TUI is available for when you can’t access the web interface\n\n\nIf you have already setup an admin user, you can connect with an admin username and password (just like connecting via the web interface). If you have not setup an admin user yet, you can connect with a valid EdgeSet license.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'> Setup</span>"
     ]
