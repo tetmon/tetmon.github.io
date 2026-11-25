@@ -18,7 +18,7 @@ const members = [
     <br/>  <br/>
 Previous employers and clients have include top California tech companies, the private equity fund Yucaipa Companies, and more recently in Asia, Global Fashion Group and Lazada. Chris has written popular articles on a number of themes, his GitHub projects have 500 stars and 100 forks, and his YouTube programming tutorials have been viewed over half a million times.
     `,
-    file: 'about/christopher.jpg'
+    file: 'about/chris.jpeg'
   },
   {
     name: 'Yinghan Hu',
@@ -28,7 +28,7 @@ Previous employers and clients have include top California tech companies, the p
     <br/>  <br/>
     Yinghan graduated from Oxford University with a BA and MA in Jurisprudence.
     `,
-    file: 'about/hu-yinghan.jpg'
+    file: 'about/yinghan.jpeg'
   }
 ]
 
@@ -56,7 +56,7 @@ export default function about(props: any) {
               members.map((member, index) => {
                 return (
                   <div key={index}>
-                    <Image src={member.file} alt={member.name} width={100} height={100} className="grayscale" />
+                    <Image src={member.file} alt={member.name} width={160} height={160} className="grayscale" />
                     <h3 className={`${DINish.className} pt-4 text-xl font-medium tracking-tight`}>{member.name}</h3>
                     <p className={`${DINish.className} text-sm font-medium tracking-tight`}>{member.title}</p>
                     <div className={`${DINish.className} py-5`} dangerouslySetInnerHTML={{ __html: member.description }}></div>

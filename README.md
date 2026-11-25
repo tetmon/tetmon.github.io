@@ -5,9 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-# nix-shell -p nodejs nodePackages.npm
-npm i @tinacms/cli
-
+nix-shell
 npm run dev
 # or `yarn dev`
 # or `pnpm dev`
